@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Filmproof — cheapest roll, every UK shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --base:#1a1811; --frame:#262218; --rebate:#0f0e09;
+    --ink:#ede7d7; --muted:#9c9481;
+    --amber:#e6ad46; --china:#e8532e;
+    --hole:#0b0a07;
+    --display:'Space Grotesk',sans-serif;
+    --body:'IBM Plex Sans',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--base); color:var(--ink);
+    font-family:var(--body); line-height:1.5;
+    /* faint film-grain */
+    background-image:radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size:3px 3px;
+    padding:0 20px 80px;
+  }
+  .wrap { max-width:820px; margin:0 auto; }
+
+  /* ---- masthead ---- */
+  header { padding:56px 0 34px; border-bottom:1px solid var(--rebate); }
+  .eyebrow {
+    font-family:var(--mono); font-size:12px; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:18px;
+    display:flex; gap:14px; align-items:center;
+  }
+  .eyebrow::after {
+    content:""; flex:1; height:1px;
+    background:repeating-linear-gradient(90deg,var(--amber) 0 5px,transparent 5px 11px);
+    opacity:.5;
+  }
+  h1 {
+    font-family:var(--display); font-weight:700; font-size:clamp(38px,8vw,68px);
+    line-height:0.98; letter-spacing:-0.02em; margin-bottom:20px;
+  }
+  h1 em { font-style:normal; color:var(--china); }
+  .lede { max-width:46ch; color:var(--ink); opacity:.82; font-size:17px; }
+  .meter {
+    margin-top:26px; font-family:var(--mono); font-size:12.5px;
+    letter-spacing:.06em; color:var(--muted); display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .meter b { color:var(--ink); font-weight:600; }
+  .meter span { color:var(--rebate); }
+  .meter span::before { content:"·"; color:var(--muted); }
+
+  /* ---- film frames (contact sheet) ---- */
+  .sheet { padding-top:12px; }
+  .frame {
+    position:relative; margin-top:26px;
+    background:var(--frame); border-radius:3px;
+    padding:22px 30px 24px;
+    /* sprocket perforation gutters left+right */
+  }
+  .frame::before, .frame::after {
+    content:""; position:absolute; top:10px; bottom:10px; width:9px;
+    background:repeating-linear-gradient(to bottom,
+      var(--hole) 0 7px, transparent 7px 17px);
+    border-radius:2px;
+  }
+  .frame::before { left:9px; }
+  .frame::after  { right:9px; }
+  .frame-inner { padding:0 14px; }
+
+  .frame-head {
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    padding-bottom:16px; margin-bottom:6px;
+    border-bottom:1px dashed rgba(157,148,129,0.28);
+  }
+  .frame-no {
+    font-family:var(--mono); font-size:12px; color:var(--amber);
+    letter-spacing:.1em; opacity:.85;
+  }
+  .frame-name {
+    font-family:var(--display); font-weight:600; font-size:23px;
+    letter-spacing:-0.01em;
+  }
+  .frame-spec {
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+    letter-spacing:.08em; margin-left:auto;
+  }
+
+  /* ---- offer rows ---- */
+  .offer {
+    display:grid; grid-template-columns:1fr auto; align-items:center;
+    gap:16px; padding:11px 0;
+    border-bottom:1px solid rgba(15,14,9,0.55);
+  }
+  .offer:last-child { border-bottom:0; }
+  .shop { display:flex; align-items:center; gap:10px; }
+  .shop-name { font-size:15.5px; font-weight:500; }
+  .tag {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--amber);
+    border:1px solid rgba(230,173,70,0.4); border-radius:2px;
+    padding:1px 6px;
+  }
+  .oos {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--muted);
+    border:1px solid rgba(157,148,129,0.35); border-radius:2px; padding:1px 6px;
+  }
+  .price {
+    font-family:var(--mono); font-weight:500; font-size:17px;
+    white-space:nowrap; position:relative;
+  }
+  .price .per { color:var(--muted); font-size:12px; }
+  .offer.dim .shop-name, .offer.dim .price { color:var(--muted); }
+
+  /* ---- the chinagraph keeper mark ---- */
+  .keeper .price-val { color:#fff; }
+  .mark {
+    position:absolute; inset:-13px -20px -11px -16px; width:auto; height:auto;
+    pointer-events:none; overflow:visible;
+  }
+  .mark path {
+    fill:none; stroke:var(--china); stroke-width:2.4;
+    stroke-linecap:round; stroke-linejoin:round;
+    filter:drop-shadow(0 0 0.5px rgba(232,83,46,0.6));
+    stroke-dasharray:640; stroke-dashoffset:640;
+    animation:draw 900ms ease-out 250ms forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  .keeper-note {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    color:var(--china); text-transform:uppercase; margin-top:5px; text-align:right;
+  }
+
+  footer {
+    margin-top:48px; padding-top:22px; border-top:1px solid var(--rebate);
+    font-family:var(--mono); font-size:11.5px; color:var(--muted);
+    letter-spacing:.05em; line-height:1.7;
+  }
+  a { color:inherit; }
+
+  @media (max-width:560px) {
+    .frame { padding:20px 22px; }
+    .frame::before,.frame::after{ display:none; }
+    .frame-inner{ padding:0; }
+    .frame-spec{ margin-left:0; width:100%; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .mark path { animation:none; stroke-dashoffset:0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Film price index — United Kingdom</div>
+    <h1>The cheapest<br>roll wins. <em>Always.</em></h1>
+    <p class="lede">Every film stock, every UK shop, one honest page. We check the shelf price per roll — multipacks and all — and ring the keeper.</p>
+    <div class="meter" id="meter"></div>
+  </header>
+
+  <main class="sheet" id="sheet"></main>
+
+  <footer>
+    Prices are shop list prices per roll, multipacks divided out. Loyalty and basket discounts not included.<br>
+    Filmproof — a working preview. Data shown is illustrative.
+  </footer>
+</div>
+
+<script>
+  // Illustrative merged data — the shape the matcher hands the front end.
+  const FILMS = [
+    { no:"22", name:"Kodak Gold 200",   spec:"135 · ISO 200 · C-41",
+      offers:[
+        { shop:"Nik & Trick", perRoll:8.00, tag:"5-pack", inStock:true },
+        { shop:"Wex Photo Video", perRoll:8.99, inStock:true },
+        { shop:"Analogue Wonderland", perRoll:9.20, inStock:true },
+      ]},
+    { no:"23", name:"Ilford HP5 Plus",  spec:"135 · ISO 400 · B&W",
+      offers:[
+        { shop:"Wex Photo Video", perRoll:7.25, inStock:false },
+        { shop:"Analogue Wonderland", perRoll:7.49, inStock:true },
+        { shop:"Nik & Trick", perRoll:7.60, inStock:true },
+      ]},
+    { no:"24", name:"Kodak Portra 400", spec:"135 · ISO 400 · C-41",
+      offers:[
+        { shop:"Analogue Wonderland", perRoll:15.20, inStock:true },
+        { shop:"Wex Photo Video", perRoll:15.49, inStock:true },
+      ]},
+    { no:"25", name:"Kodak UltraMax 400", spec:"135 · ISO 400 · C-41",
+      offers:[
+        { shop:"Wex Photo Video", perRoll:9.30, inStock:true },
+        { shop:"Analogue Wonderland", perRoll:9.50, inStock:true },
+        { shop:"Nik & Trick", perRoll:9.75, inStock:true },
+      ]},
+  ];
+
+  const MARK = '<svg class="mark" viewBox="0 0 240 74" preserveAspectRatio="none">' +
+    '<path d="M22 44 C6 20 70 8 128 10 C196 12 232 20 224 40 C218 56 150 66 92 62 ' +
+    'C34 58 8 54 26 30 C30 25 44 20 60 18" /></svg>';
+
+  const gbp = n => "£" + n.toFixed(2);
+
+  const sheet = document.getElementById("sheet");
+  let shopSet = new Set(), offerCount = 0;
+
+  FILMS.forEach(film => {
+    const sorted = [...film.offers].sort((a,b)=>a.perRoll-b.perRoll);
+    const bestIdx = sorted.findIndex(o=>o.inStock);
+    film.offers.forEach(o=>{ shopSet.add(o.shop); offerCount++; });
+
+    const rows = sorted.map((o,i)=>{
+      const best = i===bestIdx;
+      const dim = !o.inStock;
+      const tag = o.tag ? `<span class="tag">${o.tag}</span>` : "";
+      const flag = !o.inStock ? `<span class="oos">out of stock</span>` : "";
+      const priceInner = `<span class="price-val">${gbp(o.perRoll)}</span><span class="per"> / roll</span>${best?MARK:""}`;
+      return `<div class="offer ${best?"keeper":""} ${dim?"dim":""}">
+          <div class="shop"><span class="shop-name">${o.shop}</span>${tag}${flag}</div>
+          <div class="price">${priceInner}</div>
+        </div>` + (best ? `<div class="keeper-note">↑ keeper — cheapest in stock</div>` : "");
+    }).join("");
+
+    sheet.insertAdjacentHTML("beforeend", `
+      <section class="frame">
+        <div class="frame-inner">
+          <div class="frame-head">
+            <span class="frame-no">▸ ${film.no}A</span>
+            <span class="frame-name">${film.name}</span>
+            <span class="frame-spec">${film.spec}</span>
+          </div>
+          ${rows}
+        </div>
+      </section>`);
+  });
+
+  document.getElementById("meter").innerHTML =
+    `<b>${FILMS.length}</b> stocks <span></span> <b>${shopSet.size}</b> shops ` +
+    `<span></span> <b>${offerCount}</b> live prices <span></span> updated today`;
+</script>
+</body>
+</html>

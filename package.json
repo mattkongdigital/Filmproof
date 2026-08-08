@@ -1,0 +1,14 @@
+{
+  "name": "film-price-compare",
+  "version": "0.1.0",
+  "description": "MVP scaffold for a camera-film price comparison site: canonical films + retailer offers, with a title normaliser and matcher.",
+  "type": "module",
+  "scripts": {
+    "demo": "node demo.js",
+    "ingest": "node ingest.js"
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "pg": "^8.11.0"
+  }
+}

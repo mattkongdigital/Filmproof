@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+web/node_modules/
+
+# next.js build output
+web/.next/
+web/out/
+
+# generated data (rebuilt by the pipeline / GitHub Action)
+data/catalogue.json
+data/catalogue-unidentified.txt
+web/data/site.json
+web/data/search-index.json
+films.csv
+
+# os / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# local env files (keep secrets out of the repo)
+.env
+.env.local
