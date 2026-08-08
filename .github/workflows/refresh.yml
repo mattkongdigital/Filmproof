@@ -1,0 +1,74 @@
+name: Refresh prices & deploy
+
+# Runs on a schedule (and on demand). Each run re-pulls live prices, rebuilds
+# the static site, and publishes it to GitHub Pages.
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily at 06:00 UTC — adjust to taste
+  workflow_dispatch: {}    # adds a "Run workflow" button in the Actions tab
+  push:
+    branches: [main]       # also rebuild when you push code changes
+
+# Permissions the Pages deploy needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; let a running one finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Rebuild the canonical catalogue AND pull fresh prices from every live
+      # source, regenerating web/data/site.json + search-index.json from scratch.
+      # (Root has no dependencies, so nothing to install for this step.)
+      - name: Refresh catalogue & price data
+        run: |
+          node build-catalogue.js
+          node build-site-data.js
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm install
+
+      - name: Build static site
+        working-directory: web
+        env:
+          # Custom domain (filmproof.co.uk) serves from the root, so no base path.
+          # If you ever deploy WITHOUT a custom domain, set this to
+          # /${{ github.event.repository.name }} instead.
+          PAGES_BASE_PATH: ''
+        run: npm run build
+
+      # Tell GitHub Pages which custom domain to serve on.
+      - name: Set custom domain
+        run: echo 'filmproof.co.uk' > web/out/CNAME
+
+      # Jekyll would otherwise drop Next's _next/ folder and break all assets.
+      - name: Disable Jekyll
+        run: touch web/out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
