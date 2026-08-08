@@ -394,3 +394,7 @@ footer {
 .crumb-item { display:inline-flex; align-items:center; gap:7px; }
 .crumb-sep { color:var(--muted); opacity:.5; }
 .crumbs [aria-current="page"] { color:var(--ink); opacity:.7; }
+
+/* linked spec-table values */
+.spec-link { color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(230,173,70,0.35); }
+.spec-link:hover { color:var(--amber); border-bottom-color:var(--amber); }

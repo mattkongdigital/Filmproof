@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFilm, getFilms, gbp, formatLabel } from '../../../lib/data';
+import { FORMATS, TYPES } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
@@ -18,11 +19,13 @@ export default function FilmPage({ params }) {
   const film = getFilm(params.slug);
   if (!film) notFound();
 
+  const formatSlug = (FORMATS.find((x) => x.match(film)) || {}).slug;
+  const typeSlug = (TYPES.find((x) => x.match(film)) || {}).slug;
   const specs = [
-    ['Brand', pretty(film.brand)],
-    ['Format', formatLabel(film.format)],
-    ['Speed', film.iso ? `ISO ${film.iso}` : '—'],
-    ['Process', film.process || '—'],
+    ['Brand', pretty(film.brand), film.brand ? `/brand/${film.brand}` : null],
+    ['Format', formatLabel(film.format), formatSlug ? `/${formatSlug}` : null],
+    ['Process', film.process || '—', typeSlug ? `/${typeSlug}` : null],
+    ['Speed', film.iso ? `ISO ${film.iso}` : '—', null],
   ];
 
   const inStock = film.offers.filter((o) => o.inStock).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
@@ -51,8 +54,8 @@ export default function FilmPage({ params }) {
         <div className="product-info">
           <table className="specs">
             <tbody>
-              {specs.map(([k, v]) => (
-                <tr key={k}><th>{k}</th><td>{v}</td></tr>
+              {specs.map(([k, v, href]) => (
+                <tr key={k}><th>{k}</th><td>{href ? <Link href={href} className="spec-link">{v}</Link> : v}</td></tr>
               ))}
             </tbody>
           </table>
