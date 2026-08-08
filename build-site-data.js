@@ -68,7 +68,6 @@ async function run() {
         price: r.offer.price,
         packSize: r.offer.packSize,
         pricePerRoll: r.offer.pricePerRoll,
-        exp: r.offer.exp ?? null,
         inStock: r.offer.inStock,
         url: r.offer.url,
       });
@@ -84,10 +83,6 @@ async function run() {
       brand: f.brand ?? f.display.split(' ')[0],
       iso: f.iso ?? null,
       format: f.format ?? null,
-      process: f.process ?? null,
-      exp: f.exp ?? null,
-      image: f.image ?? null,
-      description: f.description ?? null,
       offers: list,
       best: best ? best.pricePerRoll : null,
       bestRetailer: best ? best.retailer : null,
@@ -101,14 +96,6 @@ async function run() {
 
   mkdirSync('./web/data', { recursive: true });
   writeFileSync('./web/data/site.json', JSON.stringify(site, null, 2));
-
-  // Lean index for client-side search (no offers/descriptions — keeps it tiny).
-  const searchIndex = site.map((f) => ({
-    slug: f.slug, display: f.display, brand: f.brand,
-    format: f.format, iso: f.iso, best: f.best,
-  }));
-  writeFileSync('./web/data/search-index.json', JSON.stringify(searchIndex));
-
   console.log(`Wrote web/data/site.json — ${site.length} films, ${site.reduce((n, f) => n + f.offers.length, 0)} offers.`);
 }
 
