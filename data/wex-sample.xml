@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed>
+  <product>
+    <sku>KOD-GOLD200-135-36</sku>
+    <title>Kodak Gold 200 35mm Film - 36 Exposures</title>
+    <price>8.99</price>
+    <currency>GBP</currency>
+    <stock>in_stock</stock>
+    <link>https://www.wexphotovideo.com/kodak-gold-200-35mm-36exp/</link>
+  </product>
+  <product>
+    <sku>KOD-PORTRA400-135-36</sku>
+    <title>Kodak Portra 400 135-36</title>
+    <price>15.49</price>
+    <currency>GBP</currency>
+    <stock>in_stock</stock>
+    <link>https://www.wexphotovideo.com/kodak-portra-400-36exp/</link>
+  </product>
+  <product>
+    <sku>ILF-HP5-135-36</sku>
+    <title>Ilford HP5 Plus 400 35mm 36exp</title>
+    <price>7.25</price>
+    <currency>GBP</currency>
+    <stock>out_of_stock</stock>
+    <link>https://www.wexphotovideo.com/ilford-hp5-plus-35mm/</link>
+  </product>
+  <product>
+    <sku>KOD-EKTAR100-135-36</sku>
+    <title>Kodak Ektar 100 35mm 36 Exposures</title>
+    <price>16.99</price>
+    <currency>GBP</currency>
+    <stock>in_stock</stock>
+    <link>https://www.wexphotovideo.com/kodak-ektar-100/</link>
+  </product>
+</feed>

@@ -1,0 +1,53 @@
+{
+  "products": [
+    {
+      "id": 100001,
+      "title": "Kodak Gold 200 35mm - 36 exposures",
+      "handle": "kodak-gold-200",
+      "vendor": "Kodak",
+      "product_type": "35mm Film",
+      "tags": ["35mm", "colour", "kodak"],
+      "variants": [
+        { "id": 200001, "title": "Single roll", "sku": "KG200-1", "price": "8.99", "available": true },
+        { "id": 200002, "title": "5 pack", "sku": "KG200-5", "price": "39.99", "available": true }
+      ],
+      "images": [{ "src": "https://cdn.shopify.com/example/kodak-gold.jpg" }]
+    },
+    {
+      "id": 100002,
+      "title": "Ilford HP5 Plus 400 35mm 36exp",
+      "handle": "ilford-hp5-plus-35mm",
+      "vendor": "Ilford",
+      "product_type": "35mm Film",
+      "tags": ["35mm", "black and white", "ilford"],
+      "variants": [
+        { "id": 200003, "title": "Default Title", "sku": "HP5-36", "price": "7.25", "available": false }
+      ],
+      "images": []
+    },
+    {
+      "id": 100003,
+      "title": "Kodak UltraMax 400 35mm - 36 exposures",
+      "handle": "kodak-ultramax-400",
+      "vendor": "Kodak",
+      "product_type": "35mm Film",
+      "tags": ["35mm", "colour", "kodak"],
+      "variants": [
+        { "id": 200004, "title": "Single roll", "sku": "UM400-1", "price": "9.50", "available": true }
+      ],
+      "images": []
+    },
+    {
+      "id": 100004,
+      "title": "Kodak M35 Reusable Film Camera",
+      "handle": "kodak-m35-camera",
+      "vendor": "Kodak",
+      "product_type": "Cameras",
+      "tags": ["camera", "reusable"],
+      "variants": [
+        { "id": 200005, "title": "Marble", "sku": "M35-MRB", "price": "39.99", "available": true }
+      ],
+      "images": []
+    }
+  ]
+}
