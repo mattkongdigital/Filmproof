@@ -444,3 +444,19 @@ footer {
 .page-btn.current { border-color:var(--china); color:#fff; background:rgba(232,83,46,0.16); }
 .page-btn:disabled { opacity:.35; cursor:default; }
 .page-gap { font-family:var(--mono); font-size:13px; color:var(--muted); padding:0 2px; }
+
+/* ---- 404 ---- */
+.doc .nf-code {
+  font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--amber); margin:36px 0 8px;
+}
+.doc .nf-code + h1 { margin-top:0; }
+.doc .nf-back {
+  font-family:var(--mono); font-size:13.5px; letter-spacing:.04em;
+  color:var(--china); text-decoration:none;
+}
+.doc .nf-back:hover { color:var(--amber); }
+.doc h2.nf-section {
+  font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); margin:30px 0 0;
+}
