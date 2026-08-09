@@ -4,12 +4,14 @@
 // Any source that isn't Shopify (or has no film) logs a warning and contributes
 // nothing — it can't break the build.
 
+// Firstcall Photographic and The Flash Centre were removed on request. To
+// restore either shop, add its entry back to the array below — nothing else
+// needs to change.
+
 export const SOURCES = [
   { retailer: 'Analogue Wonderland',   kind: 'shopify', baseUrl: 'https://analoguewonderland.co.uk', sample: './data/shopify-sample.json' },
-  { retailer: 'Firstcall Photographic', kind: 'shopify', baseUrl: 'https://firstcall-photographic.co.uk' },
   { retailer: 'Take It Easy Lab',       kind: 'shopify', baseUrl: 'https://takeiteasylab.com' },
   { retailer: 'Film Camera Store',      kind: 'shopify', baseUrl: 'https://filmcamerastore.co.uk' },
   { retailer: 'Cameras By Max',         kind: 'shopify', baseUrl: 'https://camerasbymax.co.uk' },
   { retailer: 'Gulabi',                 kind: 'shopify', baseUrl: 'https://store.gulabi.co.uk' },
-  { retailer: 'The Flash Centre',       kind: 'shopify', baseUrl: 'https://theflashcentre.com' },
 ];
