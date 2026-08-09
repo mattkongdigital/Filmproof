@@ -429,3 +429,18 @@ footer {
 @media (min-width:641px) {
   .nav-burger, .nav-drawer { display:none; }
 }
+
+/* off-page cards stay in the DOM (crawlable) but aren't shown */
+.card-hidden { display:none; }
+
+/* ---- pagination ---- */
+.pagination { display:flex; flex-wrap:wrap; align-items:center; gap:6px; justify-content:center; padding:34px 0 8px; }
+.page-btn {
+  font-family:var(--mono); font-size:13px; letter-spacing:.03em; cursor:pointer;
+  color:var(--ink); background:transparent; border:1px solid rgba(157,148,129,0.28);
+  border-radius:2px; padding:7px 12px; min-width:38px; transition:border-color .12s, color .12s, background .12s;
+}
+.page-btn:hover:not(:disabled) { border-color:var(--amber); color:var(--amber); }
+.page-btn.current { border-color:var(--china); color:#fff; background:rgba(232,83,46,0.16); }
+.page-btn:disabled { opacity:.35; cursor:default; }
+.page-gap { font-family:var(--mono); font-size:13px; color:var(--muted); padding:0 2px; }

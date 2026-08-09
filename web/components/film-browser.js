@@ -1,7 +1,21 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import { FilmCard } from './film-card';
 import { formatLabel } from '../lib/data';
+
+const PER_PAGE = 24;
+
+// Build a compact page list like [1, 2, 3, '…', 10] around the current page.
+function pageList(page, count) {
+  if (count <= 7) return Array.from({ length: count }, (_, i) => i + 1);
+  const out = [1];
+  const lo = Math.max(2, page - 1), hi = Math.min(count - 1, page + 1);
+  if (lo > 2) out.push('…');
+  for (let i = lo; i <= hi; i++) out.push(i);
+  if (hi < count - 1) out.push('…');
+  out.push(count);
+  return out;
+}
 
 const typeOf = (f) => {
   const p = f.process || '';
@@ -33,6 +47,18 @@ export function FilmBrowser({ films }) {
     (!inStock || f.best != null)
   ), [films, iso, fmt, typ, inStock]);
 
+  const [page, setPage] = useState(1);
+  const topRef = useRef(null);
+  const pageCount = Math.ceil(filtered.length / PER_PAGE) || 1;
+  // Whenever the filtered set changes, jump back to page 1.
+  useEffect(() => { setPage(1); }, [filtered]);
+  const goToPage = (p) => {
+    setPage(p);
+    if (topRef.current) topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const start = (page - 1) * PER_PAGE;
+  const end = start + PER_PAGE;
+
   if (!films.length) {
     return <p className="empty">No film here yet — check back once more shops are added.</p>;
   }
@@ -48,6 +74,7 @@ export function FilmBrowser({ films }) {
 
   return (
     <div className="browser">
+      <div ref={topRef} />
       {anyAxis && (
         <div className="filters">
           {showTyp && <Axis label="Type" items={typVals.map((v) => [v, TYPE_LABEL[v]])} sel={typ} on={toggler(setTyp)} />}
@@ -67,7 +94,22 @@ export function FilmBrowser({ films }) {
       )}
 
       {filtered.length ? (
-        <div className="grid">{filtered.map((f) => <FilmCard key={f.slug} film={f} />)}</div>
+        <>
+          <div className="grid">
+            {filtered.map((f, i) => <FilmCard key={f.slug} film={f} hidden={i < start || i >= end} />)}
+          </div>
+          {pageCount > 1 && (
+            <nav className="pagination" aria-label="Pagination">
+              <button className="page-btn" disabled={page === 1} onClick={() => goToPage(page - 1)} aria-label="Previous page">‹ Prev</button>
+              {pageList(page, pageCount).map((p, i) =>
+                p === '…'
+                  ? <span key={`e${i}`} className="page-gap">…</span>
+                  : <button key={p} className={`page-btn${p === page ? ' current' : ''}`} aria-current={p === page ? 'page' : undefined} onClick={() => goToPage(p)}>{p}</button>
+              )}
+              <button className="page-btn" disabled={page === pageCount} onClick={() => goToPage(page + 1)} aria-label="Next page">Next ›</button>
+            </nav>
+          )}
+        </>
       ) : (
         <p className="empty">No film matches those filters. <button className="reset" onClick={reset}>Reset</button></p>
       )}

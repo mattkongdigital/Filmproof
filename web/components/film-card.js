@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { gbp, formatLabel } from '../lib/data';
 
-export function FilmCard({ film }) {
+export function FilmCard({ film, hidden = false }) {
   const [failed, setFailed] = useState(false);
   const show = film.image && !failed;
 
   return (
-    <Link href={`/film/${film.slug}`} className="card">
+    <Link href={`/film/${film.slug}`} className={`card${hidden ? ' card-hidden' : ''}`}>
       <div className="card-shot">
         {show ? (
           // eslint-disable-next-line @next/next/no-img-element
