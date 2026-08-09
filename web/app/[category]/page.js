@@ -12,10 +12,10 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const cat = resolveCategory(params.category);
   if (!cat) return {};
-  const title = `${cap(cat.heading)} — cheapest UK prices compared`;
+  const title = `${cap(cat.heading)} — UK stock & prices compared`;
   return {
     title,
-    description: `Compare live prices on ${cat.heading} from UK shops, ranked cheapest per roll. ${cap(cat.heading)} updated daily.`,
+    description: `See ${cat.heading} in stock across UK shops, with live prices per roll. ${cap(cat.heading)} updated daily.`,
     alternates: { canonical: `${SITE_URL}/${params.category}` },
   };
 }
@@ -39,7 +39,7 @@ export default function CategoryPage({ params }) {
         <div className="eyebrow">{cat.kind === 'format' ? 'By format' : 'By type'}</div>
         <h1>{cap(cat.heading)}</h1>
         <p className="lede">
-          Every {cat.heading} we track, ranked by the cheapest price per roll across UK shops.
+          Every {cat.heading} we track, in stock across UK shops, with live prices per roll.
           {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
         </p>
         <div className="chips">

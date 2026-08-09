@@ -13,10 +13,10 @@ const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Filmproof — compare film prices across UK shops',
+    default: 'Filmproof — compare film stock & prices across UK shops',
     template: '%s | Filmproof',
   },
-  description: 'Compare live prices on camera film across UK shops. The cheapest roll wins.',
+  description: 'Track camera film across UK shops — see what’s in stock and compare prices per roll, so you never run out.',
 };
 
 export default function RootLayout({ children }) {

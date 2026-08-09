@@ -13,8 +13,8 @@ export function generateMetadata({ params }) {
   const combo = resolveCombo(params.category, params.sub);
   if (!combo) return {};
   return {
-    title: `${cap(combo.heading)} — cheapest UK prices compared`,
-    description: `Compare live prices on ${combo.heading} across UK shops, cheapest per roll first. Updated daily.`,
+    title: `${cap(combo.heading)} — UK stock & prices compared`,
+    description: `See ${combo.heading} in stock across UK shops, with live prices per roll. Updated daily.`,
     alternates: { canonical: `${SITE_URL}/${params.category}/${params.sub}` },
   };
 }
@@ -39,7 +39,7 @@ export default function ComboPage({ params }) {
         </div>
         <h1>{cap(combo.heading)}</h1>
         <p className="lede">
-          {cap(combo.typ.label.toLowerCase())} film in {combo.fmt.label}, ranked by cheapest price per roll.
+          {cap(combo.typ.label.toLowerCase())} film in {combo.fmt.label}, in stock across UK shops, with live prices per roll.
           {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
         </p>
       </header>

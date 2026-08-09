@@ -12,17 +12,17 @@ export default function Home() {
   const shops = new Set();
   films.forEach((f) => f.offers.forEach((o) => shops.add(o.retailer)));
 
-  // A few of the cheapest in-stock stocks to feature.
+  // A few in-stock stocks to feature, best value first.
   const featured = filmsFor((f) => f.best != null).slice(0, 6);
 
   return (
     <div className="wrap">
       <header className="masthead">
-        <div className="eyebrow">Film price index — United Kingdom</div>
-        <h1>The cheapest<br />roll wins. <em>Always.</em></h1>
+        <div className="eyebrow">Film stock tracker — United Kingdom</div>
+        <h1>Never run out<br />of <em>film.</em></h1>
         <p className="lede">
-          Film prices from UK shops, gathered on one honest page. We check the shelf price
-          per roll — multipacks and all — and ring the cheapest in stock.
+          Filmproof tracks film across UK shops — so you can see what&apos;s in stock, compare
+          prices per roll, and restock in seconds.
         </p>
         <div className="meter">
           <b>{films.length}</b> stocks <i>·</i> <b>{shops.size}</b> shops <i>·</i> updated daily
@@ -49,7 +49,7 @@ export default function Home() {
 
       {featured.length > 0 && (
         <section className="featured">
-          <h2 className="hub-head">Cheapest right now</h2>
+          <h2 className="hub-head">In stock right now</h2>
           <div className="grid">
             {featured.map((f) => <FilmCard key={f.slug} film={f} />)}
           </div>

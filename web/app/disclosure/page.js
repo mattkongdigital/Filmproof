@@ -3,7 +3,7 @@ import { SITE_URL } from '../../lib/data';
 export function generateMetadata() {
   return {
     title: 'Advertising & funding',
-    description: 'How Filmproof is funded, and our commitment that links to shops are plain, unpaid, and ranked purely by price.',
+    description: 'How Filmproof is funded, and our commitment that links to shops are plain, unpaid, and ranked purely by price per roll.',
     alternates: { canonical: `${SITE_URL}/disclosure` },
   };
 }
@@ -21,14 +21,14 @@ export default function Disclosure() {
       <p>
         At launch, Filmproof carries <strong>no advertising and no affiliate or sponsored links</strong>.
         The links out to shops are plain, ordinary links — we don't earn a commission when you follow
-        them or buy something. We simply send you to the shop with the cheapest price.
+        them or buy something. We simply send you to the shop with the best in-stock price.
       </p>
 
       <h2>Shops can't pay for position</h2>
       <p>
-        Offers are ranked purely by price per roll, cheapest first. <strong>No shop can pay to appear
+        Offers are ranked purely by price per roll, best value first. <strong>No shop can pay to appear
         higher, or to appear at all.</strong> Shops are included because they sell film we can compare —
-        nothing more. The cheapest roll is always shown as the cheapest roll.
+        nothing more. The lowest price per roll is always shown as the best value.
       </p>
 
       <h2>Later on</h2>

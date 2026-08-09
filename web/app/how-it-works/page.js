@@ -3,7 +3,7 @@ import { SITE_URL } from '../../lib/data';
 export function generateMetadata() {
   return {
     title: 'How it works',
-    description: 'How Filmproof sources film prices, how often they update, and how the cheapest-per-roll comparison is worked out.',
+    description: 'How Filmproof tracks film stock and prices, how often they update, and how the price-per-roll comparison is worked out.',
     alternates: { canonical: `${SITE_URL}/how-it-works` },
   };
 }
@@ -13,8 +13,8 @@ export default function HowItWorks() {
     <div className="wrap doc">
       <h1>How it works</h1>
       <p className="lead">
-        Filmproof compares the price of camera film across UK shops so you can find the
-        cheapest roll without opening a dozen tabs. Here's exactly how the numbers are put together.
+        Filmproof tracks camera film across UK shops so you can see what's in stock and find the
+        best value roll without opening a dozen tabs. Here's exactly how the numbers are put together.
       </p>
 
       <h2>Where the prices come from</h2>
@@ -32,7 +32,7 @@ export default function HowItWorks() {
         shop's own page before you buy.</strong>
       </p>
 
-      <h2>What "cheapest per roll" means</h2>
+      <h2>What "price per roll" means</h2>
       <p>
         Every price is worked out <strong>per roll</strong>. Where a shop only sells a film in a
         multipack — a five-pack, say — the pack price is divided down to a single roll, so a
@@ -45,7 +45,7 @@ export default function HowItWorks() {
         <li>Prices are shop <strong>list prices</strong> as published.</li>
         <li>Loyalty points, account discounts, and basket or checkout offers are <strong>not</strong> included.</li>
         <li>Delivery costs are <strong>not</strong> included — they vary by shop, basket size and location.</li>
-        <li>The cheapest <strong>in-stock</strong> price is highlighted; out-of-stock offers are shown but marked.</li>
+        <li>The best <strong>in-stock</strong> price is highlighted; out-of-stock offers are shown but marked.</li>
       </ul>
 
       <h2>Why some films show a dash or "check price"</h2>
@@ -69,7 +69,7 @@ export default function HowItWorks() {
 
       <h2>How shops are ordered</h2>
       <p>
-        Offers are ranked purely by price per roll, cheapest first. <strong>No shop can pay to
+        Offers are ranked purely by price per roll, best value first. <strong>No shop can pay to
         rank higher.</strong> The links out to shops are plain, unpaid links — we don't earn a
         commission on them. See our <a href="/disclosure">advertising &amp; funding</a> page for
         how the site is paid for.
