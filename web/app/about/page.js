@@ -3,7 +3,7 @@ import { SITE_URL } from '../../lib/data';
 export function generateMetadata() {
   return {
     title: 'About',
-    description: 'What Filmproof is, why it exists, and who it\u2019s for — an independent UK film price comparison index.',
+    description: 'What Filmproof is, why it exists, and who it\u2019s for — an independent UK film stock and price tracker.',
     alternates: { canonical: `${SITE_URL}/about` },
   };
 }
@@ -13,17 +13,18 @@ export default function About() {
     <div className="wrap doc">
       <h1>About Filmproof</h1>
       <p className="lead">
-        Filmproof is an independent price index for camera film in the UK. One page, many shops,
-        the cheapest roll — so shooting film costs you a little less.
+        Filmproof is an independent stock and price tracker for camera film in the UK. One page,
+        many shops — see what&apos;s in stock and what it costs per roll, so you never run out.
       </p>
 
       <h2>Why it exists</h2>
       <p>
-        Film prices vary a lot from shop to shop, and they move around constantly. A roll that's
-        cheapest at one shop this week might be dearer than three others the next. Checking that by
-        hand — shop by shop, format by format — is tedious, so most people just don't, and quietly
-        overpay. Filmproof does the checking for you: it gathers prices from UK film retailers
-        every day and shows you where each stock is cheapest right now.
+        Stock comes and goes, and prices vary a lot from shop to shop. A roll that's the best value
+        at one shop this week might be dearer — or sold out — the next. Checking that by hand —
+        shop by shop, format by format — is tedious, so most people just don't, and end up running
+        low or overpaying. Filmproof does the checking for you: it gathers stock and prices from UK
+        film retailers every day and shows you where each stock is available, and at what price per
+        roll, right now.
       </p>
 
       <h2>Who it's for</h2>
@@ -36,7 +37,7 @@ export default function About() {
       <h2>Independent by design</h2>
       <p>
         Filmproof isn't owned by, or affiliated with, any shop or film manufacturer. Rankings are
-        decided by price alone — no shop can pay to appear higher, and the links out to shops are
+        decided by price per roll alone — no shop can pay to appear higher, and the links out to shops are
         plain and unpaid. You can read exactly how the site is run and funded in our{' '}
         <a href="/disclosure">advertising &amp; funding</a> and{' '}
         <a href="/how-it-works">how it works</a> pages.

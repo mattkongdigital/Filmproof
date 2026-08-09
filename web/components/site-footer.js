@@ -21,7 +21,7 @@ export function SiteFooter() {
         <CookieSettingsLink />
       </nav>
       <div className="foot-legal">
-        © {year} Filmproof. An independent film price index — not affiliated with any retailer or manufacturer.
+        © {year} Filmproof. An independent film stock &amp; price tracker — not affiliated with any retailer or manufacturer.
       </div>
     </footer>
   );

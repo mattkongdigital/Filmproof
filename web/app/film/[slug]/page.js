@@ -12,7 +12,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
-  return { title: film ? `${film.display} — cheapest UK price per roll` : 'Film not found' };
+  return { title: film ? `${film.display} — UK stock & prices compared` : 'Film not found' };
 }
 
 export default function FilmPage({ params }) {
@@ -44,7 +44,7 @@ export default function FilmPage({ params }) {
         <h1 className="detail-title">{film.display}</h1>
         <p className="lede">
           {cheapest
-            ? <>Cheapest in stock right now: <strong>{gbp(cheapest.pricePerRoll)}/roll</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
+            ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/roll</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
             : <>Out of stock at every shop we track. Prices below are the last seen.</>}
         </p>
       </header>

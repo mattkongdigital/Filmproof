@@ -43,7 +43,7 @@ function OfferRow({ o, best }) {
           {best && <KeeperMark />}
         </div>
       </div>
-      {best && <div className="keeper-note">↑ keeper — cheapest in stock</div>}
+      {best && <div className="keeper-note">↑ keeper — best in-stock price</div>}
     </div>
   );
 }
