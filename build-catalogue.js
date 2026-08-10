@@ -14,8 +14,31 @@ import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { parseFilmTitle } from './src/normalise.js';
 import { deriveProcess, describe, extractIso, extractExp } from './src/describe.js';
+import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
+
+// Shop photography sometimes carries the shop's own promotional banner baked
+// right into the image — "2 FOR £55 save £13", "was £38" — which reads as
+// misleading (that deal may not be live) and out of place on a page comparing
+// many shops at once. This can only catch images a shop has labelled clearly
+// in the filename or alt text; a banner with no distinguishing text will slip
+// through — treat it as a first pass, not a guarantee. Anything spotted later
+// can be added to EXCLUDED_IMAGE_URLS by URL as a manual backstop.
+const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\bwas\s*£\s*\d+|\bsave\s*£\s*\d+|\d+\s*%\s*off|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
+
+function looksPromotional(url, alt) {
+  if (url && EXCLUDED_IMAGE_URLS.has(url)) return true;
+  return PROMO_IMAGE.test(`${url || ''} ${alt || ''}`);
+}
+
+function pickCleanImage(images) {
+  for (const img of images || []) {
+    const src = img && img.src;
+    if (src && !looksPromotional(src, img && img.alt)) return src;
+  }
+  return null;
+}
 
 // Decide whether a product is an actual roll/sheet of film (not accessories,
 // paper, chemicals, cameras...). Handles both Analogue Wonderland's short types
@@ -56,7 +79,7 @@ async function itemsFor(src) {
         title: `${p.vendor && !p.title.toLowerCase().startsWith(p.vendor.toLowerCase()) ? p.vendor + ' ' : ''}${p.title}`.trim(),
         type: p.product_type || '',
         raw: p.title,
-        image: (p.images && p.images[0] && p.images[0].src) || null,
+        image: pickCleanImage(p.images),
         tags: Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || ''),
         body: (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 2000),
       }));
