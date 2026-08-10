@@ -33,6 +33,9 @@ export function NavBar({ formats, types }) {
         <div className="nav-group">
           <span className="nav-head"><Link href="/brands">Brands</Link></span>
         </div>
+        <div className="nav-group">
+          <span className="nav-head"><Link href="/stores">Stores</Link></span>
+        </div>
       </div>
 
       {/* mobile hamburger (hidden on desktop) */}
@@ -63,6 +66,7 @@ export function NavBar({ formats, types }) {
           </div>
           <div className="drawer-section">
             <Link href="/brands" className="drawer-brands" onClick={close}>All brands →</Link>
+            <Link href="/stores" className="drawer-brands" onClick={close}>All stores →</Link>
           </div>
         </div>
       )}
