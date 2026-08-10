@@ -9,5 +9,5 @@
 // below (right-click the image → "Copy image address") and it'll be skipped
 // on the next rebuild, falling back to the site's plain "no image" frame.
 export const EXCLUDED_IMAGE_URLS = new Set([
-  // 'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakUltraMax3Pack__30was_38_f2f78e9e-50db-435c-9d72-01e6d4545800.png?v=1782291009',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakUltraMax3Pack__30was_38_f2f78e9e-50db-435c-9d72-01e6d4545800.png?v=1782291009',
 ]);
