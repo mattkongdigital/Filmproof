@@ -419,6 +419,7 @@ footer {
 .drawer-links a { color:var(--ink); text-decoration:none; font-size:16px; }
 .drawer-links a:active, .drawer-links a:hover { color:var(--amber); }
 .drawer-brands { color:var(--amber); text-decoration:none; font-size:16px; }
+.drawer-brands + .drawer-brands { margin-left:18px; }
 
 @media (max-width:640px) {
   .nav { align-items:center; }
