@@ -1,18 +1,9 @@
 import Link from 'next/link';
 import { gbp } from '../lib/data';
 
-// Chinagraph "keeper" circle on the cheapest in-stock price.
-export function KeeperMark() {
-  return (
-    <svg className="mark" viewBox="0 0 240 74" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M22 44 C6 20 70 8 128 10 C196 12 232 20 224 40 C218 56 150 66 92 62 C34 58 8 54 26 30 C30 25 44 20 60 18" />
-    </svg>
-  );
-}
-
 // Group a film's offers by exposure count. A 24exp and a 36exp roll are
-// different products, so they compare within their own group, each with its
-// own cheapest-in-stock keeper. Single-group films render with no label.
+// different products, so they compare within their own group. Single-group
+// films render with no label.
 function groupByExp(offers) {
   const map = new Map();
   for (const o of offers) {
@@ -22,16 +13,16 @@ function groupByExp(offers) {
   }
   const groups = [...map.entries()].map(([exp, offs]) => {
     const sorted = [...offs].sort((a, b) => a.pricePerRoll - b.pricePerRoll);
-    return { exp, offers: sorted, bestIdx: sorted.findIndex((o) => o.inStock) };
+    return { exp, offers: sorted };
   });
   groups.sort((a, b) => (a.exp == null ? 1 : b.exp == null ? -1 : b.exp - a.exp));
   return groups;
 }
 
-function OfferRow({ o, best }) {
+function OfferRow({ o }) {
   return (
     <div>
-      <div className={`offer${best ? ' keeper' : ''}${o.inStock ? '' : ' dim'}`}>
+      <div className={`offer${o.inStock ? '' : ' dim'}`}>
         <div className="shop">
           <a className="shop-name" href={o.url} target="_blank" rel="noopener noreferrer">{o.retailer}</a>
           {o.packSize > 1 && <span className="tag">{o.packSize}-pack</span>}
@@ -40,10 +31,8 @@ function OfferRow({ o, best }) {
         <div className="price">
           <span className="price-val">{gbp(o.pricePerRoll)}</span>
           <span className="per"> / roll</span>
-          {best && <KeeperMark />}
         </div>
       </div>
-      {best && <div className="keeper-note">↑ keeper — best in-stock price</div>}
     </div>
   );
 }
@@ -67,7 +56,7 @@ export function FilmFrame({ film, index, linked = true }) {
           <div className="exp-group" key={g.exp ?? 'x'}>
             {multi && <div className="exp-label">{g.exp ? `${g.exp} exposures` : 'Exposures not stated'}</div>}
             {g.offers.map((o, i) => (
-              <OfferRow key={o.retailer + i} o={o} best={i === g.bestIdx} />
+              <OfferRow key={o.retailer + i} o={o} />
             ))}
           </div>
         ))}

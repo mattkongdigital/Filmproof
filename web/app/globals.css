@@ -102,20 +102,6 @@ h1 em { font-style:normal; color:var(--china); }
 .price .per { color:var(--muted); font-size:12px; }
 .offer.dim .shop-name, .offer.dim .price .price-val { color:var(--muted); }
 
-/* chinagraph keeper mark */
-.keeper .price-val { color:#fff; }
-.mark { position:absolute; inset:-13px -20px -11px -16px; pointer-events:none; overflow:visible; width:auto; height:auto; }
-.mark path {
-  fill:none; stroke:var(--china); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
-  filter:drop-shadow(0 0 0.5px rgba(232,83,46,0.6));
-  stroke-dasharray:640; stroke-dashoffset:640; animation:draw 900ms ease-out 250ms forwards;
-}
-@keyframes draw { to { stroke-dashoffset:0; } }
-.keeper-note {
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--china);
-  text-transform:uppercase; margin-top:5px; text-align:right;
-}
-
 footer {
   margin-top:48px; padding-top:22px; border-top:1px solid var(--rebate);
   font-family:var(--mono); font-size:11.5px; color:var(--muted); letter-spacing:.05em; line-height:1.7;
@@ -127,10 +113,6 @@ footer {
   .frame-inner { padding:0; }
   .frame-spec { margin-left:0; width:100%; }
 }
-@media (prefers-reduced-motion:reduce) {
-  .mark path { animation:none; stroke-dashoffset:0; }
-}
-
 /* product hero: image + specs + description */
 .product {
   display:grid; grid-template-columns:minmax(0,260px) 1fr; gap:30px;
