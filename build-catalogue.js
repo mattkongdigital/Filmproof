@@ -21,21 +21,26 @@ const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 // Shop photography sometimes carries the shop's own promotional banner baked
 // right into the image — "2 FOR £55 save £13", "was £38" — which reads as
 // misleading (that deal may not be live) and out of place on a page comparing
-// many shops at once. This can only catch images a shop has labelled clearly
-// in the filename or alt text; a banner with no distinguishing text will slip
-// through — treat it as a first pass, not a guarantee. Anything spotted later
-// can be added to EXCLUDED_IMAGE_URLS by URL as a manual backstop.
+// many shops at once. Separately, some shops use a "shot on this film" sample
+// photograph as a product image — a real photo, but not of the product,
+// which looks wrong on a page whose job is to show what's actually for sale.
+// Both can only be caught where a shop has labelled the image clearly in the
+// filename or alt text — an unlabelled one will slip through. Treat this as
+// a first pass, not a guarantee. Anything spotted later can be added to
+// EXCLUDED_IMAGE_URLS by URL as a manual backstop.
 const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\bwas\s*£\s*\d+|\bsave\s*£\s*\d+|\d+\s*%\s*off|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
+const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsample\s?(shot|photo|image)\b|\bexample\s?(shot|photo|image)\b|\bgallery\b|\bportfolio\b)/i;
 
-function looksPromotional(url, alt) {
+function looksUnsuitable(url, alt) {
   if (url && EXCLUDED_IMAGE_URLS.has(url)) return true;
-  return PROMO_IMAGE.test(`${url || ''} ${alt || ''}`);
+  const text = `${url || ''} ${alt || ''}`;
+  return PROMO_IMAGE.test(text) || SAMPLE_IMAGE.test(text);
 }
 
 function pickCleanImage(images) {
   for (const img of images || []) {
     const src = img && img.src;
-    if (src && !looksPromotional(src, img && img.alt)) return src;
+    if (src && !looksUnsuitable(src, img && img.alt)) return src;
   }
   return null;
 }
