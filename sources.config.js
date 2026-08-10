@@ -14,4 +14,5 @@ export const SOURCES = [
   { retailer: 'Film Camera Store',      kind: 'shopify', baseUrl: 'https://filmcamerastore.co.uk' },
   { retailer: 'Cameras By Max',         kind: 'shopify', baseUrl: 'https://camerasbymax.co.uk' },
   { retailer: 'Gulabi',                 kind: 'shopify', baseUrl: 'https://store.gulabi.co.uk' },
+  { retailer: 'PJL Photography',        kind: 'shopify', baseUrl: 'https://pjlphoto.com' },
 ];
