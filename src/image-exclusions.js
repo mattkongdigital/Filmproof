@@ -15,4 +15,10 @@ export const EXCLUDED_IMAGE_URLS = new Set([
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordDelta10035mmMix_Match5ForPriceOf4_495d4721-0fc1-41f2-adee-a2010910ce42.png?v=1785324828',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordDelta40035mmMix_Match5ForPriceOf4_4cc9c9c7-4d0b-4a99-9a8c-3082d6142e31.png?v=1785324844',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/HarmanRed12535mmMix_Match5ForPriceOf4_c3eb5392-c4ab-4a36-a77b-01937b6fb929.png?v=1785323681',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordPANFPlus35mmMix_Match5ForPriceOf4_6ee04ede-443e-4ece-98ee-5c75b61a536c.png?v=1785325079',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordHP5Plus35mmFilmFootballMix_Match5ForPriceOf4_efe7c89c-dd8f-4551-a800-c9abc6eb74dc.png?v=1785323846',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakProImage1005Pack_Buy2For_115_80a841e6-c660-4217-bb9b-e8864e64a8d8.png?v=1776857451',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordXP235mmFilmFootballMix_Match5ForPriceOf4_8c343454-40b5-4326-a8f6-d3302b3bf1ed.png?v=1785323827',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordOrthoPlus35mmMix_Match5ForPriceOf4_f2e00120-8534-4802-b61e-94a3e52b13cf.png?v=1785325351',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordDelta320035mmMix_Match5ForPriceOf4_30d21dfe-b359-44a6-bb2e-a385c9243603.png?v=1785324868',
 ]);
