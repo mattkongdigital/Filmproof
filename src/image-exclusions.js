@@ -1,0 +1,13 @@
+// Specific product image URLs to never use, because they carry a shop's own
+// promotional graphic (a "2 for £X", "was £Y" or similar banner baked
+// directly into the photo) that reads as misleading — or just out of place —
+// on a page comparing many shops at once.
+//
+// The automatic filter in build-catalogue.js catches images a shop has
+// labelled clearly in the filename or alt text. Some banners have no such
+// label and slip through — if you spot one on the site, paste its image URL
+// below (right-click the image → "Copy image address") and it'll be skipped
+// on the next rebuild, falling back to the site's plain "no image" frame.
+export const EXCLUDED_IMAGE_URLS = new Set([
+  // 'https://cdn.shopify.com/s/files/.../example-with-a-sale-banner.jpg',
+]);
