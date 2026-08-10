@@ -1,0 +1,13 @@
+import { getFilms } from './data';
+
+export const STORES = [
+  { slug: 'analogue-wonderland', name: 'Analogue Wonderland', town: 'Loudwater, Buckinghamshire', url: 'https://analoguewonderland.co.uk', logo: null, description: "One of the UK's largest online film shops and home to its own developing lab, the WonderLab. Founded in 2018 as a mother-and-son venture, Analogue Wonderland carries a huge range of stocks — from everyday favourites to rare small-batch films — and pairs it with a real passion for the community, sponsoring photowalks, events and newcomers to film." },
+  { slug: 'take-it-easy-lab', name: 'Take It Easy Lab', town: 'Leeds', url: 'https://takeiteasylab.com', logo: null, description: "An independent, family-run film lab and shop founded in 2020 by a trio of friends and cousins. Take It Easy handles colour, black & white, E-6 and even ECN-2 developing, and doubles as a community hub with workshops, photo socials and events — built around the idea that film should be welcoming to everyone, from first roll to full-time pro." },
+  { slug: 'cameras-by-max', name: 'Cameras By Max', town: 'Cardiff', url: 'https://camerasbymax.co.uk', logo: null, description: "A queer-owned, eco-conscious shop specialising in lovingly refurbished 35mm film cameras, run single-handedly by Max. Every camera is fully tested, serviced and sent out with a roll of film, in recyclable packaging — and the site is packed with honest guides and advice for people finding their way into film." },
+  { slug: 'film-camera-store', name: 'Film Camera Store', town: 'United Kingdom', url: 'https://filmcamerastore.co.uk', logo: null, description: "A specialist in vintage and refurbished film cameras, with a large, regularly-updated selection spanning point-and-shoots, SLRs, rangefinders and medium format. Every camera is cleaned, tested and serviced before sale, and the shop also stocks a range of 35mm and 120 film and accessories to get you shooting." },
+  { slug: 'gulabi', name: 'Gulabi', town: 'Glasgow', url: 'https://store.gulabi.co.uk', logo: null, description: "An independent Glasgow film lab founded in 2019 by two photographers, known for high-resolution scans and a fast turnaround — often same-day on colour. Alongside developing colour and black & white film through their minilab, Gulabi runs a shopfront and mail-order service with a curated selection of film." },
+];
+
+export function getStore(slug) { return STORES.find((s) => s.slug === slug) || null; }
+export function filmsForStore(name) { return getFilms().filter((f) => (f.offers || []).some((o) => o.retailer === name)); }
+export function storeFilmCount(name) { return filmsForStore(name).length; }
