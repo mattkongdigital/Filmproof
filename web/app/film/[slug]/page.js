@@ -12,7 +12,11 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
-  return { title: film ? `${film.display} — UK stock & prices compared` : 'Film not found' };
+  if (!film) return { title: 'Film not found' };
+  return {
+    title: `${film.display} — in stock across UK shops`,
+    description: `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`,
+  };
 }
 
 export default function FilmPage({ params }) {

@@ -12,10 +12,10 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const cat = resolveCategory(params.category);
   if (!cat) return {};
-  const title = `${cap(cat.heading)} — UK stock & prices compared`;
+  const title = `${cap(cat.heading)} — never run out, UK stock & prices`;
   return {
     title,
-    description: `See ${cat.heading} in stock across UK shops, with live prices per roll. ${cap(cat.heading)} updated daily.`,
+    description: `Find ${cat.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/${params.category}` },
   };
 }
