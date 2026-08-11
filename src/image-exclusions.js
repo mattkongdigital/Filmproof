@@ -33,4 +33,6 @@ export const EXCLUDED_IMAGE_URLS = new Set([
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/ilford-ortho-plus-80-35mm-film-761698.jpg?v=1647253112',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/IlfordSFX20035mmMix_Match5ForPriceOf4_2f629075-8fe5-4507-9caa-cb4541833d32.png?v=1785325305',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra1605Pack__70was_85_2.png?v=1786031428',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/ilford-sfx-film-35mm-bw-iso-200-358301.jpg?v=1612879303',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/kodak-portra-160-35mm-film-235379.jpg?v=1774872009',
 ]);
