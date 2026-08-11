@@ -35,4 +35,11 @@ export const EXCLUDED_IMAGE_URLS = new Set([
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra1605Pack__70was_85_2.png?v=1786031428',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/ilford-sfx-film-35mm-bw-iso-200-358301.jpg?v=1612879303',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/kodak-portra-160-35mm-film-235379.jpg?v=1774872009',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/kodak-portra-160-35mm-film-216120.jpg?v=1679925766',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Cinestill50D35mmMix_Match5ForPriceOf4_004e3bb6-91fe-4cb8-aaef-495320a966a1.png?v=1785324655',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Cinestill800T35mmMix_Match5ForPriceOf4_270da828-f486-4cb5-aa37-0e304ce243e2.png?v=1785325275',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakGold1205Packs_Buy2For_84_1.png?v=1785923693',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Kentmere100120FilmMix_Match5ForPriceOf4_9d7308aa-7b18-4042-baf8-87ac34fe41fa.png?v=1785323742',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Kentmere400120FilmMix_Match5ForPriceOf4_f6402c40-553c-43fd-8315-e697b4898f61.png?v=1785323757',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra800Singles__20was_25_bf7bc51f-e695-4ed8-b2e9-7d372b2f7975.png?v=1785923584',
 ]);
