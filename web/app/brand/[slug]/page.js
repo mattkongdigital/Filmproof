@@ -11,8 +11,8 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const label = brandLabel(params.slug);
   return {
-    title: `${label} film — UK stock & prices compared`,
-    description: `See ${label} film in stock across UK shops, with live prices per roll. Updated daily.`,
+    title: `${label} film — never run out, UK stock & prices`,
+    description: `Find ${label} film in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/brand/${params.slug}` },
   };
 }
