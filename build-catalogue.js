@@ -99,13 +99,15 @@ async function itemsFor(src) {
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const cleanName = (t) => t
-  .replace(/\b\d{1,3}\s*(?:exposures?|exp)\b/gi, '')     // "36 exposures", "24Exp"
-  .replace(/\bpack of \d+\b/gi, '')                       // "Pack of 3"
-  .replace(/\b\d+\s*[-x]?\s*pack\b/gi, '')                // "3 pack", "3-pack", "3x pack"
-  .replace(/\b(twin|multi)-?\s*pack\b/gi, '')             // "Twin Pack", "Multipack"
-  .replace(/\b\d+\s*pk\b/gi, '')                          // "3pk"
+  .replace(/\b\d{1,3}\s*(?:exposures?|exp)\b/gi, '')
+  .replace(/\bpack of \d+\b/gi, '')
+  .replace(/\b\d+\s*[-x]?\s*pack\b/gi, '')
+  .replace(/\b(twin|multi)-?\s*pack\b/gi, '')
+  .replace(/\b\d+\s*pk\b/gi, '')
   .replace(/\b(single roll|single|value pack|coming soon)\b/i, '')
-  .replace(/\s*[-–]\s*$/, '')                             // trailing dash left behind
+  .replace(/\s*[-–—]\s*$/, '')
+  .replace(/\s+[-–—]\s+/g, ', ')
+  .replace(/\s*,\s*$/, '')
   .replace(/\s{2,}/g, ' ').trim();
 
 async function run() {
