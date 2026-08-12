@@ -45,20 +45,18 @@ export default function BrandSubPage({ params }) {
         </p>
       </header>
 
-      {siblings.length > 0 && (
-        <div className="facet-links">
-          <span className="facet-links-head">More {r.brand.label}</span>
-          <div className="chips">
-            <Link className="chip" href={`/brand/${params.slug}`}>All {r.brand.label}</Link>
-            <span className="chip current">{r.facet.label}</span>
-            {siblings.map((s) => (
-              <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
-                {s.label} <span className="chip-count">{s.count}</span>
-              </Link>
-            ))}
-          </div>
+      <div className="facet-links">
+        <span className="facet-links-head">More {r.brand.label}</span>
+        <div className="chips">
+          <Link className="chip" href={`/brand/${params.slug}`}>All {r.brand.label}</Link>
+          <span className="chip current" aria-current="page">{r.facet.label}</span>
+          {siblings.map((s) => (
+            <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+              {s.label} <span className="chip-count">{s.count}</span>
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
 
       <FilmBrowser films={films} />
 
