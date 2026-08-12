@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { brandList, filmsFor } from '../../../lib/facets';
+import { brandList, filmsFor, subFacetsForBrand } from '../../../lib/facets';
 import { FilmBrowser } from '../../../components/film-browser';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { SITE_URL, brandLabel } from '../../../lib/data';
@@ -23,6 +24,7 @@ export default function BrandPage({ params }) {
 
   const label = brandLabel(params.slug);
   const films = filmsFor((f) => f.brand === params.slug);
+  const subFacets = subFacetsForBrand(params.slug);
 
   return (
     <div className="wrap">
@@ -39,6 +41,19 @@ export default function BrandPage({ params }) {
           {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
         </p>
       </header>
+
+      {subFacets.length > 0 && (
+        <div className="facet-links">
+          <span className="facet-links-head">Browse {label} by</span>
+          <div className="chips">
+            {subFacets.map((s) => (
+              <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                {s.label} <span className="chip-count">{s.count}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <FilmBrowser films={films} />
 
