@@ -4,6 +4,7 @@ import { STORES, getStore, filmsForStore } from '../../../lib/stores';
 import { StoreLogo } from '../../../components/store-logo';
 import { FilmBrowser } from '../../../components/film-browser';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { EmptyState } from '../../../components/empty-state';
 
 export function generateStaticParams() {
   return STORES.map((s) => ({ slug: s.slug }));
@@ -50,7 +51,11 @@ export default function StorePage({ params }) {
           <FilmBrowser films={films} />
         </>
       ) : (
-        <p className="empty">No film from {store.name} in the catalogue right now.</p>
+        <EmptyState
+          title="No film tracked here right now"
+          message={`We're not currently showing any film from ${store.name}. That usually means they've nothing in stock we track at the moment, or their listings have moved — it's worth checking their own site directly.`}
+          action={<a className="empty-action" href={store.url} target="_blank" rel="noopener noreferrer">Visit {store.name} →</a>}
+        />
       )}
     </div>
   );

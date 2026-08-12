@@ -2,6 +2,7 @@
 import { useMemo, useState, useEffect, useRef } from 'react';
 import { FilmCard } from './film-card';
 import { formatLabel } from '../lib/data';
+import { EmptyState } from './empty-state';
 
 const PER_PAGE = 24;
 
@@ -111,7 +112,11 @@ export function FilmBrowser({ films }) {
           )}
         </>
       ) : (
-        <p className="empty">No film matches those filters. <button className="reset" onClick={reset}>Reset</button></p>
+        <EmptyState
+          title="Nothing matches those filters"
+          message="No film in this list matches every filter you've picked. Clearing them will bring the full list back."
+          action={<button className="empty-action" onClick={reset}>Clear filters</button>}
+        />
       )}
     </div>
   );
