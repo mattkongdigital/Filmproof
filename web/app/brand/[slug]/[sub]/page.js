@@ -26,7 +26,7 @@ export default function BrandSubPage({ params }) {
   if (!r) notFound();
 
   const films = filmsFor(r.match);
-  const siblings = subFacetsForBrand(params.slug).filter((s) => s.slug !== params.sub);
+  const siblings = subFacetsForBrand(params.slug).filter((s) => s.kind === r.kind && s.slug !== params.sub);
 
   return (
     <div className="wrap">
@@ -50,6 +50,7 @@ export default function BrandSubPage({ params }) {
           <span className="facet-links-head">More {r.brand.label}</span>
           <div className="chips">
             <Link className="chip" href={`/brand/${params.slug}`}>All {r.brand.label}</Link>
+            <span className="chip current">{r.facet.label}</span>
             {siblings.map((s) => (
               <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
                 {s.label} <span className="chip-count">{s.count}</span>
