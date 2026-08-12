@@ -29,7 +29,7 @@ const typeOf = (f) => {
 const TYPE_LABEL = { colour: 'Colour', bw: 'Black & white', slide: 'Slide', instant: 'Instant', cine: 'Cine', other: 'Other' };
 const uniqSort = (arr, cmp) => [...new Set(arr)].sort(cmp);
 
-export function FilmBrowser({ films }) {
+export function FilmBrowser({ films, hideAxes = [] }) {
   const [iso, setIso] = useState(() => new Set());
   const [fmt, setFmt] = useState(() => new Set());
   const [typ, setTyp] = useState(() => new Set());
@@ -70,7 +70,9 @@ export function FilmBrowser({ films }) {
     const n = new Set(prev); n.has(val) ? n.delete(val) : n.add(val); return n;
   });
 
-  const showIso = isoVals.length > 1, showFmt = fmtVals.length > 1, showTyp = typVals.length > 1;
+  const showIso = isoVals.length > 1 && !hideAxes.includes('iso');
+  const showFmt = fmtVals.length > 1 && !hideAxes.includes('fmt');
+  const showTyp = typVals.length > 1 && !hideAxes.includes('typ');
   const anyAxis = showIso || showFmt || showTyp || hasStockMix;
 
   return (

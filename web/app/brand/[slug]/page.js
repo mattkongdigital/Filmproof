@@ -25,6 +25,8 @@ export default function BrandPage({ params }) {
   const label = brandLabel(params.slug);
   const films = filmsFor((f) => f.brand === params.slug);
   const subFacets = subFacetsForBrand(params.slug);
+  const formatFacets = subFacets.filter((s) => s.kind === 'format');
+  const typeFacets = subFacets.filter((s) => s.kind === 'type');
 
   return (
     <div className="wrap">
@@ -46,16 +48,26 @@ export default function BrandPage({ params }) {
         <div className="facet-links">
           <span className="facet-links-head">Browse {label} by</span>
           <div className="chips">
-            {subFacets.map((s) => (
+            <span className="chip current" aria-current="page">All {label}</span>
+            {formatFacets.map((s) => (
               <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
                 {s.label} <span className="chip-count">{s.count}</span>
               </Link>
             ))}
           </div>
+          {typeFacets.length > 0 && (
+            <div className="chips chips-second">
+              {typeFacets.map((s) => (
+                <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                  {s.label} <span className="chip-count">{s.count}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
-      <FilmBrowser films={films} />
+      <FilmBrowser films={films} hideAxes={['typ','fmt']} />
 
     </div>
   );

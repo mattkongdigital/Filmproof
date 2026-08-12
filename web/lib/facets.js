@@ -63,9 +63,10 @@ const countFor = (brandSlug, facet) =>
   getFilms().filter((f) => f.brand === brandSlug && facet.match(f)).length;
 
 export function subFacetsForBrand(brandSlug) {
-  return [...FORMATS, ...TYPES]
-    .map((facet) => ({ slug: facet.slug, label: facet.label, count: countFor(brandSlug, facet) }))
-    .filter((x) => x.count >= MIN_COMBO_FILMS);
+  return [
+    ...FORMATS.map((facet) => ({ slug: facet.slug, label: facet.label, kind: 'format', count: countFor(brandSlug, facet) })),
+    ...TYPES.map((facet) => ({ slug: facet.slug, label: facet.label, kind: 'type', count: countFor(brandSlug, facet) })),
+  ].filter((x) => x.count >= MIN_COMBO_FILMS);
 }
 
 export function resolveBrandSub(brandSlug, subSlug) {

@@ -235,6 +235,8 @@ footer {
   color:var(--ink); border:1px solid rgba(157,148,129,0.3); border-radius:2px; padding:5px 11px;
 }
 .chip:hover { border-color:var(--amber); color:var(--amber); }
+.chip.current { border-color:var(--amber); color:var(--amber); background:rgba(230,173,70,.10); cursor:default; }
+.chips-second { margin-top:8px; }
 .grid { padding-top:22px; }
 
 /* ---- brand index ---- */
