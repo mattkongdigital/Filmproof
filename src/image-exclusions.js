@@ -42,4 +42,11 @@ export const EXCLUDED_IMAGE_URLS = new Set([
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Kentmere100120FilmMix_Match5ForPriceOf4_9d7308aa-7b18-4042-baf8-87ac34fe41fa.png?v=1785323742',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/Kentmere400120FilmMix_Match5ForPriceOf4_f6402c40-553c-43fd-8315-e697b4898f61.png?v=1785323757',
   'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra800Singles__20was_25_bf7bc51f-e695-4ed8-b2e9-7d372b2f7975.png?v=1785923584',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/cinestill-x-pro-daylight-35mm-film-colour-iso-50-428504.jpg?v=1612880178',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/kodak-portra-160-35mm-film-784936.jpg?v=1679925766',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/products/cinestill-800t-tungsten-iso-800-35mm-film-516548.jpg?v=1612880150',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/0022-4f9fa2.jpg?v=1776339914',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra4005Pack_Buy2For_175_1.png?v=1785923103',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakGold-120Film-PaulMcKay-SampleImage3.jpg?v=1743431089',
+  'https://cdn.shopify.com/s/files/1/0005/1435/9356/files/KodakPortra4001205Packs__80was_99.5_2.png?v=1786031522',
 ]);
