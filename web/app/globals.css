@@ -475,3 +475,9 @@ img.store-logo { object-fit:contain; background:#fff; }
 .empty-links { margin-top:22px; }
 .empty-links-head { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px; }
 .empty-links .chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+
+.facet-links { margin:0 0 22px; }
+.facet-links-head { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px; }
+.facet-links .chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip-count { font-family:var(--mono); font-size:10px; color:var(--muted); margin-left:3px; }
+.chip:hover .chip-count { color:var(--amber); }

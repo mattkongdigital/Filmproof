@@ -57,6 +57,41 @@ export function comboParams() {
   return out;
 }
 
+export const MIN_COMBO_FILMS = 3;
+
+const countFor = (brandSlug, facet) =>
+  getFilms().filter((f) => f.brand === brandSlug && facet.match(f)).length;
+
+export function subFacetsForBrand(brandSlug) {
+  return [...FORMATS, ...TYPES]
+    .map((facet) => ({ slug: facet.slug, label: facet.label, count: countFor(brandSlug, facet) }))
+    .filter((x) => x.count >= MIN_COMBO_FILMS);
+}
+
+export function resolveBrandSub(brandSlug, subSlug) {
+  const brand = brandList().find((b) => b.slug === brandSlug);
+  if (!brand) return null;
+  const fmt = FORMATS.find((x) => x.slug === subSlug);
+  const facet = fmt || TYPES.find((x) => x.slug === subSlug);
+  if (!facet) return null;
+  return {
+    brand, facet,
+    kind: fmt ? 'format' : 'type',
+    heading: `${brand.label} ${facet.label.toLowerCase()} film`,
+    match: (f) => f.brand === brandSlug && facet.match(f),
+  };
+}
+
+export function brandSubParams() {
+  const out = [];
+  for (const b of brandList()) {
+    for (const facet of [...FORMATS, ...TYPES]) {
+      if (countFor(b.slug, facet) >= MIN_COMBO_FILMS) out.push({ slug: b.slug, sub: facet.slug });
+    }
+  }
+  return out;
+}
+
 export function brandList() {
   const counts = new Map();
   for (const f of getFilms()) { if (f.brand) counts.set(f.brand, (counts.get(f.brand) || 0) + 1); }
