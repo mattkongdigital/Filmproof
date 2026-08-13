@@ -34,7 +34,14 @@ const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 // can't start a match — "Ilford Delta 3200 for 35mm" is a product, not an offer.
 // The (?![a-z]) stops "for" matching inside "format". Currency-bearing offers
 // keep their own unbounded branches, since a price can run to four digits.
-const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|\bbuy\s*\d+\s*get\b|\bwas\s*£\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
+// The two phrase branches ("mix & match", "for the price of") carry no digits,
+// because filenames jam the whole badge together in camelCase — the real
+// "IlfordOrthoPlus120Mix_Match5ForPriceOf4.png" has no word boundary between
+// "Match" and "5", and "for" is followed by "Price", not a number. They allow
+// underscores, ampersands, hyphens or nothing between the words so both the
+// spaced and the run-together spellings match. "match" alone is never enough:
+// it has to be preceded by "mix", or match-box-camera.jpg would be dropped.
+const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|mix[\s_&+-]*match|for[\s_-]*(the[\s_-]*)?price[\s_-]*of|\bbuy\s*\d+\s*get\b|\bwas\s*£\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
 const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsample\s?(shot|photo|image)\b|\bexample\s?(shot|photo|image)\b|\bgallery\b|\bportfolio\b)/i;
 
 function looksUnsuitable(url, alt) {
