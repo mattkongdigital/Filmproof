@@ -19,16 +19,22 @@ import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
 // Shop photography sometimes carries the shop's own promotional banner baked
-// right into the image — "2 FOR £55 save £13", "was £38" — which reads as
-// misleading (that deal may not be live) and out of place on a page comparing
-// many shops at once. Separately, some shops use a "shot on this film" sample
-// photograph as a product image — a real photo, but not of the product,
-// which looks wrong on a page whose job is to show what's actually for sale.
+// right into the image — "2 FOR £55 save £13", "was £38", "5 ROLLS FOR 4" —
+// which reads as misleading (that deal may not be live) and out of place on a
+// page comparing many shops at once. Separately, some shops use a "shot on
+// this film" sample photograph as a product image — a real photo, but not of
+// the product, which looks wrong on a page whose job is to show what's
+// actually for sale.
 // Both can only be caught where a shop has labelled the image clearly in the
 // filename or alt text — an unlabelled one will slip through. Treat this as
 // a first pass, not a guarantee. Anything spotted later can be added to
 // EXCLUDED_IMAGE_URLS by URL as a manual backstop.
-const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\bwas\s*£\s*\d+|\bsave\s*£\s*\d+|\d+\s*%\s*off|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
+// The quantity branches ("3 for 2", "5 rolls for 4") are deliberately capped at
+// a two-digit first number and bounded by \b, so a film title's own numbers
+// can't start a match — "Ilford Delta 3200 for 35mm" is a product, not an offer.
+// The (?![a-z]) stops "for" matching inside "format". Currency-bearing offers
+// keep their own unbounded branches, since a price can run to four digits.
+const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|\bbuy\s*\d+\s*get\b|\bwas\s*£\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
 const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsample\s?(shot|photo|image)\b|\bexample\s?(shot|photo|image)\b|\bgallery\b|\bportfolio\b)/i;
 
 function looksUnsuitable(url, alt) {
