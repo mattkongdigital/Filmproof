@@ -46,15 +46,20 @@ export default function BrandSubPage({ params }) {
       </header>
 
       <div className="facet-links">
-        <span className="facet-links-head">More {r.brand.label}</span>
-        <div className="chips">
-          <Link className="chip" href={`/brand/${params.slug}`}>All {r.brand.label}</Link>
-          <span className="chip current" aria-current="page">{r.facet.label}</span>
-          {siblings.map((s) => (
-            <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
-              {s.label} <span className="chip-count">{s.count}</span>
-            </Link>
-          ))}
+        <span className="facet-links-head">Browse {r.brand.label} by</span>
+        <div className="facet-axes">
+          <div className="axis">
+            <span className="axis-label">{r.kind === 'format' ? 'Format' : 'Type'}</span>
+            <Link className="chip" href={`/brand/${params.slug}`}>All</Link>
+            <span className="chip current" aria-current="page">
+              {r.facet.label} <span className="chip-count">{films.length}</span>
+            </span>
+            {siblings.map((s) => (
+              <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                {s.label} <span className="chip-count">{s.count}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 

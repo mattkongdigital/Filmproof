@@ -236,7 +236,6 @@ footer {
 }
 .chip:hover { border-color:var(--amber); color:var(--amber); }
 .chip.current { border-color:var(--amber); color:var(--amber); background:rgba(230,173,70,.10); cursor:default; }
-.chips-second { margin-top:8px; }
 .grid { padding-top:22px; }
 
 /* ---- brand index ---- */
@@ -481,5 +480,6 @@ img.store-logo { object-fit:contain; background:#fff; }
 .facet-links { margin:0 0 22px; }
 .facet-links-head { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px; }
 .facet-links .chips { display:flex; flex-wrap:wrap; gap:8px; }
+.facet-axes { display:flex; flex-direction:column; gap:9px; }
 .chip-count { font-family:var(--mono); font-size:10px; color:var(--muted); margin-left:3px; }
 .chip:hover .chip-count { color:var(--amber); }
