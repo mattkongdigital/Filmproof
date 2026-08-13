@@ -73,9 +73,13 @@ export function describe({ display, brand, format, iso, process }) {
     : proc.includes('cine') ? 'a motion-picture stock repurposed for stills, with a distinctive cinematic palette'
     : proc.includes('black') ? 'a black & white film with classic tonal character'
     : proc.includes('colour') ? 'a colour negative film with natural, print-ready colour'
-    : 'a film';
+    : null;
 
-  return `${display} is ${kind}, made by ${brandName} for ${fmt} cameras. ${speed}`.trim();
+  const opener = kind
+    ? `${display} is ${kind}, made by ${brandName} for ${fmt} cameras.`
+    : `${display} is a ${fmt} film made by ${brandName}.`;
+
+  return `${opener} ${speed}`.trim();
 }
 
 function pretty(brand) {
@@ -84,6 +88,11 @@ function pretty(brand) {
     kentmere: 'Kentmere', kosmofoto: 'Kosmo Foto', agfa: 'AgfaPhoto', foma: 'Foma',
     lomography: 'Lomography', jch: 'Japan Camera Hunter', dubblefilm: 'dubblefilm',
     optikoldschool: 'Optik Oldschool', silbersalz: 'SilberSalz', filmneverdie: 'FilmNeverDie',
+    mrnegative: 'Mr Negative', dragonfilm: 'DragonFilm', harman: 'Harman', rollei: 'Rollei',
+    adox: 'Adox', bergger: 'Bergger', washi: 'Washi', polaroid: 'Polaroid',
+    ferrania: 'Ferrania', orwo: 'ORWO', shanghai: 'Shanghai', revolog: 'Revolog',
+    yodica: 'Yodica', candido: 'Candido', flic: 'Flic Film', catlabs: 'CatLABS',
+    streetcandy: 'Street Candy', psychedelicblues: 'Psychedelic Blues',
   };
   return map[brand] || (brand ? brand.charAt(0).toUpperCase() + brand.slice(1) : 'its maker');
 }
