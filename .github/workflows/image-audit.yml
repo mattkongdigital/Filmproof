@@ -1,0 +1,87 @@
+name: Image audit (manual)
+
+# Manual only — no schedule, no push trigger. Press "Run workflow" in the
+# Actions tab to rebuild the catalogue against live sources and print how much
+# of it is missing a product image. Everything worth reading is written to the
+# run summary, so the numbers are legible on a phone without opening the logs.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  # A real live build pulls well over this many films. Anything less means the
+  # retailer fetches fell back to the bundled samples, and auditing sample data
+  # would report numbers that look real but aren't.
+  MIN_FILMS: 100
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Root has no dependencies, so nothing to install (same as refresh.yml).
+      - name: Build catalogue
+        run: node build-catalogue.js
+
+      - name: Build site data
+        run: |
+          node build-site-data.js 2>&1 | tee build-site-data.log
+
+          # build-site-data.js ends with:
+          #   Wrote web/data/site.json — 123 films, 456 offers.
+          counts=$(grep -E '[0-9]+ films, [0-9]+ offers' build-site-data.log | tail -n 1)
+          films=$(sed -nE 's/.*[^0-9]([0-9]+) films.*/\1/p' <<<"$counts")
+          offers=$(sed -nE 's/.*[^0-9]([0-9]+) offers.*/\1/p' <<<"$counts")
+
+          if ! [[ "$films" =~ ^[0-9]+$ && "$offers" =~ ^[0-9]+$ ]]; then
+            {
+              echo "## Image audit"
+              echo
+              echo "### :x: Could not read the build counts"
+              echo
+              echo "\`build-site-data.js\` finished but did not report a film/offer count,"
+              echo "so there is no way to confirm the build was real. Audit skipped."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Could not parse film/offer counts from build-site-data.js output."
+            exit 1
+          fi
+
+          {
+            echo "## Image audit"
+            echo
+            echo "Build produced **$films films** and **$offers offers**."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$films" -lt "$MIN_FILMS" ]; then
+            {
+              echo
+              echo "### :warning: This is not live data"
+              echo
+              echo "Only **$films films** were built, against an expected minimum of"
+              echo "**$MIN_FILMS**. The live retailer fetches have most likely failed and the"
+              echo "build has fallen back to the bundled sample data."
+              echo
+              echo "The image audit was **skipped** — its percentages would describe the"
+              echo "samples, not the real catalogue. Check the \"Build site data\" step log"
+              echo "for per-retailer fetch failures."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Only $films films (minimum $MIN_FILMS) — live fetches likely failed; failing rather than reporting sample-data numbers."
+            exit 1
+          fi
+
+      - name: Image audit
+        run: |
+          node image-audit.js 2>&1 | tee image-audit.log
+          {
+            echo
+            echo '```'
+            cat image-audit.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
