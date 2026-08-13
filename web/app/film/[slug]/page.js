@@ -5,6 +5,7 @@ import { FORMATS, TYPES } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { ProductSchema } from '../../../components/product-schema';
 
 export function generateStaticParams() {
   return getFilms().map((f) => ({ slug: f.slug }));
@@ -38,6 +39,7 @@ export default function FilmPage({ params }) {
 
   return (
     <div className="wrap">
+      <ProductSchema film={{ ...film, brandName: pretty(film.brand) }} />
       <Breadcrumbs items={[
         { name: 'Home', href: '/' },
         ...(film.brand ? [{ name: pretty(film.brand), href: `/brand/${film.brand}` }] : []),
