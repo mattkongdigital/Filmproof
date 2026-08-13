@@ -37,12 +37,18 @@ function looksUnsuitable(url, alt) {
   return PROMO_IMAGE.test(text) || SAMPLE_IMAGE.test(text);
 }
 
+// Only ever consider the shop's first image. Shops put the real product shot in
+// position 1 and use the rest of the array as a gallery — lifestyle shots,
+// "shot on this film" samples, packaging detail. So walking further down the
+// array to escape an unsuitable first image just trades a promo overlay for a
+// sample photo, which is worse than showing nothing. Returning null instead is
+// cheap: the cross-shop backfill below (`it.image && !f.image`) lets a later
+// shop's first image stand in, and that's nearly always a genuine product shot.
 function pickCleanImage(images) {
-  for (const img of images || []) {
-    const src = img && img.src;
-    if (src && !looksUnsuitable(src, img && img.alt)) return src;
-  }
-  return null;
+  const first = (images || [])[0];
+  const src = first && first.src;
+  if (!src) return null;
+  return looksUnsuitable(src, first.alt) ? null : src;
 }
 
 // Decide whether a product is an actual roll/sheet of film (not accessories,
