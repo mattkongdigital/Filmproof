@@ -18,6 +18,16 @@ import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
+// TEMPORARY DIAGNOSTIC (FILMPROOF_IMAGE_DEBUG) — remove once the CineStill
+// image question is settled. Everything it adds is inert unless the env var is
+// set, and it writes to stderr so stdout stays exactly as it was.
+const IMAGE_DEBUG = Boolean(process.env.FILMPROOF_IMAGE_DEBUG);
+// FILMPROOF_IMAGE_DEBUG=1 reports on cinestill; set it to a brand slug
+// (FILMPROOF_IMAGE_DEBUG=ilford) to point the same report at another brand.
+const RAW_DEBUG = (process.env.FILMPROOF_IMAGE_DEBUG || '').toLowerCase();
+const DEBUG_BRAND = !RAW_DEBUG || ['1', 'true', 'yes', 'on'].includes(RAW_DEBUG) ? 'cinestill' : RAW_DEBUG;
+const dbg = (line) => process.stderr.write(`[image-debug] ${line}\n`);
+
 // Shop photography sometimes carries the shop's own promotional banner baked
 // right into the image — "2 FOR £55 save £13", "was £38", "5 ROLLS FOR 4" —
 // which reads as misleading (that deal may not be live) and out of place on a
@@ -44,10 +54,21 @@ const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|mix[\s_&+-]*match|for[\s_-]*(the[\s_-]*)?price[\s_-]*of|\bbuy\s*\d+\s*get\b|\bwas\s*£\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
 const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsample\s?(shot|photo|image)\b|\bexample\s?(shot|photo|image)\b|\bgallery\b|\bportfolio\b)/i;
 
-function looksUnsuitable(url, alt) {
-  if (url && EXCLUDED_IMAGE_URLS.has(url)) return true;
+// Returns null when the image is fine, or {rule, match} naming what rejected it
+// and the exact substring that tripped — the diagnostic below needs to report
+// which pattern fired, and a bare boolean can't say.
+function unsuitableReason(url, alt) {
+  if (url && EXCLUDED_IMAGE_URLS.has(url)) return { rule: 'EXCLUDED_IMAGE_URLS', match: url };
   const text = `${url || ''} ${alt || ''}`;
-  return PROMO_IMAGE.test(text) || SAMPLE_IMAGE.test(text);
+  const promo = PROMO_IMAGE.exec(text);
+  if (promo) return { rule: 'PROMO_IMAGE', match: promo[0] };
+  const sample = SAMPLE_IMAGE.exec(text);
+  if (sample) return { rule: 'SAMPLE_IMAGE', match: sample[0] };
+  return null;
+}
+
+function looksUnsuitable(url, alt) {
+  return unsuitableReason(url, alt) !== null;
 }
 
 // Only ever consider the shop's first image. Shops put the real product shot in
@@ -104,6 +125,19 @@ async function itemsFor(src) {
         type: p.product_type || '',
         raw: p.title,
         image: pickCleanImage(p.images),
+        // TEMPORARY DIAGNOSTIC: what pickCleanImage saw, so run() can explain
+        // its decision. Only built when the debug flag is on.
+        imageDebug: !IMAGE_DEBUG ? null : (() => {
+          const imgs = p.images || [];
+          const first = imgs[0];
+          const src = (first && first.src) || null;
+          return {
+            count: imgs.length,
+            src,
+            alt: (first && first.alt) || '',
+            reason: src ? unsuitableReason(src, first.alt) : null,
+          };
+        })(),
         tags: Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || ''),
         body: (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 2000),
       }));
@@ -139,11 +173,33 @@ async function run() {
     const items = await itemsFor(src);
     let kept = 0;
     for (const it of items) {
-      if (!isFilmProduct(it.type, it.title)) continue;
+      // TEMPORARY DIAGNOSTIC: a product can vanish before it ever has a brand,
+      // so match on the title here to report the two drop-outs above the
+      // brand-keyed line below.
+      const debugTitle = IMAGE_DEBUG && it.title.toLowerCase().includes(DEBUG_BRAND);
+      if (!isFilmProduct(it.type, it.title)) {
+        if (debugTitle) dbg(`DROPPED not-a-film-product | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
+        continue;
+      }
       filmItems++;
       const tagIso = extractIso(it.tags, '');
       const parsed = parseFilmTitle(it.title, it.type, tagIso);
-      if (!parsed.identified) { unidentified.add(`${(it.type || '?').padEnd(14)} ${it.title}`); continue; }
+      if (!parsed.identified) {
+        if (debugTitle) dbg(`DROPPED unidentified-title | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
+        unidentified.add(`${(it.type || '?').padEnd(14)} ${it.title}`); continue;
+      }
+      if (IMAGE_DEBUG && parsed.brand === DEBUG_BRAND) {
+        const d = it.imageDebug || { count: 0, src: null, alt: '', reason: null };
+        const r = d.reason;
+        dbg([
+          `${src.retailer} | ${it.title}`,
+          `images=${d.count}`,
+          `first=${d.src || '(none)'}`,
+          `alt=${JSON.stringify(d.alt || '')}`,
+          r ? `REJECTED by ${r.rule} matched=${JSON.stringify(r.match)}` : (d.src ? 'kept' : 'no-images'),
+          `used=${it.image || '(null)'}`,
+        ].join(' | '));
+      }
       if (!films.has(parsed.key)) {
         const process = deriveProcess(it.type, it.title);
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? extractIso('', it.body);
@@ -168,6 +224,16 @@ async function run() {
   }
 
   const catalogue = [...films.values()];
+
+  // TEMPORARY DIAGNOSTIC: the final state, after cross-shop backfill — this is
+  // what the site actually renders.
+  if (IMAGE_DEBUG) {
+    const brandFilms = catalogue.filter((f) => f.brand === DEBUG_BRAND);
+    const missing = brandFilms.filter((f) => !f.image);
+    dbg(`--- FINAL: ${brandFilms.length} ${DEBUG_BRAND} films, ${missing.length} with no image ---`);
+    for (const f of brandFilms) dbg(`FINAL ${f.image ? 'HAS-IMAGE ' : 'NO-IMAGE  '} | ${f.display} | key=${f.key} | ${f.image || ''}`);
+  }
+
   mkdirSync('./data', { recursive: true });
   writeFileSync('./data/catalogue.json', JSON.stringify(catalogue, null, 2));
   writeFileSync('./data/catalogue-unidentified.txt', [...unidentified].sort().join('\n'));
