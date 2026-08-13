@@ -47,23 +47,34 @@ export default function BrandPage({ params }) {
       {subFacets.length > 0 && (
         <div className="facet-links">
           <span className="facet-links-head">Browse {label} by</span>
-          <div className="chips">
-            <span className="chip current" aria-current="page">All {label}</span>
-            {formatFacets.map((s) => (
-              <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
-                {s.label} <span className="chip-count">{s.count}</span>
-              </Link>
-            ))}
+          <div className="facet-axes">
+            {formatFacets.length > 0 && (
+              <div className="axis">
+                <span className="axis-label">Format</span>
+                <span className="chip current" aria-current="page">
+                  All <span className="chip-count">{films.length}</span>
+                </span>
+                {formatFacets.map((s) => (
+                  <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                    {s.label} <span className="chip-count">{s.count}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {typeFacets.length > 0 && (
+              <div className="axis">
+                <span className="axis-label">Type</span>
+                <span className="chip current" aria-current="page">
+                  All <span className="chip-count">{films.length}</span>
+                </span>
+                {typeFacets.map((s) => (
+                  <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                    {s.label} <span className="chip-count">{s.count}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-          {typeFacets.length > 0 && (
-            <div className="chips chips-second">
-              {typeFacets.map((s) => (
-                <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
-                  {s.label} <span className="chip-count">{s.count}</span>
-                </Link>
-              ))}
-            </div>
-          )}
         </div>
       )}
 
