@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="nf-code">404</div>
       <h1>This frame came out blank</h1>
       <p className="lead">
-        We couldn't find that page — it may have moved, or the link might be slightly off.
+        We couldn't find that page, it may have moved, or the link might be slightly off.
         Everything we track is still here, so pick up where you left off below.
       </p>
 

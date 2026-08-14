@@ -14,8 +14,8 @@ export function generateMetadata({ params }) {
   const store = getStore(params.slug);
   if (!store) return {};
   return {
-    title: `${store.name} — film stock & prices`,
-    description: `${store.name} in ${store.town} — see the film they stock, with live prices per roll. Updated daily.`,
+    title: `${store.name} | Film stock & prices`,
+    description: `${store.name} in ${store.town}, see the film they stock, with live prices per roll. Updated daily.`,
     alternates: { canonical: `${SITE_URL}/store/${store.slug}` },
   };
 }
@@ -53,7 +53,7 @@ export default function StorePage({ params }) {
       ) : (
         <EmptyState
           title="No film tracked here right now"
-          message={`We're not currently showing any film from ${store.name}. That usually means they've nothing in stock we track at the moment, or their listings have moved — it's worth checking their own site directly.`}
+          message={`We're not currently showing any film from ${store.name}. That usually means they've nothing in stock we track at the moment, or their listings have moved, it's worth checking their own site directly.`}
           action={<a className="empty-action" href={store.url} target="_blank" rel="noopener noreferrer">Visit {store.name} →</a>}
         />
       )}

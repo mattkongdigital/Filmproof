@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const cat = resolveCategory(params.category);
   if (!cat) return {};
-  const title = `${cap(cat.heading)} — never run out, UK stock & prices`;
+  const title = `${cap(cat.heading)} | Never run out, UK stock & prices`;
   return {
     title,
     description: `Find ${cat.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,

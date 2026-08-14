@@ -15,7 +15,7 @@ export default function Terms() {
       <div className="updated">Last reviewed: 6 August 2026</div>
 
       <p className="lead">
-        By using Filmproof you agree to these terms. They're meant to be fair and plain — the
+        By using Filmproof you agree to these terms. They're meant to be fair and plain, the
         headline is simple: we work hard to be accurate, but always confirm a price with the shop
         before you buy.
       </p>
@@ -47,7 +47,7 @@ export default function Terms() {
 
       <h2>Advertising and links</h2>
       <p>
-        At launch, outbound links to shops are plain and unpaid — we don't earn commission on them,
+        At launch, outbound links to shops are plain and unpaid, we don't earn commission on them,
         and no shop can pay to affect its ranking. We may introduce advertising in future to cover
         running costs; if we do, it will never affect the price-based rankings. See our{' '}
         <a href="/disclosure">advertising &amp; funding</a> page.
@@ -58,7 +58,7 @@ export default function Terms() {
         The Filmproof name, its design, and the original writing on the site are ours. Product
         names, brands and images belong to their respective owners and appear here only to identify
         products and compare prices. Product images in particular remain the property of the shops
-        or manufacturers they come from — if you own one and would prefer it didn't appear, just{' '}
+        or manufacturers they come from, if you own one and would prefer it didn't appear, just{' '}
         <a href="/contact">let us know</a> and we'll take it down.
       </p>
 

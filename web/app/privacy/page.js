@@ -16,7 +16,7 @@ export default function Privacy() {
 
       <p className="lead">
         Filmproof is a static information site with no accounts, no logins and no on-site purchases.
-        This page explains the limited data involved in running it — chiefly website analytics.
+        This page explains the limited data involved in running it, chiefly website analytics.
       </p>
 
       <h2>Who is responsible</h2>
@@ -36,14 +36,14 @@ export default function Privacy() {
         </li>
         <li>
           <strong>Analytics.</strong> With your consent, we use <strong>Google Analytics 4 (GA4)</strong>{' '}
-          to understand how the site is used — which films and pages are popular, roughly where visitors
+          to understand how the site is used, which films and pages are popular, roughly where visitors
           come from, and what device they're on. GA4 sets cookies and processes data (including your IP
           address and a randomised identifier) on our behalf as a data processor. It helps us improve
           the site; it is not used to identify you personally, and we don't sell any data.
         </li>
         <li>
           <strong>Emails you send us.</strong> If you email us, we keep your message and address for as
-          long as needed to deal with your query. There's no contact form and no newsletter — we don't
+          long as needed to deal with your query. There's no contact form and no newsletter, we don't
           collect email addresses to market to you.
         </li>
       </ul>
@@ -65,7 +65,7 @@ export default function Privacy() {
 
       <h2>Your rights</h2>
       <p>
-        Under UK data protection law you have rights over any personal data held about you — including
+        Under UK data protection law you have rights over any personal data held about you, including
         the right to access it, correct it, ask for it to be deleted, object to processing, and
         withdraw consent for analytics at any time. To exercise these rights, email us at the address
         above. You also have the right to complain to the Information Commissioner's Office (ICO) at{' '}

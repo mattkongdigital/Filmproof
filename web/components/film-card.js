@@ -35,6 +35,6 @@ export function FilmCard({ film, hidden = false }) {
 }
 
 export function FilmGrid({ films }) {
-  if (!films.length) return <p className="empty">No film here yet — check back once more shops are added.</p>;
+  if (!films.length) return <p className="empty">No film here yet, check back once more shops are added.</p>;
   return <div className="grid">{films.map((f) => <FilmCard key={f.slug} film={f} />)}</div>;
 }
