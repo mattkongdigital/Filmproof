@@ -5,8 +5,8 @@ import { Breadcrumbs } from '../../components/breadcrumbs';
 
 export function generateMetadata() {
   return {
-    title: 'Film by brand — never run out, UK stock & prices',
-    description: 'Browse every film brand we track — Kodak, Ilford, Fujifilm, CineStill and more — so you always know where to restock.',
+    title: 'Film by brand | Never run out, UK stock & prices',
+    description: 'Browse every film brand we track, Kodak, Ilford, Fujifilm, CineStill and more, so you always know where to restock.',
     alternates: { canonical: `${SITE_URL}/brands` },
   };
 }

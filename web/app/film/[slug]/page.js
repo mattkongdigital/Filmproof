@@ -15,7 +15,7 @@ export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
   if (!film) return { title: 'Film not found' };
   return {
-    title: `${film.display} — in stock across UK shops`,
+    title: `${film.display} | In stock across UK shops`,
     description: `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`,
   };
 }

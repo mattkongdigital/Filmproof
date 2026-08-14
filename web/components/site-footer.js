@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="foot-note">
         Prices are shop list prices per roll, with multipacks divided out. Loyalty points,
         basket and checkout discounts, and delivery are not included. Prices update daily and
-        may be out of date — always confirm on the shop's own page before buying.{' '}
+        may be out of date, always confirm on the shop's own page before buying.{' '}
         <Link href="/how-it-works">How it works →</Link>
       </div>
       <nav className="foot-links">
@@ -21,7 +21,7 @@ export function SiteFooter() {
         <CookieSettingsLink />
       </nav>
       <div className="foot-legal">
-        © {year} Filmproof. An independent film stock &amp; price tracker — not affiliated with any retailer or manufacturer.
+        © {year} Filmproof. An independent film stock &amp; price tracker, not affiliated with any retailer or manufacturer.
       </div>
     </footer>
   );

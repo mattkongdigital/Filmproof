@@ -18,10 +18,10 @@ export default function Home() {
   return (
     <div className="wrap">
       <header className="masthead">
-        <div className="eyebrow">Film stock tracker — United Kingdom</div>
+        <div className="eyebrow">Film stock tracker, United Kingdom</div>
         <h1>Never run out<br />of <em>film.</em></h1>
         <p className="lede">
-          Filmproof tracks film across UK shops — so you can see what&apos;s in stock, compare
+          Filmproof tracks film across UK shops, so you can see what&apos;s in stock, compare
           prices per roll, and restock in seconds.
         </p>
         <div className="meter">

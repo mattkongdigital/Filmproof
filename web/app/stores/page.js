@@ -6,8 +6,8 @@ import { Breadcrumbs } from '../../components/breadcrumbs';
 
 export function generateMetadata() {
   return {
-    title: 'Film shops we track — UK',
-    description: 'The UK film shops and labs we track — independent stores, labs and camera specialists, with live stock and prices per roll.',
+    title: 'Film shops we track | UK',
+    description: 'The UK film shops and labs we track, independent stores, labs and camera specialists, with live stock and prices per roll.',
     alternates: { canonical: `${SITE_URL}/stores` },
   };
 }

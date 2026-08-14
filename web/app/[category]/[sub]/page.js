@@ -13,7 +13,7 @@ export function generateMetadata({ params }) {
   const combo = resolveCombo(params.category, params.sub);
   if (!combo) return {};
   return {
-    title: `${cap(combo.heading)} — never run out, UK stock & prices`,
+    title: `${cap(combo.heading)} | Never run out, UK stock & prices`,
     description: `Find ${combo.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/${params.category}/${params.sub}` },
   };

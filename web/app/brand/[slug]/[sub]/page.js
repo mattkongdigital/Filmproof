@@ -15,7 +15,7 @@ export function generateMetadata({ params }) {
   const r = resolveBrandSub(params.slug, params.sub);
   if (!r) return { title: 'Not found' };
   return {
-    title: `${cap(r.heading)} — never run out, UK stock & prices`,
+    title: `${cap(r.heading)} | Never run out, UK stock & prices`,
     description: `Find ${r.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/brand/${params.slug}/${params.sub}` },
   };

@@ -61,7 +61,7 @@ export function FilmBrowser({ films, hideAxes = [] }) {
   const end = start + PER_PAGE;
 
   if (!films.length) {
-    return <p className="empty">No film here yet — check back once more shops are added.</p>;
+    return <p className="empty">No film here yet, check back once more shops are added.</p>;
   }
 
   const active = iso.size || fmt.size || typ.size || inStock;
