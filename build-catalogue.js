@@ -234,6 +234,18 @@ async function run() {
     for (const f of brandFilms) dbg(`FINAL ${f.image ? 'HAS-IMAGE ' : 'NO-IMAGE  '} | ${f.display} | key=${f.key} | ${f.image || ''}`);
   }
 
+  // Safety: a real build pulls hundreds of films from live shops. A catalogue
+  // this small means live fetches failed and we silently fell back to the
+  // tiny sample fixtures — refuse to publish that as if it were real data.
+  if (!OFFLINE && catalogue.length < 100) {
+    console.error(
+      `ERROR: only ${catalogue.length} films found (expected 100+). Live fetches appear to have failed, ` +
+      `and this build is refusing to publish sample data as if it were real. ` +
+      `Set FILMPROOF_OFFLINE=1 if a sample-only build is intentional.`
+    );
+    process.exit(1);
+  }
+
   mkdirSync('./data', { recursive: true });
   writeFileSync('./data/catalogue.json', JSON.stringify(catalogue, null, 2));
   writeFileSync('./data/catalogue-unidentified.txt', [...unidentified].sort().join('\n'));

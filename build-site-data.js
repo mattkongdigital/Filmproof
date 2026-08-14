@@ -23,6 +23,9 @@ const filmish = (o) =>
   (o.tags || []).some((t) => /film|35mm|120/i.test(t)) ||
   /\b(35\s?mm|135|120|110|127|instant)\b/i.test(o.title || '');
 
+// Returns { offers, live }. `live` is true only when the offers actually came
+// from a live network fetch just now — the plausibility guard in run() needs
+// this to tell "shops are really down" apart from "sample fallback".
 async function resolveOffers(src) {
   try {
     if (src.kind === 'shopify') {
@@ -31,24 +34,25 @@ async function resolveOffers(src) {
           const products = await fetchAllProducts(src.baseUrl);
           const offers = productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl }).filter(filmish);
           console.log(`  ${src.retailer}: live — ${offers.length} film offers`);
-          return offers;
+          return { offers, live: true };
         } catch (e) {
           console.warn(`  ${src.retailer}: live fetch failed (${e.message}); using sample`);
         }
       }
       if (src.sample) {
         const products = JSON.parse(readFileSync(src.sample, 'utf8')).products;
-        return productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl || 'https://example.com' }).filter(filmish);
+        const offers = productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl || 'https://example.com' }).filter(filmish);
+        return { offers, live: false };
       }
-      return [];
+      return { offers: [], live: false };
     }
     // Feed-based shops each get their own adapter; sample-backed for now.
-    if (src.kind === 'xml') return loadWex(src.sample);
-    if (src.kind === 'csv') return loadNikTrick(src.sample);
-    return [];
+    if (src.kind === 'xml') return { offers: loadWex(src.sample), live: false };
+    if (src.kind === 'csv') return { offers: loadNikTrick(src.sample), live: false };
+    return { offers: [], live: false };
   } catch (e) {
     console.warn(`  ${src.retailer}: source error (${e.message}); skipping`);
-    return [];
+    return { offers: [], live: false };
   }
 }
 
@@ -57,7 +61,12 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
 async function run() {
   console.log(`Resolving ${SOURCES.length} sources${OFFLINE ? ' (offline mode)' : ''}...`);
   const offers = [];
-  for (const src of SOURCES) offers.push(...(await resolveOffers(src)));
+  let liveSourceCount = 0;
+  for (const src of SOURCES) {
+    const { offers: srcOffers, live } = await resolveOffers(src);
+    offers.push(...srcOffers);
+    if (live && srcOffers.length > 0) liveSourceCount++;
+  }
 
   const byFilm = new Map(FILMS.map((f) => [f.id, []]));
   for (const raw of offers) {
@@ -97,6 +106,21 @@ async function run() {
   // Safety: never publish an empty catalogue (e.g. if every source failed).
   if (site.length === 0) {
     throw new Error('No films matched from any source — refusing to write an empty site.');
+  }
+
+  // Safety: a real build has hundreds of films with offers from several live
+  // shops. If live fetches are blocked (network policy, shop downtime, etc.)
+  // every source silently falls back to its tiny sample fixture, matching
+  // still "succeeds", and this would otherwise exit 0 — deploying a near-empty
+  // site as if it were a real build. Refuse to publish that.
+  if (!OFFLINE && (site.length < 100 || liveSourceCount < 2)) {
+    console.error(
+      `ERROR: build looks like a live-fetch failure, not a real catalogue ` +
+      `(${site.length} films, ${liveSourceCount} sources with live offers; expected 100+ films from 2+ live sources). ` +
+      `Refusing to publish sample data as if it were real. ` +
+      `Set FILMPROOF_OFFLINE=1 if a sample-only build is intentional.`
+    );
+    process.exit(1);
   }
 
   mkdirSync('./web/data', { recursive: true });
