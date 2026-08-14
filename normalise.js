@@ -96,6 +96,11 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bfp\s?4(?:\s*plus)?\b/g, 'fp4plus')
     .replace(/\bpan\s?f(?:\s*plus)?\b/g, 'panfplus')
     .replace(/\bgold\s+gb\b/g, 'gold')          // GB is a factory code — same film
+    // Some shops glue the ISO onto the line name ("SFX200"). We can't split
+    // digits off *any* line name — plenty (Tri-X, HP5, T-Max, 3200) are
+    // legitimately alphanumeric — so this only fires for known line names,
+    // turning "SFX200" into "SFX 200" so the ISO parses out normally.
+    .replace(/\b(sfx|delta|ortho|superpan|acros|velvia|provia|portra|ektar|gold|colou?rplus|ultramax|proimage|superia|fomapan|kentmere)\s*(\d{2,4})\b/g, '$1 $2')
     .replace(/[^a-z0-9 ]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
