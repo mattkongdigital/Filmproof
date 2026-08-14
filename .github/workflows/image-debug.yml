@@ -1,0 +1,123 @@
+name: Image debug (manual)
+
+# Manual only — press "Run workflow" in the Actions tab. This exists because
+# the CineStill image diagnostic in build-catalogue.js needs live shop data,
+# and the shops are unreachable from some environments. Actions can reach them,
+# so the build runs here and the diagnostic is written to the run summary,
+# where it is readable on a phone without opening the logs.
+#
+# The diagnostic itself is FILMPROOF_IMAGE_DEBUG in build-catalogue.js: for
+# every film whose detected brand is cinestill it writes one stderr line giving
+# the shop, the product title, how many images the product had, the first image
+# URL, and whether looksUnsuitable rejected it and which pattern matched.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  # A real live build pulls well over this many films. Anything less means the
+  # retailer fetches fell back to the bundled samples — same threshold as
+  # image-audit.yml. Unlike the audit, a low count is reported and not fatal:
+  # the diagnostic output is still worth reading, it just isn't live data.
+  MIN_FILMS: 100
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Root has no dependencies, so nothing to install (same as image-audit.yml).
+      - name: Build catalogue with image debug
+        env:
+          FILMPROOF_IMAGE_DEBUG: '1'
+        run: |
+          # stdout carries the per-source counts, stderr carries the diagnostic
+          # (and any "live fetch failed" warnings). Keep them apart so the
+          # summary can show the counts as evidence the build was real.
+          status=0
+          node build-catalogue.js >build.out 2>build.err || status=$?
+
+          # "  Analogue Wonderland: +123 new films"
+          counts=$(grep -E ': \+[0-9]+ new films' build.out || true)
+          # "Catalogue: 456 unique films (from 789 film items)."
+          total_line=$(grep -E '^Catalogue: [0-9]+ unique films' build.out | tail -n 1 || true)
+          films=$(sed -nE 's/^Catalogue: ([0-9]+) unique films.*/\1/p' <<<"$total_line")
+          failures=$(grep -E 'live fetch failed' build.err || true)
+          # The diagnostic prefixes every line it writes, so filtering on it
+          # keeps unrelated stderr noise out of the CineStill block. Kept in a
+          # file rather than a variable: the block below feeds it to head, and
+          # piping a large variable into head trips pipefail on SIGPIPE.
+          grep -F '[image-debug]' build.err >debug.log || true
+          debug_lines=$(wc -l <debug.log)
+
+          {
+            echo "## CineStill image debug"
+            echo
+            if [ -n "$counts" ]; then
+              echo "### Films per source"
+              echo
+              echo '```'
+              echo "$counts" | sed -E 's/^[[:space:]]+//'
+              if [ -n "$total_line" ]; then echo "$total_line"; fi
+              echo '```'
+            else
+              echo "### :x: No per-source counts"
+              echo
+              echo "\`build-catalogue.js\` reported no per-source film counts, so there is"
+              echo "no way to confirm the build was real. Treat anything below with suspicion."
+            fi
+
+            if [ -n "$failures" ]; then
+              echo
+              echo "### :warning: Live fetches that failed"
+              echo
+              echo '```'
+              echo "$failures" | sed -E 's/^[[:space:]]+//'
+              echo '```'
+            fi
+
+            if [[ "$films" =~ ^[0-9]+$ ]] && [ "$films" -lt "$MIN_FILMS" ]; then
+              echo
+              echo "### :warning: This is probably not live data"
+              echo
+              echo "Only **$films films** were built, against an expected minimum of"
+              echo "**$MIN_FILMS**. The live retailer fetches have most likely failed and the"
+              echo "build has fallen back to the bundled sample data, so the lines below"
+              echo "describe the samples rather than the real catalogue."
+            fi
+
+            echo
+            echo "### CineStill lines"
+            echo
+            if [ "$debug_lines" -gt 0 ]; then
+              # The summary file has a size limit, and a bad run could print a
+              # lot. Cap it and say so rather than losing the whole block.
+              echo '```'
+              head -n 500 debug.log
+              echo '```'
+              if [ "$debug_lines" -gt 500 ]; then
+                echo
+                echo "_Truncated: $debug_lines lines in total, first 500 shown. Full output is in the step log._"
+              fi
+            else
+              echo '```'
+              echo "(no CineStill lines — the diagnostic produced no output)"
+              echo '```'
+              echo
+              echo "Either no product's detected brand was \`cinestill\`, or the build failed"
+              echo "before reaching them. Check the step log."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$status" -ne 0 ]; then
+            echo "::error::build-catalogue.js exited with status $status — see the run summary and the log above."
+            cat build.err
+            exit "$status"
+          fi
