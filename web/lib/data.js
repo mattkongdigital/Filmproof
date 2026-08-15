@@ -34,6 +34,7 @@ const BRAND_LABELS = {
   washi: 'Film Washi', flic: 'Flic Film', kono: 'KONO', dragonfilm: 'Dragon Film',
   cinemot: 'CineMot', streetcandy: 'Street Candy', hanalogital: 'Hanalogital',
   kameratori: 'Kameratori', mrnegative: 'Mr Negative', reflx: 'Reflx Lab', rera: 'Rera',
+  fpp: 'FPP',
 };
 
 export const brandLabel = (slug) =>
