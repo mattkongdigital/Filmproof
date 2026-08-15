@@ -4,6 +4,7 @@ import { brandList, filmsFor, subFacetsForBrand } from '../../../lib/facets';
 import { FilmBrowser } from '../../../components/film-browser';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { SITE_URL, brandLabel } from '../../../lib/data';
+import { getBrandContent } from '../../../lib/brand-content';
 
 export function generateStaticParams() {
   return brandList().map((b) => ({ slug: b.slug }));
@@ -11,9 +12,10 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const label = brandLabel(params.slug);
+  const content = getBrandContent(params.slug);
   return {
     title: `${label} film | Never run out, UK stock & prices`,
-    description: `Find ${label} film in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
+    description: content ? content.intro : `Find ${label} film in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/brand/${params.slug}` },
   };
 }
@@ -23,6 +25,7 @@ export default function BrandPage({ params }) {
   if (!known) notFound();
 
   const label = brandLabel(params.slug);
+  const content = getBrandContent(params.slug);
   const films = filmsFor((f) => f.brand === params.slug);
   const subFacets = subFacetsForBrand(params.slug);
   const formatFacets = subFacets.filter((s) => s.kind === 'format');
@@ -39,8 +42,12 @@ export default function BrandPage({ params }) {
         <div className="eyebrow">By brand</div>
         <h1>{label} film</h1>
         <p className="lede">
-          Every {label} stock we track, in stock across UK shops, with live prices per roll.
-          {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+          {content ? content.intro : (
+            <>
+              Every {label} stock we track, in stock across UK shops, with live prices per roll.
+              {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+            </>
+          )}
         </p>
       </header>
 
@@ -79,6 +86,20 @@ export default function BrandPage({ params }) {
       )}
 
       <FilmBrowser films={films} hideAxes={['typ','fmt']} />
+
+      {content && (
+        <div className="brand-about">
+          <h2 className="store-films-head">About {label}</h2>
+          {content.sections.map((section) => (
+            <div key={section.heading}>
+              <h3 className="brand-about-heading">{section.heading}</h3>
+              {section.paragraphs.map((paragraph, i) => (
+                <p key={i} className="brand-about-p">{paragraph}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
 
     </div>
   );
