@@ -44,7 +44,7 @@ export default function ComboPage({ params }) {
         </p>
       </header>
 
-      <FilmBrowser films={films} />
+      <FilmBrowser films={films} hideAxes={['typ', 'fmt']} />
 
     </div>
   );
