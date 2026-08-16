@@ -14,8 +14,8 @@ export function generateMetadata({ params }) {
   const label = brandLabel(params.slug);
   const content = getBrandContent(params.slug);
   return {
-    title: `${label} film | Never run out, UK stock & prices`,
-    description: content ? content.intro : `Find ${label} film in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
+    title: content?.meta?.title || `${label} film | Never run out, UK stock & prices`,
+    description: content?.meta?.description || (content ? content.intro : `Find ${label} film in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`),
     alternates: { canonical: `${SITE_URL}/brand/${params.slug}` },
   };
 }

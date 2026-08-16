@@ -1,5 +1,6 @@
 export const BRAND_CONTENT = {
   kodak: {
+    meta: { title: 'Kodak Film Prices UK | Compare & Buy', description: 'Compare Kodak film prices from UK retailers on Filmproof. Gold, Portra, Ektar, Tri-X and more, find the best deal on 35mm and 120 rolls.' },
     intro: "Kodak is the world's most recognisable name in camera film, trusted by photographers for well over a century. From the warm, punchy tones of Kodak Gold to the soft, true-to-life colours of Portra, Kodak's 35mm and 120 film ranges suit everything from everyday snapshots to professional portrait and wedding work. Compare Kodak film prices from UK retailers on Filmproof and find the best deal on your next roll.",
     sections: [
       { heading: "The History of Kodak", paragraphs: [
@@ -19,6 +20,7 @@ export const BRAND_CONTENT = {
     ],
   },
   fujifilm: {
+    meta: { title: 'Fujifilm Film Prices UK | Compare', description: 'Compare Fujifilm film prices from UK retailers on Filmproof. C200, Superia X-Tra, Velvia, Provia and Acros II, find the best deal today.' },
     intro: "Fujifilm has been shaping the look of colour photography since the 1930s, known for its vivid greens, punchy contrast and dependable everyday film stocks. Whether you're after the affordable Fujicolor C200 or the legendary slide film Velvia, Fujifilm's film ranges offer a distinctly different palette to Kodak's. Compare Fujifilm film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "The History of Fujifilm", paragraphs: [
@@ -37,6 +39,7 @@ export const BRAND_CONTENT = {
     ],
   },
   ilford: {
+    meta: { title: 'Ilford Film Prices UK | Compare & Buy', description: 'Compare Ilford black and white film prices from UK retailers on Filmproof. HP5 Plus, FP4 Plus, Delta, XP2 Super and more in one place.' },
     intro: "Ilford Photo is Britain's own black and white film specialist, manufacturing continuously in Mobberley, Cheshire since the nineteenth century. From the classic grain of HP5 Plus to the ultra-fine detail of Delta 100, Ilford film is a mainstay for street, documentary and fine art photographers around the world. Compare Ilford film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "The History of Ilford Photo", paragraphs: [
@@ -55,6 +58,7 @@ export const BRAND_CONTENT = {
     ],
   },
   agfa: {
+    meta: { title: 'AgfaPhoto Vista Film Prices UK | Compare', description: 'Compare AgfaPhoto Vista Plus film prices from UK retailers on Filmproof. Affordable, punchy colour film for everyday photography.' },
     intro: "Agfa is one of the oldest names in photography, with roots stretching back to 1867. Today the AgfaPhoto brand lives on through the hugely popular Vista Plus range, an affordable, vibrant colour negative film loved for its punchy saturation and budget-friendly price. Compare AgfaPhoto Vista prices from UK retailers on Filmproof.",
     sections: [
       { heading: "The History of Agfa", paragraphs: [
@@ -72,6 +76,7 @@ export const BRAND_CONTENT = {
     ],
   },
   lomography: {
+    meta: { title: 'Lomography Film Prices UK | Compare', description: 'Compare Lomography film prices from UK retailers on Filmproof. Color Negative, LomoChrome Purple, Turquoise, Metropolis and more.' },
     intro: "Lomography began as a movement built around a cult Soviet-era camera and grew into a full range of experimental, colour-shifting camera film. Known for bold saturation, unpredictable colour casts and creative redscale and infrared-style effects, Lomography film is a favourite for photographers who want something different from the everyday. Compare Lomography film prices on Filmproof.",
     sections: [
       { heading: "The History of Lomography", paragraphs: [
@@ -88,6 +93,7 @@ export const BRAND_CONTENT = {
     ],
   },
   cinestill: {
+    meta: { title: 'CineStill Film Prices UK | Compare', description: 'Compare CineStill film prices from UK retailers on Filmproof. 800T, 50D, 400D and BwXX, genuine motion picture film for stills.' },
     intro: "CineStill takes genuine Hollywood motion picture film stock and adapts it for still cameras, giving photographers access to the same film used on movie sets. Best known for the glowing halation and cinematic tungsten colours of 800T, CineStill film has become a cult favourite for night photography and moody, film-look portraits. Compare CineStill film prices on Filmproof.",
     sections: [
       { heading: "The History of CineStill", paragraphs: [
@@ -104,6 +110,7 @@ export const BRAND_CONTENT = {
     ],
   },
   rollei: {
+    meta: { title: 'Rollei Film Prices UK | Compare & Buy', description: 'Compare Rollei film prices from UK retailers on Filmproof. RPX, Retro, Superpan, Infrared and Digibase CN200, all in one place.' },
     intro: "Rollei is a legendary name in German camera history, and its film range today continues that heritage with a distinctive collection of black and white and specialist films. From the sharp, high-contrast RPX range to creative infrared and superpan stocks, Rollei film offers something a little different for experimental photographers. Compare Rollei film prices on Filmproof.",
     sections: [
       { heading: "The History of Rollei", paragraphs: [
@@ -120,6 +127,7 @@ export const BRAND_CONTENT = {
     ],
   },
   kentmere: {
+    meta: { title: 'Kentmere Film Prices UK | Compare', description: 'Compare Kentmere black and white film prices from UK retailers on Filmproof. Affordable Pan 100, 200 and 400 from the makers of Ilford.' },
     intro: "Kentmere is the budget-friendly black and white film range from Harman Technology, the makers of Ilford film. Manufactured in the same Mobberley, Cheshire factory as Ilford's professional stocks, Kentmere offers a genuinely affordable way into black and white photography without compromising on quality. Compare Kentmere film prices on Filmproof.",
     sections: [
       { heading: "The History of Kentmere", paragraphs: [
@@ -136,6 +144,7 @@ export const BRAND_CONTENT = {
     ],
   },
   foma: {
+    meta: { title: 'Fomapan Film Prices UK | Compare', description: 'Compare Fomapan film prices from UK retailers on Filmproof. Classic, Creative and Action stocks from Czech manufacturer Foma.' },
     intro: "Fomapan is the classic black and white film range from Foma, a family-run manufacturer based in the Czech Republic with roots stretching back over a century. Loved for its traditional grain structure and budget-friendly pricing, Fomapan is a favourite among film photographers who enjoy bulk rolling and experimental darkroom work. Compare Fomapan prices on Filmproof.",
     sections: [
       { heading: "The History of Fomapan", paragraphs: [
@@ -152,6 +161,7 @@ export const BRAND_CONTENT = {
     ],
   },
   fpp: {
+    meta: { title: 'FPP Film Prices UK | Compare', description: 'Compare Film Photography Project (FPP) film prices from UK retailers on Filmproof. Dracula 64, Frankenstein 200 and more rare stocks.' },
     intro: "The Film Photography Project (FPP) is a US-based film photography community and store known for rescuing and repackaging rare, unusual film stocks under quirky horror-movie-inspired names. From Dracula 64 to Frankenstein 200, FPP film is a favourite for photographers who love a bit of unpredictable, experimental character. Compare FPP film prices on Filmproof.",
     sections: [
       { heading: "The Story of FPP", paragraphs: [
@@ -168,6 +178,7 @@ export const BRAND_CONTENT = {
     ],
   },
   washi: {
+    meta: { title: 'Washi Film Prices UK | Compare', description: 'Compare Washi Film prices from UK retailers on Filmproof. Hand-coated paper-based film and unique X-ray and infrared stocks from France.' },
     intro: "Washi Film is a small, hands-on French film brand known for genuinely unusual stocks, including black and white film hand-coated onto Japanese paper and creative emulsions repurposed from X-ray and surveillance film. Washi film rewards photographers looking for something truly different from the mainstream. Compare Washi film prices on Filmproof.",
     sections: [
       { heading: "The Story of Washi Film", paragraphs: [
@@ -184,6 +195,7 @@ export const BRAND_CONTENT = {
     ],
   },
   mrnegative: {
+    meta: { title: 'Mr Negative Film Prices UK | Compare', description: 'Compare Mr Negative film prices from UK retailers on Filmproof. Bold, boldly-named 35mm colour and black and white film from Australia.' },
     intro: "Mr Negative is a small, design-led Australian film brand known for bold, provocative packaging and a huge catalogue of creatively named 35mm colour and black and white stocks. It's a young brand built on personality and presentation as much as photographic pedigree. Compare Mr Negative film prices on Filmproof.",
     sections: [
       { heading: "The Story of Mr Negative", paragraphs: [
@@ -199,6 +211,7 @@ export const BRAND_CONTENT = {
     ],
   },
   revolog: {
+    meta: { title: 'Revolog Film Prices UK | Compare', description: 'Compare Revolog film prices from UK retailers on Filmproof. Handmade special-effect film with built-in colour streaks and light leaks.' },
     intro: "Revolog is an Austrian film brand famous for baking special effects, lightning bolts, colour streaks, starfields and light leaks, directly into the film itself, so the effect appears in-camera with no editing required. Handmade in Vienna, Revolog film is a favourite for photographers chasing bold, unrepeatable creative effects. Compare Revolog film prices on Filmproof.",
     sections: [
       { heading: "The Story of Revolog", paragraphs: [
@@ -215,6 +228,7 @@ export const BRAND_CONTENT = {
     ],
   },
   flic: {
+    meta: { title: 'Flic Film Prices UK | Compare', description: 'Compare Flic Film prices from UK retailers on Filmproof. Respooled Kodak Cine, XX-250, Chrome 100 and UltraPan from Canada.' },
     intro: "Flic Film is a Canadian company built around film photography chemistry and curated, respooled cinema film stock, offering photographers access to genuine Kodak motion picture emulsions in easy-to-shoot 35mm and 120 formats. Compare Flic Film prices on Filmproof.",
     sections: [
       { heading: "The Story of Flic Film", paragraphs: [
@@ -231,6 +245,7 @@ export const BRAND_CONTENT = {
     ],
   },
   lucky: {
+    meta: { title: 'Lucky Film Prices UK | Compare', description: 'Compare Lucky Film prices from UK retailers on Filmproof. SHD 100 and 400 black and white film from China\'s last major film factory.' },
     intro: "Lucky Film is a Chinese film manufacturer based in Baoding, and one of the last surviving traditional film factories in the country. Known for its affordable SHD black and white film, Lucky offers a genuinely manufactured alternative to the more familiar Western and Japanese brands. Compare Lucky Film prices on Filmproof.",
     sections: [
       { heading: "The History of Lucky Film", paragraphs: [
@@ -246,6 +261,7 @@ export const BRAND_CONTENT = {
     ],
   },
   polaroid: {
+    meta: { title: 'Polaroid Film Prices UK | Compare', description: 'Compare Polaroid instant film prices from UK retailers on Filmproof. i-Type, 600, SX-70 and Go film for every Polaroid camera.' },
     intro: "Polaroid invented instant photography and remains the definitive name in the format today, manufacturing genuine instant film at its historic factory in the Netherlands. From classic 600 and SX-70 film to the modern i-Type range, Polaroid film delivers real chemical instant prints in minutes. Compare Polaroid film prices on Filmproof.",
     sections: [
       { heading: "The History of Polaroid", paragraphs: [
@@ -262,6 +278,7 @@ export const BRAND_CONTENT = {
     ],
   },
   reto: {
+    meta: { title: 'Reto Film Prices UK | Compare', description: 'Compare Reto Retocolor film prices from UK retailers on Filmproof. Prism, Glow, Aqua and Mosaic, playful 35mm colour film.' },
     intro: "Reto is a Hong Kong-based camera and film company known for playful, colourful film cameras and its own-branded Retocolor 35mm film range. It's a design-forward brand aimed at bringing new photographers into film. Compare Reto film prices on Filmproof.",
     sections: [
       { heading: "The Story of Reto", paragraphs: [
@@ -277,6 +294,7 @@ export const BRAND_CONTENT = {
     ],
   },
   cinemot: {
+    meta: { title: 'CineMot Film Prices UK | Compare', description: 'Compare CineMot film prices from UK retailers on Filmproof. Respooled 35mm film named after Portuguese places, in recycled canisters.' },
     intro: "CineMot is a small Portuguese film brand from Porto, respooling and repackaging film stock into recycled canisters named after Portuguese places and culture. It's a sustainability-minded, character-led brand for photographers who enjoy a story behind their film. Compare CineMot film prices on Filmproof.",
     sections: [
       { heading: "The Story of CineMot", paragraphs: [
@@ -292,6 +310,7 @@ export const BRAND_CONTENT = {
     ],
   },
   harman: {
+    meta: { title: 'Harman Phoenix Film Prices UK | Compare', description: 'Compare Harman Phoenix 200 film prices from UK retailers on Filmproof. Ilford\'s first ever colour film, bold and experimental.' },
     intro: "Harman is the name behind Ilford Photo and Kentmere film, and also its own standalone colour film, Harman Phoenix 200, the first colour film ever produced at the historic Mobberley, Cheshire factory. Compare Harman Phoenix film prices on Filmproof.",
     sections: [
       { heading: "The History of Harman", paragraphs: [
@@ -307,6 +326,7 @@ export const BRAND_CONTENT = {
     ],
   },
   hanalogital: {
+    meta: { title: 'Hanalogital Film Prices UK | Compare', description: 'Compare Hanalogital film prices from UK retailers on Filmproof. Hand-souped 35mm colour film with unique shifts and light leaks.' },
     intro: "Hanalogital is a small, one-person German brand known for hand-souped and pre-exposed 35mm colour film, each roll treated by hand to create unique colour shifts and light-leak effects. Compare Hanalogital film prices on Filmproof.",
     sections: [
       { heading: "The Story of Hanalogital", paragraphs: [
@@ -322,6 +342,7 @@ export const BRAND_CONTENT = {
     ],
   },
   streetcandy: {
+    meta: { title: 'Street Candy Film Prices UK | Compare', description: 'Compare Street Candy film prices from UK retailers on Filmproof. MTN100 and ATM400, distinctive black and white street photography film.' },
     intro: "Street Candy is an independent black and white film brand best known for repurposing unusual surplus film stock, including motion picture film, into distinctive high-contrast rolls for street photographers. Compare Street Candy film prices on Filmproof.",
     sections: [
       { heading: "The Story of Street Candy", paragraphs: [
@@ -337,6 +358,7 @@ export const BRAND_CONTENT = {
     ],
   },
   adox: {
+    meta: { title: 'Adox Film Prices UK | Compare & Buy', description: 'Compare Adox film prices from UK retailers on Filmproof. CHS 100 II, Silvermax and Scala, genuine German-made black and white film.' },
     intro: "Adox is a genuine German film manufacturer with roots stretching back to 1860, reborn in the 2000s and still coating its own black and white emulsions today. From the classic tones of CHS 100 II to the true reversal film Scala, Adox offers real manufacturing pedigree. Compare Adox film prices on Filmproof.",
     sections: [
       { heading: "The History of Adox", paragraphs: [
@@ -352,6 +374,7 @@ export const BRAND_CONTENT = {
     ],
   },
   candido: {
+    meta: { title: 'Candido Film Prices UK | Compare', description: 'Compare Candido Collective film prices from UK retailers on Filmproof. Kodak Vision3-based 35mm colour film with a cinematic glow.' },
     intro: "Candido Collective is a London-based film brand offering Kodak Vision3 motion picture film with the remjet layer removed for easy home or lab processing, giving photographers a CineStill-style glow at a more accessible price. Compare Candido film prices on Filmproof.",
     sections: [
       { heading: "The Story of Candido", paragraphs: [
@@ -367,6 +390,7 @@ export const BRAND_CONTENT = {
     ],
   },
   catlabs: {
+    meta: { title: 'CatLABS Film Prices UK | Compare', description: 'Compare CatLABS film prices from UK retailers on Filmproof. X Film 80, X Film 100 and X Pan 320 Pro for large and medium format.' },
     intro: "CatLABS is a US-based film and darkroom specialist offering its own X Film range of fine-grain black and white and colour negative stocks, alongside a wide selection of major film brands. Compare CatLABS film prices on Filmproof.",
     sections: [
       { heading: "The Story of CatLABS", paragraphs: [
@@ -382,6 +406,7 @@ export const BRAND_CONTENT = {
     ],
   },
   rera: {
+    meta: { title: 'Rera Pan Film Prices UK | Compare', description: 'Compare Rera Pan film prices from UK retailers on Filmproof. Black and white 127 format film for vintage box cameras and TLRs.' },
     intro: "Rera Pan is a niche black and white film best known for keeping the increasingly rare 127 roll film format alive, making it a go-to choice for owners of vintage box cameras and TLRs. Compare Rera Pan film prices on Filmproof.",
     sections: [
       { heading: "The Story of Rera Pan", paragraphs: [
@@ -396,6 +421,7 @@ export const BRAND_CONTENT = {
     ],
   },
   bergger: {
+    meta: { title: 'Bergger Film Prices UK | Compare', description: 'Compare Bergger film prices from UK retailers on Filmproof. Pancro 400, dual-emulsion black and white film with wide exposure latitude.' },
     intro: "Bergger is a French photographic brand known for Pancro 400, a distinctive dual-emulsion black and white film with unusually wide exposure latitude, produced in partnership with a specialist German coating facility. Compare Bergger film prices on Filmproof.",
     sections: [
       { heading: "The History of Bergger", paragraphs: [
@@ -411,6 +437,7 @@ export const BRAND_CONTENT = {
     ],
   },
   dubblefilm: {
+    meta: { title: 'dubblefilm Prices UK | Compare', description: 'Compare dubblefilm prices from UK retailers on Filmproof. Solar, Bubblegum, Jelly and Glitch, creative, pre-treated 35mm film.' },
     intro: "dubblefilm is a youthful, creative colour film brand offering pre-treated, special-effect 35mm stocks designed for a distinctive lo-fi, light-leak aesthetic. Compare dubblefilm prices on Filmproof.",
     sections: [
       { heading: "The Story of dubblefilm", paragraphs: [
@@ -426,6 +453,7 @@ export const BRAND_CONTENT = {
     ],
   },
   filmneverdie: {
+    meta: { title: 'FilmNeverDie Film Prices UK | Compare', description: 'Compare FilmNeverDie film prices from UK retailers on Filmproof. Chameleon 100, UMI 800 and more boldly packaged colour film.' },
     intro: "FilmNeverDie is a Melbourne-based film retailer and lab known for its own line of boldly packaged, creatively branded colour films alongside a huge range of major film brands. Compare FilmNeverDie prices on Filmproof.",
     sections: [
       { heading: "The Story of FilmNeverDie", paragraphs: [
@@ -441,6 +469,7 @@ export const BRAND_CONTENT = {
     ],
   },
   silbersalz: {
+    meta: { title: 'Silbersalz35 Film Prices UK | Compare', description: 'Compare Silbersalz35 film prices from UK retailers on Filmproof. Genuine respooled Kodak Vision3 cinema film for stills photography.' },
     intro: "Silbersalz35 respools genuine, unaltered Kodak motion picture film into ready-to-shoot 35mm cassettes, giving photographers legitimate access to true cinema-grade Kodak emulsions. Compare Silbersalz35 film prices on Filmproof.",
     sections: [
       { heading: "The Story of Silbersalz35", paragraphs: [
@@ -456,6 +485,7 @@ export const BRAND_CONTENT = {
     ],
   },
   ferrania: {
+    meta: { title: 'Ferrania Film Prices UK | Compare', description: 'Compare Film Ferrania prices from UK retailers on Filmproof. P30 Alpha and P33, classic Italian black and white film, back from the brink.' },
     intro: "Film Ferrania is a century-old Italian film manufacturer, closed in 2009 and dramatically revived by fans through crowdfunding. Its P30 film revives a historic 1960s cinema formula once used on classic Italian films. Compare Ferrania film prices on Filmproof.",
     sections: [
       { heading: "The History of Ferrania", paragraphs: [
@@ -471,6 +501,7 @@ export const BRAND_CONTENT = {
     ],
   },
   dragonfilm: {
+    meta: { title: 'Dragon Film Prices UK | Compare', description: 'Compare Dragon Film prices from UK retailers on Filmproof. Hand-respooled, numbered black and white and colour 35mm film.' },
     intro: "Dragon Film is a small UK-based brand that hand-respools interesting, sometimes vintage or expired-style film stock under its own numbered series, aimed at photographers who enjoy an experimental, unpredictable look. Compare Dragon Film prices on Filmproof.",
     sections: [
       { heading: "The Story of Dragon Film", paragraphs: [
@@ -485,6 +516,7 @@ export const BRAND_CONTENT = {
     ],
   },
   jch: {
+    meta: { title: 'JCH StreetPan Film Prices UK | Compare', description: 'Compare Japan Camera Hunter StreetPan 400 prices from UK retailers on Filmproof. Extended red sensitivity for striking street photos.' },
     intro: "Japan Camera Hunter is a Tokyo-based film photography brand best known for StreetPan 400, a revived surveillance-style black and white film with extended red sensitivity, popular with street photographers. Compare Japan Camera Hunter film prices on Filmproof.",
     sections: [
       { heading: "The Story of Japan Camera Hunter", paragraphs: [
@@ -500,6 +532,7 @@ export const BRAND_CONTENT = {
     ],
   },
   kosmofoto: {
+    meta: { title: 'Kosmo Foto Film Prices UK | Compare', description: 'Compare Kosmo Foto film prices from UK retailers on Filmproof. Mono 100 and Agent Shadow 400, Cold War and noir-inspired B&W film.' },
     intro: "Kosmo Foto is a UK film photography brand built from a long-running blog, offering Cold War and film-noir-inspired black and white films including Kosmo Foto Mono and Agent Shadow. Compare Kosmo Foto film prices on Filmproof.",
     sections: [
       { heading: "The Story of Kosmo Foto", paragraphs: [
@@ -515,6 +548,7 @@ export const BRAND_CONTENT = {
     ],
   },
   mira: {
+    meta: { title: 'Mira Film Prices UK | Compare', description: 'Compare Mira film prices from UK retailers on Filmproof. Mira Color 400 and 800, vivid, warm-toned 35mm colour film from Paris.' },
     intro: "Mira is a young French colour film brand founded by two cousins in Paris, offering vivid, warm-toned 35mm film developed through nearly two years of in-house research. Compare Mira film prices on Filmproof.",
     sections: [
       { heading: "The Story of Mira", paragraphs: [
@@ -530,6 +564,7 @@ export const BRAND_CONTENT = {
     ],
   },
   optikoldschool: {
+    meta: { title: 'Optik Oldschool Film Prices UK | Compare', description: 'Compare Optik Oldschool film prices from UK retailers on Filmproof. OptiColour 200 and OptiMono 100 from Germany\'s newest film maker.' },
     intro: "Optik Oldschool is a fast-growing German film brand from Dusseldorf that recently became a genuine film manufacturer after acquiring the historic InovisCoat and FilmoTec coating facilities behind ORWO film. Compare Optik Oldschool film prices on Filmproof.",
     sections: [
       { heading: "The Story of Optik Oldschool", paragraphs: [
@@ -545,6 +580,7 @@ export const BRAND_CONTENT = {
     ],
   },
   orwo: {
+    meta: { title: 'ORWO Film Prices UK | Compare & Buy', description: 'Compare ORWO film prices from UK retailers on Filmproof. Black and white and colour film from the historic Wolfen factory in Germany.' },
     intro: "ORWO is a historic German film manufacturer tracing its roots back over a century to the original Agfa Wolfen factory, and remains one of the very few companies in the world still coating black and white and colour film from scratch. Compare ORWO film prices on Filmproof.",
     sections: [
       { heading: "The History of ORWO", paragraphs: [
@@ -560,6 +596,7 @@ export const BRAND_CONTENT = {
     ],
   },
   yodica: {
+    meta: { title: 'Yodica Film Prices UK | Compare', description: 'Compare Yodica film prices from UK retailers on Filmproof. Handmade, pre-exposed 35mm colour film with bold star-themed effects.' },
     intro: "Yodica is an Italian boutique film brand from Milan, known for handmade, pre-exposed colour films with bold, star-themed colour effects and distinctive vintage-style packaging. Compare Yodica film prices on Filmproof.",
     sections: [
       { heading: "The Story of Yodica", paragraphs: [
@@ -575,6 +612,7 @@ export const BRAND_CONTENT = {
     ],
   },
   analogheld: {
+    meta: { title: 'Analogheld Film Prices UK | Compare', description: 'Compare Analogheld film prices from UK retailers on Filmproof. Curated film subscription boxes and rebranded rolls from Germany.' },
     intro: "Analogheld is a German film subscription and curation brand, offering quarterly boxes of hand-picked film alongside its own rebranded rolls and storage accessories. Compare Analogheld film prices on Filmproof.",
     sections: [
       { heading: "The Story of Analogheld", paragraphs: [
@@ -590,6 +628,7 @@ export const BRAND_CONTENT = {
     ],
   },
   retrospekt: {
+    meta: { title: 'Retrospekt Film Prices UK | Compare', description: 'Compare Retrospekt film prices from UK retailers on Filmproof. Polaroid, Kodak, Fujifilm and Ilford film to pair with restored cameras.' },
     intro: "Retrospekt is a US workshop known for restoring and reselling vintage Polaroid cameras and other retro tech, alongside a curated range of film from major brands including Polaroid, Kodak and Fujifilm. Compare Retrospekt film prices on Filmproof.",
     sections: [
       { heading: "The Story of Retrospekt", paragraphs: [
