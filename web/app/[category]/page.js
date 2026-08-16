@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { resolveCategory, categoryParams, filmsFor, TYPES, FORMATS } from '../../lib/facets';
+import { resolveCategory, categoryParams, filmsFor, TYPES, FORMATS, MIN_COMBO_FILMS } from '../../lib/facets';
 import { FilmBrowser } from '../../components/film-browser';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../lib/data';
@@ -31,7 +31,7 @@ export default function CategoryPage({ params }) {
   const crossLinks = (cat.kind === 'format'
     ? TYPES.map((t) => ({ href: `/${params.category}/${t.short}`, label: t.label, match: (f) => cat.match(f) && t.match(f) }))
     : FORMATS.filter((f) => f.roll).map((f) => ({ href: `/${f.slug}/${slugType(params.category)}`, label: f.label, match: (x) => cat.match(x) && f.match(x) }))
-  ).map((l) => ({ ...l, count: getFilms().filter(l.match).length })).filter((l) => l.count > 0);
+  ).map((l) => ({ ...l, count: getFilms().filter(l.match).length })).filter((l) => l.count >= MIN_COMBO_FILMS);
 
   return (
     <div className="wrap">
