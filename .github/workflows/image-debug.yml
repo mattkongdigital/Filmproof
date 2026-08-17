@@ -33,6 +33,19 @@ jobs:
         with:
           node-version: '20'
 
+      # TEMPORARY: real pipeline run to see exactly which films the site
+      # attributes to Cameras By Max. Reverted once read.
+      - name: Check Cameras By Max matches in real site.json
+        run: |
+          node build-catalogue.js
+          node build-site-data.js
+          node -e "
+            const site = JSON.parse(require('fs').readFileSync('./web/data/site.json', 'utf8'));
+            const films = site.filter(f => (f.offers||[]).some(o => o.retailer === 'Cameras By Max'));
+            console.log('MATCHED_COUNT=' + films.length);
+            for (const f of films) console.log(' - ' + f.display + ' (' + f.slug + ')');
+          "
+
       # Root has no dependencies, so nothing to install (same as image-audit.yml).
       - name: Build catalogue with image debug
         env:
