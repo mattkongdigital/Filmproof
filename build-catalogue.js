@@ -177,7 +177,11 @@ async function run() {
       // so match on the title here to report the two drop-outs above the
       // brand-keyed line below.
       const debugTitle = IMAGE_DEBUG && it.title.toLowerCase().includes(DEBUG_BRAND);
-      if (!isFilmProduct(it.type, it.title)) {
+      // Check the raw, unprefixed title — a shop whose own name contains a
+      // NOT_FILM word (e.g. "Cameras By Max") would otherwise get every one
+      // of its products rejected once itemsFor() prepends that vendor name
+      // to the title for brand detection below.
+      if (!isFilmProduct(it.type, it.raw)) {
         if (debugTitle) dbg(`DROPPED not-a-film-product | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
         continue;
       }
