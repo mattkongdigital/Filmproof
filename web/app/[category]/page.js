@@ -3,19 +3,24 @@ import { resolveCategory, categoryParams, filmsFor, TYPES, FORMATS, MIN_COMBO_FI
 import { FilmBrowser } from '../../components/film-browser';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../lib/data';
+import { getFormatContent, getTypeContent } from '../../lib/category-content';
 import Link from 'next/link';
 
 export function generateStaticParams() {
   return categoryParams();
 }
 
+function categoryContent(cat, slug) {
+  return cat.kind === 'format' ? getFormatContent(slug) : getTypeContent(slug);
+}
+
 export function generateMetadata({ params }) {
   const cat = resolveCategory(params.category);
   if (!cat) return {};
-  const title = `${cap(cat.heading)} | Never run out, UK stock & prices`;
+  const content = categoryContent(cat, params.category);
   return {
-    title,
-    description: `Find ${cat.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
+    title: content?.meta?.title || `${cap(cat.heading)} | Never run out, UK stock & prices`,
+    description: content?.meta?.description || `Find ${cat.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/${params.category}` },
   };
 }
@@ -24,6 +29,7 @@ export default function CategoryPage({ params }) {
   const cat = resolveCategory(params.category);
   if (!cat) notFound();
 
+  const content = categoryContent(cat, params.category);
   const films = filmsFor(cat.match);
 
   // Cross-links to combos that actually have films (never a dead link).
@@ -40,8 +46,12 @@ export default function CategoryPage({ params }) {
         <div className="eyebrow">{cat.kind === 'format' ? 'By format' : 'By type'}</div>
         <h1>{cap(cat.heading)}</h1>
         <p className="lede">
-          Every {cat.heading} we track, in stock across UK shops, with live prices per roll.
-          {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+          {content ? content.intro : (
+            <>
+              Every {cat.heading} we track, in stock across UK shops, with live prices per roll.
+              {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+            </>
+          )}
         </p>
       </header>
 
@@ -65,6 +75,20 @@ export default function CategoryPage({ params }) {
       )}
 
       <FilmBrowser films={films} hideAxes={[cat.kind === 'format' ? 'typ' : 'fmt']} />
+
+      {content && (
+        <div className="brand-about">
+          <h2 className="store-films-head">About {cat.heading}</h2>
+          {content.sections.map((section) => (
+            <div key={section.heading}>
+              <h3 className="brand-about-heading">{section.heading}</h3>
+              {section.paragraphs.map((paragraph, i) => (
+                <p key={i} className="brand-about-p">{paragraph}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
 
     </div>
   );
