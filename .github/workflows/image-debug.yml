@@ -33,8 +33,30 @@ jobs:
         with:
           node-version: '20'
 
+      # TEMPORARY: repurposed one-off run to diagnose a Cameras By Max match
+      # gap via scripts/diagnose-retailer.js. Reverted once the run is read.
+      - name: Diagnose retailer matching (temporary)
+        run: |
+          node scripts/diagnose-retailer.js https://camerasbymax.co.uk > diag.out 2> diag.err || true
+          {
+            echo "## Cameras By Max match diagnostic"
+            echo
+            echo '```'
+            cat diag.out
+            echo '```'
+            if [ -s diag.err ]; then
+              echo
+              echo "### stderr"
+              echo '```'
+              cat diag.err
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+        continue-on-error: true
+
       # Root has no dependencies, so nothing to install (same as image-audit.yml).
       - name: Build catalogue with image debug
+        if: false
         env:
           FILMPROOF_IMAGE_DEBUG: '1'
         run: |
