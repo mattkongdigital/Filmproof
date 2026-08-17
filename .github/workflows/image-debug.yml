@@ -38,6 +38,8 @@ jobs:
       - name: Diagnose retailer matching (temporary)
         run: |
           node scripts/diagnose-retailer.js https://camerasbymax.co.uk > diag.out 2> diag.err || true
+          cat diag.out
+          cat diag.err >&2
           {
             echo "## Cameras By Max match diagnostic"
             echo
