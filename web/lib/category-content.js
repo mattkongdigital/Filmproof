@@ -52,7 +52,7 @@ export const FORMAT_CONTENT = {
         "110 fell out of production in the 2000s as compact cameras and then digital took over, but Lomography relaunched the format in 2012 with new film stock and cameras, and it now has a small but dedicated following among photographers drawn to its distinctive grain and portability.",
       ] },
       { heading: "Popular 110 film stocks", paragraphs: [
-        "Lomography is the main active manufacturer of 110 film today, producing a small range of colour negative stocks in ISO 100 and 200, alongside dedicated 110 cameras like the Lomomatic. Availability is far more limited than 35mm or 120, so stock can sell out or be seasonal.",
+        "Lomography is the main active manufacturer of 110 film today, with a small range spanning Tiger and Lobster colour negative, Orca black and white, and the cross-processed Peacock slide film, alongside dedicated 110 cameras like the Lomomatic. Availability is far more limited than 35mm or 120, so stock can sell out or be seasonal.",
         "Because the format was dormant for so long, most 110 shooters are working with either recent Lomography stock or hunting down expired vintage cartridges, both of which behave quite differently, expired 110 film often shows heavier grain, colour shifts and light leaks.",
       ] },
       { heading: "Buying and shooting 110 film", paragraphs: [
@@ -272,7 +272,7 @@ export const COMBO_CONTENT = {
     intro: "Colour 110 film brings the small, self-contained cartridge format back to life, mainly through Lomography's modern colour stocks, giving pocket cameras a distinctive, lo-fi grainy character. Compare colour 110 film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "Best colour 110 film stocks", paragraphs: [
-        "Lomography is the main active producer of colour 110 film, offering a small range of ISO 100 and 200 colour negative cartridges designed for its own Lomomatic cameras and other 110 pocket cameras.",
+        "Lomography is the main active producer of colour 110 film, with Tiger 200 as its everyday colour negative option and Lobster 200, a redscale film shot through the base of the film for warm, red-toned images, both designed for its own Lomomatic cameras and other 110 pocket cameras.",
       ] },
       { heading: "Why shoot colour 110 film", paragraphs: [
         "110's tiny negative gives colour images a distinctive soft, grainy character that's become popular in its own right rather than despite its limitations. Because supply is limited, Filmproof tracks colour 110 film stock across UK retailers so you can catch it when it's available.",
@@ -280,35 +280,35 @@ export const COMBO_CONTENT = {
     ],
   },
   '110-film/black-and-white': {
-    meta: { title: 'Black & White 110 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare black & white 110 film prices from UK retailers on Filmproof. Cartridge film for pocket cameras, find the best deal.' },
+    meta: { title: 'Black & White 110 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare black & white 110 film prices from UK retailers on Filmproof. Lomography Orca cartridge film for pocket cameras.' },
     intro: "Black and white 110 film pairs the pocket-sized cartridge format with classic monochrome tone, a niche option for photographers who want the format's distinctive grain without colour. Compare black & white 110 film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "Best black and white 110 film stocks", paragraphs: [
-        "Availability of black and white 110 film is limited and changes over time, mostly coming from small-batch runs and specialist suppliers rather than mainstream manufacturers, so it's worth checking current stock rather than assuming it's always available.",
+        "Lomography Orca 100 is currently the main dedicated black and white 110 film, an ISO 100 negative stock designed for the format's wide depth of field, developed the same way as any standard black and white film.",
       ] },
       { heading: "Why shoot black and white 110 film", paragraphs: [
-        "110's small negative combined with monochrome tone produces a distinctly gritty, vintage look that suits experimental and lo-fi shooting. Filmproof tracks black and white 110 film stock across UK retailers so you don't miss a limited run.",
+        "110's small negative combined with monochrome tone produces a distinctly gritty, vintage look that suits experimental and lo-fi shooting. Filmproof tracks black and white 110 film stock across UK retailers.",
       ] },
     ],
   },
   '110-film/slide': {
-    meta: { title: 'Slide 110 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide 110 film prices from UK retailers on Filmproof, when available. Rare E-6 cartridge film for pocket cameras.' },
-    intro: "Slide 110 film is one of the rarest combinations in film photography, E-6 reversal chemistry in the small, self-contained pocket cartridge format, and stock is genuinely hard to come by. Compare slide 110 film prices from UK retailers on Filmproof, when it's in stock.",
+    meta: { title: 'Slide 110 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide 110 film prices from UK retailers on Filmproof. Lomography Peacock X-Pro, the only E-6 slide film for pocket cameras.' },
+    intro: "Slide 110 film has one standing option, Lomography's Peacock X-Pro, a genuine E-6 reversal film built for cross-processing that brings bold, colour-shifted slides to the pocket-sized cartridge format. Compare slide 110 film prices from UK retailers on Filmproof.",
     sections: [
-      { heading: "Availability of slide 110 film", paragraphs: [
-        "Slide 110 film is produced in very limited runs, if at all, at any given time, so treat it as a rare find rather than a reliable everyday option. When it does surface, it's usually a small-batch or limited-edition release from a specialist supplier.",
+      { heading: "Slide 110 film stocks", paragraphs: [
+        "Lomography Peacock X-Pro 200 is currently the only slide film made in 110 format, an E-6 reversal stock designed specifically for cross-processing in C-41 chemistry, which produces the bold, colour-shifted look it's known for rather than conventional accurate slide colour.",
       ] },
       { heading: "Why shoot slide 110 film", paragraphs: [
-        "For collectors and 110 enthusiasts chasing something genuinely unusual, slide film's punchy colour on a pocket-sized negative is a novelty worth trying when it's available. Filmproof tracks slide 110 film stock across UK retailers so you can catch it if a batch appears.",
+        "Cross-processed in C-41, Peacock delivers unpredictable, saturated colour shifts on a pocket-sized negative, a genuinely different look from Lomography's Tiger colour negative or Orca black and white 110 films. Filmproof tracks slide 110 film stock across UK retailers.",
       ] },
     ],
   },
   '127-film/colour': {
-    meta: { title: 'Colour 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare colour 127 film prices from UK retailers on Filmproof. Specialist respooled film for vintage box cameras.' },
+    meta: { title: 'Colour 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare colour 127 film prices from UK retailers on Filmproof. Kodak Gold 200 and Reflx Lab Pro100, respooled for vintage box cameras.' },
     intro: "Colour 127 film keeps vintage box cameras and 1950s-60s models like the Baby Rolleiflex shooting in colour, supplied almost entirely by small specialist companies who respool other film stock down to 127 size. Compare colour 127 film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "Best colour 127 film stocks", paragraphs: [
-        "Because 127 isn't manufactured at scale by any major brand, colour options come from small specialist respoolers working in limited batches, so choice and availability are narrower and less predictable than mainstream formats.",
+        "Because 127 isn't manufactured at scale by any major brand, colour options come from small specialist respoolers, most notably Kodak Gold 200 cut down into 127 rolls, and Reflx Lab Pro100, a colour negative stock respooled from Aerocolor print film. Choice and availability are narrower and less predictable than mainstream formats.",
       ] },
       { heading: "Why shoot colour 127 film", paragraphs: [
         "If you've got a vintage camera built for 127, it's the only genuine way to shoot roll film through it, rather than adapting another format. Filmproof tracks colour 127 film stock across UK retailers, helping you catch it when the small suppliers who keep the format alive have rolls in stock.",
@@ -316,11 +316,11 @@ export const COMBO_CONTENT = {
     ],
   },
   '127-film/black-and-white': {
-    meta: { title: 'Black & White 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare black & white 127 film prices from UK retailers on Filmproof. Respooled film for vintage box cameras, like ReraPan.' },
+    meta: { title: 'Black & White 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare black & white 127 film prices from UK retailers on Filmproof. ReraPan and other respooled film for vintage box cameras.' },
     intro: "Black and white 127 film is the more readily available side of this vintage format, supplied by specialist manufacturers who cut and respool black and white stock to fit classic box cameras and 1950s-60s models. Compare black & white 127 film prices from UK retailers on Filmproof.",
     sections: [
       { heading: "Best black and white 127 film stocks", paragraphs: [
-        "Specialist manufacturers such as Rera produce black and white 127 film in small runs, giving vintage camera owners a genuine, if limited, choice of stock rather than relying entirely on expired vintage rolls.",
+        "ReraPan 100, from the Japanese specialist Rera, is the main dedicated black and white 127 film currently in production, giving vintage camera owners a genuine, ongoing choice of stock rather than relying entirely on expired vintage rolls.",
       ] },
       { heading: "Why shoot black and white 127 film", paragraphs: [
         "Black and white 127 film tends to be a little more consistently available than colour 127, making it the more practical choice for regularly shooting a vintage camera built around the format. Filmproof tracks black and white 127 film stock across UK retailers.",
@@ -328,14 +328,14 @@ export const COMBO_CONTENT = {
     ],
   },
   '127-film/slide': {
-    meta: { title: 'Slide 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide 127 film prices from UK retailers on Filmproof, when available. Rare E-6 film for vintage box cameras.' },
-    intro: "Slide 127 film is a genuine rarity, E-6 reversal chemistry cut down to fit a format that mainstream manufacturers stopped supporting decades ago. Compare slide 127 film prices from UK retailers on Filmproof, when it's in stock.",
+    meta: { title: 'Slide 127 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide 127 film prices from UK retailers on Filmproof. ReraChrome, the only current E-6 slide film in 127 format.' },
+    intro: "Slide 127 film has a single current standard-bearer, ReraChrome, a genuine E-6 reversal film cut and spooled specifically for 127 cameras. Compare slide 127 film prices from UK retailers on Filmproof.",
     sections: [
-      { heading: "Availability of slide 127 film", paragraphs: [
-        "Slide 127 film only appears through very small, occasional specialist runs, so it should be treated as a rare find rather than something you can reliably plan a shoot around.",
+      { heading: "Slide 127 film stocks", paragraphs: [
+        "ReraChrome 100 is currently the only colour slide film made in 127 format, an E-6 reversal stock from the same Japanese manufacturer, Rera, behind ReraPan black and white 127 film. It's a small-batch specialist product rather than something produced at scale, so stock can be limited.",
       ] },
       { heading: "Why shoot slide 127 film", paragraphs: [
-        "For 127 camera owners who want to see just how good a vintage box camera can look with punchy, saturated reversal film, it's worth grabbing a roll whenever it surfaces. Filmproof tracks slide 127 film stock across UK retailers so you can catch a batch if one appears.",
+        "For 127 camera owners who want to see just how good a vintage box camera or Baby Rolleiflex can look with punchy, saturated reversal film, ReraChrome is the way to do it. Filmproof tracks slide 127 film stock across UK retailers.",
       ] },
     ],
   },
@@ -364,14 +364,14 @@ export const COMBO_CONTENT = {
     ],
   },
   'large-format-film/slide': {
-    meta: { title: 'Slide Large Format Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide large format sheet film prices from UK retailers on Filmproof, when available. Rare E-6 sheet film.' },
-    intro: "Slide large format film is one of the rarest combinations in photography today, E-6 reversal chemistry on individual sheets, offering transparency quality that few other formats can match when it's available. Compare slide large format film prices from UK retailers on Filmproof, when in stock.",
+    meta: { title: 'Slide Large Format Film Prices UK | Compare & Buy | Filmproof', description: 'Compare slide large format sheet film prices from UK retailers on Filmproof. Kodak Ektachrome E100 in 4x5, 5x7 and 8x10.' },
+    intro: "Slide large format film puts genuine E-6 reversal chemistry onto individual sheets, a small but real part of the ranges from Kodak and Fujifilm rather than a purely specialist or hand-made product. Compare slide large format film prices from UK retailers on Filmproof.",
     sections: [
-      { heading: "Availability of slide large format film", paragraphs: [
-        "Genuine E-6 sheet film has become increasingly rare as manufacturers have scaled back large format colour production, so what's available tends to come in limited runs from a small number of specialist suppliers.",
+      { heading: "Slide large format film stocks", paragraphs: [
+        "Kodak Ektachrome E100 is the main current option, produced in 4x5, 5x7 and 8x10 sheet sizes alongside its roll film versions. Fujifilm's Provia 100F is also available in 4x5, though supply has tightened in recent years, while Fujifilm discontinued Velvia 50 in 4x5 and 8x10 sheet sizes in 2022, so it's no longer part of the current range.",
       ] },
       { heading: "Why shoot slide large format film", paragraphs: [
-        "A large format slide held to the light shows off transparency detail and colour that's genuinely hard to match with any other combination of format and film type, making it a bucket-list shoot for large format photographers when stock allows. Filmproof tracks slide large format film stock across UK retailers so you can catch it if it appears.",
+        "A large format slide held to the light or on a light box shows off transparency detail and colour that's hard to match with any other combination of format and film type, and unlike some large format colour options, both Kodak and Fujifilm still keep at least one E-6 sheet stock in active production. Filmproof tracks slide large format film prices and stock across UK retailers.",
       ] },
     ],
   },
