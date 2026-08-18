@@ -228,6 +228,8 @@ footer {
 /* ---- category / brand headers ---- */
 .cat-head { padding:40px 0 28px; border-bottom:1px solid var(--rebate); }
 .cat-head h1 { font-family:var(--display); font-weight:700; font-size:clamp(30px,6vw,50px); letter-spacing:-0.02em; line-height:1.02; margin-bottom:14px; }
+/* Let the intro paragraph fill the same width as the filter/facet rows below it, instead of wrapping into a narrow column above a wide one. */
+.cat-head .lede { max-width:none; }
 .cat-head .crumb, .cat-head .eyebrow a { color:var(--amber); text-decoration:none; }
 .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
 .chip {
