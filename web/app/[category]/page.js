@@ -45,9 +45,13 @@ export default function CategoryPage({ params }) {
       <header className="cat-head">
         <div className="eyebrow">{cat.kind === 'format' ? 'By format' : 'By type'}</div>
         <h1>{cap(cat.heading)}</h1>
-        <p className="lede lede-short">
-          Every {cat.heading} we track, in stock across UK shops, with live prices per roll.
-          {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+        <p className="lede">
+          {content ? content.intro : (
+            <>
+              Every {cat.heading} we track, in stock across UK shops, with live prices per roll.
+              {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+            </>
+          )}
         </p>
       </header>
 
@@ -75,7 +79,6 @@ export default function CategoryPage({ params }) {
       {content && (
         <div className="brand-about">
           <h2 className="store-films-head">About {cat.heading}</h2>
-          <p className="brand-about-p">{content.intro}</p>
           {content.sections.map((section) => (
             <div key={section.heading}>
               <h3 className="brand-about-heading">{section.heading}</h3>

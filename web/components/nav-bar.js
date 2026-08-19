@@ -36,7 +36,7 @@ export function NavBar({ formats, types }) {
             aria-expanded={shopOpen}
             onClick={() => setShopOpen((v) => !v)}
           >
-            Shop <span className="nav-mega-caret" data-open={shopOpen}>▾</span>
+            Browse <span className="nav-mega-caret" data-open={shopOpen}>▾</span>
           </button>
           {shopOpen && (
             <div className="nav-mega-panel">
@@ -49,7 +49,7 @@ export function NavBar({ formats, types }) {
                 {types.map((t) => <Link key={t.slug} href={`/${t.slug}`} onClick={() => setShopOpen(false)}>{t.label}</Link>)}
               </div>
               <div className="nav-mega-col">
-                <span className="nav-head">Browse</span>
+                <span className="nav-head">More</span>
                 <Link href="/brands" onClick={() => setShopOpen(false)}>All brands</Link>
                 <Link href="/stores" onClick={() => setShopOpen(false)}>All stores</Link>
               </div>
