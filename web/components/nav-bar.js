@@ -1,16 +1,23 @@
 'use client';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { SearchBox } from './search-box';
 
 export function NavBar({ formats, types }) {
   const [open, setOpen] = useState(false);
+  const [shopOpen, setShopOpen] = useState(false);
+  const shopRef = useRef(null);
   const close = () => setOpen(false);
 
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    const onKey = (e) => { if (e.key === 'Escape') { setOpen(false); setShopOpen(false); } };
+    const onClick = (e) => { if (shopRef.current && !shopRef.current.contains(e.target)) setShopOpen(false); };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClick);
+    };
   }, []);
 
   return (
@@ -20,21 +27,34 @@ export function NavBar({ formats, types }) {
       {/* desktop search (hidden on mobile) */}
       <SearchBox />
 
-      {/* desktop links (hidden on mobile) */}
+      {/* desktop mega menu (hidden on mobile) */}
       <div className="nav-groups nav-desktop">
-        <div className="nav-group">
-          <span className="nav-head">Format</span>
-          {formats.map((f) => <Link key={f.slug} href={`/${f.slug}`}>{f.label}</Link>)}
-        </div>
-        <div className="nav-group">
-          <span className="nav-head">Type</span>
-          {types.map((t) => <Link key={t.slug} href={`/${t.slug}`}>{t.label}</Link>)}
-        </div>
-        <div className="nav-group">
-          <span className="nav-head"><Link href="/brands">Brands</Link></span>
-        </div>
-        <div className="nav-group">
-          <span className="nav-head"><Link href="/stores">Stores</Link></span>
+        <div className="nav-mega" ref={shopRef}>
+          <button
+            type="button"
+            className="nav-mega-trigger"
+            aria-expanded={shopOpen}
+            onClick={() => setShopOpen((v) => !v)}
+          >
+            Shop <span className="nav-mega-caret" data-open={shopOpen}>▾</span>
+          </button>
+          {shopOpen && (
+            <div className="nav-mega-panel">
+              <div className="nav-mega-col">
+                <span className="nav-head">Format</span>
+                {formats.map((f) => <Link key={f.slug} href={`/${f.slug}`} onClick={() => setShopOpen(false)}>{f.label}</Link>)}
+              </div>
+              <div className="nav-mega-col">
+                <span className="nav-head">Type</span>
+                {types.map((t) => <Link key={t.slug} href={`/${t.slug}`} onClick={() => setShopOpen(false)}>{t.label}</Link>)}
+              </div>
+              <div className="nav-mega-col">
+                <span className="nav-head">Browse</span>
+                <Link href="/brands" onClick={() => setShopOpen(false)}>All brands</Link>
+                <Link href="/stores" onClick={() => setShopOpen(false)}>All stores</Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
