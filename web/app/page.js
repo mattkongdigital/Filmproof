@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { getFilms } from '../lib/data';
-import { availableFormats, availableTypes, brandList, filmsFor } from '../lib/facets';
+import { availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
 import { FilmCard } from '../components/film-card';
 
 export default function Home() {
   const films = getFilms();
   const formats = availableFormats();
   const types = availableTypes();
+  const conditions = availableConditions();
   const brands = brandList().slice(0, 12);
 
   const shops = new Set();
@@ -39,6 +40,15 @@ export default function Home() {
         <div className="tiles">
           {types.map((t) => <Link key={t.slug} href={`/${t.slug}`} className="tile">{t.label}</Link>)}
         </div>
+
+        {conditions.length > 0 && (
+          <>
+            <h2 className="hub-head">Browse by condition</h2>
+            <div className="tiles">
+              {conditions.map((c) => <Link key={c.slug} href={`/${c.slug}`} className="tile">{c.label}</Link>)}
+            </div>
+          </>
+        )}
 
         <h2 className="hub-head">Browse by brand</h2>
         <div className="tiles">

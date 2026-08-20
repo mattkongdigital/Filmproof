@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFilm, getFilms, gbp, formatLabel } from '../../../lib/data';
-import { FORMATS, TYPES } from '../../../lib/facets';
+import { FORMATS, TYPES, CONDITIONS } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
@@ -26,11 +26,15 @@ export default function FilmPage({ params }) {
 
   const formatSlug = (FORMATS.find((x) => x.match(film)) || {}).slug;
   const typeSlug = (TYPES.find((x) => x.match(film)) || {}).slug;
+  // Condition only earns a spec row when it is expired — "Fresh" on every other
+  // film would be noise.
+  const conditionSlug = (CONDITIONS.find((x) => x.match(film)) || {}).slug;
   const specs = [
     ['Brand', pretty(film.brand), film.brand ? `/brand/${film.brand}` : null],
     ['Format', formatLabel(film.format), formatSlug ? `/${formatSlug}` : null],
     ['Process', film.process || '—', typeSlug ? `/${typeSlug}` : null],
     ['Speed', film.iso ? `ISO ${film.iso}` : '—', null],
+    ...(film.expired ? [['Condition', 'Expired', conditionSlug ? `/${conditionSlug}` : null]] : []),
   ];
 
   const inStock = film.offers.filter((o) => o.inStock).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
@@ -47,7 +51,10 @@ export default function FilmPage({ params }) {
       ]} />
       <header className="detail-head">
         <div className="eyebrow">{pretty(film.brand)} · {formatLabel(film.format)}{film.iso ? ` · ISO ${film.iso}` : ''}</div>
-        <h1 className="detail-title">{film.display}</h1>
+        <h1 className="detail-title">
+          {film.display}
+          {film.expired && <span className="tag-expired">Expired</span>}
+        </h1>
         <p className="lede">
           {cheapest
             ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/roll</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>

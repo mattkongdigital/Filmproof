@@ -25,7 +25,12 @@ export function FilmCard({ film, hidden = false }) {
       </div>
       <div className="card-body">
         <div className="card-name">{film.display}</div>
-        <div className="card-meta">{formatLabel(film.format)}{film.iso ? ` · ISO ${film.iso}` : ''}</div>
+        <div className="card-meta">
+          {formatLabel(film.format)}{film.iso ? ` · ISO ${film.iso}` : ''}
+          {/* Expired stock is usually the cheapest thing in a list, so say so
+              on the card rather than letting it read as a bargain fresh roll. */}
+          {film.expired && <span className="tag-expired">Expired</span>}
+        </div>
         <div className="card-price">
           {film.best != null ? <><span className="from">from</span> {gbp(film.best)}<span className="per">/roll</span></> : <span className="nostock">check price</span>}
         </div>

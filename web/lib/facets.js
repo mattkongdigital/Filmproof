@@ -19,6 +19,32 @@ export const TYPES = [
   { slug: 'slide-film', short: 'slide', label: 'Slide', match: (f) => /slide|e-6/i.test(f.process || '') },
 ];
 
+// Condition is a third axis, orthogonal to the first two — an expired roll is
+// still 35mm and still colour. It reads `f.expired`, set by the matcher (see
+// src/normalise.js), which already keys expired stock separately from fresh.
+export const CONDITIONS = [
+  { slug: 'expired-film', short: 'expired', label: 'Expired', match: (f) => f.expired === true },
+];
+
+// The axes that can hang off a format as a sub-page (/35mm-film/colour,
+// /35mm-film/expired). Format is always the parent, so these are the children.
+export const SUB_AXES = [
+  { kind: 'type', label: 'Type', items: TYPES },
+  { kind: 'condition', label: 'Condition', items: CONDITIONS },
+];
+
+const SUBS = [...TYPES, ...CONDITIONS];
+const ALL_FACETS = [...FORMATS, ...TYPES, ...CONDITIONS];
+
+// Which axis a facet belongs to — pages label their chip rows with this.
+export function facetKind(facet) {
+  if (FORMATS.includes(facet)) return 'format';
+  if (CONDITIONS.includes(facet)) return 'condition';
+  return 'type';
+}
+
+export const AXIS_LABEL = { format: 'Format', type: 'Type', condition: 'Condition' };
+
 const has = (match) => getFilms().some(match);
 
 // Films matching a facet, cheapest-first (films with no live price sink to the end).
@@ -29,29 +55,32 @@ export function filmsFor(match) {
 }
 
 export function resolveCategory(slug) {
-  const fmt = FORMATS.find((x) => x.slug === slug);
-  if (fmt) return { kind: 'format', label: fmt.label, heading: `${fmt.label} film`, match: fmt.match };
-  const typ = TYPES.find((x) => x.slug === slug);
-  if (typ) return { kind: 'type', label: typ.label, heading: `${typ.label} film`, match: typ.match };
-  return null;
+  const facet = ALL_FACETS.find((x) => x.slug === slug);
+  if (!facet) return null;
+  return { kind: facetKind(facet), facet, label: facet.label, heading: `${facet.label} film`, match: facet.match };
 }
 
 export function categoryParams() {
-  return [...FORMATS, ...TYPES].filter((x) => has(x.match)).map((x) => ({ category: x.slug }));
+  return ALL_FACETS.filter((x) => has(x.match)).map((x) => ({ category: x.slug }));
 }
 
 export function resolveCombo(categorySlug, subSlug) {
   const fmt = FORMATS.find((x) => x.slug === categorySlug && x.roll);
-  const typ = TYPES.find((x) => x.short === subSlug);
-  if (!fmt || !typ) return null;
-  return { fmt, typ, heading: `${typ.label} ${fmt.label} film`, match: (f) => fmt.match(f) && typ.match(f) };
+  const sub = SUBS.find((x) => x.short === subSlug);
+  if (!fmt || !sub) return null;
+  return {
+    fmt, sub,
+    subKind: facetKind(sub),
+    heading: `${sub.label} ${fmt.label} film`,
+    match: (f) => fmt.match(f) && sub.match(f),
+  };
 }
 
 export function comboParams() {
   const out = [];
   for (const fmt of FORMATS.filter((f) => f.roll)) {
-    for (const typ of TYPES) {
-      if (has((f) => fmt.match(f) && typ.match(f))) out.push({ category: fmt.slug, sub: typ.short });
+    for (const sub of SUBS) {
+      if (has((f) => fmt.match(f) && sub.match(f))) out.push({ category: fmt.slug, sub: sub.short });
     }
   }
   return out;
@@ -63,21 +92,19 @@ const countFor = (brandSlug, facet) =>
   getFilms().filter((f) => f.brand === brandSlug && facet.match(f)).length;
 
 export function subFacetsForBrand(brandSlug) {
-  return [
-    ...FORMATS.map((facet) => ({ slug: facet.slug, label: facet.label, kind: 'format', count: countFor(brandSlug, facet) })),
-    ...TYPES.map((facet) => ({ slug: facet.slug, label: facet.label, kind: 'type', count: countFor(brandSlug, facet) })),
-  ].filter((x) => x.count >= MIN_COMBO_FILMS);
+  return ALL_FACETS
+    .map((facet) => ({ slug: facet.slug, label: facet.label, kind: facetKind(facet), count: countFor(brandSlug, facet) }))
+    .filter((x) => x.count >= MIN_COMBO_FILMS);
 }
 
 export function resolveBrandSub(brandSlug, subSlug) {
   const brand = brandList().find((b) => b.slug === brandSlug);
   if (!brand) return null;
-  const fmt = FORMATS.find((x) => x.slug === subSlug);
-  const facet = fmt || TYPES.find((x) => x.slug === subSlug);
+  const facet = ALL_FACETS.find((x) => x.slug === subSlug);
   if (!facet) return null;
   return {
     brand, facet,
-    kind: fmt ? 'format' : 'type',
+    kind: facetKind(facet),
     heading: `${brand.label} ${facet.label.toLowerCase()} film`,
     match: (f) => f.brand === brandSlug && facet.match(f),
   };
@@ -86,7 +113,7 @@ export function resolveBrandSub(brandSlug, subSlug) {
 export function brandSubParams() {
   const out = [];
   for (const b of brandList()) {
-    for (const facet of [...FORMATS, ...TYPES]) {
+    for (const facet of ALL_FACETS) {
       if (countFor(b.slug, facet) >= MIN_COMBO_FILMS) out.push({ slug: b.slug, sub: facet.slug });
     }
   }
@@ -104,3 +131,4 @@ export function brandList() {
 // Facets that actually have films — used to build navigation without dead links.
 export function availableFormats() { return FORMATS.filter((x) => has(x.match)); }
 export function availableTypes() { return TYPES.filter((x) => has(x.match)); }
+export function availableConditions() { return CONDITIONS.filter((x) => has(x.match)); }
