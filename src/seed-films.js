@@ -16,6 +16,9 @@ const SAMPLE = [
   { display: 'Kodak Portra 400',   title: 'Kodak Portra 400 35mm 36exp',    type: '35mm' },
   { display: 'Kodak UltraMax 400', title: 'Kodak UltraMax 400 35mm 36exp',  type: '35mm' },
   { display: 'Ilford HP5 Plus',    title: 'Ilford HP5 Plus 400 35mm 36exp', type: '35mm' },
+  // Expired stock keys separately from fresh (see src/normalise.js), so this
+  // sits alongside the fresh Portra above rather than merging into it.
+  { display: 'Kodak Portra 400 Expired', title: 'Expired Kodak Portra 400 35mm 36exp', type: '35mm' },
 ];
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -33,6 +36,7 @@ function loadCatalogue() {
       brand: p.brand,
       format: p.format,
       iso: p.iso ? Number(p.iso) : null,
+      expired: p.expired,
       type: f.type,
       slug: slugify(f.display),
     };

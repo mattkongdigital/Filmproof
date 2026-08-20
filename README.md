@@ -29,8 +29,9 @@ visitor would see plus the review queue. Try editing a title in `data/` to see
 how the normaliser copes — e.g. change "35mm" to "135" or add "36 Exposures".
 
 The samples deliberately include: two spellings of the same Gold 200, a
-multipack that wins on per-roll price, an out-of-stock item, and a Kodak Ektar
-that isn't in the catalogue (so it lands in review).
+multipack that wins on per-roll price, an out-of-stock item, an expired Portra
+400 (which keys separately from the fresh one, so both are listed), and a Kodak
+Ektar that isn't in the catalogue (so it lands in review).
 
 ## Wire it to Postgres (the real version)
 
@@ -65,6 +66,28 @@ The homepage is a contact sheet of every film; each links to a `/film/[slug]`
 comparison page. The cheapest in-stock offer gets the chinagraph "keeper" mark.
 `preview.html` at the root is the same design as a single self-contained file
 you can open with no build step.
+
+### Browse taxonomy
+
+`web/lib/facets.js` defines three orthogonal axes, and every browse page is
+derived from them — a page only exists if films actually match it, so there are
+no dead links:
+
+| Axis | Values | URLs |
+| --- | --- | --- |
+| Format | 35mm, 120, 110, 127, large format, instant, cine | `/35mm-film` |
+| Type | colour, black & white, slide | `/colour-film` |
+| Condition | expired | `/expired-film` |
+
+Format is always the parent in a combined page, so type and condition hang off
+it as sub-pages: `/35mm-film/colour`, `/35mm-film/expired`. Brands cross any
+axis at `/brand/kodak/expired-film`. Adding a value to an axis array is enough
+to create its pages, its navigation entries and its sitemap URLs; long-form copy
+for a page is optional and lives in `web/lib/category-content.js`.
+
+Condition reads the `expired` flag that `src/normalise.js` sets when a listing
+title says so — the same signal that keys expired stock separately from fresh in
+the catalogue, so the two never merge into one row.
 
 ## Building your catalogue
 

@@ -211,6 +211,7 @@ async function run() {
         films.set(parsed.key, {
           id: films.size + 1, key: parsed.key, display: cleanName(it.raw),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
+          expired: parsed.expired,
           image: it.image || null,
           description: describe({ display: cleanName(it.raw), brand: parsed.brand, format: parsed.format, iso, process }),
           type: it.type, slug: slugify(cleanName(it.raw)),
