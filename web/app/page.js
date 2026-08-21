@@ -1,7 +1,15 @@
 import Link from 'next/link';
-import { getFilms } from '../lib/data';
+import { getFilms, SITE_URL } from '../lib/data';
 import { availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
 import { FilmCard } from '../components/film-card';
+
+export function generateMetadata() {
+  return {
+    title: 'Filmproof | Never run out of film, UK stock & price tracker',
+    description: 'Compare film stock and prices across UK shops in one place. See what\'s in stock right now, find the cheapest price per roll, and restock before you run out.',
+    alternates: { canonical: `${SITE_URL}/` },
+  };
+}
 
 export default function Home() {
   const films = getFilms();
