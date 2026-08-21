@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getFilm, getFilms, gbp, formatLabel } from '../../../lib/data';
+import { getFilm, getFilms, gbp, formatLabel, SITE_URL } from '../../../lib/data';
 import { FORMATS, TYPES, CONDITIONS } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
@@ -17,6 +17,7 @@ export function generateMetadata({ params }) {
   return {
     title: `${film.display} | In stock across UK shops`,
     description: `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`,
+    alternates: { canonical: `${SITE_URL}/film/${params.slug}` },
   };
 }
 
