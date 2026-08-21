@@ -116,6 +116,9 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     lineText = text.slice(idx + brandMatch.length);
   }
 
+  // Expired stock is a different product from fresh — different price, different
+  // results — so it keys separately (below) and is surfaced as its own browse
+  // axis on the front end. 'expired' is in NOISE, so it never reaches `line`.
   const expired = /\bexpired\b/.test(text);
 
   const format = detectFormat(hint) || detectFormat(text);
@@ -155,7 +158,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   const baseKey = identified ? [brand, line, format, iso].filter(Boolean).join('-') : null;
   const key = baseKey && expired ? `${baseKey}-expired` : baseKey;
 
-  return { brand, line, format, iso, exp, packSize, key, identified, complete: identified, cleaned: text };
+  return { brand, line, format, iso, exp, packSize, expired, key, identified, complete: identified, cleaned: text };
 }
 
 function detectFormat(s) {

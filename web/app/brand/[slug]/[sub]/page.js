@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { brandSubParams, resolveBrandSub, subFacetsForBrand, filmsFor } from '../../../../lib/facets';
+import { brandSubParams, resolveBrandSub, subFacetsForBrand, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
 import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
@@ -49,7 +49,7 @@ export default function BrandSubPage({ params }) {
         <span className="facet-links-head">Browse {r.brand.label} by</span>
         <div className="facet-axes">
           <div className="axis">
-            <span className="axis-label">{r.kind === 'format' ? 'Format' : 'Type'}</span>
+            <span className="axis-label">{AXIS_LABEL[r.kind]}</span>
             <Link className="chip" href={`/brand/${params.slug}`}>All</Link>
             <span className="chip current" aria-current="page">
               {r.facet.label} <span className="chip-count">{films.length}</span>

@@ -38,6 +38,18 @@
       "images": []
     },
     {
+      "id": 100005,
+      "title": "Expired Kodak Portra 400 35mm 36exp",
+      "handle": "kodak-portra-400-expired",
+      "vendor": "Kodak",
+      "product_type": "35mm Film",
+      "tags": ["35mm", "colour", "kodak", "expired"],
+      "variants": [
+        { "id": 200006, "title": "Single roll", "sku": "PT400-EXP", "price": "9.99", "available": true }
+      ],
+      "images": []
+    },
+    {
       "id": 100004,
       "title": "Kodak M35 Reusable Film Camera",
       "handle": "kodak-m35-camera",

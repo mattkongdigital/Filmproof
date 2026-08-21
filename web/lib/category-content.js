@@ -1,5 +1,6 @@
-// category-content.js — long-form copy for the format, type and combo
-// category pages (e.g. "35mm film", "Colour film", "Colour 35mm film").
+// category-content.js — long-form copy for the format, type, condition and
+// combo category pages (e.g. "35mm film", "Colour film", "Expired film",
+// "Colour 35mm film", "Expired 35mm film").
 // Mirrors the shape of brand-content.js: meta {title, description}, intro,
 // and a list of {heading, paragraphs} sections. Combo pages only actually
 // render once a format×type combo has >= MIN_COMBO_FILMS films in stock
@@ -192,7 +193,56 @@ export const TYPE_CONTENT = {
   },
 };
 
+export const CONDITION_CONTENT = {
+  'expired-film': {
+    meta: { title: 'Expired Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired film prices from UK retailers on Filmproof. Expired Kodak, Fujifilm and Ilford stock, tracked separately from fresh film, with live prices per roll.' },
+    intro: "Expired film is stock sold past the date the manufacturer guaranteed it to, and it behaves differently from fresh film: slower, grainier, and often shifted in colour. For some photographers that unpredictability is the whole point, and for others it is simply a cheaper way to shoot. Filmproof tracks expired stock as its own listing rather than mixing it in with fresh, so a discounted expired roll never gets compared against a fresh one on price alone.",
+    sections: [
+      { heading: "What is expired film?", paragraphs: [
+        "Every roll of film carries a process-before date, typically two to three years from manufacture, which is the point up to which the maker guarantees its rated speed and colour balance. Film does not stop working on that date, it simply stops being guaranteed. The emulsion degrades gradually from the moment it is made, and the date is the manufacturer drawing a line rather than the film going off in any sudden sense.",
+        "What actually changes is the silver halide crystals in the emulsion, which slowly lose sensitivity while background radiation and heat build up a base fog across the film. In practice that means expired film tends to be effectively slower than its box speed, grainier, lower in contrast, and, in colour stocks, shifted towards whichever dye layer has held up best, often producing the green or magenta casts expired film is known for.",
+      ] },
+      { heading: "How well film keeps", paragraphs: [
+        "Storage matters far more than the date on the box. Film kept frozen or refrigerated ages very slowly and can shoot close to fresh decades past its date, while the same stock left in a warm loft or a car can be visibly degraded within a few years of expiry. A roll expired in 2015 and kept frozen will usually outperform one expired in 2022 and kept warm, which is why the storage history is worth asking a seller about.",
+        "Film speed and type matter too. Faster film is more sensitive to background radiation, so ISO 800 and 3200 stocks degrade noticeably quicker than ISO 100. Black and white film keeps best of all, often shooting near normally long past its date, colour negative shifts more visibly as its dye layers age at different rates, and slide film is the least forgiving, since its narrow exposure latitude leaves little room for the extra fog and speed loss to hide in.",
+      ] },
+      { heading: "Shooting and buying expired film", paragraphs: [
+        "The usual working rule is to overexpose by roughly one stop for every decade past the expiry date, so a ten-year-expired ISO 400 film gets metered at around ISO 200, and a twenty-year-expired roll at ISO 100. That compensates for the lost sensitivity and lifts the image clear of the base fog. Film you know was cold-stored often needs less than that, or none at all, and bracketing the first roll of any batch is the most reliable way to find out what a particular lot actually wants.",
+        "Expired stock is usually cheaper than fresh, but it is one-off inventory, whatever a shop happens to have found, so availability moves faster than it does for current stock and a listed roll can sell out quickly. Two shops selling expired stock of the same film are not necessarily selling the same thing either, since expiry dates and storage differ by lot. Filmproof lists expired film separately from fresh across UK retailers so you can see what is actually about and compare prices per roll before you buy.",
+      ] },
+    ],
+  },
+};
+
 export const COMBO_CONTENT = {
+  '35mm-film/expired': {
+    meta: { title: 'Expired 35mm Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired 35mm film prices from UK retailers on Filmproof. Expired Kodak, Fujifilm and Ilford 35mm rolls, tracked separately from fresh stock.' },
+    intro: "Expired 35mm film is where most expired stock turns up, simply because 35mm has been made in far greater volume than any other format for decades, so there is more of it sitting in drawers, shop stockrooms and house clearances. It is also the cheapest format to shoot while you work out how a particular batch behaves. Compare expired 35mm film prices from UK retailers on Filmproof.",
+    sections: [
+      { heading: "What to expect from expired 35mm", paragraphs: [
+        "Expired 35mm covers everything from rolls a year or two past date, which usually shoot much like fresh film, to stock from the 1990s that has lost several stops of speed and shifted colour heavily. The everyday consumer stocks that sold in the largest numbers, Kodak Gold, UltraMax and the old Fujicolor lines, are the ones that surface most often, alongside discontinued emulsions that can only be bought expired now.",
+        "As a starting point, meter around one stop over box speed for each decade past the date, so a ten-year-expired ISO 400 roll is shot at about ISO 200. Because 35mm gives you 24 or 36 frames, it is worth bracketing across the first roll of a batch rather than committing a whole shoot to a guess.",
+      ] },
+      { heading: "Buying expired 35mm film", paragraphs: [
+        "Expired 35mm generally sells below fresh stock, though genuinely scarce discontinued emulsions can go the other way and command more than they ever did new. Ask how a roll was stored where you can, since cold-stored film from the 2000s often outperforms warm-stored film from the 2010s.",
+        "Filmproof tracks expired 35mm separately from fresh 35mm across UK shops, so a cheap expired roll is never presented as the best price for a fresh one. Live prices per roll are updated daily.",
+      ] },
+    ],
+  },
+  '120-film/expired': {
+    meta: { title: 'Expired 120 Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired 120 medium format film prices from UK retailers on Filmproof. Expired Kodak, Fujifilm and Ilford 120 rolls, tracked separately from fresh stock.' },
+    intro: "Expired 120 film turns up less often than expired 35mm, but medium format shooters tend to seek it out for the discontinued emulsions that are no longer made in any format. With only eight to sixteen frames a roll, there is less room to experiment, so knowing how a batch was stored matters more here than it does in 35mm. Compare expired 120 film prices from UK retailers on Filmproof.",
+    sections: [
+      { heading: "What to expect from expired 120", paragraphs: [
+        "120 has a quirk 35mm does not: the paper backing. Over long periods the printed backing can transfer its numbering onto the emulsion, leaving faint marks across frames, and the tape can dry out or the roll can loosen on the spool. That is a storage problem rather than an age problem, but it is specific to roll film and worth knowing about before buying anything very old.",
+        "Otherwise expired 120 behaves like any expired stock, losing effective speed and gaining fog and grain, and the same one stop per decade starting point applies. The larger negative is more forgiving of the extra grain than 35mm is, which is part of why expired medium format is often more usable than its age suggests.",
+      ] },
+      { heading: "Buying expired 120 film", paragraphs: [
+        "Expired 120 is scarcer than expired 35mm and often priced accordingly, particularly for discontinued Fujifilm colour and slide stocks that have no current equivalent. Because a roll gives you so few frames, it is worth buying more than one from the same batch if you find something you like, since the next lot will behave differently.",
+        "Filmproof lists expired 120 separately from fresh 120 across UK retailers, with live prices per roll updated daily.",
+      ] },
+    ],
+  },
   '35mm-film/colour': {
     meta: { title: 'Colour 35mm Film Prices UK | Compare & Buy | Filmproof', description: 'Compare colour 35mm film prices from UK retailers on Filmproof. Kodak Gold, Portra, Fujicolor and more, find the best deal on 35mm colour rolls.' },
     intro: "Colour 35mm film pairs the world's most widely supported film format with the widest choice of colour stocks anywhere in film photography, from budget everyday rolls to professional portrait film. It's the natural place to start if you're new to shooting colour on film. Compare colour 35mm film prices from UK retailers on Filmproof.",
@@ -383,6 +433,10 @@ export function getFormatContent(slug) {
 
 export function getTypeContent(slug) {
   return TYPE_CONTENT[slug] || null;
+}
+
+export function getConditionContent(slug) {
+  return CONDITION_CONTENT[slug] || null;
 }
 
 export function getComboContent(categorySlug, subShort) {

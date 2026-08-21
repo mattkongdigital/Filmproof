@@ -95,6 +95,7 @@ async function run() {
       format: f.format ?? null,
       process: f.process ?? null,
       exp: f.exp ?? null,
+      expired: f.expired === true,
       image: f.image ?? null,
       description: f.description ?? null,
       offers: list,
@@ -129,7 +130,7 @@ async function run() {
   // Lean index for client-side search (no offers/descriptions — keeps it tiny).
   const searchIndex = site.map((f) => ({
     slug: f.slug, display: f.display, brand: f.brand,
-    format: f.format, iso: f.iso, best: f.best,
+    format: f.format, iso: f.iso, best: f.best, expired: f.expired,
   }));
   writeFileSync('./web/data/search-index.json', JSON.stringify(searchIndex));
 

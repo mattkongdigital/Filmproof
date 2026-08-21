@@ -62,8 +62,9 @@ export default function HowItWorks() {
         the same film as "Kodak GOLD 200 35mm" at another. This is done automatically from the
         product names, which is reliable for the mainstream films most people buy, but isn't
         perfect for every obscure or oddly-named stock. A 24-exposure and a 36-exposure roll are
-        treated as separate options, and expired film is kept separate from fresh, because those
-        are genuinely different things to buy. If you spot a film matched wrongly, please{' '}
+        treated as separate options, and <a href="/expired-film">expired film</a> is kept separate
+        from fresh, because those are genuinely different things to buy. If you spot a film matched
+        wrongly, please{' '}
         <a href="/contact">tell us</a>, it helps.
       </p>
 
