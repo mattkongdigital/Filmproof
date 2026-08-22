@@ -215,6 +215,48 @@ export const CONDITION_CONTENT = {
 };
 
 export const COMBO_CONTENT = {
+  'colour-film/expired': {
+    meta: { title: 'Expired Colour Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired colour film prices from UK retailers on Filmproof. Expired Kodak, Fujifilm and Lomography colour negative stock, tracked separately from fresh film.' },
+    intro: "Expired colour film is where age shows most plainly. Colour negative film carries three dye layers, and they do not fade at the same rate, so as a roll ages past its date the balance between them drifts and the whole image takes on a cast. That shift is the reason a lot of people shoot expired colour deliberately. Compare expired colour film prices from UK retailers on Filmproof.",
+    sections: [
+      { heading: "How expired colour film shifts", paragraphs: [
+        "Which way the colour goes depends on the stock and how it was kept, but the direction is usually consistent within a batch: the cyan layer tends to hold up longest and the yellow to fade first, which is why heavily expired colour negative often prints green or magenta, and why the orange mask can look denser than it should. Alongside the shift you get the same base fog and speed loss any expired film picks up, which flattens contrast and mutes saturation.",
+        "None of this is a defect to be corrected away, and scanning software that auto-balances every frame will fight you for it. If the cast is the reason you bought the roll, scan flat and set the balance yourself rather than letting the scanner neutralise it.",
+      ] },
+      { heading: "Shooting and buying expired colour", paragraphs: [
+        "Colour negative has wide exposure latitude to begin with, which is what makes it the most forgiving type to shoot expired. The usual one stop of extra exposure per decade past the date applies, and the latitude absorbs a fair margin of error on top of that, so a roll metered generously will almost always give you something. Overexposure also lifts the image clear of the fog, which is where the muddiness in expired colour comes from.",
+        "Everyday consumer stocks turn up expired far more often than professional ones, simply because they sold in much larger numbers. Filmproof lists expired colour film separately from fresh across UK retailers, with live prices per roll updated daily.",
+      ] },
+    ],
+  },
+  'black-and-white-film/expired': {
+    meta: { title: 'Expired Black & White Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired black & white film prices from UK retailers on Filmproof. Expired Ilford, Kodak and Fomapan stock, tracked separately from fresh film.' },
+    intro: "Black and white film keeps better than any other type. With no dye layers to fade out of balance, an expired roll loses speed and gains fog but holds its character, which is why decades-old black and white stock is often still perfectly usable while colour of the same age has shifted badly. Compare expired black & white film prices from UK retailers on Filmproof.",
+    sections: [
+      { heading: "Why black and white ages well", paragraphs: [
+        "A monochrome emulsion is a single silver halide layer, so there is no colour balance to drift. What ageing does instead is raise base fog, which lifts the shadows and lowers contrast, and slowly reduce effective speed. Both are straightforward to work around, and neither changes the look of the film in the way a colour shift does.",
+        "Slow film keeps best. An ISO 100 stock is far less sensitive to the background radiation that fogs film over time than an ISO 400 or 3200 one, so expired Pan F or FP4 will often shoot close to box speed decades on, while expired Delta 3200 can be badly fogged within a few years of its date.",
+      ] },
+      { heading: "Shooting and developing expired black and white", paragraphs: [
+        "Start with the usual stop of extra exposure per decade, but black and white gives you a second lever colour does not: development. Pulling development slightly, or using a compensating developer, holds back the fog that extra exposure would otherwise amplify. If you develop your own film, a clip test from the first roll of a batch tells you exactly what the rest needs.",
+        "Because black and white ages so gracefully, expired stock is often the cheapest way to shoot a lot of film. Filmproof lists expired black & white separately from fresh across UK retailers, with live prices per roll updated daily.",
+      ] },
+    ],
+  },
+  'slide-film/expired': {
+    meta: { title: 'Expired Slide Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired slide film prices from UK retailers on Filmproof. Expired Fujifilm Velvia, Provia and Kodak Ektachrome, tracked separately from fresh film.' },
+    intro: "Slide film is the least forgiving type to buy expired. Its narrow exposure latitude leaves nowhere for age-related fog and speed loss to hide, and because it develops to a positive there is no printing stage at which anything can be corrected. Storage history matters more here than for any other film. Compare expired slide film prices from UK retailers on Filmproof.",
+    sections: [
+      { heading: "Why expired slide film is harder", paragraphs: [
+        "Colour negative film has several stops of latitude to absorb a bad guess at effective speed. Slide film has perhaps half a stop either side of correct, so the compensation that rescues an expired negative will blow out an expired transparency instead. Age-related fog is also more visible in a positive image, showing up as veiled, milky highlights and a colour cast that cannot be dialled out later.",
+        "The one-stop-per-decade rule is therefore a much rougher guide here than elsewhere, and worth treating as the starting point for a bracket rather than a setting. Frozen or cold-stored slide film is a genuinely different proposition from room-temperature stock of the same date, and worth paying more for.",
+      ] },
+      { heading: "Buying expired slide film", paragraphs: [
+        "Expired slide film is often sought out rather than merely tolerated, because several of the best-known emulsions no longer exist: Kodachrome cannot be processed at all any more, and discontinued Ektachrome and Fujichrome lines are only available expired. That scarcity means expired slide sometimes sells for more than fresh stock, not less.",
+        "Ask about storage before buying anything old, and bracket generously on the first roll of a batch. Filmproof lists expired slide film separately from fresh across UK retailers, with live prices per roll updated daily.",
+      ] },
+    ],
+  },
   '35mm-film/expired': {
     meta: { title: 'Expired 35mm Film Prices UK | Compare & Buy | Filmproof', description: 'Compare expired 35mm film prices from UK retailers on Filmproof. Expired Kodak, Fujifilm and Ilford 35mm rolls, tracked separately from fresh stock.' },
     intro: "Expired 35mm film is where most expired stock turns up, simply because 35mm has been made in far greater volume than any other format for decades, so there is more of it sitting in drawers, shop stockrooms and house clearances. It is also the cheapest format to shoot while you work out how a particular batch behaves. Compare expired 35mm film prices from UK retailers on Filmproof.",

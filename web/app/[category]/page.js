@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { resolveCategory, categoryParams, filmsFor, FORMATS, SUB_AXES, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
+import { resolveCategory, categoryParams, filmsFor, otherAxes, comboHref, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
 import { FilmBrowser } from '../../components/film-browser';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../lib/data';
@@ -16,37 +16,25 @@ function categoryContent(cat, slug) {
   return getTypeContent(slug);
 }
 
-// Chip rows for the other axes, so every category page crosses into the combos
-// that exist. A format page offers its sub-axes (type, condition); a type or
-// condition page offers the formats it appears in. Counts are computed first so
-// a combo below MIN_COMBO_FILMS never becomes a dead link.
-function crossAxes(cat, categorySlug) {
-  const withCounts = (links) =>
-    links
-      .map((l) => ({ ...l, count: getFilms().filter(l.match).length }))
-      .filter((l) => l.count >= MIN_COMBO_FILMS);
-
-  if (cat.kind === 'format') {
-    return SUB_AXES
-      .map((axis) => ({
-        kind: axis.kind,
-        label: axis.label,
-        links: withCounts(axis.items.map((sub) => ({
-          href: `/${categorySlug}/${sub.short}`,
-          label: sub.label,
-          match: (f) => cat.match(f) && sub.match(f),
-        }))),
-      }))
-      .filter((axis) => axis.links.length > 0);
-  }
-
-  // A type or condition page crosses back into the roll formats.
-  const links = withCounts(FORMATS.filter((f) => f.roll).map((f) => ({
-    href: `/${f.slug}/${cat.facet.short}`,
-    label: f.label,
-    match: (x) => cat.match(x) && f.match(x),
-  })));
-  return links.length > 0 ? [{ kind: 'format', label: 'Format', links }] : [];
+// A chip row per other axis, so every category page crosses into the combos that
+// exist. comboHref decides the direction, so a format page links down into
+// /35mm-film/expired while a condition page links into the same URL from the
+// other side. Counts are computed first, so a combo below MIN_COMBO_FILMS never
+// becomes a dead link.
+function crossAxes(cat) {
+  return otherAxes(cat.kind)
+    .map((axis) => ({
+      kind: axis.kind,
+      label: axis.label,
+      links: axis.items
+        .map((other) => ({
+          href: comboHref(cat.facet, other),
+          label: other.label,
+          count: getFilms().filter((f) => cat.match(f) && other.match(f)).length,
+        }))
+        .filter((l) => l.href && l.count >= MIN_COMBO_FILMS),
+    }))
+    .filter((axis) => axis.links.length > 0);
 }
 
 export function generateMetadata({ params }) {
@@ -67,7 +55,7 @@ export default function CategoryPage({ params }) {
   const content = categoryContent(cat, params.category);
   const films = filmsFor(cat.match);
 
-  const axes = crossAxes(cat, params.category);
+  const axes = crossAxes(cat);
 
   return (
     <div className="wrap">
