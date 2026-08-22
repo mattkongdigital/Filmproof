@@ -36,6 +36,7 @@ export default function ComboPage({ params }) {
     .filter((f) => f.count >= MIN_COMBO_FILMS);
   const subAxes = SUB_AXES
     .map((axis) => ({
+      kind: axis.kind,
       label: axis.label,
       current: axis.kind === combo.subKind,
       items: axis.items
@@ -46,6 +47,12 @@ export default function ComboPage({ params }) {
     .filter((axis) => axis.current || axis.items.length > 0);
   const fmtOnlyCount = getFilms().filter(combo.fmt.match).length;
   const subOnlyCount = getFilms().filter(combo.sub.match).length;
+  const showChips = formatSiblings.length > 0 || subAxes.some((a) => a.items.length > 0);
+  // Format and the sub-facet are fixed here, and any axis offered as a chip row
+  // is navigation rather than a filter — so the browser keeps only what varies
+  // and is not already linked above (ISO, stock, and any axis without chips).
+  const hiddenAxes = ['format', combo.subKind, ...(showChips ? subAxes.map((a) => a.kind) : [])]
+    .map((k) => BROWSER_AXIS[k]);
 
   return (
     <div className="wrap">
@@ -70,7 +77,7 @@ export default function ComboPage({ params }) {
         </p>
       </header>
 
-      {(formatSiblings.length > 0 || subAxes.some((a) => a.items.length > 0)) && (
+      {showChips && (
         <div className="facet-links">
           <span className="facet-links-head">Browse {combo.heading} by</span>
           <div className="facet-axes">
@@ -106,9 +113,7 @@ export default function ComboPage({ params }) {
         </div>
       )}
 
-      {/* Format and the sub-facet are fixed here; the other sub-axis (e.g.
-          condition on a type combo) can still vary, so leave it filterable. */}
-      <FilmBrowser films={films} hideAxes={['fmt', BROWSER_AXIS[combo.subKind]]} />
+      <FilmBrowser films={films} hideAxes={hiddenAxes} />
 
       {content && (
         <div className="brand-about">
