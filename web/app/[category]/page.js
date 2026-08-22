@@ -29,6 +29,7 @@ function crossAxes(cat, categorySlug) {
   if (cat.kind === 'format') {
     return SUB_AXES
       .map((axis) => ({
+        kind: axis.kind,
         label: axis.label,
         links: withCounts(axis.items.map((sub) => ({
           href: `/${categorySlug}/${sub.short}`,
@@ -45,7 +46,7 @@ function crossAxes(cat, categorySlug) {
     label: f.label,
     match: (x) => cat.match(x) && f.match(x),
   })));
-  return links.length > 0 ? [{ label: 'Format', links }] : [];
+  return links.length > 0 ? [{ kind: 'format', label: 'Format', links }] : [];
 }
 
 export function generateMetadata({ params }) {
@@ -107,8 +108,11 @@ export default function CategoryPage({ params }) {
         </div>
       )}
 
-      {/* The axis this page is already filtered by is constant here, so hide it. */}
-      <FilmBrowser films={films} hideAxes={[BROWSER_AXIS[cat.kind]]} />
+      {/* Hide the axis this page is already scoped by (constant here), plus any
+          axis offered as a chip row above — an axis should be either navigation
+          or a filter, not both. An axis whose chip row was dropped for having too
+          few films keeps its filter. */}
+      <FilmBrowser films={films} hideAxes={[cat.kind, ...axes.map((a) => a.kind)].map((k) => BROWSER_AXIS[k])} />
 
       {content && (
         <div className="brand-about">
