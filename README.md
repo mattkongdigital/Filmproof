@@ -79,11 +79,13 @@ no dead links:
 | Type | colour, black & white, slide | `/colour-film` |
 | Condition | expired | `/expired-film` |
 
-Format is always the parent in a combined page, so type and condition hang off
-it as sub-pages: `/35mm-film/colour`, `/35mm-film/expired`. Brands cross any
-axis at `/brand/kodak/expired-film`. Adding a value to an axis array is enough
-to create its pages, its navigation entries and its sitemap URLs; long-form copy
-for a page is optional and lives in `web/lib/category-content.js`.
+Any two axes combine into one page, and the URL direction is fixed by rank —
+format outranks type, and a condition is never a parent — so each pair has
+exactly one URL: `/35mm-film/colour`, `/35mm-film/expired`, `/colour-film/expired`.
+Two facets on the *same* axis never combine. Brands cross any axis at
+`/brand/kodak/expired-film`. Adding a value to an axis array is enough to create
+its pages, its navigation entries and its sitemap URLs; long-form copy for a
+page is optional and lives in `web/lib/category-content.js`.
 
 Condition reads the `expired` flag that `src/normalise.js` sets when a listing
 title says so — the same signal that keys expired stock separately from fresh in

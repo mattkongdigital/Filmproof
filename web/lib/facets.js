@@ -26,8 +26,8 @@ export const CONDITIONS = [
   { slug: 'expired-film', short: 'expired', label: 'Expired', match: (f) => f.expired === true },
 ];
 
-// The axes that can hang off a format as a sub-page (/35mm-film/colour,
-// /35mm-film/expired). Format is always the parent, so these are the children.
+// The axes that can hang off a parent as a sub-page. Only these carry a `short`
+// slug, so a format can never be the child half of a combo.
 export const SUB_AXES = [
   { kind: 'type', label: 'Type', items: TYPES },
   { kind: 'condition', label: 'Condition', items: CONDITIONS },
@@ -35,6 +35,15 @@ export const SUB_AXES = [
 
 const SUBS = [...TYPES, ...CONDITIONS];
 const ALL_FACETS = [...FORMATS, ...TYPES, ...CONDITIONS];
+
+// Which half of a pair becomes the URL parent: format outranks type, and a
+// condition is never a parent. That keeps one canonical URL per pair —
+// /35mm-film/expired and /colour-film/expired, never /expired-film/35mm.
+const PARENT_RANK = { format: 0, type: 1, condition: 2 };
+
+// Parents in rank order. Non-roll formats (instant, cine) are excluded: they
+// have no meaningful sub-division here.
+const COMBO_PARENTS = [...FORMATS.filter((f) => f.roll), ...TYPES];
 
 // Which axis a facet belongs to — pages label their chip rows with this.
 export function facetKind(facet) {
@@ -64,26 +73,56 @@ export function categoryParams() {
   return ALL_FACETS.filter((x) => has(x.match)).map((x) => ({ category: x.slug }));
 }
 
+// Type labels are proper nouns on their own ("Colour") but read mid-sentence in
+// a combo heading, so they lower-case there. Format labels are names (35mm, 120)
+// and stay as they are.
+const inHeading = (facet) => (facetKind(facet) === 'type' ? facet.label.toLowerCase() : facet.label);
+
+// A pair only combines across two different axes, and only in the direction
+// PARENT_RANK allows — so /colour-film/expired resolves and /colour-film/slide
+// (type × type) does not.
 export function resolveCombo(categorySlug, subSlug) {
-  const fmt = FORMATS.find((x) => x.slug === categorySlug && x.roll);
+  const parent = COMBO_PARENTS.find((x) => x.slug === categorySlug);
   const sub = SUBS.find((x) => x.short === subSlug);
-  if (!fmt || !sub) return null;
+  if (!parent || !sub) return null;
+  const parentKind = facetKind(parent);
+  const subKind = facetKind(sub);
+  if (parentKind === subKind) return null;
   return {
-    fmt, sub,
-    subKind: facetKind(sub),
-    heading: `${sub.label} ${fmt.label} film`,
-    match: (f) => fmt.match(f) && sub.match(f),
+    parent, sub, parentKind, subKind,
+    heading: `${sub.label} ${inHeading(parent)} film`,
+    match: (f) => parent.match(f) && sub.match(f),
   };
 }
 
 export function comboParams() {
   const out = [];
-  for (const fmt of FORMATS.filter((f) => f.roll)) {
+  for (const parent of COMBO_PARENTS) {
     for (const sub of SUBS) {
-      if (has((f) => fmt.match(f) && sub.match(f))) out.push({ category: fmt.slug, sub: sub.short });
+      if (facetKind(parent) === facetKind(sub)) continue;
+      if (has((f) => parent.match(f) && sub.match(f))) out.push({ category: parent.slug, sub: sub.short });
     }
   }
   return out;
+}
+
+// The canonical URL for a pair of facets, or null if they cannot combine.
+// Both halves of a cross-link agree on direction because both call this.
+export function comboHref(a, b) {
+  const [parent, sub] = PARENT_RANK[facetKind(a)] <= PARENT_RANK[facetKind(b)] ? [a, b] : [b, a];
+  if (facetKind(parent) === facetKind(sub)) return null;
+  if (!COMBO_PARENTS.includes(parent)) return null;
+  return `/${parent.slug}/${sub.short}`;
+}
+
+// The facets on every axis other than this one — the candidates a category page
+// can cross-link into.
+export function otherAxes(kind) {
+  return [
+    { kind: 'format', label: 'Format', items: FORMATS.filter((f) => f.roll) },
+    { kind: 'type', label: 'Type', items: TYPES },
+    { kind: 'condition', label: 'Condition', items: CONDITIONS },
+  ].filter((axis) => axis.kind !== kind);
 }
 
 export const MIN_COMBO_FILMS = 3;
