@@ -29,6 +29,7 @@ const BRAND_PATTERNS = [
   [/\bilford\b/, 'ilford'],
   [/\bcinestill\b/, 'cinestill'],
   [/\bkentmere\b/, 'kentmere'],
+  [/\bleica\b|\bleitz\b/, 'leica'],
   [/\brollei\b/, 'rollei'],
   [/\bferrania\b/, 'ferrania'],
   [/\bpolaroid\b/, 'polaroid'],
@@ -60,7 +61,7 @@ const BRAND_PATTERNS = [
 // Residual single-word brand tokens to strip from the product line.
 const BRAND_WORDS = new Set([
   'kodak','ilford','fujifilm','fuji','cinestill','lomography','lomo','agfa','agfaphoto',
-  'kentmere','rollei','fomapan','foma','ferrania','polaroid','harman','washi','bergger',
+  'kentmere','rollei','fomapan','foma','ferrania','polaroid','harman','washi','bergger','leica','leitz',
   'adox','shanghai','kono','flic','fpp','revolog','catlabs','jch','dubblefilm','dubble',
   'analogheld','hanalogital','kameratori','orwo','wolfen','reto','retrospekt','silbersalz',
   'yodica','candido','oriental','wittner','kosmo','optik','mira','lucky','rera',
@@ -72,7 +73,7 @@ const FORMAT_TOKENS = new Set(['135','120','110','127','220','35mm','35','mm','1
 const EXP_WORDS = new Set(['exp','exposure','exposures']);
 const NOISE = new Set([
   'film','films','colour','color','negative','neg','print','iso','asa','roll','rolls','single','pack','pk','of',
-  'super','double','std','movie','cine','sheet','large','format','micro','microfilm','disposable','reusable',
+  'super','double','twin','triple','quad','std','movie','cine','sheet','large','format','micro','microfilm','disposable','reusable',
   'reversal','daylight','tungsten','ft','bw','value','box','new','the','and','with','pro','coming','soon','set','expired','instant','sheets','professional','positive','slide',
 ]);
 
@@ -96,6 +97,13 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bfp\s?4(?:\s*plus)?\b/g, 'fp4plus')
     .replace(/\bpan\s?f(?:\s*plus)?\b/g, 'panfplus')
     .replace(/\bgold\s+gb\b/g, 'gold')          // GB is a factory code — same film
+    // Foma renamed its three main stocks (Classic 100 / Creative 200 / Action
+    // 400) but shops still stock both spellings, and some carry the bare
+    // "Fomapan 200". They are one film, so drop the range word.
+    .replace(/\bfomapan\s+(?:classic|creative|action)\b/g, 'fomapan')
+    // Shops glue the multipack word onto "pack" ("Twinpack") as often as they
+    // space it, and the pack rule below keys off a standalone "pack".
+    .replace(/\b(twin|double|triple|quad)pack\b/g, '$1 pack')
     // Some shops glue the ISO onto the line name ("SFX200"). We can't split
     // digits off *any* line name — plenty (Tri-X, HP5, T-Max, 3200) are
     // legitimately alphanumeric — so this only fires for known line names,
@@ -121,7 +129,22 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // axis on the front end. 'expired' is in NOISE, so it never reaches `line`.
   const expired = /\bexpired\b/.test(text);
 
-  const format = detectFormat(hint) || detectFormat(text);
+  // The shop's category is normally the better signal — it knows a 30.5m bulk
+  // roll is bulk even when the title only says "35mm". But a shop can also
+  // simply misfile a product: Bass & Bligh list "Leica Monopan 50 35mm Film"
+  // under a "120 Film" category. So when BOTH the category and the title name
+  // a plain roll format and they disagree, the title wins — a title that spells
+  // out "35mm Film" is more specific than a shelf. Packaging formats (bulk,
+  // sheet, movie, instant) keep category priority, because those encode how the
+  // film is sold and the title often doesn't repeat it.
+  const ROLL_FORMATS = new Set(['135', '120', '110', '127', '220', '620']);
+  const hintFormat = detectFormat(hint);
+  const textFormat = detectFormat(text);
+  const format =
+    hintFormat && textFormat && hintFormat !== textFormat &&
+    ROLL_FORMATS.has(hintFormat) && ROLL_FORMATS.has(textFormat)
+      ? textFormat
+      : (hintFormat || textFormat);
 
   let exp = null;
   const em = text.match(/\b(\d{2})\s?(?:exp|exposure|exposures)\b/) || text.match(/\b135[\s-]?(\d{2})\b/);
@@ -130,10 +153,23 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   let packSize = 1;
   const pm = text.match(/(\d+)\s*[-x]?\s*pack\b/) || text.match(/pack of (\d+)/) || text.match(/\bset of (\d+)/) || text.match(/\bbundle of (\d+)/);
   if (pm) { const n = parseInt(pm[1], 10); if (n >= 2 && n <= 12) packSize = n; }
+  // Shops write multipacks in words as often as digits — "Triple Pack",
+  // "Twinpack", "Twin Film Pack". Left unparsed these both inflate the price
+  // (matchOffer divides by packSize) and leak the word into the film's identity
+  // key, forking "Kodak Gold 200 Triple Pack" off its own single roll. Only
+  // counted when the title also says "pack", so "Double 8mm" and Double-X stay
+  // single rolls.
+  if (packSize === 1 && /\bpack\b/.test(text)) {
+    const wm = text.match(/\b(twin|double|triple|quad)\b/);
+    if (wm) packSize = { twin: 2, double: 2, triple: 3, quad: 4 }[wm[1]];
+  }
 
   let iso = null;
   for (const t of text.split(' ')) {
-    const m = t.match(/^(\d{2,4})[std]?$/);
+    // "E100" and friends carry the speed inside the line name (Ektachrome E100
+    // is ISO 100). Read the ISO out of it but leave the token in `line`, so the
+    // key matches shops that spell the speed out separately.
+    const m = t.match(/^(\d{2,4})[std]?$/) || t.match(/^e(\d{2,4})$/);
     if (m) { const n = Number(m[1]); if (ISO_SPEEDS.has(n) && String(n) !== exp && n !== packSize) { iso = String(n); break; } }
   }
   if (iso == null && extraIso != null) iso = String(extraIso);
@@ -149,6 +185,9 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     if (packSize > 1 && Number(t) === packSize) return false;
     if (/^\d{2}(exp|exposure|exposures)$/.test(t)) return false;
     if (/^\d+(pack|pk)$/.test(t)) return false;
+    // "(36 Exposures x3)" repeats the pack count — but only drop it when it
+    // really is the pack count, or CatLABS X80 loses its name.
+    if (packSize > 1 && t === `x${packSize}`) return false;
     if (/^\d+ft$/.test(t)) return false;
     if (/^(8|16)$/.test(t)) return false;
     return true;
