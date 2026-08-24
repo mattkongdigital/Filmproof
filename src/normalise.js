@@ -191,7 +191,11 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     if (/^\d+ft$/.test(t)) return false;
     if (/^(8|16)$/.test(t)) return false;
     return true;
-  }).join('');
+  // Sorted, not source order: shops write the same film's modifiers in whatever
+  // order reads best ("Limited Edition Ilford HP5 Plus Football" vs "Ilford HP5
+  // PLUS ... FOOTBALL Limited Edition"). The tokens are identical, so sorting
+  // makes those one film instead of two. `line` is an identity key, never shown.
+  }).sort().join('');
 
   const identified = Boolean(brand && format && (line || iso));
   const baseKey = identified ? [brand, line, format, iso].filter(Boolean).join('-') : null;
