@@ -20,7 +20,7 @@ export function formatLabel(format) {
 
 // Known stock names. B&W is checked before colour, so a C-41 black & white
 // film like XP2 still reads as black & white.
-const BW_STOCKS = /black|b&w|\bmono\b|monochrome|\bhp\s?5\b|\bfp\s?4\b|delta|tri-?x|t-?max|\btmax\b|fomapan|\bpan\s?f\b|kentmere|\bpan\b|\bapx\b|earl grey|lady grey|scala|\bhr-?50\b|\bxp\s?2\b|ortho|silvermax|\bufx\b|retropan|\bdouble ?x\b|\bwashi\s?[fsxv]\b|\bplus[\s-]?x\b|acros|neopan|\bspur\b|adox chs|orwo|superpan|\bp30\b|streetpan|\bretro\s?\d|\brpx\b|infrared|\bsfx\b|aviphot|chs\s?100/;
+const BW_STOCKS = /black|b&w|\bmono\b|monochrome|\bhp\s?5\b|\bfp\s?4\b|delta|tri-?x|t-?max|\btmax\b|fomapan|\bpan\s?f\b|kentmere|\bpan\b|\bapx\b|earl grey|lady grey|scala|\bhr-?50\b|\bxp\s?2\b|ortho|silvermax|\bufx\b|retropan|\bdouble ?x\b|\bbwxx\b|\bwashi\s?[fsxv]\b|\bplus[\s-]?x\b|acros|neopan|\bspur\b|adox chs|orwo|superpan|\bp30\b|streetpan|\bretro\s?\d|\brpx\b|infrared|\bsfx\b|aviphot|chs\s?100/;
 const COLOUR_STOCKS = /gold|colou?r\s?plus|ultramax|portra|ektar|proimage|superia|fujicolor|natura|\bc200\b|colou?r ?200|colou?r ?400|vista|cinestill|aerocolor|phoenix|harman red|candido|santacolor|metropolis|\bpro ?400h?\b|\bxtra\b|nc[24]00|fujifilm ?[24]00|fuji ?[24]00|lomochrome|\bcolor\b|\bcolour\b/;
 
 // Work out the process. Trust the shop's own category first (most reliable),

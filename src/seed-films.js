@@ -44,4 +44,12 @@ function loadCatalogue() {
 }
 
 export const FILMS = loadCatalogue();
-export const FILM_BY_KEY = new Map(FILMS.filter((f) => f.key).map((f) => [f.key, f]));
+// A film answers to its own key and to any stub key reconciled into it during
+// the catalogue build (see reconcileIsoStubs), so an offer whose title omits the
+// film's speed still resolves to the same page as one that states it.
+export const FILM_BY_KEY = new Map();
+for (const f of FILMS) {
+  if (!f.key) continue;
+  FILM_BY_KEY.set(f.key, f);
+  for (const alias of f.aliases || []) if (!FILM_BY_KEY.has(alias)) FILM_BY_KEY.set(alias, f);
+}

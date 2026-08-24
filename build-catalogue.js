@@ -163,6 +163,70 @@ const cleanName = (t) => t
   .replace(/\s*,\s*$/, '')
   .replace(/\s{2,}/g, ' ').trim();
 
+// Some shops name a film's speed in the title ("Ilford HP5 Plus 400") and some
+// don't ("Ilford HP5 PLUS 35mm film"). The ISO is part of the identity key, so
+// the same film arrives under two keys — one with the speed, one without — and
+// the catalogue carries a populated entry alongside a near-empty twin. Offers
+// then split across the two, which is exactly the silent mismatch this pipeline
+// exists to avoid.
+//
+// Where a brand+line+format group holds exactly one key-with-ISO and exactly
+// one key-without, they are the same film: the ISO'd entry wins and the stub
+// becomes an alias, so offers parsed either way resolve to one page.
+//
+// Two guards, because "same brand, line and format" is not on its own enough:
+//   - Exactly one of each. "harman-phoenix-135" has both a 125 and a 200
+//     sibling, and there is no way to tell which the stub meant.
+//   - Matching process. Colour and black & white Instax Wide share a line name
+//     and differ only by the speed one of them happens to state, so a blind
+//     merge would fuse a colour film into a B&W entry. A null process (we were
+//     unsure) merges with a known one; two DIFFERENT known processes never do.
+function reconcileIsoStubs(films) {
+  const groups = new Map();
+  for (const f of films.values()) {
+    const g = `${f.brand}|${f.line}|${f.format}|${f.expired}`;
+    if (!groups.has(g)) groups.set(g, []);
+    groups.get(g).push(f);
+  }
+
+  const merged = [];
+  const skipped = [];
+  for (const items of groups.values()) {
+    const stubs = items.filter((f) => f.keyIso == null);
+    const withIso = items.filter((f) => f.keyIso != null);
+    if (!stubs.length || !withIso.length) continue;
+
+    if (stubs.length !== 1 || withIso.length !== 1) {
+      skipped.push({ reason: 'ambiguous', keys: items.map((f) => f.key) });
+      continue;
+    }
+    const [stub] = stubs;
+    const [canonical] = withIso;
+    if (stub.process && canonical.process && stub.process !== canonical.process) {
+      skipped.push({
+        reason: `process differs (${stub.process} vs ${canonical.process})`,
+        keys: [stub.key, canonical.key],
+      });
+      continue;
+    }
+
+    // Anything the stub knows and the winner doesn't.
+    if (stub.image && !canonical.image) canonical.image = stub.image;
+    if (canonical.exp == null && stub.exp != null) canonical.exp = stub.exp;
+    if (!canonical.process && stub.process) {
+      canonical.process = stub.process;
+      canonical.description = describe({
+        display: canonical.display, brand: canonical.brand,
+        format: canonical.format, iso: canonical.iso, process: canonical.process,
+      });
+    }
+    canonical.aliases = [...(canonical.aliases || []), stub.key];
+    films.delete(stub.key);
+    merged.push({ from: stub.key, to: canonical.key, display: canonical.display });
+  }
+  return { merged, skipped };
+}
+
 async function run() {
   console.log(`Building catalogue from ${SOURCES.length} sources${OFFLINE ? ' (offline)' : ''}...`);
   const films = new Map();
@@ -212,6 +276,10 @@ async function run() {
           id: films.size + 1, key: parsed.key, display: cleanName(it.raw),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
           expired: parsed.expired,
+          // The parts the key was built from. `iso` above can be backfilled
+          // from a shop's body text, so it is NOT a reliable guide to whether
+          // the KEY carries an ISO — reconcileIsoStubs() needs `keyIso`.
+          line: parsed.line, keyIso: parsed.iso ?? null,
           image: it.image || null,
           description: describe({ display: cleanName(it.raw), brand: parsed.brand, format: parsed.format, iso, process }),
           type: it.type, slug: slugify(cleanName(it.raw)),
@@ -228,7 +296,11 @@ async function run() {
     console.log(`  ${src.retailer}: +${kept} new films`);
   }
 
+  const { merged, skipped } = reconcileIsoStubs(films);
+  // ids are assigned as films are discovered, so removing the stubs leaves
+  // holes — hand out fresh sequential ones before anything downstream reads them.
   const catalogue = [...films.values()];
+  catalogue.forEach((f, i) => { f.id = i + 1; });
 
   // TEMPORARY DIAGNOSTIC: the final state, after cross-shop backfill — this is
   // what the site actually renders.
@@ -258,6 +330,12 @@ async function run() {
   const byFormat = {};
   for (const f of catalogue) byFormat[f.format] = (byFormat[f.format] || 0) + 1;
   console.log(`\nCatalogue: ${catalogue.length} unique films (from ${filmItems} film items).`);
+  console.log(`ISO-stub merges: ${merged.length}  (offers keyed either way now share a page)`);
+  for (const m of merged) console.log(`    ${m.from}  ->  ${m.to}`);
+  if (skipped.length) {
+    console.log(`Left separate: ${skipped.length}`);
+    for (const s of skipped) console.log(`    ${s.keys.join('  |  ')}  — ${s.reason}`);
+  }
   console.log(`Unidentified: ${unidentified.size}  (data/catalogue-unidentified.txt)`);
   console.log('By format:');
   for (const [f, n] of Object.entries(byFormat).sort((a, b) => b[1] - a[1])) console.log(`  ${String(n).padStart(4)}  ${f}`);
