@@ -516,3 +516,36 @@ img.store-logo { object-fit:contain; background:#fff; }
 .brand-about { margin-top:48px; padding-top:30px; border-top:1px solid var(--rebate); }
 .brand-about-heading { font-family:var(--display); font-weight:600; font-size:17px; letter-spacing:-0.01em; margin:26px 0 10px; }
 .brand-about-p { font-size:16px; line-height:1.65; color:var(--ink); opacity:.9; max-width:64ch; margin:0 0 14px; }
+
+/* --- Editorial ---------------------------------------------------------- */
+/* Structure only. Post bodies sit inside .doc and inherit its prose styles;
+   what is here is the index list, the dateline and the "filed under" block. */
+.post-list { list-style:none; margin:28px 0 0; padding:0; }
+.post-item { padding:22px 0; border-bottom:1px solid var(--rebate); }
+.post-date {
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--muted);
+}
+.post-item-title { font-family:var(--display); font-weight:600; font-size:21px; margin:6px 0 6px; letter-spacing:-0.01em; }
+.post-item-title a { color:var(--ink); text-decoration:none; }
+.post-item-title a:hover { color:var(--amber); }
+.post-item-desc { font-size:15px; line-height:1.6; color:var(--muted); max-width:64ch; margin:0; }
+
+.post-body pre {
+  font-family:var(--mono); font-size:13px; background:rgba(0,0,0,.25);
+  border:1px solid var(--rebate); border-radius:4px; padding:12px 14px;
+  overflow-x:auto; margin:0 0 16px;
+}
+.post-body code { font-family:var(--mono); font-size:.92em; }
+.post-body blockquote {
+  border-left:2px solid var(--amber); padding-left:16px; margin:0 0 18px; color:var(--muted);
+}
+.post-body img { max-width:100%; height:auto; }
+
+.post-meta { margin:32px 0 0; padding-top:18px; border-top:1px solid var(--rebate); }
+.post-meta-row { display:flex; gap:12px; margin:0 0 8px; font-size:14px; }
+.post-meta dt {
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); min-width:88px; padding-top:2px;
+}
+.post-meta dd { margin:0; color:var(--ink); opacity:.9; }
