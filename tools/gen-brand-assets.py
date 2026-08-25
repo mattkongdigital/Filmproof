@@ -241,27 +241,74 @@ mx0, my0, mx1, my1 = ink_bounds(mitems)
 mw, mh = mx1 - mx0, my1 - my0
 
 
-def fp_svg(size, bg, fg, radius_ratio=0.22, fill=0.64, inset_border=None):
+# The site body carries a fine dot grain:
+#   radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px) on a 3px grid.
+# The tile reproduces it proportionally rather than in screen pixels: PITCH units
+# per dot in a 512-unit tile, i.e. the site's 3px grain when the mark is shown
+# around 128px. Alpha is lifted from .015, which would vanish once the artwork is
+# scaled down or re-encoded.
+GRAIN_PITCH = 12.0   # per 512 units of tile
+GRAIN_R = 1.6        # dot radius, same dot-to-cell ratio as the CSS grain
+GRAIN_ALPHA = 0.05
+
+
+def fp_svg(size, bg, fg, radius_ratio=0.22, fill=0.64, grain=True):
     """Fp centred on a rounded square, sized so the cap-to-descender block fills `fill`."""
     scale = (size * fill) / mh
     tx = (size - mw * scale) / 2 - mx0 * scale
     ty = (size - mh * scale) / 2 + my1 * scale
     d = svg_path(mitems, scale, tx, ty)
     r = size * radius_ratio
+    k = size / 512
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" width="{size}" height="{size}" role="img" aria-label="Filmproof">']
+    if bg and grain:
+        p = GRAIN_PITCH * k
+        parts.append(
+            f'<defs><pattern id="fp-grain" width="{p:.3f}" height="{p:.3f}" patternUnits="userSpaceOnUse">'
+            f'<circle cx="{p / 2:.3f}" cy="{p / 2:.3f}" r="{GRAIN_R * k:.3f}" fill="#ffffff" fill-opacity="{GRAIN_ALPHA}"/>'
+            f'</pattern></defs>')
     if bg:
         parts.append(f'<rect width="{size}" height="{size}" rx="{r:.2f}" ry="{r:.2f}" fill="{bg}"/>')
+        if grain:
+            parts.append(f'<rect width="{size}" height="{size}" rx="{r:.2f}" ry="{r:.2f}" fill="url(#fp-grain)"/>')
     parts.append(f'<path fill="{fg}" fill-rule="evenodd" d="{d}"/>')
     parts.append('</svg>')
     return ''.join(parts)
 
 
-def fp_png(size, bg, fg, radius_ratio=0.22, fill=0.64):
+def grain_overlay(size, ss=4):
+    """The site's dot grain as an RGBA layer, or None when the tile is too small
+    for the dots to survive downsampling (16/32px favicons stay clean)."""
+    from PIL import ImageDraw
+    pitch = GRAIN_PITCH * size / 512
+    if pitch < 4:
+        return None
+    layer = Image.new('RGBA', (size * ss, size * ss), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(layer)
+    a = int(round(GRAIN_ALPHA * 255))
+    rad = GRAIN_R * size / 512 * ss
+    p = pitch * ss
+    n = int(size * ss / p) + 2
+    for iy in range(n):
+        for ix in range(n):
+            cx, cy = (ix + 0.5) * p, (iy + 0.5) * p
+            dr.ellipse([cx - rad, cy - rad, cx + rad, cy + rad], fill=(255, 255, 255, a))
+    return layer.resize((size, size), Image.LANCZOS)
+
+
+def fp_png(size, bg, fg, radius_ratio=0.22, fill=0.64, grain=True):
     scale = (size * fill) / mh
     tx = (size - mw * scale) / 2 - mx0 * scale
     ty = (size - mh * scale) / 2 + my1 * scale
     mask = text_mask(mitems, (size, size), scale, tx, ty)
-    base = rounded_square(size, size * radius_ratio, bg) if bg else Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    if bg:
+        base = rounded_square(size, size * radius_ratio, bg)
+        overlay = grain_overlay(size) if grain else None
+        if overlay is not None:
+            overlay.putalpha(ImageChops.multiply(overlay.getchannel('A'), base.getchannel('A')))
+            base = Image.alpha_composite(base, overlay)
+    else:
+        base = Image.new('RGBA', (size, size), (0, 0, 0, 0))
     fgimg = Image.new('RGBA', (size, size), hexrgb(fg) + (255,))
     return Image.composite(fgimg, base, mask)
 

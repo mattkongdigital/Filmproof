@@ -35,6 +35,13 @@ wide with a transparent background.
 | `filmproof-mark-fp-ink.svg` / `-ink-512.png` | letters only in `#ede7d7`, transparent |
 | `filmproof-mark-fp-inverse.svg` | dark letters on an orange tile |
 
+The tile carries the same dot grain as the site background
+(`radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px)` on a 3px grid),
+scaled to the artwork rather than to screen pixels — it matches the site's grain
+when the mark is shown at roughly 128px, and is slightly stronger in alpha so it
+survives scaling and re-encoding. The 16/32/64px rasters are left clean, since
+dots that fine only turn to noise at those sizes.
+
 The favicon and the iOS home-screen icon are wired up through the Next.js app
 router as `web/app/icon.png` and `web/app/apple-icon.png` — both are the primary
 mark (the apple icon is full-bleed, since iOS rounds the corners itself).
