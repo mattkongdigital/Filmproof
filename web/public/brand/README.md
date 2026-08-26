@@ -46,4 +46,45 @@ The favicon and the iOS home-screen icon are wired up through the Next.js app
 router as `web/app/icon.png` and `web/app/apple-icon.png` — both are the primary
 mark (the apple icon is full-bleed, since iOS rounds the corners itself).
 
-Regenerate any of this with `tools/gen-brand-assets.py`.
+## Socials
+
+| File | Notes |
+| --- | --- |
+| `filmproof-avatar-1000.png` / `-400.png` / `.svg` | square profile picture — full-bleed textured tile, orange Fp |
+| `filmproof-card-1200x630.png` / `filmproof-card.svg` | 1200×630 share / link-preview card, wordmark on the textured ground |
+
+The avatar is deliberately **square-cornered and full-bleed**: X, Instagram and
+LinkedIn crop profile pictures to a circle, which would clip the rounded corners
+of the app icon and look like a mistake. The letters sit well inside the
+inscribed circle, so the same file works cropped to a circle, a rounded square,
+or left square. Upload the 1000px version anywhere that accepts it.
+
+## Lockup (email signature, headers, decks)
+
+| File | Notes |
+| --- | --- |
+| `filmproof-lockup-onlight-1200.png` / `-600.png` / `.svg` | dark wordmark — for white and light backgrounds |
+| `filmproof-lockup-ondark-1200.png` / `-600.png` / `.svg` | ink wordmark — for dark backgrounds |
+
+Mark plus wordmark, 4.25:1, transparent background. PNGs are sized for retina:
+ship the 600px file and display it at 200px wide, or the 1200px file at 400px.
+
+Email clients strip SVG and ignore CSS backgrounds, so signatures must use the
+PNG with explicit `width`/`height` attributes. Once the site is deployed the
+files are served from `/brand/…`:
+
+```html
+<a href="https://filmproof.co.uk" style="text-decoration:none">
+  <img src="https://filmproof.co.uk/brand/filmproof-lockup-onlight-600.png"
+       alt="Filmproof" width="200" height="47"
+       style="display:block;border:0;outline:none;text-decoration:none">
+</a>
+```
+
+Use the `-ondark-` file instead if the recipient's client is likely to invert
+your signature (Outlook dark mode), or keep the dark-text version and accept the
+transparent background going light-on-light — the mark's own tile keeps it
+readable either way.
+
+Regenerate any of this with `tools/gen-brand-assets.py` (wordmark, mark, icons)
+and `tools/gen-brand-social.py` (avatar, lockups, card).
