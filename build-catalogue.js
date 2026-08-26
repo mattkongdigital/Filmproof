@@ -28,6 +28,15 @@ const RAW_DEBUG = (process.env.FILMPROOF_IMAGE_DEBUG || '').toLowerCase();
 const DEBUG_BRAND = !RAW_DEBUG || ['1', 'true', 'yes', 'on'].includes(RAW_DEBUG) ? 'cinestill' : RAW_DEBUG;
 const dbg = (line) => process.stderr.write(`[image-debug] ${line}\n`);
 
+// TEMPORARY DIAGNOSTIC (FILMPROOF_IMAGE_REGRESSION_DEBUG) — remove once the
+// re-appearing promo-overlay question is settled. The flag above reports what
+// the filter REJECTED, for one brand; this one reports what it ACCEPTED, for
+// every brand, because a banner that is back on the site got through the
+// filter rather than being caught by it. Inert unless the env var is set, and
+// it writes to stderr so stdout stays exactly as it was.
+const REGRESSION_DEBUG = Boolean(process.env.FILMPROOF_IMAGE_REGRESSION_DEBUG);
+const rdbg = (line) => process.stderr.write(`[image-regression] ${line}\n`);
+
 // Shop photography sometimes carries the shop's own promotional banner baked
 // right into the image — "2 FOR £55 save £13", "was £38", "5 ROLLS FOR 4" —
 // which reads as misleading (that deal may not be live) and out of place on a
@@ -127,7 +136,7 @@ async function itemsFor(src) {
         image: pickCleanImage(p.images),
         // TEMPORARY DIAGNOSTIC: what pickCleanImage saw, so run() can explain
         // its decision. Only built when the debug flag is on.
-        imageDebug: !IMAGE_DEBUG ? null : (() => {
+        imageDebug: !(IMAGE_DEBUG || REGRESSION_DEBUG) ? null : (() => {
           const imgs = p.images || [];
           const first = imgs[0];
           const src = (first && first.src) || null;
@@ -255,6 +264,21 @@ async function run() {
       if (!parsed.identified) {
         if (debugTitle) dbg(`DROPPED unidentified-title | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
         unidentified.add(`${(it.type || '?').padEnd(14)} ${it.title}`); continue;
+      }
+      // TEMPORARY DIAGNOSTIC: every first image the filter let through, so a
+      // banner that is back on the site can be traced to the product, shop and
+      // alt text that carried it. Emitted after the not-a-film and
+      // unidentified-title drops above, because an image on a product that
+      // never enters the catalogue never reaches the site either.
+      if (REGRESSION_DEBUG && it.image) {
+        const d = it.imageDebug || { alt: '' };
+        rdbg([
+          `ACCEPTED`,
+          `shop=${src.retailer}`,
+          `title=${it.title}`,
+          `url=${it.image}`,
+          `alt=${JSON.stringify(d.alt || '')}`,
+        ].join(' | '));
       }
       if (IMAGE_DEBUG && parsed.brand === DEBUG_BRAND) {
         const d = it.imageDebug || { count: 0, src: null, alt: '', reason: null };
