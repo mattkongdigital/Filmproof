@@ -28,6 +28,15 @@ const RAW_DEBUG = (process.env.FILMPROOF_IMAGE_DEBUG || '').toLowerCase();
 const DEBUG_BRAND = !RAW_DEBUG || ['1', 'true', 'yes', 'on'].includes(RAW_DEBUG) ? 'cinestill' : RAW_DEBUG;
 const dbg = (line) => process.stderr.write(`[image-debug] ${line}\n`);
 
+// TEMPORARY DIAGNOSTIC (FILMPROOF_IMAGE_REGRESSION_DEBUG) — remove once the
+// re-appearing promo-overlay question is settled. The flag above reports what
+// the filter REJECTED, for one brand; this one reports what it ACCEPTED, for
+// every brand, because a banner that is back on the site got through the
+// filter rather than being caught by it. Inert unless the env var is set, and
+// it writes to stderr so stdout stays exactly as it was.
+const REGRESSION_DEBUG = Boolean(process.env.FILMPROOF_IMAGE_REGRESSION_DEBUG);
+const rdbg = (line) => process.stderr.write(`[image-regression] ${line}\n`);
+
 // Shop photography sometimes carries the shop's own promotional banner baked
 // right into the image — "2 FOR £55 save £13", "was £38", "5 ROLLS FOR 4" —
 // which reads as misleading (that deal may not be live) and out of place on a
@@ -51,7 +60,24 @@ const dbg = (line) => process.stderr.write(`[image-debug] ${line}\n`);
 // underscores, ampersands, hyphens or nothing between the words so both the
 // spaced and the run-together spellings match. "match" alone is never enough:
 // it has to be preceded by "mix", or match-box-camera.jpg would be dropped.
-const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|mix[\s_&+-]*match|for[\s_-]*(the[\s_-]*)?price[\s_-]*of|\bbuy\s*\d+\s*get\b|\bwas\s*£\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
+//
+// A shop's own image names arrive with the punctuation stripped out — Shopify
+// turns "5 Pack £29 was £31" into "5Pack__29was_31.png". The currency sign is
+// gone, the spaces are gone, and the digits are welded to the words, so
+// "\bwas\b" cannot anchor between "9" and "w" and "\s*" cannot cross an
+// underscore. normaliseBadge() puts the gaps back — separators become spaces
+// and camelCase/digit runs are split — so one set of patterns reads both the
+// spaced spelling a shop writes in alt text and the squashed one it writes in
+// a filename. Prices are matched with the "£" optional for the same reason.
+const normaliseBadge = (text) => text
+  // Filename separators, but NOT "-": "multi-?buy" and "mix[...-]match" below
+  // match the hyphen themselves, and splitting on it would break them.
+  .replace(/[_+&]/g, ' ')
+  .replace(/([a-z])([A-Z])/g, '$1 $2')   // BuyFor  -> Buy For
+  .replace(/([A-Za-z])(\d)/g, '$1 $2')   // Pack29  -> Pack 29
+  .replace(/(\d)([A-Za-z])/g, '$1 $2')   // 29was   -> 29 was
+  .replace(/\s{2,}/g, ' ');
+const PROMO_IMAGE = /(\d+\s*for\s*£\s*\d+|\b\d{1,2}\s*for(?![a-z])\s*\d{1,3}\b|\b\d{1,2}\s*rolls?\s*for(?![a-z])\s*\d{1,3}\b|mix[\s_&+-]*match|for[\s_-]*(the[\s_-]*)?price[\s_-]*of|\bbuy\s*\d+\s*get\b|\bwas\s*£?\s*\d+|\bsave\s*£?\s*\d+|\d+\s*%\s*off|\bfree\b.{0,30}\bwhen\b|\bbundle\s*(deal|offer)s?\b|\bclearance\b|\bmulti-?buy\b|\bwas\b.{0,8}\bnow\b)/i;
 const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsample\s?(shot|photo|image)\b|\bexample\s?(shot|photo|image)\b|\bgallery\b|\bportfolio\b)/i;
 
 // Returns null when the image is fine, or {rule, match} naming what rejected it
@@ -59,11 +85,15 @@ const SAMPLE_IMAGE = /(\bshot\s?on\b|\bshot\s?with\b|\btaken\s?(on|with)\b|\bsam
 // which pattern fired, and a bare boolean can't say.
 function unsuitableReason(url, alt) {
   if (url && EXCLUDED_IMAGE_URLS.has(url)) return { rule: 'EXCLUDED_IMAGE_URLS', match: url };
-  const text = `${url || ''} ${alt || ''}`;
-  const promo = PROMO_IMAGE.exec(text);
-  if (promo) return { rule: 'PROMO_IMAGE', match: promo[0] };
-  const sample = SAMPLE_IMAGE.exec(text);
-  if (sample) return { rule: 'SAMPLE_IMAGE', match: sample[0] };
+  const raw = `${url || ''} ${alt || ''}`;
+  // Both spellings, raw first. Testing raw before the normalised form means
+  // this can only ever catch MORE than it did, never less.
+  for (const text of [raw, normaliseBadge(raw)]) {
+    const promo = PROMO_IMAGE.exec(text);
+    if (promo) return { rule: 'PROMO_IMAGE', match: promo[0] };
+    const sample = SAMPLE_IMAGE.exec(text);
+    if (sample) return { rule: 'SAMPLE_IMAGE', match: sample[0] };
+  }
   return null;
 }
 
@@ -127,7 +157,7 @@ async function itemsFor(src) {
         image: pickCleanImage(p.images),
         // TEMPORARY DIAGNOSTIC: what pickCleanImage saw, so run() can explain
         // its decision. Only built when the debug flag is on.
-        imageDebug: !IMAGE_DEBUG ? null : (() => {
+        imageDebug: !(IMAGE_DEBUG || REGRESSION_DEBUG) ? null : (() => {
           const imgs = p.images || [];
           const first = imgs[0];
           const src = (first && first.src) || null;
@@ -255,6 +285,21 @@ async function run() {
       if (!parsed.identified) {
         if (debugTitle) dbg(`DROPPED unidentified-title | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
         unidentified.add(`${(it.type || '?').padEnd(14)} ${it.title}`); continue;
+      }
+      // TEMPORARY DIAGNOSTIC: every first image the filter let through, so a
+      // banner that is back on the site can be traced to the product, shop and
+      // alt text that carried it. Emitted after the not-a-film and
+      // unidentified-title drops above, because an image on a product that
+      // never enters the catalogue never reaches the site either.
+      if (REGRESSION_DEBUG && it.image) {
+        const d = it.imageDebug || { alt: '' };
+        rdbg([
+          `ACCEPTED`,
+          `shop=${src.retailer}`,
+          `title=${it.title}`,
+          `url=${it.image}`,
+          `alt=${JSON.stringify(d.alt || '')}`,
+        ].join(' | '));
       }
       if (IMAGE_DEBUG && parsed.brand === DEBUG_BRAND) {
         const d = it.imageDebug || { count: 0, src: null, alt: '', reason: null };
