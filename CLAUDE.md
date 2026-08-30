@@ -7,6 +7,13 @@ Two halves share one repo:
   `web/data/site.json`. Everything the comparison side renders — film pages,
   brand pages, facet pages — is derived from that file. It is generated, not
   committed.
+
+  Every deploy rebuilds it from live shop data, so it is the most volatile thing
+  in the repo. `build-site-data.js` refuses to write a catalogue below
+  `MIN_FILMS` (300) or from fewer than `MIN_LIVE_SOURCES` (4) live shops: a
+  partial outage at one large shop is enough to halve it while every page still
+  renders happily, which is far more dangerous than a total failure. Raise the
+  floor as the catalogue grows.
 - **The site.** `web/` is a Next.js app built with `output: 'export'` and
   `trailingSlash: true`, deployed to GitHub Pages by `.github/workflows/refresh.yml`.
 

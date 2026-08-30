@@ -16,6 +16,11 @@ import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
+// What a healthy live build looks like. A run that comes in under either of
+// these is treated as a fetch failure, not as the shops having sold out.
+const MIN_FILMS = Number(process.env.FILMPROOF_MIN_FILMS || 300);
+const MIN_LIVE_SOURCES = Number(process.env.FILMPROOF_MIN_LIVE_SOURCES || 4);
+
 // A film shop's catalogue is mostly not film — narrow Shopify pulls by type/tag,
 // or by a format signal in the title (shops label categories differently).
 const filmish = (o) =>
@@ -114,12 +119,28 @@ async function run() {
   // every source silently falls back to its tiny sample fixture, matching
   // still "succeeds", and this would otherwise exit 0 — deploying a near-empty
   // site as if it were a real build. Refuse to publish that.
-  if (!OFFLINE && (site.length < 100 || liveSourceCount < 2)) {
+  //
+  // The floor is not just about total failure. A PARTIAL outage is the more
+  // dangerous case, because it looks entirely normal: on 2026-08-30 Analogue
+  // Wonderland (the largest source) returned 503 partway through its pages and
+  // the build produced 111 films instead of the usual ~440 — three quarters of
+  // the catalogue missing, every remaining page rendering happily. It cleared
+  // the old floor of 100 with room to spare and would have deployed had an
+  // editorial cross-link not happened to point at one of the missing films.
+  //
+  // So the floor tracks what a healthy build actually looks like rather than
+  // sitting just above zero. Raise it as the catalogue grows; a real build
+  // being refused is a cheap failure, a gutted one going live is not.
+  if (!OFFLINE && (site.length < MIN_FILMS || liveSourceCount < MIN_LIVE_SOURCES)) {
     console.error(
       `ERROR: build looks like a live-fetch failure, not a real catalogue ` +
-      `(${site.length} films, ${liveSourceCount} sources with live offers; expected 100+ films from 2+ live sources). ` +
-      `Refusing to publish sample data as if it were real. ` +
-      `Set FILMPROOF_OFFLINE=1 if a sample-only build is intentional.`
+      `(${site.length} films, ${liveSourceCount} sources with live offers; ` +
+      `expected ${MIN_FILMS}+ films from ${MIN_LIVE_SOURCES}+ live sources). ` +
+      `A partial outage at one large shop is enough to do this — check the ` +
+      `per-source lines above for "live fetch failed". ` +
+      `Refusing to publish a degraded catalogue as if it were real. ` +
+      `Set FILMPROOF_OFFLINE=1 if a sample-only build is intentional, or ` +
+      `FILMPROOF_MIN_FILMS to lower the floor for a one-off.`
     );
     process.exit(1);
   }

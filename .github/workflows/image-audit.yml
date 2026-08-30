@@ -12,9 +12,11 @@ permissions:
 
 env:
   # A real live build pulls well over this many films. Anything less means the
-  # retailer fetches fell back to the bundled samples, and auditing sample data
-  # would report numbers that look real but aren't.
-  MIN_FILMS: 100
+  # retailer fetches failed or fell back to the bundled samples, and auditing a
+  # degraded catalogue would report numbers that look real but aren't. Kept in
+  # step with the floor in build-site-data.js: 100 was low enough that a partial
+  # outage (111 films against a usual ~440) cleared it unnoticed.
+  MIN_FILMS: 300
 
 jobs:
   audit:
