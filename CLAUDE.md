@@ -90,6 +90,29 @@ also matches on display name and will point `japan-camera-hunter` at `jch`.
 are parsed and stored so the clusters are visible later; they render as plain
 text.
 
+### Images and carousels
+
+Post images live in `web/public/images/field-notes/<slug>/` and are referenced
+from the markdown by absolute path — `/images/field-notes/<slug>/01-thing.jpg`.
+They are deliberately **not** under `web/public/field-notes/`, which would write
+into the same exported directory as the `/field-notes/<slug>/` route itself.
+
+**A run of two or more image-only paragraphs becomes a carousel.** A lone image
+stays a lone image. The convention is the markdown itself — put the frames one
+after another and they gallery up — so there is no shortcode to learn and the
+file still reads as a normal post anywhere else. The splitting happens in
+`renderBody()` in `web/lib/posts.js`, which hands `PostArticle` a list of blocks
+rather than one HTML string; `web/components/carousel.js` renders the runs.
+
+The carousel track is a scroll-snapping row, so swipe, trackpad and shift-scroll
+work before the component hydrates and if its JS never arrives. The buttons,
+dots, counter and arrow keys are the enhancement on top. Frames letterbox rather
+than crop, because a roll mixes portrait and landscape.
+
+Resize before committing — these are served straight off Pages, and the
+originals off a scanner run 5–11 MB each. 1600px on the long edge at quality 82
+is the sizing used so far.
+
 ### Deliberately not built yet
 
 Tag archive routes (`/location/<x>/` and friends), post-count thresholds for

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from './breadcrumbs';
+import { Carousel } from './carousel';
 import { getSilo, getPosts, getPost, displayDate } from '../lib/posts';
 
 // The rows of the "filed under" block, in the order they read. `film` and
@@ -72,7 +73,13 @@ export function PostArticle({ silo: siloSlug, slug }) {
 
       <p className="lead">{post.description}</p>
 
-      <div className="post-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="post-body">
+        {post.blocks.map((block, i) => (
+          block.type === 'carousel'
+            ? <Carousel key={i} images={block.images} />
+            : <div key={i} dangerouslySetInnerHTML={{ __html: block.html }} />
+        ))}
+      </div>
 
       {rows.length > 0 && (
         <dl className="post-meta">

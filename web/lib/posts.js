@@ -142,8 +142,51 @@ function readPost(silo, dir, file, rel, errors) {
     draft: data.draft === true,
     tags,
     links,
-    html: marked.parse(content.trim()),
+    blocks: renderBody(content.trim()),
   };
+}
+
+// A run of two or more image-only paragraphs becomes a carousel; a lone image
+// stays a lone image. The convention lives in the markdown itself — put the
+// frames one after another and they gallery up — so there is no shortcode to
+// learn and the file still reads as a normal post in any editor.
+const IMAGE_ONLY = /^!\[([^\]]*)\]\(([^)\s]+)\)$/;
+
+function renderBody(content) {
+  const blocks = [];
+  let markdown = [];
+  let run = [];
+
+  const pushMarkdown = () => {
+    if (!markdown.length) return;
+    blocks.push({ type: 'html', html: marked.parse(markdown.join('\n\n')) });
+    markdown = [];
+  };
+
+  const closeRun = () => {
+    if (run.length >= 2) {
+      pushMarkdown();
+      blocks.push({ type: 'carousel', images: run.map(({ alt, src }) => ({ alt, src })) });
+    } else {
+      // One image on its own is just an image — hand it back to the markdown.
+      markdown.push(...run.map((img) => img.raw));
+    }
+    run = [];
+  };
+
+  for (const para of content.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean)) {
+    const match = para.match(IMAGE_ONLY);
+    if (match) {
+      run.push({ alt: match[1], src: match[2], raw: para });
+      continue;
+    }
+    closeRun();
+    markdown.push(para);
+  }
+  closeRun();
+  pushMarkdown();
+
+  return blocks;
 }
 
 const text = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);

@@ -16,7 +16,7 @@ forget about it.
 When my Keystone arrived, I couldn't keep it out of my hands. I'd admire it like
 Gollum. I'd hold it to my eye and use it like a telescope. Silly really, the zoom
 was nothing. I would keep it in my pocket, being pocket-size was a key selling
-point, ready to wipe out and snap photos.
+point, ready to whip out and snap photos.
 
 Unfortunately, I'd have to wait a week for the film to arrive.
 

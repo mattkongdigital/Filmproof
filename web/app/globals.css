@@ -549,3 +549,39 @@ img.store-logo { object-fit:contain; background:#fff; }
   color:var(--muted); min-width:88px; padding-top:2px;
 }
 .post-meta dd { margin:0; color:var(--ink); opacity:.9; }
+
+/* Carousel — a run of images in a post body. The track scroll-snaps, so swipe
+   and trackpad work with no JS; the buttons and counter are the enhancement. */
+.carousel { margin:0 0 22px; }
+.carousel-track {
+  display:flex; gap:8px; overflow-x:auto; scroll-snap-type:x mandatory;
+  background:var(--rebate); border:1px solid var(--rebate); border-radius:4px;
+  scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar { display:none; }
+.carousel-track:focus-visible { outline:2px solid var(--amber); outline-offset:2px; }
+.carousel-slide {
+  flex:0 0 100%; scroll-snap-align:center; margin:0;
+  display:flex; align-items:center; justify-content:center;
+}
+/* Frames are a mix of portrait and landscape, so they letterbox against the
+   track rather than being cropped to a common ratio. */
+.carousel-slide img { max-height:70vh; max-width:100%; width:auto; height:auto; object-fit:contain; display:block; }
+
+.carousel-controls { display:flex; align-items:center; gap:10px; margin-top:10px; }
+.carousel-btn {
+  font-family:var(--mono); font-size:15px; line-height:1;
+  color:var(--ink); background:var(--frame); border:1px solid var(--rebate);
+  border-radius:3px; padding:7px 12px; cursor:pointer;
+}
+.carousel-btn:hover:not(:disabled) { color:var(--base); background:var(--amber); border-color:var(--amber); }
+.carousel-btn:disabled { opacity:.35; cursor:default; }
+.carousel-dots { display:flex; gap:6px; flex:1; }
+.carousel-dot {
+  width:7px; height:7px; padding:0; border-radius:50%; cursor:pointer;
+  background:var(--muted); border:0; opacity:.45;
+}
+.carousel-dot.current { background:var(--amber); opacity:1; }
+.carousel-count {
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--muted);
+}
