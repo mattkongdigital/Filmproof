@@ -521,7 +521,16 @@ img.store-logo { object-fit:contain; background:#fff; }
 /* Structure only. Post bodies sit inside .doc and inherit its prose styles;
    what is here is the index list, the dateline and the "filed under" block. */
 .post-list { list-style:none; margin:28px 0 0; padding:0; }
-.post-item { padding:22px 0; border-bottom:1px solid var(--rebate); }
+.post-item { display:flex; gap:16px; padding:22px 0; border-bottom:1px solid var(--rebate); }
+.post-item-text { min-width:0; }
+/* Fixed box, cropped: the index is a list of equal rows, so thumbnails match
+   each other rather than the frame's own ratio. The post itself letterboxes. */
+.post-thumb {
+  flex:0 0 132px; display:block; overflow:hidden; border-radius:3px;
+  background:var(--rebate); aspect-ratio:4/3;
+}
+.post-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:560px) { .post-thumb { flex-basis:96px; } }
 .post-date {
   font-family:var(--mono); font-size:11.5px; letter-spacing:.06em;
   text-transform:uppercase; color:var(--muted);

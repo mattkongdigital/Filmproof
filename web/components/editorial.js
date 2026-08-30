@@ -34,11 +34,22 @@ export function SiloIndex({ silo: siloSlug }) {
         <ul className="post-list">
           {posts.map((post) => (
             <li key={post.slug} className="post-item">
-              <time className="post-date" dateTime={post.date}>{displayDate(post.date)}</time>
-              <h2 className="post-item-title">
-                <Link href={post.href}>{post.title}</Link>
-              </h2>
-              <p className="post-item-desc">{post.description}</p>
+              {post.cover && (
+                // A second link to the same place, so it is hidden from the
+                // accessibility tree and skipped by tab — the title link below
+                // is the one that carries the name.
+                <Link href={post.href} className="post-thumb" aria-hidden="true" tabIndex={-1}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={post.cover.src} alt={post.cover.alt} loading="lazy" decoding="async" />
+                </Link>
+              )}
+              <div className="post-item-text">
+                <time className="post-date" dateTime={post.date}>{displayDate(post.date)}</time>
+                <h2 className="post-item-title">
+                  <Link href={post.href}>{post.title}</Link>
+                </h2>
+                <p className="post-item-desc">{post.description}</p>
+              </div>
             </li>
           ))}
         </ul>
