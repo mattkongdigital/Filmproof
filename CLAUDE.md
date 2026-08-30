@@ -14,24 +14,22 @@ Below is the editorial layer, which is the half that is hand-authored.
 
 ## Editorial content layer
 
-Three silos of markdown, flat and one level deep:
+One silo of markdown, flat and one level deep:
 
-| Files                            | URLs                  |
-| -------------------------------- | --------------------- |
-| `web/content/guides/<slug>.md`      | `/guides/<slug>/`      |
+| Files                               | URLs                   |
+| ----------------------------------- | ---------------------- |
 | `web/content/field-notes/<slug>.md` | `/field-notes/<slug>/` |
-| `web/content/opinion/<slug>.md`     | `/opinion/<slug>/`     |
 
 The silo directory **is** the category. There are no dates in URLs, no `/blog/`
-wrapper and no `/category/` routes. Each silo has an index at `/<silo>/` listing
-its posts newest first, with no pagination.
+wrapper and no `/category/` routes. The silo has an index at `/field-notes/`
+listing its posts newest first, with no pagination.
 
 The slug comes from the **filename**, never from the title — so it is stable and
 hand-controlled, and retitling a post never moves its URL. A filename must be
 lowercase letters, digits and single hyphens or the build stops.
 
 Reading, parsing and validation all live in `web/lib/posts.js`; the route files
-under `web/app/<silo>/` are thin wrappers over `web/components/editorial.js`.
+under `web/app/field-notes/` are thin wrappers over `web/components/editorial.js`.
 
 ### Frontmatter contract
 
@@ -101,11 +99,17 @@ the clusters are real. `location` and `camera` are the likely candidates;
 `brand` and `film` almost certainly never, since the catalogue already has
 canonical pages for both.
 
-### One wrinkle worth knowing
+### Adding another silo
 
-`output: 'export'` refuses to build a dynamic route that produces no paths, and
-a silo can legitimately be empty. `postParams()` therefore returns a single
-sentinel slug (`EMPTY_SILO_PARAM`) for an empty silo; `PostArticle` calls
-`notFound()` for it, so it renders the 404 page with `noindex` and appears in
-nothing that links, lists or sitemaps it. Once a silo has one published post the
-sentinel disappears on its own.
+`/field-notes/` is the pattern. A second silo (`/guides/`, `/opinion/`, whatever
+earns one) is an entry in `SILOS` in `web/lib/posts.js` plus a copy of the two
+route files in `web/app/field-notes/` with the slug swapped — the index page and
+the `[slug]` page, both thin wrappers over `web/components/editorial.js`. Nothing
+else changes: the frontmatter contract, the catalogue resolution and
+`web/app/sitemap.js` all iterate `SILOS`.
+
+**Add a silo only alongside the posts that fill it.** `output: 'export'` refuses
+to build a dynamic route that produces no paths, so an empty silo does not render
+a bare index — it fails the whole build. That is also why there is exactly one
+silo here: the others were removed rather than shipped empty. An empty silo is a
+thin page anyway, the same reason the tag archives above are still on the shelf.

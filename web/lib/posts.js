@@ -1,14 +1,17 @@
 // posts.js — the editorial content layer.
 //
-// Three silos of markdown, flat and one level deep:
+// One silo today, sourced from markdown, flat and one level deep:
 //
-//   web/content/guides/<slug>.md      -> /guides/<slug>/
 //   web/content/field-notes/<slug>.md -> /field-notes/<slug>/
-//   web/content/opinion/<slug>.md     -> /opinion/<slug>/
 //
 // The directory IS the category — there are no /category/ routes, no dates in
 // URLs and no /blog/ wrapper. The slug comes from the filename, so it is stable
 // and hand-controlled: renaming a post's title never moves its URL.
+//
+// Another silo is an entry in SILOS below plus a matching pair of route files
+// under web/app/<silo>/ — see web/app/field-notes/. Add one only alongside the
+// posts that fill it: `output: 'export'` will not build a dynamic route that
+// produces no paths, so an empty silo breaks the build.
 //
 // `film` and `brand` frontmatter values are not free-form tags: they are
 // cross-links into the catalogue, resolved here against the same slugs the
@@ -27,22 +30,10 @@ import { brandList } from './facets';
 
 export const SILOS = [
   {
-    slug: 'guides',
-    label: 'Guides',
-    title: 'Guides',
-    description: 'Practical guides to buying and shooting film in the UK — what to load, what it costs, and what to expect back.',
-  },
-  {
     slug: 'field-notes',
     label: 'Field notes',
     title: 'Field notes',
     description: 'Rolls shot, cameras carried and places photographed — notes from actually using the film rather than reading about it.',
-  },
-  {
-    slug: 'opinion',
-    label: 'Opinion',
-    title: 'Opinion',
-    description: 'Arguments and second thoughts about film photography, prices and the state of the stuff we shoot.',
   },
 ];
 
@@ -278,15 +269,4 @@ export function postMetadata(siloSlug, slug) {
   };
 }
 
-// `output: export` refuses to build a dynamic route that yields no paths, and a
-// silo can legitimately be empty (all three are, until the first post lands).
-// One unreachable sentinel path keeps the route buildable; PostArticle calls
-// notFound() for it, so it renders the 404 page and is in nothing that links or
-// lists — not the index, not the sitemap.
-export const EMPTY_SILO_PARAM = 'no-posts-yet';
-
-export function postParams(siloSlug) {
-  const posts = getPosts(siloSlug);
-  if (!posts.length) return [{ slug: EMPTY_SILO_PARAM }];
-  return posts.map((p) => ({ slug: p.slug }));
-}
+export const postParams = (siloSlug) => getPosts(siloSlug).map((p) => ({ slug: p.slug }));
