@@ -40,6 +40,7 @@ description: One sentence, used as the meta description and the index blurb.  # 
 date: 2026-01-14        # required, YYYY-MM-DD
 updated: 2026-02-02     # optional
 draft: false            # optional, default false
+image: /images/field-notes/<slug>/01-thing.jpg   # optional, overrides the index thumbnail
 location: [northumberland, tynemouth]
 camera:   [pentax-me-super]
 film:     [kodak-gold-200-35mm-film]
@@ -108,6 +109,16 @@ The carousel track is a scroll-snapping row, so swipe, trackpad and shift-scroll
 work before the component hydrates and if its JS never arrives. The buttons,
 dots, counter and arrow keys are the enhancement on top. Frames letterbox rather
 than crop, because a roll mixes portrait and landscape.
+
+**The silo index shows a thumbnail** for each post. It is the post's first body
+image, so a post that opens with a lead frame gets a preview for free and there
+is no required field. An optional `image:` in frontmatter overrides it — set it
+when the first frame is not the one that should represent the post. A post with
+no images simply has no thumbnail. Index thumbnails crop to a common 4:3 box so
+the rows line up; the post itself still letterboxes.
+
+The thumbnail loads the full-size file, since there is no resized variant. That
+is fine at single-digit post counts and worth revisiting when the index is long.
 
 Resize before committing — these are served straight off Pages, and the
 originals off a scanner run 5–11 MB each. 1600px on the long edge at quality 82

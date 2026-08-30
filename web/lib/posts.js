@@ -143,6 +143,7 @@ function readPost(silo, dir, file, rel, errors) {
     tags,
     links,
     blocks: renderBody(content.trim()),
+    cover: coverFor(data.image, content),
   };
 }
 
@@ -150,6 +151,22 @@ function readPost(silo, dir, file, rel, errors) {
 // stays a lone image. The convention lives in the markdown itself — put the
 // frames one after another and they gallery up — so there is no shortcode to
 // learn and the file still reads as a normal post in any editor.
+// The thumbnail the silo index shows beside a post. An explicit `image:` in
+// frontmatter wins; otherwise the first image in the body stands in, which is
+// the lead frame in a post written the usual way. No new required field, and a
+// post with no images simply has no thumbnail.
+const FIRST_IMAGE = /!\[([^\]]*)\]\(([^)\s]+)\)/;
+
+function coverFor(explicit, content) {
+  if (typeof explicit === 'string' && explicit.trim()) {
+    return { src: explicit.trim(), alt: '' };
+  }
+  const match = content.match(FIRST_IMAGE);
+  // Alt is empty on purpose: the post title sits right next to the thumbnail in
+  // the index, so repeating the frame's description is noise to a screen reader.
+  return match ? { src: match[2], alt: '' } : null;
+}
+
 const IMAGE_ONLY = /^!\[([^\]]*)\]\(([^)\s]+)\)$/;
 
 function renderBody(content) {
