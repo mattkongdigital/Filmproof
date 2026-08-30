@@ -13,6 +13,8 @@ I had bought the camera first instead of the film. Would the other way around be
 better? Probably. If I had the film, I could look at it once and put it away,
 forget about it.
 
+![The narrowboat Sarah Eliza, painted in traditional red and green, moored below a curved brick wall.](/images/field-notes/my-first-film-shoot/05-sarah-eliza.jpg)
+
 When my Keystone arrived, I couldn't keep it out of my hands. I'd admire it like
 Gollum. I'd hold it to my eye and use it like a telescope. Silly really, the zoom
 was nothing. I would keep it in my pocket, being pocket-size was a key selling
