@@ -18,10 +18,11 @@ permissions:
 
 env:
   # A real live build pulls well over this many films. Anything less means the
-  # retailer fetches fell back to the bundled samples — same threshold as
-  # image-audit.yml. Unlike the audit, a low count is reported and not fatal:
-  # the diagnostic output is still worth reading, it just isn't live data.
-  MIN_FILMS: 100
+  # retailer fetches failed or fell back to the bundled samples — same threshold
+  # as image-audit.yml and build-site-data.js. Unlike the audit, a low count is
+  # reported and not fatal: the diagnostic output is still worth reading, it
+  # just isn't live data.
+  MIN_FILMS: 300
 
 jobs:
   debug:
