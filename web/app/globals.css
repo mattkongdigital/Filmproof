@@ -559,6 +559,15 @@ img.store-logo { object-fit:contain; background:#fff; }
 }
 .post-meta dd { margin:0; color:var(--ink); opacity:.9; }
 
+/* The standfirst sits between the dateline and the body, so it has to read as
+   a summary rather than as the first paragraph: italic, muted, and closed off
+   with a rule. Two classes so it outranks `.doc p` without !important. */
+.doc .post-standfirst {
+  font-style:italic; font-size:16.5px; line-height:1.6;
+  color:var(--muted); opacity:1; max-width:64ch;
+  margin:0 0 22px; padding:0 0 18px; border-bottom:1px solid var(--rebate);
+}
+
 /* Carousel — a run of images in a post body. The track scroll-snaps, so swipe
    and trackpad work with no JS; the buttons and counter are the enhancement. */
 .carousel { margin:0 0 22px; }

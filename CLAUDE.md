@@ -58,6 +58,11 @@ format:   [35mm]
 
 Rules:
 
+- **`description` is the standfirst.** It is the meta description, the index
+  blurb, and the italic summary line under the post's dateline — so write it as
+  a sentence that stands alone, not as an opening paragraph. It is styled
+  (`.post-standfirst`) to read as a summary rather than as body copy, which is
+  why it does not use the shared `.lead` class the static pages use.
 - **`title` never carries `" | Filmproof"`.** `web/app/layout.js` appends the
   suffix through the metadata title template; baking it into the string
   duplicates it. Same for the silo index titles in `SILOS`.
