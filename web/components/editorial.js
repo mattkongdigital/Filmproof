@@ -82,7 +82,10 @@ export function PostArticle({ silo: siloSlug, slug }) {
         {post.draft && <> · draft</>}
       </div>
 
-      <p className="lead">{post.description}</p>
+      {/* The standfirst — the same sentence the index uses as the blurb. It gets
+          its own class rather than the shared .lead, which on /about and friends
+          is genuinely the opening paragraph and should not change. */}
+      <p className="post-standfirst">{post.description}</p>
 
       <div className="post-body">
         {post.blocks.map((block, i) => (
