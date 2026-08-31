@@ -4,7 +4,7 @@ description: Three days in a faded Victorian seaside town on the Clyde, spent tr
 date: 2024-07
 location: [dunoon, argyll-and-bute, scotland]
 camera: [keystone-everflash]
-film: [lomography-metropolis-110-film]
+film: [lomography-orca-110-film]
 brand: [lomography]
 format: [110]
 ---
@@ -13,13 +13,13 @@ Dunoon is a small seaside town in the West of Scotland, about an hour or so from
 Glasgow by two trains. And a ferry.
 
 It is a charming place. It feels like a faded Victorian seaside town on the edge
-of the world. Behind the town is, to a cityslicker as myself, wilderness. Actual
+of the world. Behind the town is, to a city slicker such as myself, wilderness. Actual
 forests. Maybe bears.
 
 Dunoon was where one of my dear friends ran away when the plague came. You know
 the one. It's where she fell in love. It is why I am here, for their wedding.
 
-The wedding would not be in Dunoon but one the waters of some loch. I would later
+The wedding would not be in Dunoon but on the waters of some loch. I would later
 learn that beavers were reintroduced nearby. They wouldn't make an appearance,
 unfortunately.
 
@@ -47,9 +47,9 @@ film noir, more Fawlty Towers but not without its charm.
 
 ![The Esplanade Hotel, white gables and bay windows above a row of cabbage palms.](/images/field-notes/dunoon-noir/03-the-esplanade.jpg)
 
-## Another Esplande
+## Another Esplanade
 
-It turns out Dunoon has two Esplande. Just to confuse the tourists. I like the
+It turns out Dunoon has two Esplanades. Just to confuse the tourists. I like the
 large lawn, which would make a great start to a foot chase.
 
 ![A long white hotel behind clipped hedges and a wide empty lawn, under a heavy sky.](/images/field-notes/dunoon-noir/04-another-esplanade.jpg)
