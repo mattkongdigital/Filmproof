@@ -1,7 +1,8 @@
 ---
 title: Blossoms in Brindley 2026
 description: Brindley Place runs a friendly blossom photography competition each spring, and this year I finally entered it.
-date: 2026-03
+shot: 2026-03
+published: 2026-08-30
 location: [birmingham, brindley-place]
 camera: [pentax-p30]
 film: [kodak-gold-200-35mm-film]

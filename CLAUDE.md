@@ -66,7 +66,8 @@ under `web/app/field-notes/` are thin wrappers over `web/components/editorial.js
 ---
 title: Shooting Gold 200 in flat winter light   # required
 description: One sentence, used as the meta description and the index blurb.  # required
-date: 2026-01          # required, the SHOOT date: YYYY-MM, or YYYY-MM-DD if the day is known
+shot: 2026-01          # required, when the ROLL was shot: YYYY-MM, or YYYY-MM-DD
+published: 2026-02-14   # required, when the write-up went up. The index sorts on this
 updated: 2026-02-02     # optional
 draft: false            # optional, default false
 image: /images/field-notes/<slug>/01-thing.jpg   # optional, overrides the index thumbnail
@@ -80,13 +81,23 @@ format:   [35mm]
 
 Rules:
 
-- **`date` is when the roll was shot**, not when the post went up, and the page
-  labels it "Shoot date" so a bare date is not read as a publish date. A roll is
-  often only remembered to the month, so `YYYY-MM` is as valid as `YYYY-MM-DD`
-  and is **not** promoted to a day: the precision carries through to what the
-  page prints and to the `<time dateTime>` attribute, rather than inventing a
-  1st of the month and asserting it. Posts still sort against each other, a
-  month-only date sorting as its first day.
+- **Two dates, because they answer different questions.** `shot` is when the
+  roll went through the camera; `published` is when the write-up went up. Both
+  are required, both are labelled on the page, and the silo index **sorts on
+  `published`** — a roll from 2019 written up today belongs at the top of the
+  index where a reader will see it, not buried in 2019. The index leads with the
+  publish date for that reason (a list ordered by one date and labelled with
+  another reads as broken) and carries the shoot date after it.
+- **Either date may stop at the month.** A roll is often only remembered to
+  `YYYY-MM`, which is as valid as `YYYY-MM-DD` and is **not** promoted to a day:
+  the precision carries through to what the page prints and to the
+  `<time dateTime>` attribute, rather than inventing a 1st of the month and
+  asserting it. A month-only date sorts as its first day. Posts sharing a
+  publish date — a batch written up from the archive together — fall back to the
+  shoot date, then the slug, so the order is total and stable.
+- **The old single `date` field is gone.** A post still using it fails the build
+  with a message naming both replacements, rather than being quietly read as one
+  or the other.
 - **`description` is the standfirst.** It is the meta description, the index
   blurb, and the italic summary line under the post's dateline — so write it as
   a sentence that stands alone, not as an opening paragraph. It is styled
