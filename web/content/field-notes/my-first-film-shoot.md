@@ -1,7 +1,7 @@
 ---
 title: My First Film Shoot
 description: A Keystone Everflash bought on eBay, a cartridge of Lomography Colour Tiger, and a walk round Gas Street Basin to find out whether either of them worked.
-date: 2024-04-01
+date: 2024-04
 location: [birmingham, brindley-place, gas-street-basin]
 camera: [keystone-everflash]
 film: [lomography-colour-tiger-film-110-film]

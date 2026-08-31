@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from './breadcrumbs';
 import { Carousel } from './carousel';
-import { getSilo, getPosts, getPost, displayDate } from '../lib/posts';
+import { getSilo, getPosts, getPost, displayDate, dateAttr } from '../lib/posts';
 
 // The rows of the "filed under" block, in the order they read. `film` and
 // `brand` are links into the catalogue; the rest are plain text until there are
@@ -44,7 +44,9 @@ export function SiloIndex({ silo: siloSlug }) {
                 </Link>
               )}
               <div className="post-item-text">
-                <time className="post-date" dateTime={post.date}>{displayDate(post.date)}</time>
+                <time className="post-date" dateTime={dateAttr(post.date, post.datePrecision)}>
+                  {displayDate(post.date, post.datePrecision)}
+                </time>
                 <h2 className="post-item-title">
                   <Link href={post.href}>{post.title}</Link>
                 </h2>
@@ -76,9 +78,20 @@ export function PostArticle({ silo: siloSlug, slug }) {
       ]} />
 
       <h1>{post.title}</h1>
+      {/* Labelled, because this is when the roll was shot rather than when the
+          post went up — without the label a bare date reads as a publish date. */}
       <div className="updated">
-        <time dateTime={post.date}>{displayDate(post.date)}</time>
-        {post.updated && <> · updated <time dateTime={post.updated}>{displayDate(post.updated)}</time></>}
+        Shoot date:{' '}
+        <time dateTime={dateAttr(post.date, post.datePrecision)}>
+          {displayDate(post.date, post.datePrecision)}
+        </time>
+        {post.updated && (
+          <> · updated{' '}
+            <time dateTime={dateAttr(post.updated, post.updatedPrecision)}>
+              {displayDate(post.updated, post.updatedPrecision)}
+            </time>
+          </>
+        )}
         {post.draft && <> · draft</>}
       </div>
 

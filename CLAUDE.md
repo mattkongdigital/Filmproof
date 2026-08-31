@@ -44,7 +44,7 @@ under `web/app/field-notes/` are thin wrappers over `web/components/editorial.js
 ---
 title: Shooting Gold 200 in flat winter light   # required
 description: One sentence, used as the meta description and the index blurb.  # required
-date: 2026-01-14        # required, YYYY-MM-DD
+date: 2026-01          # required, the SHOOT date: YYYY-MM, or YYYY-MM-DD if the day is known
 updated: 2026-02-02     # optional
 draft: false            # optional, default false
 image: /images/field-notes/<slug>/01-thing.jpg   # optional, overrides the index thumbnail
@@ -58,6 +58,13 @@ format:   [35mm]
 
 Rules:
 
+- **`date` is when the roll was shot**, not when the post went up, and the page
+  labels it "Shoot date" so a bare date is not read as a publish date. A roll is
+  often only remembered to the month, so `YYYY-MM` is as valid as `YYYY-MM-DD`
+  and is **not** promoted to a day: the precision carries through to what the
+  page prints and to the `<time dateTime>` attribute, rather than inventing a
+  1st of the month and asserting it. Posts still sort against each other, a
+  month-only date sorting as its first day.
 - **`description` is the standfirst.** It is the meta description, the index
   blurb, and the italic summary line under the post's dateline — so write it as
   a sentence that stands alone, not as an opening paragraph. It is styled
