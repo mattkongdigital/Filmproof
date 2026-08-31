@@ -98,11 +98,11 @@ function readPost(silo, dir, file, rel, errors) {
   if (!title) fail('frontmatter is missing `title`.');
   if (!description) fail('frontmatter is missing `description`.');
 
-  const date = isoDate(data.date);
-  if (!date) fail('frontmatter is missing a valid `date` (use YYYY-MM-DD).');
-  const updated = data.updated === undefined || data.updated === null ? null : isoDate(data.updated);
+  const date = parseDate(data.date);
+  if (!date) fail('frontmatter is missing a valid `date` (use YYYY-MM-DD, or YYYY-MM if only the month is known).');
+  const updated = data.updated === undefined || data.updated === null ? null : parseDate(data.updated);
   if (data.updated !== undefined && data.updated !== null && !updated) {
-    fail('`updated` is set but is not a valid date (use YYYY-MM-DD).');
+    fail('`updated` is set but is not a valid date (use YYYY-MM-DD, or YYYY-MM).');
   }
 
   if (data.draft !== undefined && typeof data.draft !== 'boolean') {
@@ -137,8 +137,10 @@ function readPost(silo, dir, file, rel, errors) {
     file: rel,
     title,
     description,
-    date,
-    updated,
+    date: date ? date.iso : null,
+    datePrecision: date ? date.precision : null,
+    updated: updated ? updated.iso : null,
+    updatedPrecision: updated ? updated.precision : null,
     draft: data.draft === true,
     tags,
     links,
@@ -208,13 +210,30 @@ function renderBody(content) {
 
 const text = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
 
-// YAML turns an unquoted `2026-01-14` into a Date; a quoted one stays a string.
-// Both land as a plain YYYY-MM-DD so sorting and <time> agree.
-function isoDate(v) {
-  if (v instanceof Date && !Number.isNaN(v.getTime())) return v.toISOString().slice(0, 10);
-  if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v.trim())) {
-    const d = new Date(v.trim().slice(0, 10));
-    if (!Number.isNaN(d.getTime())) return v.trim().slice(0, 10);
+// The date is when the roll was SHOT, not when the post went up, and a roll is
+// often only remembered to the month. So `YYYY-MM` is as valid as `YYYY-MM-DD`
+// and is not silently promoted to a day: the precision is carried through to
+// what the page prints and to the <time> attribute, rather than inventing a 1st
+// of the month and showing it as fact. The padded form is kept alongside it
+// purely so posts still sort against each other.
+//
+// YAML turns an unquoted `2026-01-14` into a Date; `2026-01` is not a valid
+// timestamp so it stays a string. Both are handled.
+function parseDate(v) {
+  if (v instanceof Date && !Number.isNaN(v.getTime())) {
+    return { iso: v.toISOString().slice(0, 10), precision: 'day' };
+  }
+  if (typeof v === 'string') {
+    const text = v.trim();
+    if (/^\d{4}-\d{2}-\d{2}/.test(text)) {
+      const iso = text.slice(0, 10);
+      if (!Number.isNaN(new Date(iso).getTime())) return { iso, precision: 'day' };
+    }
+    if (/^\d{4}-\d{2}$/.test(text)) {
+      if (!Number.isNaN(new Date(`${text}-01`).getTime())) {
+        return { iso: `${text}-01`, precision: 'month' };
+      }
+    }
   }
   return null;
 }
@@ -301,10 +320,16 @@ export function getPost(siloSlug, slug) {
   return getAllPosts().find((p) => p.silo === siloSlug && p.slug === slug) || null;
 }
 
-export const displayDate = (iso) =>
+export const displayDate = (iso, precision = 'day') =>
   new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+    ...(precision === 'day' ? { day: 'numeric' } : {}),
+    month: 'long', year: 'numeric', timeZone: 'UTC',
   });
+
+// What goes in <time dateTime>. A month-precision date must not claim a day
+// here either, or the markup asserts what the page deliberately does not.
+export const dateAttr = (iso, precision = 'day') =>
+  (precision === 'month' ? iso.slice(0, 7) : iso);
 
 // --- Route helpers -------------------------------------------------------
 // Titles here never carry " | Filmproof": app/layout.js appends it through the
