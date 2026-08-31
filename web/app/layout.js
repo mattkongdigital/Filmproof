@@ -17,6 +17,19 @@ export const metadata = {
     template: '%s | Filmproof',
   },
   description: 'Track camera film across UK shops, see what\'s in stock, compare prices per roll, and restock before you run out.',
+  // Defaults for every page. A page that has a picture worth sharing — a film
+  // with a product shot, a field note with a frame — overrides `images` in its
+  // own generateMetadata; the rest inherit title and description alone.
+  // Deliberately no `url` here: it is not inheritable. A default would make
+  // every page that does not set its own claim to be the homepage, which is
+  // worse than omitting it — a scraper with no og:url just uses the URL it
+  // fetched. Pages that care set their own.
+  openGraph: {
+    type: 'website',
+    siteName: 'Filmproof',
+    locale: 'en_GB',
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }) {
