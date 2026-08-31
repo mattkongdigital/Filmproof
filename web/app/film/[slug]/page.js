@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getFilm, getFilms, gbp, formatLabel, SITE_URL } from '../../../lib/data';
+import { getFilm, getFilms, gbp, formatLabel, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
+import { LegacyRedirect } from '../../../components/legacy-redirect';
 import { FORMATS, TYPES, CONDITIONS } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
@@ -8,10 +9,24 @@ import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { ProductSchema } from '../../../components/product-schema';
 
 export function generateStaticParams() {
-  return getFilms().map((f) => ({ slug: f.slug }));
+  // Legacy slugs get a page too — with `output: export` there is nowhere else
+  // for a redirect to live. Only those whose target is still in the catalogue.
+  const legacy = Object.keys(LEGACY_FILM_SLUGS).filter((slug) => resolveLegacyFilm(slug));
+  return [...getFilms().map((f) => f.slug), ...legacy].map((slug) => ({ slug }));
 }
 
 export function generateMetadata({ params }) {
+  const legacy = resolveLegacyFilm(params.slug);
+  if (legacy) {
+    // Canonical at the survivor and noindex on the stand-in: the pair should
+    // consolidate onto one page rather than compete as near-duplicates.
+    return {
+      title: `${legacy.film.display} | In stock across UK shops`,
+      alternates: { canonical: `${SITE_URL}/film/${legacy.slug}` },
+      robots: { index: false, follow: true },
+    };
+  }
+
   const film = getFilm(params.slug);
   if (!film) return { title: 'Film not found' };
   const title = `${film.display} | In stock across UK shops`;
@@ -33,6 +48,9 @@ export function generateMetadata({ params }) {
 }
 
 export default function FilmPage({ params }) {
+  const legacy = resolveLegacyFilm(params.slug);
+  if (legacy) return <LegacyRedirect to={legacy.slug} label={legacy.film.display} />;
+
   const film = getFilm(params.slug);
   if (!film) notFound();
 

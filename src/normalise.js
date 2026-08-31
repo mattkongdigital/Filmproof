@@ -75,6 +75,13 @@ const NOISE = new Set([
   'film','films','colour','color','negative','neg','print','iso','asa','roll','rolls','single','pack','pk','of',
   'super','double','twin','triple','quad','std','movie','cine','sheet','large','format','micro','microfilm','disposable','reusable',
   'reversal','daylight','tungsten','ft','bw','value','box','new','the','and','with','pro','coming','soon','set','expired','instant','sheets','professional','positive','slide',
+  // LomoChrome is Lomography's family name for its colour lines, and shops
+  // include or drop it freely — "Lomography Metropolis" and "Lomography
+  // LomoChrome Metropolis" are one film listed two ways. Left in, it forks the
+  // line and the catalogue carries two pages for the same stock. There is no
+  // Lomography line whose identity is the word alone, so dropping it merges
+  // Metropolis, Purple, Turquoise and Classicolor rather than losing anything.
+  'lomochrome',
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {

@@ -17,6 +17,28 @@ Two halves share one repo:
 - **The site.** `web/` is a Next.js app built with `output: 'export'` and
   `trailingSlash: true`, deployed to GitHub Pages by `.github/workflows/refresh.yml`.
 
+### Merged films and dead slugs
+
+A film page's slug is derived from the first shop's title for it, so two shops
+writing the same film differently can fork it into two pages. `LomoChrome` is
+Lomography's family name and shops include or drop it freely, so
+`lomography-metropolis-110-film` and `lomography-lomochrome-metropolis-110-film`
+were one film with two pages. The token is in `NOISE` in `src/normalise.js`,
+which merges them — and Purple, Turquoise and Classicolor the same way.
+
+The cost is that a title whose only line token is `lomochrome` no longer
+identifies. That is the right outcome: LomoChrome is a family, not a film, so
+such a title belongs in the review queue rather than as a page of its own.
+
+When a merge retires a URL that was live, add it to `LEGACY_FILM_SLUGS` in
+`web/lib/data.js`. `output: 'export'` has no server to issue a 301, so
+`/film/[slug]/` builds a page for it: canonical at the survivor, `noindex`, a
+script that replaces the history entry, and readable copy for anyone with JS
+off. A legacy slug whose target has itself left the catalogue is skipped — a
+redirect to a 404 is worse than a 404. Ordinary churn (a film going out of
+stock and its page vanishing for a build) is NOT for this map; it is the normal
+behaviour of a catalogue rebuilt from live data.
+
 Below is the editorial layer, which is the half that is hand-authored.
 
 ## Editorial content layer
