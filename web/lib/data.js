@@ -13,6 +13,30 @@ export function getFilm(slug) {
   return site.find((f) => f.slug === slug) || null;
 }
 
+
+// Slugs that used to be their own film page and now resolve to another. The
+// catalogue is rebuilt from live shop data every deploy, so a slug normally
+// comes and goes with the stock behind it — that churn is not worth tracking.
+// This is for the other case: two pages that were always ONE film, merged in
+// the normaliser. The old URL was real, was indexed, and now has nowhere to go,
+// so it keeps a page that points at the survivor.
+//
+// `lomography-lomochrome-metropolis-110-film` was the same 110 Metropolis as
+// `lomography-metropolis-110-film`; shops write LomoChrome's family name or
+// drop it, and the line forked on that token.
+export const LEGACY_FILM_SLUGS = {
+  'lomography-lomochrome-metropolis-110-film': 'lomography-metropolis-110-film',
+};
+
+// The film a legacy slug now points at, or null. Guards against a target that
+// has itself left the catalogue: a redirect to a 404 is worse than a 404.
+export function resolveLegacyFilm(slug) {
+  const target = LEGACY_FILM_SLUGS[slug];
+  if (!target) return null;
+  const film = getFilm(target);
+  return film ? { slug: target, film } : null;
+}
+
 export const gbp = (n) => '£' + Number(n).toFixed(2);
 
 export const formatLabel = (format) => ({
