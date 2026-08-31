@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CookieSettingsLink } from './cookie-consent';
+import { SILOS } from '../lib/posts';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -14,6 +15,11 @@ export function SiteFooter() {
       <nav className="foot-links">
         <Link href="/how-it-works">How it works</Link>
         <Link href="/about">About</Link>
+        {/* Iterated rather than hard-coded, so a new silo appears here the way it
+            already appears in the sitemap — one entry in SILOS, nothing else. */}
+        {SILOS.map((silo) => (
+          <Link key={silo.slug} href={`/${silo.slug}`}>{silo.label}</Link>
+        ))}
         <Link href="/disclosure">Advertising</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/privacy">Privacy</Link>

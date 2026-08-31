@@ -158,8 +158,9 @@ canonical pages for both.
 earns one) is an entry in `SILOS` in `web/lib/posts.js` plus a copy of the two
 route files in `web/app/field-notes/` with the slug swapped — the index page and
 the `[slug]` page, both thin wrappers over `web/components/editorial.js`. Nothing
-else changes: the frontmatter contract, the catalogue resolution and
-`web/app/sitemap.js` all iterate `SILOS`.
+else changes: the frontmatter contract, the catalogue resolution,
+`web/app/sitemap.js` and the footer nav in `web/components/site-footer.js` all
+iterate `SILOS`, so a new silo is linked and indexed without touching them.
 
 **Add a silo only alongside the posts that fill it.** `output: 'export'` refuses
 to build a dynamic route that produces no paths, so an empty silo does not render
