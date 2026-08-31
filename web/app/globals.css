@@ -526,7 +526,10 @@ img.store-logo { object-fit:contain; background:#fff; }
 /* Fixed box, cropped: the index is a list of equal rows, so thumbnails match
    each other rather than the frame's own ratio. The post itself letterboxes. */
 .post-thumb {
-  flex:0 0 132px; display:block; overflow:hidden; border-radius:3px;
+  /* align-self stops the flex row stretching it to full height, which would
+     override aspect-ratio and give a tall crop instead of a 4:3 box. */
+  flex:0 0 132px; align-self:flex-start;
+  display:block; overflow:hidden; border-radius:3px;
   background:var(--rebate); aspect-ratio:4/3;
 }
 .post-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
