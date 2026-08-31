@@ -44,9 +44,19 @@ export function SiloIndex({ silo: siloSlug }) {
                 </Link>
               )}
               <div className="post-item-text">
-                <time className="post-date" dateTime={dateAttr(post.date, post.datePrecision)}>
-                  {displayDate(post.date, post.datePrecision)}
-                </time>
+                {/* The index sorts on `published`, so that is the date it leads
+                    with — a list ordered by one date and labelled with another
+                    reads as broken. The shoot date rides along after it, which
+                    is the interesting half for an archive. */}
+                <div className="post-date">
+                  <time dateTime={dateAttr(post.published, post.publishedPrecision)}>
+                    {displayDate(post.published, post.publishedPrecision)}
+                  </time>
+                  {' · shot '}
+                  <time dateTime={dateAttr(post.shot, post.shotPrecision)}>
+                    {displayDate(post.shot, post.shotPrecision)}
+                  </time>
+                </div>
                 <h2 className="post-item-title">
                   <Link href={post.href}>{post.title}</Link>
                 </h2>
@@ -78,12 +88,17 @@ export function PostArticle({ silo: siloSlug, slug }) {
       ]} />
 
       <h1>{post.title}</h1>
-      {/* Labelled, because this is when the roll was shot rather than when the
-          post went up — without the label a bare date reads as a publish date. */}
+      {/* Both dates, both labelled. A post written from the archive can have
+          years between them, and each answers a different question: when the
+          pictures are from, and whether this write-up is new. */}
       <div className="updated">
-        Shoot date:{' '}
-        <time dateTime={dateAttr(post.date, post.datePrecision)}>
-          {displayDate(post.date, post.datePrecision)}
+        Shot{' '}
+        <time dateTime={dateAttr(post.shot, post.shotPrecision)}>
+          {displayDate(post.shot, post.shotPrecision)}
+        </time>
+        {' · '}Published{' '}
+        <time dateTime={dateAttr(post.published, post.publishedPrecision)}>
+          {displayDate(post.published, post.publishedPrecision)}
         </time>
         {post.updated && (
           <> · updated{' '}

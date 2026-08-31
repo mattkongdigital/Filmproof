@@ -77,7 +77,9 @@ function readAll() {
 
   if (errors.length) throw new Error(report(errors));
 
-  posts.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
+  const desc = (x, y) => (x < y ? 1 : x > y ? -1 : 0);
+  posts.sort((a, b) =>
+    desc(a.published, b.published) || desc(a.shot, b.shot) || a.slug.localeCompare(b.slug));
   cache = posts;
   return cache;
 }
@@ -98,8 +100,21 @@ function readPost(silo, dir, file, rel, errors) {
   if (!title) fail('frontmatter is missing `title`.');
   if (!description) fail('frontmatter is missing `description`.');
 
-  const date = parseDate(data.date);
-  if (!date) fail('frontmatter is missing a valid `date` (use YYYY-MM-DD, or YYYY-MM if only the month is known).');
+  // Two dates, because they answer different questions and a post written from
+  // the archive pulls them years apart. `shot` is when the roll went through the
+  // camera; `published` is when the write-up went up and is what the index
+  // sorts on, so a 2019 roll written up today lands at the top where a reader
+  // will see it rather than buried in 2019.
+  const shot = parseDate(data.shot);
+  if (!shot) {
+    fail(data.date !== undefined
+      ? 'frontmatter still uses `date`. It is now two fields: `shot` (when the roll was shot) and `published` (when the write-up went up).'
+      : 'frontmatter is missing a valid `shot` date (use YYYY-MM-DD, or YYYY-MM if only the month is known).');
+  }
+  const published = parseDate(data.published);
+  if (!published) {
+    fail('frontmatter is missing a valid `published` date (use YYYY-MM-DD, or YYYY-MM). The silo index sorts on it.');
+  }
   const updated = data.updated === undefined || data.updated === null ? null : parseDate(data.updated);
   if (data.updated !== undefined && data.updated !== null && !updated) {
     fail('`updated` is set but is not a valid date (use YYYY-MM-DD, or YYYY-MM).');
@@ -137,8 +152,10 @@ function readPost(silo, dir, file, rel, errors) {
     file: rel,
     title,
     description,
-    date: date ? date.iso : null,
-    datePrecision: date ? date.precision : null,
+    shot: shot ? shot.iso : null,
+    shotPrecision: shot ? shot.precision : null,
+    published: published ? published.iso : null,
+    publishedPrecision: published ? published.precision : null,
     updated: updated ? updated.iso : null,
     updatedPrecision: updated ? updated.precision : null,
     draft: data.draft === true,
@@ -349,8 +366,6 @@ export function postMetadata(siloSlug, slug) {
   if (!post) return { title: 'Not found' };
   // The share card gets the same frame the index uses as a thumbnail. Paths are
   // resolved against metadataBase in layout.js, so a site-relative one is fine.
-  // No publishedTime: `date` is when the roll was shot, not when this went up,
-  // and the card should not assert otherwise.
   return {
     title: post.title,
     description: post.description,
@@ -360,6 +375,8 @@ export function postMetadata(siloSlug, slug) {
       title: post.title,
       description: post.description,
       url: `${SITE_URL}${post.href}`,
+      publishedTime: post.published,
+      ...(post.updated ? { modifiedTime: post.updated } : {}),
       ...(post.cover ? { images: [post.cover.src] } : {}),
     },
   };

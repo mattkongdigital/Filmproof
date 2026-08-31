@@ -1,7 +1,8 @@
 ---
 title: Dunoon Noir
 description: Three days in a faded Victorian seaside town on the Clyde, spent trying to turn it into a hard-boiled noir film with a pocket camera and a cartridge of 110.
-date: 2024-07
+shot: 2024-07
+published: 2026-08-30
 location: [dunoon, argyll-and-bute, scotland]
 camera: [keystone-everflash]
 film: [lomography-orca-110-film]
