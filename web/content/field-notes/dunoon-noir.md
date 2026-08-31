@@ -78,12 +78,14 @@ and find out what's actually going on in this town.
 
 Since arriving, Milverton is the answer to everything but to what? Or who?
 
+![A stone gatepost with MILVERTON cut into it, ivy spilling over the wall beside it and a slate-roofed lodge behind.](/images/field-notes/dunoon-noir/08-milverton.jpg)
+
 ## The Unsuspecting Town
 
 When it is all over, the town carries on as if nothing had ever happened. Credits
 roll.
 
-![The town seen from the rocks across the water, its terraces stacked along the shore under the hills.](/images/field-notes/dunoon-noir/08-unsuspecting-town.jpg)
+![The town seen from the rocks across the water, its terraces stacked along the shore under the hills.](/images/field-notes/dunoon-noir/09-unsuspecting-town.jpg)
 
 I am very happy with these shots. I must credit the impeccable sunshine and the
 Everflash, they did the heavy lifting.
