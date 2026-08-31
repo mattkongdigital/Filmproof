@@ -1,6 +1,6 @@
 ---
 title: Blossoms in Brindley 2026
-description: Brindley Place runs a friendly blossom photography competition each spring, and this year I finally had a camera I thought was up to entering it.
+description: Brindley Place runs a friendly blossom photography competition each spring, and this year I finally entered it.
 date: 2026-03-01
 location: [birmingham, brindley-place]
 camera: [pentax-p30]
@@ -17,7 +17,7 @@ office buildings, the blossoms really pop.
 Each year, Brindley Place hosts a friendly competition where they encourage
 photographers to share their blossom photos.
 
-Up until now, I didn't think I had a camera good enough
+Up until now, I didn't think I had a camera good enough.
 
 Here are my entries.
 
