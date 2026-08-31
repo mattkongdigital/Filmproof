@@ -347,10 +347,21 @@ export function siloMetadata(siloSlug) {
 export function postMetadata(siloSlug, slug) {
   const post = getPost(siloSlug, slug);
   if (!post) return { title: 'Not found' };
+  // The share card gets the same frame the index uses as a thumbnail. Paths are
+  // resolved against metadataBase in layout.js, so a site-relative one is fine.
+  // No publishedTime: `date` is when the roll was shot, not when this went up,
+  // and the card should not assert otherwise.
   return {
     title: post.title,
     description: post.description,
     alternates: { canonical: `${SITE_URL}${post.href}` },
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.description,
+      url: `${SITE_URL}${post.href}`,
+      ...(post.cover ? { images: [post.cover.src] } : {}),
+    },
   };
 }
 

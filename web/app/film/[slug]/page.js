@@ -14,10 +14,21 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
   if (!film) return { title: 'Film not found' };
+  const title = `${film.display} | In stock across UK shops`;
+  const description = `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`;
   return {
-    title: `${film.display} | In stock across UK shops`,
-    description: `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`,
+    title,
+    description,
     alternates: { canonical: `${SITE_URL}/film/${params.slug}` },
+    // The product shot is a retailer's absolute URL, and roughly one film in
+    // twenty has none — those fall back to the site defaults rather than
+    // shipping a broken og:image.
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/film/${params.slug}`,
+      ...(film.image ? { images: [film.image] } : {}),
+    },
   };
 }
 
