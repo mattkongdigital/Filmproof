@@ -23,3 +23,6 @@ Thumbs.db
 # local env files (keep secrets out of the repo)
 .env
 .env.local
+tools/__pycache__/
+tools/out/
+tools/SpaceGrotesk-Bold.ttf
