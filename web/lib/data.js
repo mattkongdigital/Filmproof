@@ -24,8 +24,14 @@ export function getFilm(slug) {
 // `lomography-lomochrome-metropolis-110-film` was the same 110 Metropolis as
 // `lomography-metropolis-110-film`; shops write LomoChrome's family name or
 // drop it, and the line forked on that token.
+//
+// Lucky's colour negative forked the same way on the manufacturer's "C" code:
+// `lucky-colour-200-film-35mm` and `lucky-film-200-120` were the shops that
+// write the speed bare, and they are the same films as the C200 pages.
 export const LEGACY_FILM_SLUGS = {
   'lomography-lomochrome-metropolis-110-film': 'lomography-metropolis-110-film',
+  'lucky-colour-200-film-35mm': 'lucky-colour-c200-35mm-film',
+  'lucky-film-200-120': 'lucky-colour-c200-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

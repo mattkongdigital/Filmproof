@@ -85,7 +85,7 @@ const NOISE = new Set([
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
-  const text = String(raw).toLowerCase()
+  let text = String(raw).toLowerCase()
     .replace(/\bblack\s*(?:and|&|n)?\s*white\b/g, ' ')
     .replace(/\bb\s*&\s*w\b/g, ' ')
     .replace(/\bc-?41\b/g, ' ')
@@ -119,6 +119,18 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/[^a-z0-9 ]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+  // Lucky's colour negative is sold as "Colour C200"/"C400" by some shops and
+  // as plain "Colour 200"/"400" by others — the C is the manufacturer's code
+  // for the colour range, not part of a line name, so it is the same film both
+  // ways. Left in, the C sticks to `line` while the bare spelling has no line
+  // at all, and one film forks into two pages per format (it also swallowed the
+  // speed, so "C400" pages showed whatever ISO the shop's tags happened to
+  // carry). Guarded on the brand and on the number really being a film speed,
+  // because a leading C before digits means nothing of the sort elsewhere.
+  if (/\blucky\b/.test(text)) {
+    text = text.replace(/\bc\s?(\d{2,4})\b/g, (m, n) => (ISO_SPEEDS.has(Number(n)) ? n : m));
+  }
+
   const hint = String(typeHint).toLowerCase();
 
   // brand — and drop everything up to & including it (vendor/shop-name noise
