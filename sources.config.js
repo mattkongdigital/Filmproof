@@ -16,4 +16,5 @@ export const SOURCES = [
   { retailer: 'Gulabi',                 kind: 'shopify', baseUrl: 'https://store.gulabi.co.uk' },
   { retailer: 'PJL Photography',        kind: 'shopify', baseUrl: 'https://pjlphoto.com' },
   { retailer: 'Bass & Bligh',           kind: 'shopify', baseUrl: 'https://bassandbligh.com' },
+  { retailer: 'Classic Photo Supplies', kind: 'shopify', baseUrl: 'https://classicphotosupplies.co.uk' },
 ];
