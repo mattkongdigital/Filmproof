@@ -118,7 +118,7 @@ function pickCleanImage(images) {
 // Decide whether a product is an actual roll/sheet of film (not accessories,
 // paper, chemicals, cameras...). Handles both Analogue Wonderland's short types
 // ("35mm", "Camera") and Firstcall's "Department : Category" paths.
-const NOT_FILM = /camera|merch|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
+const NOT_FILM = /camera|merch|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|printer|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|\bcases?\b|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
 
 function isFilmProduct(type, title) {
   if (NOT_FILM.test(title)) return false;
