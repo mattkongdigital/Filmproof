@@ -21,6 +21,15 @@ const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 const MIN_FILMS = Number(process.env.FILMPROOF_MIN_FILMS || 300);
 const MIN_LIVE_SOURCES = Number(process.env.FILMPROOF_MIN_LIVE_SOURCES || 4);
 
+// Shops allowed to contribute nothing, by retailer name, comma-separated. The
+// per-shop guard below is otherwise absolute, so this is the escape hatch for
+// the one legitimate case: a shop that has genuinely stopped selling film and
+// is on its way out of SOURCES.
+const MAY_BE_EMPTY = new Set(
+  (process.env.FILMPROOF_ALLOW_EMPTY_SHOPS || '')
+    .split(',').map((s) => s.trim()).filter(Boolean)
+);
+
 // A film shop's catalogue is mostly not film — narrow Shopify pulls by type/tag,
 // or by a format signal in the title (shops label categories differently).
 const filmish = (o) =>
@@ -67,10 +76,12 @@ async function run() {
   console.log(`Resolving ${SOURCES.length} sources${OFFLINE ? ' (offline mode)' : ''}...`);
   const offers = [];
   let liveSourceCount = 0;
+  const empty = [];
   for (const src of SOURCES) {
     const { offers: srcOffers, live } = await resolveOffers(src);
     offers.push(...srcOffers);
     if (live && srcOffers.length > 0) liveSourceCount++;
+    if (srcOffers.length === 0 && !MAY_BE_EMPTY.has(src.retailer)) empty.push(src.retailer);
   }
 
   const byFilm = new Map(FILMS.map((f) => [f.id, []]));
@@ -131,6 +142,31 @@ async function run() {
   // So the floor tracks what a healthy build actually looks like rather than
   // sitting just above zero. Raise it as the catalogue grows; a real build
   // being refused is a cheap failure, a gutted one going live is not.
+  // Per-shop floor. The aggregate floor below asks whether the catalogue as a
+  // whole is plausible, which is a question one shop can fail without moving:
+  // eight shops in, losing any single one leaves MIN_FILMS and MIN_LIVE_SOURCES
+  // comfortably met, so the build goes green and that shop simply vanishes from
+  // the site — its store page renders the empty state, its offers stop
+  // undercutting anyone, and nothing says why. That is the failure this exists
+  // to catch, and it gets louder rather than quieter as SOURCES grows.
+  //
+  // Zero is the test, not a percentage. Every shop here fetches film in the
+  // dozens at least, so a live pull that yields nothing means the fetch failed
+  // or the shop restructured its catalogue — never an ordinary quiet day. A
+  // shop that has genuinely stopped stocking film belongs in
+  // FILMPROOF_ALLOW_EMPTY_SHOPS on its way out of SOURCES, not silently
+  // publishing as empty.
+  if (!OFFLINE && empty.length > 0) {
+    console.error(
+      `ERROR: ${empty.length} shop(s) contributed no film offers: ${empty.join(', ')}. ` +
+      `Check the per-source lines above for "live fetch failed" or "source error". ` +
+      `Refusing to publish a site that quietly drops a shop. ` +
+      `Set FILMPROOF_ALLOW_EMPTY_SHOPS="${empty.join(',')}" if a shop really has ` +
+      `stopped selling film, or FILMPROOF_OFFLINE=1 for a sample-only build.`
+    );
+    process.exit(1);
+  }
+
   if (!OFFLINE && (site.length < MIN_FILMS || liveSourceCount < MIN_LIVE_SOURCES)) {
     console.error(
       `ERROR: build looks like a live-fetch failure, not a real catalogue ` +
