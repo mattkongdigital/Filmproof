@@ -98,6 +98,11 @@ files are served from `/brand/…`:
 </a>
 ```
 
+`email-signature.html` is a complete, ready-to-fill signature block using that
+image — table layout with inline styles only, since Outlook ignores external
+CSS, flexbox and grid. Fill in the four `YOUR-…` placeholders and paste it into
+your client's HTML signature field.
+
 Use the `-ondark-` file instead if the recipient's client is likely to invert
 your signature (Outlook dark mode), or keep the dark-text version and accept the
 transparent background going light-on-light — the mark's own tile keeps it
