@@ -69,17 +69,39 @@ or left square. Upload the 1000px version anywhere that accepts it.
 Mark plus wordmark, 4.25:1, transparent background. PNGs are sized for retina:
 ship the 600px file and display it at 200px wide, or the 1200px file at 400px.
 
+## Email signature
+
+| File | Notes |
+| --- | --- |
+| `filmproof-signature-white.png` | 600×200 on solid white — display at 300×100 |
+| `filmproof-signature-dark.png` | 600×200 on the solid textured dark ground — display at 300×100 |
+
+These are the ones to paste into Gmail / Outlook / Apple Mail signature
+settings. They are **solid, not transparent**: Outlook and several mobile
+clients composite transparent PNGs unpredictably (and dark mode can invert the
+body behind them), so a signature image should carry its own ground. Both are 2×
+so they stay sharp on retina — always set `width="300" height="100"`, or the
+client will render them at 600px wide.
+
+The dark version carries the grain across the whole ground at a pitch that reads
+as the site's 3px dots once the 2× image is displayed at half size.
+
 Email clients strip SVG and ignore CSS backgrounds, so signatures must use the
 PNG with explicit `width`/`height` attributes. Once the site is deployed the
 files are served from `/brand/…`:
 
 ```html
 <a href="https://filmproof.co.uk" style="text-decoration:none">
-  <img src="https://filmproof.co.uk/brand/filmproof-lockup-onlight-600.png"
-       alt="Filmproof" width="200" height="47"
+  <img src="https://filmproof.co.uk/brand/filmproof-signature-white.png"
+       alt="Filmproof" width="300" height="100"
        style="display:block;border:0;outline:none;text-decoration:none">
 </a>
 ```
+
+`email-signature.html` is a complete, ready-to-fill signature block using that
+image — table layout with inline styles only, since Outlook ignores external
+CSS, flexbox and grid. Fill in the four `YOUR-…` placeholders and paste it into
+your client's HTML signature field.
 
 Use the `-ondark-` file instead if the recipient's client is likely to invert
 your signature (Outlook dark mode), or keep the dark-text version and accept the
