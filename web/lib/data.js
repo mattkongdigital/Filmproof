@@ -28,10 +28,18 @@ export function getFilm(slug) {
 // Lucky's colour negative forked the same way on the manufacturer's "C" code:
 // `lucky-colour-200-film-35mm` and `lucky-film-200-120` were the shops that
 // write the speed bare, and they are the same films as the C200 pages.
+//
+// Onboarding Chemical Dependency Lab retired two more. It states DragonFilm's
+// speed where PJL does not, so the ISO-stub merge folded the bare page into the
+// ISO'd one and the slug moved with it; and adding 'medium' to NOISE (its 120
+// titles all say "120 Medium Format") merged PJL's Portra 800 page into the
+// plain one the other shops share.
 export const LEGACY_FILM_SLUGS = {
   'lomography-lomochrome-metropolis-110-film': 'lomography-metropolis-110-film',
   'lucky-colour-200-film-35mm': 'lucky-colour-c200-35mm-film',
   'lucky-film-200-120': 'lucky-colour-c200-120-film',
+  'dragonfilm-no-i-35mm-black-and-white-film': 'dragonfilm-no-i-100-iso-35mm-black-white',
+  'kodak-portra-800-120-medium-format-film': 'kodak-portra-800-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
@@ -64,7 +72,7 @@ const BRAND_LABELS = {
   washi: 'Film Washi', flic: 'Flic Film', kono: 'KONO', dragonfilm: 'Dragon Film',
   cinemot: 'CineMot', streetcandy: 'Street Candy', hanalogital: 'Hanalogital',
   kameratori: 'Kameratori', mrnegative: 'Mr Negative', reflx: 'Reflx Lab', rera: 'Rera',
-  fpp: 'FPP',
+  fpp: 'FPP', thisishowiroll: 'This Is How I Roll', alienfilm: 'Alien Film',
 };
 
 export const brandLabel = (slug) =>

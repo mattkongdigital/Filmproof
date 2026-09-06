@@ -9,12 +9,13 @@
 // needs to change.
 
 export const SOURCES = [
-  { retailer: 'Analogue Wonderland',   kind: 'shopify', baseUrl: 'https://analoguewonderland.co.uk', sample: './data/shopify-sample.json' },
-  { retailer: 'Take It Easy Lab',       kind: 'shopify', baseUrl: 'https://takeiteasylab.com' },
-  { retailer: 'Film Camera Store',      kind: 'shopify', baseUrl: 'https://filmcamerastore.co.uk' },
-  { retailer: 'Cameras By Max',         kind: 'shopify', baseUrl: 'https://camerasbymax.co.uk' },
-  { retailer: 'Gulabi',                 kind: 'shopify', baseUrl: 'https://store.gulabi.co.uk' },
-  { retailer: 'PJL Photography',        kind: 'shopify', baseUrl: 'https://pjlphoto.com' },
-  { retailer: 'Bass & Bligh',           kind: 'shopify', baseUrl: 'https://bassandbligh.com' },
-  { retailer: 'Classic Photo Supplies', kind: 'shopify', baseUrl: 'https://classicphotosupplies.co.uk' },
+  { retailer: 'Analogue Wonderland',     kind: 'shopify', baseUrl: 'https://analoguewonderland.co.uk', sample: './data/shopify-sample.json' },
+  { retailer: 'Take It Easy Lab',        kind: 'shopify', baseUrl: 'https://takeiteasylab.com' },
+  { retailer: 'Film Camera Store',       kind: 'shopify', baseUrl: 'https://filmcamerastore.co.uk' },
+  { retailer: 'Cameras By Max',          kind: 'shopify', baseUrl: 'https://camerasbymax.co.uk' },
+  { retailer: 'Gulabi',                  kind: 'shopify', baseUrl: 'https://store.gulabi.co.uk' },
+  { retailer: 'PJL Photography',         kind: 'shopify', baseUrl: 'https://pjlphoto.com' },
+  { retailer: 'Bass & Bligh',            kind: 'shopify', baseUrl: 'https://bassandbligh.com' },
+  { retailer: 'Classic Photo Supplies',  kind: 'shopify', baseUrl: 'https://classicphotosupplies.co.uk' },
+  { retailer: 'Chemical Dependency Lab', kind: 'shopify', baseUrl: 'https://chemicaldependency.co.uk' },
 ];

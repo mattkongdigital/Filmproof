@@ -14,6 +14,12 @@ const BRAND_PATTERNS = [
   [/\bmira\s*films?\b/, 'mira'],
   [/\bmr\.?\s*negative\b/, 'mrnegative'],
   [/\bstreet\s*candy\b/, 'streetcandy'],
+  // "This Is How I Roll" is long enough that shops (and the brand itself) repeat
+  // it — the vendor field says "This is How I Roll Film" and the product title
+  // says it again — so the pattern eats a whole run of repeats rather than the
+  // first one, or the brand name leaks back into the line.
+  [/(?:\bthis\s*is\s*how\s*i\s*roll(?:\s*film)?\b\s*)+/, 'thisishowiroll'],
+  [/\balien\s*film\b/, 'alienfilm'],
   [/\breflx\s*lab\b|\breflx\b/, 'reflx'],
   [/\bfilm\s*photography\s*project\b|\bfpp\b/, 'fpp'],
   [/\blucky\s*film\b|\blucky\b/, 'lucky'],
@@ -66,6 +72,7 @@ const BRAND_WORDS = new Set([
   'analogheld','hanalogital','kameratori','orwo','wolfen','reto','retrospekt','silbersalz',
   'yodica','candido','oriental','wittner','kosmo','optik','mira','lucky','rera',
   'cinemot','filmneverdie','fnd','dragonfilm','dragon','alaris','fujichrome','fujicolor','fujicolour',
+  'alien','alienfilm',
 ]);
 
 const ISO_SPEEDS = new Set([25,32,40,50,64,80,100,125,160,200,250,320,400,500,640,800,1000,1250,1600,3200,6400]);
@@ -73,7 +80,7 @@ const FORMAT_TOKENS = new Set(['135','120','110','127','220','35mm','35','mm','1
 const EXP_WORDS = new Set(['exp','exposure','exposures']);
 const NOISE = new Set([
   'film','films','colour','color','negative','neg','print','iso','asa','roll','rolls','single','pack','pk','of',
-  'super','double','twin','triple','quad','std','movie','cine','sheet','large','format','micro','microfilm','disposable','reusable',
+  'super','double','twin','triple','quad','std','movie','cine','sheet','large','medium','format','micro','microfilm','disposable','reusable',
   'reversal','daylight','tungsten','ft','bw','value','box','new','the','and','with','pro','coming','soon','set','expired','instant','sheets','professional','positive','slide',
   // LomoChrome is Lomography's family name for its colour lines, and shops
   // include or drop it freely — "Lomography Metropolis" and "Lomography
