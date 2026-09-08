@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { SITE_URL } from '../../lib/data';
-import { STORES, storeFilmCount } from '../../lib/stores';
+import { STORES_ALPHABETICAL, storeFilmCount } from '../../lib/stores';
 import { StoreLogo } from '../../components/store-logo';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 
@@ -25,7 +25,7 @@ export default function StoresPage() {
         </p>
       </header>
       <div className="store-grid">
-        {STORES.map((s) => (
+        {STORES_ALPHABETICAL.map((s) => (
           <Link key={s.slug} href={`/store/${s.slug}`} className="store-card">
             <StoreLogo store={s} size="md" />
             <span className="store-card-name">{s.name}</span>
