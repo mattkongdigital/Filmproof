@@ -12,6 +12,12 @@ export const STORES = [
   { slug: 'chemical-dependency-lab', name: 'Chemical Dependency Lab', town: 'Manningtree, Essex', url: 'https://chemicaldependency.co.uk', logo: null, description: "A North Essex film lab that started as a side project and grew into a proper one, developing C-41 and black & white in-house on rotary processors and camera-scanning every roll on a 61-megapixel rig, with the scans delivered through its own Loupe gallery and prints made in-house on dye sublimation. Alongside the lab it keeps a tight, well-chosen range of 35mm and 120 stock in stock and posts it UK-wide." },
 ];
 
+// The listing is alphabetical by name; STORES itself stays in the order shops
+// were added, so the sort lives here rather than in the data.
+export const STORES_ALPHABETICAL = [...STORES].sort((a, b) =>
+  a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+);
+
 export function getStore(slug) { return STORES.find((s) => s.slug === slug) || null; }
 export function filmsForStore(name) { return getFilms().filter((f) => (f.offers || []).some((o) => o.retailer === name)); }
 export function storeFilmCount(name) { return filmsForStore(name).length; }
