@@ -275,6 +275,69 @@ footer {
 .brand-item:hover { color:var(--china); }
 .brand-name { font-size:15px; font-weight:500; }
 .brand-count { font-family:var(--mono); font-size:12px; color:var(--muted); }
+.brand-hit {
+  display:block; font-family:var(--mono); font-size:11px; color:var(--amber);
+  letter-spacing:.02em; margin-top:4px; font-weight:400; line-height:1.4;
+}
+
+/* ---- brands A-Z directory ---- */
+.az { padding-top:22px; }
+.az-search { display:flex; flex-direction:column; gap:7px; max-width:340px; }
+.az-search-label {
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted);
+}
+.az-letters { display:flex; flex-wrap:wrap; gap:6px; margin:22px 0 4px; }
+/* Search hides by the `hidden` attribute, which a `display` of our own would
+   quietly beat — so both things that carry one say so. */
+.brand-item[hidden], .az-letter[hidden] { display:none; }
+.az-letter {
+  font-family:var(--mono); font-size:12px; text-decoration:none; color:var(--ink);
+  border:1px solid rgba(157,148,129,0.3); border-radius:2px;
+  min-width:28px; padding:4px 0; text-align:center;
+}
+.az-letter:hover, .az-letter:focus-visible { border-color:var(--amber); color:var(--amber); }
+.az-head {
+  font-family:var(--display); font-weight:600; font-size:20px; letter-spacing:-0.01em;
+  margin-top:34px;
+}
+.az-sub { color:var(--muted); font-size:14px; margin-top:5px; }
+.az-group { scroll-margin-top:16px; }
+.az-group-head {
+  font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--amber);
+  margin-top:26px; padding-bottom:7px; border-bottom:1px solid var(--rebate);
+}
+.az-group .brand-list { padding-top:12px; }
+
+/* Most tracked: a ranked row, so the rank number carries the ordering for
+   anyone reading the cards out of sequence. */
+.top-list { list-style:none; display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:8px; margin-top:16px; }
+.top-item {
+  display:grid; grid-template-columns:auto 1fr; gap:3px 12px; align-items:baseline;
+  background:var(--frame); border-radius:3px; padding:13px 15px;
+  text-decoration:none; color:var(--ink);
+}
+.top-item:hover .top-name { color:var(--china); }
+.top-rank {
+  grid-row:1 / span 2; font-family:var(--mono); font-size:20px; color:var(--amber); line-height:1;
+}
+.top-name { font-size:15px; font-weight:500; }
+.top-count { font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.02em; }
+
+/* On a phone the letter index follows you down the page, as a single
+   swipeable row rather than a block of wrapped letters. */
+@media (max-width:560px) {
+  .az-letters {
+    position:sticky; top:0; z-index:20;
+    flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+    margin:18px -20px 4px; padding:8px 20px;
+    background:var(--base); border-bottom:1px solid var(--rebate);
+    scrollbar-width:none;
+  }
+  .az-letters::-webkit-scrollbar { display:none; }
+  .az-letter { flex:0 0 auto; }
+  .az-group { scroll-margin-top:52px; }
+}
 
 /* ---- client-side filter bar ---- */
 .browser { padding-top:4px; }

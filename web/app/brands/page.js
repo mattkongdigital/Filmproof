@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { brandList } from '../../lib/facets';
+import { brandDirectory, topBrandsByListings } from '../../lib/facets';
 import { SITE_URL } from '../../lib/data';
 import { Breadcrumbs } from '../../components/breadcrumbs';
+import { BrandsDirectory } from '../../components/brands-directory';
 
 export function generateMetadata() {
   return {
@@ -12,23 +12,19 @@ export function generateMetadata() {
 }
 
 export default function BrandsPage() {
-  const brands = brandList();
+  // Both lists are computed here, at build time, from the catalogue — so they
+  // move with the daily rebuild and ship whole in the HTML.
+  const groups = brandDirectory();
+  const top = topBrandsByListings(5);
   return (
     <div className="wrap">
       <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Brands' }]} />
       <header className="cat-head">
         <div className="eyebrow">By brand</div>
         <h1>Film by brand</h1>
-        <p className="lede">Every maker we track, most stocks first.</p>
+        <p className="lede">Every maker we track, A to Z, with the most widely stocked first.</p>
       </header>
-      <div className="brand-list">
-        {brands.map((b) => (
-          <Link key={b.slug} href={`/brand/${b.slug}`} className="brand-item">
-            <span className="brand-name">{b.label}</span>
-            <span className="brand-count">{b.count}</span>
-          </Link>
-        ))}
-      </div>
+      <BrandsDirectory groups={groups} top={top} />
     </div>
   );
 }
