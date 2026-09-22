@@ -171,3 +171,55 @@ export function brandList() {
 export function availableFormats() { return FORMATS.filter((x) => has(x.match)); }
 export function availableTypes() { return TYPES.filter((x) => has(x.match)); }
 export function availableConditions() { return CONDITIONS.filter((x) => has(x.match)); }
+
+// ---- the /brands index ----------------------------------------------------
+
+// Brands grouped for the A–Z directory: one entry per letter of the display
+// name, case-insensitively, with anything that does not start A–Z (digits, a
+// symbol) collected under "#". Each brand carries its film names so the index
+// can be searched by film as well as by maker — the whole directory ships in
+// the HTML, so this is the same data the page already renders.
+export function brandDirectory() {
+  const films = getFilms();
+  const groups = new Map();
+  for (const b of brandList()) {
+    const initial = b.label.trim().charAt(0).toUpperCase();
+    const letter = /[A-Z]/.test(initial) ? initial : '#';
+    const entry = {
+      ...b,
+      films: films.filter((f) => f.brand === b.slug).map((f) => f.display),
+    };
+    if (!groups.has(letter)) groups.set(letter, []);
+    groups.get(letter).push(entry);
+  }
+  return [...groups.entries()]
+    .map(([letter, brands]) => ({
+      letter,
+      brands: brands.sort((a, b) => a.label.localeCompare(b.label, 'en', { sensitivity: 'base' })),
+    }))
+    // "#" sorts ahead of A, as it reads in the letter index.
+    .sort((a, b) => (a.letter === '#' ? -1 : b.letter === '#' ? 1 : a.letter.localeCompare(b.letter)));
+}
+
+// The brands with the most live retailer listings. A listing is one offer from
+// one shop, so a film carried by five shops counts five times — that is the
+// measure of how widely a maker is stocked, which is what the ranking is for.
+//
+// Only films a shop currently lists are counted. build-site-data.js already
+// drops films no shop returned, but the check is here too: if the catalogue
+// ever keeps a tombstone page for a film that has left the shops, it must not
+// carry its old brand up this list.
+export function topBrandsByListings(limit = 5) {
+  const totals = new Map();
+  for (const f of getFilms()) {
+    if (!f.brand || !f.offers || f.offers.length === 0) continue;
+    if (!totals.has(f.brand)) totals.set(f.brand, { listings: 0, shops: new Set() });
+    const t = totals.get(f.brand);
+    for (const o of f.offers) { t.listings++; t.shops.add(o.retailer); }
+  }
+  return [...totals.entries()]
+    .map(([slug, t]) => ({ slug, label: brandLabel(slug), listings: t.listings, shops: t.shops.size }))
+    // Alphabetical on a tie, so the order is stable from one rebuild to the next.
+    .sort((a, b) => b.listings - a.listings || a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }))
+    .slice(0, limit);
+}
