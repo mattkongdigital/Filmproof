@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation';
-import { resolveCategory, categoryParams, filmsFor, otherAxes, comboHref, brandsForFacet, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
+import { resolveCategory, categoryParams, filmsFor, otherAxes, comboHref, brandsForFacet, BRAND_CHIP_LIMIT, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
 import { FilmBrowser } from '../../components/film-browser';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../lib/data';
 import { getFormatContent, getTypeContent, getConditionContent } from '../../lib/category-content';
 import Link from 'next/link';
+import { ChipOverflow } from '../../components/chip-overflow';
 
 export function generateStaticParams() {
   return categoryParams();
@@ -101,7 +102,9 @@ export default function CategoryPage({ params }) {
                 <span className="chip current" aria-current="page">
                   All <span className="chip-count">{films.length}</span>
                 </span>
-                {axis.links.map((l) => (
+                {axis.kind === 'brand' ? (
+                  <ChipOverflow links={axis.links} limit={BRAND_CHIP_LIMIT} noun="more brands" />
+                ) : axis.links.map((l) => (
                   <Link key={l.href} href={l.href} className="chip">
                     {l.label} <span className="chip-count">{l.count}</span>
                   </Link>
