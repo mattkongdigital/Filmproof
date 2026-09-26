@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { resolveCategory, categoryParams, filmsFor, otherAxes, comboHref, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
+import { resolveCategory, categoryParams, filmsFor, otherAxes, comboHref, brandsForFacet, AXIS_LABEL, MIN_COMBO_FILMS } from '../../lib/facets';
 import { FilmBrowser } from '../../components/film-browser';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../lib/data';
@@ -34,7 +34,23 @@ function crossAxes(cat) {
         }))
         .filter((l) => l.href && l.count >= MIN_COMBO_FILMS),
     }))
+    .concat(brandAxis(cat))
     .filter((axis) => axis.links.length > 0);
+}
+
+// Brand is not a URL-parent axis like the others: brand × facet pages live
+// under the brand, at /brand/kodak/35mm-film. brandsForFacet uses the same
+// threshold that builds those pages, so every chip here is a real page.
+function brandAxis(cat) {
+  return {
+    kind: 'brand',
+    label: 'Brand',
+    links: brandsForFacet(cat.facet).map((b) => ({
+      href: `/brand/${b.slug}/${cat.facet.slug}`,
+      label: b.label,
+      count: b.count,
+    })),
+  };
 }
 
 export function generateMetadata({ params }) {
@@ -100,7 +116,7 @@ export default function CategoryPage({ params }) {
           axis offered as a chip row above — an axis should be either navigation
           or a filter, not both. An axis whose chip row was dropped for having too
           few films keeps its filter. */}
-      <FilmBrowser films={films} hideAxes={[cat.kind, ...axes.map((a) => a.kind)].map((k) => BROWSER_AXIS[k])} />
+      <FilmBrowser films={films} hideAxes={[cat.kind, ...axes.map((a) => a.kind)].map((k) => BROWSER_AXIS[k]).filter(Boolean)} />
 
       {content && (
         <div className="brand-about">
