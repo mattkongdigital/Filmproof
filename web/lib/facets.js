@@ -146,6 +146,10 @@ export function brandsForFacet(facet) {
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }));
 }
 
+// A format can carry thirty-odd brands. A Brand chip row shows this many and
+// folds the rest behind a "+N more brands" chip (components/chip-overflow.js).
+export const BRAND_CHIP_LIMIT = 10;
+
 export function resolveBrandSub(brandSlug, subSlug) {
   const brand = brandList().find((b) => b.slug === brandSlug);
   if (!brand) return null;

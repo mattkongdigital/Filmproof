@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { brandSubParams, resolveBrandSub, subFacetsForBrand, brandsForFacet, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
+import { brandSubParams, resolveBrandSub, subFacetsForBrand, brandsForFacet, BRAND_CHIP_LIMIT, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
 import { getFilms } from '../../../../lib/data';
+import { ChipOverflow } from '../../../../components/chip-overflow';
 import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
@@ -72,11 +73,12 @@ export default function BrandSubPage({ params }) {
               <span className="chip current" aria-current="page">
                 {r.brand.label} <span className="chip-count">{films.length}</span>
               </span>
-              {otherBrands.map((b) => (
-                <Link key={b.slug} className="chip" href={`/brand/${b.slug}/${params.sub}`}>
-                  {b.label} <span className="chip-count">{b.count}</span>
-                </Link>
-              ))}
+              <ChipOverflow
+                links={otherBrands.map((b) => ({ href: `/brand/${b.slug}/${params.sub}`, label: b.label, count: b.count }))}
+                // The current brand's chip takes one of the visible slots.
+                limit={BRAND_CHIP_LIMIT - 1}
+                noun="more brands"
+              />
             </div>
           )}
         </div>
