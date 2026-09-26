@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { brandSubParams, resolveBrandSub, subFacetsForBrand, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
+import { brandSubParams, resolveBrandSub, subFacetsForBrand, brandsForFacet, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
+import { getFilms } from '../../../../lib/data';
 import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
@@ -27,6 +28,10 @@ export default function BrandSubPage({ params }) {
 
   const films = filmsFor(r.match);
   const siblings = subFacetsForBrand(params.slug).filter((s) => s.kind === r.kind && s.slug !== params.sub);
+  // The other parent: the same facet from every other brand that has a page for
+  // it, with "All" going back up to the facet's own page (/35mm-film).
+  const otherBrands = brandsForFacet(r.facet).filter((b) => b.slug !== params.slug);
+  const facetCount = getFilms().filter(r.facet.match).length;
 
   return (
     <div className="wrap">
@@ -60,6 +65,20 @@ export default function BrandSubPage({ params }) {
               </Link>
             ))}
           </div>
+          {otherBrands.length > 0 && (
+            <div className="axis">
+              <span className="axis-label">Brand</span>
+              <Link className="chip" href={`/${params.sub}`}>All <span className="chip-count">{facetCount}</span></Link>
+              <span className="chip current" aria-current="page">
+                {r.brand.label} <span className="chip-count">{films.length}</span>
+              </span>
+              {otherBrands.map((b) => (
+                <Link key={b.slug} className="chip" href={`/brand/${b.slug}/${params.sub}`}>
+                  {b.label} <span className="chip-count">{b.count}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

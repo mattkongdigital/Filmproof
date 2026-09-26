@@ -136,6 +136,16 @@ export function subFacetsForBrand(brandSlug) {
     .filter((x) => x.count >= MIN_COMBO_FILMS);
 }
 
+// The brands with a /brand/<slug>/<facet> page for this facet, most films
+// first. Same threshold as brandSubParams, so every entry is a page that was
+// built — a category page can link to all of them without a dead link.
+export function brandsForFacet(facet) {
+  return brandList()
+    .map((b) => ({ ...b, count: countFor(b.slug, facet) }))
+    .filter((b) => b.count >= MIN_COMBO_FILMS)
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }));
+}
+
 export function resolveBrandSub(brandSlug, subSlug) {
   const brand = brandList().find((b) => b.slug === brandSlug);
   if (!brand) return null;
