@@ -18,4 +18,5 @@ export const SOURCES = [
   { retailer: 'Bass & Bligh',            kind: 'shopify', baseUrl: 'https://bassandbligh.com' },
   { retailer: 'Classic Photo Supplies',  kind: 'shopify', baseUrl: 'https://classicphotosupplies.co.uk' },
   { retailer: 'Chemical Dependency Lab', kind: 'shopify', baseUrl: 'https://chemicaldependency.co.uk' },
+  { retailer: 'JFR Film',                kind: 'shopify', baseUrl: 'https://jfrfilm.co.uk' },
 ];
