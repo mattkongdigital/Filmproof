@@ -13,13 +13,21 @@
 // --- 1. fetch -------------------------------------------------------------
 // fetchImpl is injectable so tests can pass a fake; in real use it's global
 // fetch (Node 18+). limit maxes out at 250 per Shopify's rules.
+//
+// country=GB is not optional. A shop on Shopify Markets prices products.json
+// in the visitor's local currency, picked from their IP — and the deploy runs
+// on a GitHub runner in the US, so Take It Easy Lab, Film Camera Store,
+// Cameras By Max and JFR Film all answered in rounded US dollars that the site
+// then printed as pounds (£16 for JFR's £9.99 Gold 200). Shops without
+// Markets ignore the parameter. It must be country, not currency=GBP: the
+// latter also shifts Analogue Wonderland's prices, which are already sterling.
 export async function fetchAllProducts(baseUrl, opts = {}) {
   const { fetchImpl = fetch, limit = 250, maxPages = 40, delayMs = 500 } = opts;
   const clean = baseUrl.replace(/\/+$/, '');
   const all = [];
 
   for (let page = 1; page <= maxPages; page++) {
-    const url = `${clean}/products.json?limit=${limit}&page=${page}`;
+    const url = `${clean}/products.json?limit=${limit}&page=${page}&country=GB`;
     const res = await fetchImpl(url, {
       headers: { 'User-Agent': 'FilmPriceCompare/0.1 (contact: you@example.com)' },
     });
