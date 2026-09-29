@@ -22,16 +22,13 @@
 // Markets ignore the parameter. It must be country, not currency=GBP: the
 // latter also shifts Analogue Wonderland's prices, which are already sterling.
 export async function fetchAllProducts(baseUrl, opts = {}) {
-  const { fetchImpl = fetch, limit = 250, maxPages = 40, delayMs = 500 } = opts;
+  const { fetchImpl = fetch, limit = 250, maxPages = 40, delayMs = 500, retries = [2000, 8000] } = opts;
   const clean = baseUrl.replace(/\/+$/, '');
   const all = [];
 
   for (let page = 1; page <= maxPages; page++) {
     const url = `${clean}/products.json?limit=${limit}&page=${page}&country=GB`;
-    const res = await fetchImpl(url, {
-      headers: { 'User-Agent': 'FilmPriceCompare/0.1 (contact: you@example.com)' },
-    });
-    if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
+    const res = await fetchPage(fetchImpl, url, retries);
 
     const body = await res.json();
     const batch = body.products || [];
@@ -41,6 +38,29 @@ export async function fetchAllProducts(baseUrl, opts = {}) {
     await sleep(delayMs);               // be a polite guest
   }
   return all;
+}
+
+// One page, retried on a 5xx, a 429 or a dropped connection. Shopify
+// storefronts throw the odd one-off 500 — Classic Photo Supplies did on
+// 29 Sep 2026 and answered normally seconds later — and one failed request out
+// of the twenty-odd a refresh makes used to cost the whole deploy, because
+// build-site-data rightly refuses to publish with a shop missing. Any other
+// 4xx is not retried: that is the shop telling us something, not a blip.
+// Throws once the retries run out, so a shop that is really down still stops
+// the build.
+async function fetchPage(fetchImpl, url, retries) {
+  for (let attempt = 0; ; attempt++) {
+    let res = null, err = null;
+    try {
+      res = await fetchImpl(url, {
+        headers: { 'User-Agent': 'FilmPriceCompare/0.1 (contact: you@example.com)' },
+      });
+    } catch (e) { err = e; }
+    if (res && res.ok) return res;
+    if (res && res.status < 500 && res.status !== 429) throw new Error(`${url} -> HTTP ${res.status}`);
+    if (attempt >= retries.length) throw err || new Error(`${url} -> HTTP ${res.status}`);
+    await sleep(retries[attempt]);
+  }
 }
 
 // --- 2. map ---------------------------------------------------------------
