@@ -20,5 +20,23 @@ export const STORES_ALPHABETICAL = [...STORES].sort((a, b) =>
 );
 
 export function getStore(slug) { return STORES.find((s) => s.slug === slug) || null; }
-export function filmsForStore(name) { return getFilms().filter((f) => (f.offers || []).some((o) => o.retailer === name)); }
+// A film's `best` is the cheapest in-stock price across every shop, which is
+// right for the catalogue but wrong on a store page: a card there would show
+// another shop's price, and "In stock only" would keep a film this store has
+// sold out of. So each film is re-priced from this store's own offers, with the
+// same rule build-site-data.js uses — cheapest in-stock per-roll price, else
+// null ("check price").
+export function filmsForStore(name) {
+  return getFilms().flatMap((f) => {
+    const own = (f.offers || []).filter((o) => o.retailer === name);
+    if (!own.length) return [];
+    const inStock = own.filter((o) => o.inStock).map((o) => o.pricePerRoll);
+    return [{
+      ...f,
+      offers: own,
+      best: inStock.length ? Math.min(...inStock) : null,
+      bestRetailer: inStock.length ? name : null,
+    }];
+  });
+}
 export function storeFilmCount(name) { return filmsForStore(name).length; }
