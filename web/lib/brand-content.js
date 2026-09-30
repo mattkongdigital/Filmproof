@@ -679,6 +679,51 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'polaroid/black-and-white-film': {
+    meta: { title: 'Polaroid Black and White Film | Compare UK Prices', description: 'Compare Polaroid black and white film prices from UK shops. i-Type, 600, SX-70 and Go black and white instant film, with live stock and prices per pack.' },
+    intro: "Polaroid black and white film turns out a genuine monochrome instant print in minutes, made at Polaroid's factory in Enschede in the Netherlands. It has a quiet, timeless look that suits portraits, street scenes and anything where shape and light matter more than colour, and it comes in formats for modern i-Type cameras, vintage 600 and SX-70 models and the pocket-sized Go. Compare Polaroid black and white film prices from UK shops below and see who actually has packs in stock.",
+    sections: [
+      { heading: "Which Polaroid black and white film fits your camera?", paragraphs: [
+        "Polaroid black and white film follows the same four formats as the colour range, so the rule is the same: match the film to the camera. i-Type black and white film is made for modern Polaroid cameras such as the Now, Now+, I-2 and OneStep 2, which power themselves, so the pack carries no battery.",
+        "600 black and white film is rated at around ISO 640 like i-Type but has a battery in every pack to run vintage 600-series cameras, and it works in i-Type cameras too. SX-70 black and white film is the slower, roughly ISO 160 option for folding SX-70 and other SX-70-type cameras. Go black and white film fits only the Polaroid Go and produces a smaller print than the square formats.",
+      ] },
+      { heading: "What Polaroid black and white film looks like", paragraphs: [
+        "Polaroid black and white film gives soft, silvery monochrome prints with a gentle tonal range rather than the hard, gritty contrast of a pushed black and white negative. Without colour to lean on, light does the work, so side light, strong shadows and textured surfaces tend to produce the most striking frames, while flat, overcast scenes can look muted.",
+        "Because there is no colour balance to drift, black and white film is less affected by temperature than Polaroid colour film, though conditions still show in contrast and density. Cold weather tends to give lighter, lower-contrast prints and heat pushes them darker, so it still pays to keep the print within roughly 13°C to 28°C as it develops. Like every Polaroid, each print is a one-off, with no negative behind it.",
+      ] },
+      { heading: "Shooting and storing Polaroid black and white film", paragraphs: [
+        "Black and white prints develop faster than colour, usually in around 5 to 10 minutes, though they are still sensitive to light for the first moments after leaving the camera. Let the camera's shield cover the print as it ejects, keep it face down or shaded until the image appears, and do not shake it.",
+        "Store unopened packs in the fridge rather than the freezer, and let them reach room temperature for about an hour before loading. Instant film ages faster than conventional camera film, so buy it close to when you plan to shoot and use it well within its date.",
+      ] },
+      { heading: "Buying Polaroid black and white film in the UK", paragraphs: [
+        "Polaroid black and white film is usually sold in packs of eight shots, with double packs and bundles that lower the price per shot. It is made in smaller quantities than colour, so a particular format can be harder to find, and stock at any one shop moves around more. Comparing the price per shot across shops is the best way to spot real value.",
+        "Filmproof tracks Polaroid black and white film across UK retailers and updates prices and stock daily, so you can see who has i-Type, 600, SX-70 or Go black and white film in stock right now before you order. For colour instant film, or the rest of Polaroid's range, head back to the Polaroid brand page.",
+      ] },
+    ],
+  },
+  'polaroid/instant-film': {
+    meta: { title: 'Polaroid Instant Film | Compare UK Prices', description: 'Compare Polaroid instant film prices from UK shops. i-Type, 600, SX-70, Go and 8x10 instant film in colour and black and white, with live stock and prices per pack.' },
+    intro: "Polaroid instant film is the real thing: chemical instant prints that develop in your hand, made at the same factory in Enschede in the Netherlands that has been producing Polaroid film for decades. Every Polaroid camera, from a 1970s SX-70 to a brand-new Now or I-2, has a film made for it, in colour and in black and white. Compare Polaroid instant film prices from UK shops below and see who actually has packs in stock.",
+    sections: [
+      { heading: "Polaroid instant film formats explained", paragraphs: [
+        "Polaroid makes instant film in five formats. i-Type film is for Polaroid's modern cameras, including the Now, Now+, I-2 and OneStep 2. Those cameras have their own rechargeable battery, so i-Type packs carry none, which keeps them a little cheaper.",
+        "600 film is for vintage 600-series cameras from the 1980s and 1990s, and has a battery built into every pack to power them. It shares i-Type's roughly ISO 640 speed, so it also works in i-Type cameras. SX-70 film is a slower, roughly ISO 160 film for the classic folding SX-70 and other SX-70-type cameras.",
+        "Go film is a smaller, wallet-sized format made only for the Polaroid Go. At the other end of the scale, 8x10 film is a large-format instant sheet film for 8x10 view cameras, processed through a dedicated film processor, and it is sold in small boxes at a much higher price per shot.",
+      ] },
+      { heading: "Colour or black and white?", paragraphs: [
+        "Most Polaroid instant film formats come in both colour and black and white. Colour film has the soft, slightly dreamy palette Polaroid is known for and is the more sensitive of the two to temperature, shifting warmer in heat and cooler in the cold. Black and white film gives silvery monochrome prints, develops faster and holds up better in awkward conditions.",
+        "Both use the same packs and fit the same cameras, so switching between them is only a matter of what you load. Polaroid also releases special editions with black, coloured or patterned frames; the emulsion inside is the same, and only the border changes.",
+      ] },
+      { heading: "Getting the best from Polaroid instant film", paragraphs: [
+        "Instant film is at its best in good light, and it rewards getting a little closer to your subject than you might with a phone. Freshly ejected prints are sensitive to light for the first moments, so let the camera's shield cover them, keep them face down or shaded until the image appears, and do not shake them. Colour takes roughly 10 to 15 minutes to develop fully and black and white around 5 to 10.",
+        "Keep film and prints between roughly 13°C and 28°C while they develop. Store unopened packs in the fridge, never the freezer, and let them warm to room temperature for about an hour before loading. Instant film ages faster than conventional camera film, so it is best bought close to when you plan to shoot it.",
+      ] },
+      { heading: "Buying Polaroid instant film in the UK", paragraphs: [
+        "Polaroid instant film is usually sold in packs of eight shots, with double packs, five-pack bundles and Go double packs of sixteen bringing the price per shot down. Pack sizes vary from shop to shop, so the price per shot is a better guide to value than the price on the box.",
+        "Filmproof tracks Polaroid instant film across UK retailers and updates prices and stock daily. Check the format in each listing against your camera before you buy, or jump straight to Polaroid colour film or Polaroid black and white film if you already know what you want to shoot.",
+      ] },
+    ],
+  },
 };
 
 export function getBrandSubContent(brandSlug, subSlug) {
