@@ -648,3 +648,39 @@ export const BRAND_CONTENT = {
 export function getBrandContent(slug) {
   return BRAND_CONTENT[slug] || null;
 }
+
+// Copy for brand × facet pages (/brand/polaroid/colour-film), keyed
+// '<brand>/<facet>'. Same shape as BRAND_CONTENT: `intro` replaces the lede
+// above the film list and `sections` render below it. Meta titles leave off
+// " | Filmproof" — the layout's title template appends it. A page only exists
+// while the brand has >= MIN_COMBO_FILMS films for the facet (lib/facets.js),
+// so an entry here can outlive its page for a build without breaking anything.
+export const BRAND_SUB_CONTENT = {
+  'polaroid/colour-film': {
+    meta: { title: 'Polaroid Colour Film | Compare UK Prices', description: 'Compare Polaroid colour film prices from UK shops. i-Type, 600, SX-70 and Go colour instant film, with live stock and prices per pack.' },
+    intro: "Polaroid colour film is the original instant film, still made at Polaroid's factory in Enschede in the Netherlands and still developing into a real chemical print in your hand. Whether you shoot a modern Now or I-2, a vintage 600 camera, a folding SX-70 or the pocket-sized Go, there is a Polaroid colour film made for it. Compare Polaroid colour film prices from UK shops below and see who actually has packs in stock.",
+    sections: [
+      { heading: "Which Polaroid colour film fits your camera?", paragraphs: [
+        "Polaroid colour film comes in four main formats, and they are not interchangeable in every direction, so check your camera before you buy. i-Type colour film is made for Polaroid's modern cameras, including the Now, Now+, I-2 and OneStep 2. It has no battery in the pack, because those cameras charge their own, which is what keeps i-Type a little cheaper per pack than 600.",
+        "600 colour film is rated at around ISO 640, the same as i-Type, but carries a battery in every pack to power vintage 600-series cameras from the 1980s and 1990s. It also works in i-Type cameras, so it is the safe choice if you own both. SX-70 colour film is a slower, roughly ISO 160 film for the classic folding SX-70 and other SX-70-type cameras, which expect the lower speed. Go colour film is a smaller format that fits only the Polaroid Go, with a much smaller print than the square formats.",
+      ] },
+      { heading: "What Polaroid colour film looks like", paragraphs: [
+        "Modern Polaroid colour film has a soft, slightly dreamy look, with gentle contrast and colours that lean warm or cool depending on conditions rather than the punchy, neutral rendering of digital or of colour negative film. Each print is a one-off: there is no negative, so the frame that comes out of the camera is the photograph.",
+        "Temperature has a visible effect on the result. Shooting in warm conditions tends to push prints towards warmer, yellower tones, while cold weather gives cooler, bluer colours and can slow development. Polaroid recommends keeping the film roughly between 13°C and 28°C while it develops; in winter, tucking the print into an inside pocket as it develops makes a noticeable difference.",
+        "Beyond the standard white frame, Polaroid regularly releases colour film with black frames, coloured frames and limited-edition designs. The emulsion inside is the same colour film, so the choice is purely about how you want the border to look.",
+      ] },
+      { heading: "Shooting and storing Polaroid colour film", paragraphs: [
+        "A freshly ejected Polaroid colour print is sensitive to light for the first few moments, which is why modern cameras cover it with a shield as it leaves the camera. Keep it face down or shaded until the image starts to appear, and do not shake it. Colour prints take roughly 10 to 15 minutes to develop fully, so resist judging a shot too early.",
+        "Unopened packs keep best in the fridge, but never the freezer, and should be left to come up to room temperature for about an hour before shooting. Instant film ages faster than conventional camera film, so it is worth shooting it well within its date and buying closer to when you plan to use it rather than stockpiling.",
+      ] },
+      { heading: "Buying Polaroid colour film in the UK", paragraphs: [
+        "Polaroid colour film is usually sold in single packs of eight shots, or in double and multi-packs that bring the price per shot down. Go film is typically sold as a double pack of sixteen. Because pack sizes vary between shops, comparing the price per shot is a better guide to value than the sticker price alone.",
+        "Filmproof tracks Polaroid colour film across UK retailers and updates prices and stock daily, so you can see who has i-Type, 600, SX-70 or Go colour film in stock right now, and what it costs, before you order. For black and white instant film, or Polaroid's full range, head back to the Polaroid brand page.",
+      ] },
+    ],
+  },
+};
+
+export function getBrandSubContent(brandSlug, subSlug) {
+  return BRAND_SUB_CONTENT[`${brandSlug}/${subSlug}`] || null;
+}

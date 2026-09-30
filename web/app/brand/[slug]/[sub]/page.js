@@ -6,6 +6,7 @@ import { ChipOverflow } from '../../../../components/chip-overflow';
 import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
+import { getBrandSubContent } from '../../../../lib/brand-content';
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -16,9 +17,10 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const r = resolveBrandSub(params.slug, params.sub);
   if (!r) return { title: 'Not found' };
+  const content = getBrandSubContent(params.slug, params.sub);
   return {
-    title: `${cap(r.heading)} | Never run out, UK stock & prices`,
-    description: `Find ${r.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
+    title: content?.meta?.title || `${cap(r.heading)} | Never run out, UK stock & prices`,
+    description: content?.meta?.description || `Find ${r.heading} in stock across UK shops and restock before you run out. Live prices per roll, updated daily.`,
     alternates: { canonical: `${SITE_URL}/brand/${params.slug}/${params.sub}` },
   };
 }
@@ -27,6 +29,7 @@ export default function BrandSubPage({ params }) {
   const r = resolveBrandSub(params.slug, params.sub);
   if (!r) notFound();
 
+  const content = getBrandSubContent(params.slug, params.sub);
   const films = filmsFor(r.match);
   const siblings = subFacetsForBrand(params.slug).filter((s) => s.kind === r.kind && s.slug !== params.sub);
   // The other parent: the same facet from every other brand that has a page for
@@ -46,8 +49,12 @@ export default function BrandSubPage({ params }) {
         <div className="eyebrow">{r.brand.label}</div>
         <h1>{cap(r.heading)}</h1>
         <p className="lede">
-          Every {r.heading} we track, in stock across UK shops, with live prices per roll.
-          {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+          {content ? content.intro : (
+            <>
+              Every {r.heading} we track, in stock across UK shops, with live prices per roll.
+              {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+            </>
+          )}
         </p>
       </header>
 
@@ -85,6 +92,20 @@ export default function BrandSubPage({ params }) {
       </div>
 
       <FilmBrowser films={films} />
+
+      {content && (
+        <div className="brand-about">
+          <h2 className="store-films-head">About {r.heading}</h2>
+          {content.sections.map((section) => (
+            <div key={section.heading}>
+              <h3 className="brand-about-heading">{section.heading}</h3>
+              {section.paragraphs.map((paragraph, i) => (
+                <p key={i} className="brand-about-p">{paragraph}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
 
     </div>
   );
