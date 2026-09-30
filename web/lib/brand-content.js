@@ -679,6 +679,28 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'polaroid/black-and-white-film': {
+    meta: { title: 'Polaroid Black and White Film | Compare UK Prices', description: 'Compare Polaroid black and white film prices from UK shops. i-Type, 600, SX-70 and Go black and white instant film, with live stock and prices per pack.' },
+    intro: "Polaroid black and white film turns out a genuine monochrome instant print in minutes, made at Polaroid's factory in Enschede in the Netherlands. It has a quiet, timeless look that suits portraits, street scenes and anything where shape and light matter more than colour, and it comes in formats for modern i-Type cameras, vintage 600 and SX-70 models and the pocket-sized Go. Compare Polaroid black and white film prices from UK shops below and see who actually has packs in stock.",
+    sections: [
+      { heading: "Which Polaroid black and white film fits your camera?", paragraphs: [
+        "Polaroid black and white film follows the same four formats as the colour range, so the rule is the same: match the film to the camera. i-Type black and white film is made for modern Polaroid cameras such as the Now, Now+, I-2 and OneStep 2, which power themselves, so the pack carries no battery.",
+        "600 black and white film is rated at around ISO 640 like i-Type but has a battery in every pack to run vintage 600-series cameras, and it works in i-Type cameras too. SX-70 black and white film is the slower, roughly ISO 160 option for folding SX-70 and other SX-70-type cameras. Go black and white film fits only the Polaroid Go and produces a smaller print than the square formats.",
+      ] },
+      { heading: "What Polaroid black and white film looks like", paragraphs: [
+        "Polaroid black and white film gives soft, silvery monochrome prints with a gentle tonal range rather than the hard, gritty contrast of a pushed black and white negative. Without colour to lean on, light does the work, so side light, strong shadows and textured surfaces tend to produce the most striking frames, while flat, overcast scenes can look muted.",
+        "Because there is no colour balance to drift, black and white film is less affected by temperature than Polaroid colour film, though conditions still show in contrast and density. Cold weather tends to give lighter, lower-contrast prints and heat pushes them darker, so it still pays to keep the print within roughly 13°C to 28°C as it develops. Like every Polaroid, each print is a one-off, with no negative behind it.",
+      ] },
+      { heading: "Shooting and storing Polaroid black and white film", paragraphs: [
+        "Black and white prints develop faster than colour, usually in around 5 to 10 minutes, though they are still sensitive to light for the first moments after leaving the camera. Let the camera's shield cover the print as it ejects, keep it face down or shaded until the image appears, and do not shake it.",
+        "Store unopened packs in the fridge rather than the freezer, and let them reach room temperature for about an hour before loading. Instant film ages faster than conventional camera film, so buy it close to when you plan to shoot and use it well within its date.",
+      ] },
+      { heading: "Buying Polaroid black and white film in the UK", paragraphs: [
+        "Polaroid black and white film is usually sold in packs of eight shots, with double packs and bundles that lower the price per shot. It is made in smaller quantities than colour, so a particular format can be harder to find, and stock at any one shop moves around more. Comparing the price per shot across shops is the best way to spot real value.",
+        "Filmproof tracks Polaroid black and white film across UK retailers and updates prices and stock daily, so you can see who has i-Type, 600, SX-70 or Go black and white film in stock right now before you order. For colour instant film, or the rest of Polaroid's range, head back to the Polaroid brand page.",
+      ] },
+    ],
+  },
 };
 
 export function getBrandSubContent(brandSlug, subSlug) {
