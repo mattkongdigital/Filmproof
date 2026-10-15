@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { SOURCES } from './sources.config.js';
 import { fetchAllProducts } from './src/adapters/shopify.js';
+import { saveProducts } from './src/product-cache.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { parseFilmTitle } from './src/normalise.js';
@@ -156,7 +157,10 @@ async function itemsFor(src) {
     if (src.kind === 'shopify') {
       let products = null;
       if (!OFFLINE && src.baseUrl) {
-        try { products = await fetchAllProducts(src.baseUrl); }
+        try {
+          products = await fetchAllProducts(src.baseUrl);
+          saveProducts(src.retailer, products);
+        }
         catch (e) {
           console.warn(`  ${src.retailer}: live fetch failed (${e.message})`);
           if (!MAY_BE_EMPTY.has(src.retailer)) FAILED_SHOPS.push(src.retailer);

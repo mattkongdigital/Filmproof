@@ -13,6 +13,7 @@ import { matchOffer } from './src/match.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
+import { loadProducts } from './src/product-cache.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
@@ -45,9 +46,12 @@ async function resolveOffers(src) {
     if (src.kind === 'shopify') {
       if (!OFFLINE && src.baseUrl) {
         try {
-          const products = await fetchAllProducts(src.baseUrl);
+          // Reuse the pull build-catalogue made minutes ago (src/product-cache.js)
+          // rather than hitting the shop a second time.
+          const cached = loadProducts(src.retailer);
+          const products = cached || await fetchAllProducts(src.baseUrl);
           const offers = productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl }).filter(filmish);
-          console.log(`  ${src.retailer}: live — ${offers.length} film offers`);
+          console.log(`  ${src.retailer}: live${cached ? ' (catalogue pull)' : ''} — ${offers.length} film offers`);
           return { offers, live: true };
         } catch (e) {
           console.warn(`  ${src.retailer}: live fetch failed (${e.message}); using sample`);

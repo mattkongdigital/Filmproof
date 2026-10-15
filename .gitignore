@@ -9,6 +9,7 @@ web/out/
 # generated data (rebuilt by the pipeline / GitHub Action)
 data/catalogue.json
 data/catalogue-unidentified.txt
+data/products/
 web/data/site.json
 web/data/search-index.json
 films.csv
