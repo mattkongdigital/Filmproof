@@ -18,6 +18,17 @@ import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
+// Shops whose live fetch failed this run. build-site-data refuses to publish
+// with a shop missing, but it only checks offers — by then the catalogue has
+// already been built without that shop, so every film only it stocks has no
+// page to attach to and simply disappears. That is what a 429 from Bass &
+// Bligh would do, with the run still green. Same escape hatch as there.
+const FAILED_SHOPS = [];
+const MAY_BE_EMPTY = new Set(
+  (process.env.FILMPROOF_ALLOW_EMPTY_SHOPS || '')
+    .split(',').map((s) => s.trim()).filter(Boolean)
+);
+
 // TEMPORARY DIAGNOSTIC (FILMPROOF_IMAGE_DEBUG) — remove once the CineStill
 // image question is settled. Everything it adds is inert unless the env var is
 // set, and it writes to stderr so stdout stays exactly as it was.
@@ -146,7 +157,10 @@ async function itemsFor(src) {
       let products = null;
       if (!OFFLINE && src.baseUrl) {
         try { products = await fetchAllProducts(src.baseUrl); }
-        catch (e) { console.warn(`  ${src.retailer}: live fetch failed (${e.message})`); }
+        catch (e) {
+          console.warn(`  ${src.retailer}: live fetch failed (${e.message})`);
+          if (!MAY_BE_EMPTY.has(src.retailer)) FAILED_SHOPS.push(src.retailer);
+        }
       }
       if (!products && src.sample) products = JSON.parse(readFileSync(src.sample, 'utf8')).products;
       if (!products) return [];
@@ -364,6 +378,16 @@ async function run() {
       `ERROR: only ${catalogue.length} films found (expected 100+). Live fetches appear to have failed, ` +
       `and this build is refusing to publish sample data as if it were real. ` +
       `Set FILMPROOF_OFFLINE=1 if a sample-only build is intentional.`
+    );
+    process.exit(1);
+  }
+
+  if (FAILED_SHOPS.length > 0) {
+    console.error(
+      `ERROR: live fetch failed for ${FAILED_SHOPS.join(', ')}. ` +
+      `Refusing to write a catalogue missing every film only those shops stock. ` +
+      `Set FILMPROOF_ALLOW_EMPTY_SHOPS="${FAILED_SHOPS.join(',')}" if a shop really ` +
+      `has stopped selling film, or FILMPROOF_OFFLINE=1 for a sample-only build.`
     );
     process.exit(1);
   }
