@@ -14,7 +14,9 @@ export function matchOffer(rawOffer, filmByKey) {
   const tagStr = Array.isArray(rawOffer.tags) ? rawOffer.tags.join(', ') : (rawOffer.tags || '');
   const tagIso = extractIso(tagStr, '');
   const parsed = parseFilmTitle(rawOffer.title, rawOffer.productType, tagIso);
-  const pack = parsed.packSize || 1;
+  // An adapter that knows the roll count outright (a Shopify variant option)
+  // passes it; otherwise it is read from the title.
+  const pack = rawOffer.packSize || parsed.packSize || 1;
   const pricePerRoll = +(rawOffer.price / pack).toFixed(2);
   const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(tagStr, '');
   const offer = { ...rawOffer, packSize: pack, pricePerRoll, exp };
