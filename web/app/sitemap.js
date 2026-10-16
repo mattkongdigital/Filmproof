@@ -3,6 +3,7 @@ import { getFilms } from '../lib/data';
 import { categoryParams, comboParams, brandList, brandSubParams } from '../lib/facets';
 import { STORES } from '../lib/stores';
 import { SILOS, getAllPosts } from '../lib/posts';
+import { liveOpportunities } from '../lib/opportunities';
 
 export const dynamic = 'force-static';
 
@@ -19,5 +20,8 @@ export default function sitemap() {
   // post is absent from both the silo indexes and this sitemap.
   for (const s of SILOS) urls.push(`/${s.slug}`);
   for (const p of getAllPosts()) urls.push(p.href);
+  // The board is listed only while it has something on it; an empty board
+  // builds as a noindex page and stays out of here.
+  if (liveOpportunities().length > 0) urls.push('/opportunities');
   return urls.map((u) => ({ url: `${SITE_URL}${u}`, lastModified: now, changeFrequency: 'daily' }));
 }

@@ -27,3 +27,6 @@ Thumbs.db
 tools/__pycache__/
 tools/out/
 tools/SpaceGrotesk-Bold.ttf
+
+# opportunities pipeline scratch (recreated each run)
+opportunities/work/
