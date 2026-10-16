@@ -680,3 +680,33 @@ img.store-logo { object-fit:contain; background:#fff; }
 .chip-more-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
 .chip-more .chip-more-close, .chip-more[open] .chip-more-open { display:none; }
 .chip-more[open] .chip-more-close { display:inline; }
+
+/* ---- opportunities board ---- */
+/* The type filter is buttons, not links (one URL, no per-type pages), so they
+   need the browser's button chrome taken off to sit in a .chips row. */
+button.chip { background:none; cursor:pointer; }
+button.chip.current { background:rgba(230,173,70,.10); }
+.opp-list { list-style:none; padding:22px 0 0; margin:0; display:grid; gap:12px; }
+.opp { background:var(--frame); border-radius:3px; padding:20px 22px 18px; }
+.opp-tags { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--amber); }
+.opp-title { font-family:var(--display); font-weight:600; font-size:21px; letter-spacing:-0.01em; line-height:1.2; margin:8px 0 2px; }
+.opp-title a { color:var(--ink); text-decoration:none; }
+.opp-title a:hover { color:var(--china); }
+.opp-org { font-size:13.5px; color:var(--muted); }
+.opp-summary { margin:12px 0 0; font-size:15px; line-height:1.6; opacity:.9; max-width:64ch; }
+.opp-facts { display:flex; flex-wrap:wrap; gap:6px 28px; margin:14px 0 0; }
+.opp-facts dt { font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.opp-facts dd { margin:2px 0 0; font-size:14px; }
+.opp-rights { margin-top:12px; font-size:13px; color:var(--muted); display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.opp-flag {
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--china); border:1px solid rgba(232,83,46,.45); border-radius:2px; padding:1px 6px;
+}
+.opp-out { display:inline-block; margin-top:14px; font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--amber); text-decoration:none; }
+.opp-out:hover { color:var(--china); }
+.opp-note { margin:28px 0 8px; font-size:13px; color:var(--muted); max-width:64ch; line-height:1.6; }
+.opp-note a { color:var(--amber); }
+@media (max-width:560px) {
+  .opp { padding:16px 16px 14px; }
+  .opp-title { font-size:19px; }
+}

@@ -39,6 +39,117 @@ redirect to a 404 is worse than a 404. Ordinary churn (a film going out of
 stock and its page vanishing for a build) is NOT for this map; it is the normal
 behaviour of a catalogue rebuilt from live data.
 
+### Adding a shop
+
+A shop is an entry in `SOURCES` in `sources.config.js` and a matching entry in
+`STORES` in `web/lib/stores.js` (its page, logo and blurb). Only Shopify shops
+with a public `/products.json` are wired up, so check that URL answers first.
+
+Once a shop is in `SOURCES`, a live pull that yields no film fails the build —
+by name, before anything deploys — rather than letting the shop quietly vanish
+from the site. A shop that has really stopped selling film goes in
+`FILMPROOF_ALLOW_EMPTY_SHOPS` on its way out of `SOURCES`, never left in as an
+empty source. Onboarding a shop can merge or retire film slugs through the
+normaliser; check the built catalogue for slugs that disappeared and add any
+that were live to `LEGACY_FILM_SLUGS` (above).
+
+## Opportunities board
+
+`/opportunities/` lists competitions, open calls and commissions a film
+photographer could enter. It is one evergreen page, filtered by type in the
+browser — no per-listing or per-type URLs, so nothing churns as calls open and
+close.
+
+### How it is filled
+
+Once a week (Monday morning, a Claude Code scheduled task on the owner's plan),
+a fresh session follows `opportunities/RUNBOOK.md`:
+
+1. `node opportunities/fetch.js` reads every feed in
+   `opportunities/sources.config.js`, skips items already in
+   `opportunities/seen.json`, and saves each new item's page as text plus its
+   links under `opportunities/work/` (gitignored).
+2. The session reads each page and writes `work/extractions.json`: a verdict,
+   and for a real opportunity the fields, a summary in its own words, and an
+   exact quote backing each of deadline, fee and rights.
+3. `node opportunities/merge.js` checks every claim against the fetched pages
+   (`opportunities/validate.js`), dedupes, and writes
+   `web/content/opportunities.json`, `seen.json` and the PR body.
+4. The session opens one PR, `Opportunities: weekly review <date>`. **Nothing is
+   live until it is merged.** If last week's review is still open, the run
+   stops rather than stacking a second one.
+
+The extraction is done by a session rather than the Claude API from a GitHub
+Action so that it runs on the plan rather than on metered API credit. That
+means it runs in the cloud environment, whose network policy must allow the
+source sites and the organisers' own pages.
+
+### The rules that make it safe to merge
+
+- **Uncertain fields stay empty.** `validate.js` keeps a deadline, fee or
+  rights summary only when its quote is actually on a fetched page; otherwise
+  the field is `null` and the entry carries `needs-review:<field>`. A fee that
+  isn't stated is `free: null` — unknown — never free.
+- **The official URL can't be invented.** It must be a fetched page or a link
+  on one, or the entry is dropped (and listed in the PR as dropped).
+- **Summaries are our own words.** A summary sharing a run of eight words with
+  the source is flagged `needs-review:summary`.
+- **Fee and rights are flagged, not judged.** `fee`, `rights:<flag>` (perpetual,
+  exclusive, commercial-unpaid, all-entrants, copyright-transfer) and any
+  `needs-review:*` set `publish: false`. The board never shows a held entry; to
+  publish one, set `publish: true` in the review PR. Fee and rights flags still
+  show on the card once published.
+- **Never delete an entry.** Rejecting one means leaving it `publish: false`: a
+  deleted entry is found again the next week. Closed calls stay in the file as
+  history.
+- **Dedupe is by normalised official URL** (`normaliseUrl()` in
+  `opportunities/lib.js`: no scheme, no `www.`, no trailing slash, no tracking
+  params). A second source for a known call only adds to its `sources`; fields
+  already reviewed are never overwritten.
+- **Fetching is polite.** Every request sends `FilmproofBot` as its user agent,
+  honours robots.txt, and waits between hits to one host.
+
+### Expiry
+
+Decided at build time by `liveOpportunities()` in `web/lib/opportunities.js` (the rules are in `web/lib/opportunity-format.js`), so the daily rebuild
+handles it: an entry is live through its deadline day (UK time), and an entry
+with no confirmed deadline drops off `UNDATED_LIFETIME_DAYS` (60) after it was
+first found. The board also re-checks in the browser, for a page that sits in a
+tab past midnight. Nothing is removed from the data file.
+
+An empty board still builds — it is a static page, not a dynamic route — but it
+is `noindex` and left out of the sitemap and the footer until something is live.
+Same thin-page reasoning as the editorial silos.
+
+### Adding an opportunity source
+
+1. **Check it is allowed.** Read the site's robots.txt and terms of use. Skip
+   anything that forbids automated access, anything paywalled, and any
+   newsletter or directory whose value is its own curation (The Open Call List,
+   ForPhotographersOnly): pulling from those republishes someone else's paid
+   work, whatever we link to.
+2. **Find its feed.** WordPress sites have `/feed/`, category feeds at
+   `/<category-base>/<slug>/feed/` and custom post types at
+   `/feed/?post_type=<type>`; Squarespace collections answer `?format=rss`.
+   Prefer a feed scoped to opportunities over the site-wide one. A source with
+   no feed is not onboarded — this pipeline does not scrape listing pages.
+3. **Add it to `OPPORTUNITY_SOURCES`** with a new, permanent `id`. Set
+   `prefilter: true` for a general news feed where calls are a small share, so
+   only items mentioning `PREFILTER_WORDS` are read. List alternative feed URLs
+   in `feeds` if the site has more than one plausible address.
+4. **Allow its domain** in the cloud environment's network settings, or the
+   weekly session can't reach it.
+5. **Dry-run it:** `node opportunities/fetch.js` and look at the source's line
+   and a few `work/pages/*.json` — the text should be the post, not navigation.
+   Its back catalogue arrives in the next review PR (items older than
+   `MAX_AGE_DAYS` in `fetch.js` are marked seen unread).
+6. `node opportunities/test.js` covers the parsing and validation rules; add a
+   case there if the new source's feed has a shape the existing ones don't.
+
+A source that fails is logged and skipped, and the PR body says so; it never
+stops the run. Remove a source that has stopped working rather than leaving it
+failing every week — its `seen.json` keys can stay.
+
 Below is the editorial layer, which is the half that is hand-authored.
 
 ## Editorial content layer

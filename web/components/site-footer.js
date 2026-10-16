@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CookieSettingsLink } from './cookie-consent';
 import { SILOS } from '../lib/posts';
+import { liveOpportunities } from '../lib/opportunities';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -20,6 +21,8 @@ export function SiteFooter() {
         {SILOS.map((silo) => (
           <Link key={silo.slug} href={`/${silo.slug}`}>{silo.label}</Link>
         ))}
+        {/* Same rule as the sitemap: linked only while there is something on it. */}
+        {liveOpportunities().length > 0 && <Link href="/opportunities">Opportunities</Link>}
         <Link href="/disclosure">Advertising</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/privacy">Privacy</Link>
