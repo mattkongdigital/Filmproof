@@ -82,7 +82,10 @@ a fresh session follows `opportunities/RUNBOOK.md`:
 The extraction is done by a session rather than the Claude API from a GitHub
 Action so that it runs on the plan rather than on metered API credit. That
 means it runs in the cloud environment, whose network policy must allow the
-source sites and the organisers' own pages.
+source sites and the organisers' own pages. Traffic there leaves through
+`HTTPS_PROXY`, which Node's built-in fetch ignores unless
+`NODE_USE_ENV_PROXY=1` is set; `opportunities/proxy.js` re-runs the fetch
+scripts with it, so they just work there and do nothing different elsewhere.
 
 ### The rules that make it safe to merge
 
@@ -128,11 +131,16 @@ Same thin-page reasoning as the editorial silos.
    newsletter or directory whose value is its own curation (The Open Call List,
    ForPhotographersOnly): pulling from those republishes someone else's paid
    work, whatever we link to.
-2. **Find its feed.** WordPress sites have `/feed/`, category feeds at
-   `/<category-base>/<slug>/feed/` and custom post types at
-   `/feed/?post_type=<type>`; Squarespace collections answer `?format=rss`.
-   Prefer a feed scoped to opportunities over the site-wide one. A source with
-   no feed is not onboarded — this pipeline does not scrape listing pages.
+2. **Find its feed.** WordPress sites have `/feed/`, an archive feed at
+   `/<archive>/feed/` and category feeds at `/<category-base>/<slug>/feed/`;
+   Squarespace collections answer `?format=rss`. Prefer a feed scoped to
+   opportunities over the site-wide one, and open it to check the items really
+   are opportunities: WordPress answers `/feed/?post_type=<type>` for a type
+   that doesn't exist with the site's main feed rather than an error, so a
+   wrong guess looks like it works. Set `itemPath` when the real items share a
+   path (`/opportunities/`) — a feed with nothing under it then fails loudly
+   instead. A source with no feed is not onboarded — this pipeline does not
+   scrape listing pages.
 3. **Add it to `OPPORTUNITY_SOURCES`** with a new, permanent `id`. Set
    `prefilter: true` for a general news feed where calls are a small share, so
    only items mentioning `PREFILTER_WORDS` are read. List alternative feed URLs

@@ -9,6 +9,7 @@
 // robots.txt like every other fetch; a refusal is an answer, not something to
 // route around.
 
+import './proxy.js';
 import { mkdirSync } from 'node:fs';
 import { htmlToText, extractLinks, politeFetch } from './lib.js';
 import { WORK, savePage, pageId } from './paths.js';
