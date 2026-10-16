@@ -1,1 +1,229 @@
-[]
+[
+  {
+    "key": "analogforevermagazine.com/calls-for-entry/devotion-fall-2026",
+    "official_url": "https://www.analogforevermagazine.com/calls-for-entry/devotion-fall-2026",
+    "title": "Devotion — Online Group Exhibition",
+    "organiser": "Analog Forever Magazine",
+    "type": "open-call",
+    "deadline": "2026-11-01",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-specific",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "An online group show on devotion in its tender and darker forms, curated by Polaroid emulsion-lift artist Laura Barth. Analogue work only; the exhibition opens at the end of November.",
+    "evidence": {
+      "deadline": "Deadline for Submissions: November 1st, 2026",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "analog-forever",
+        "url": "https://www.analogforevermagazine.com/calls-for-entry/devotion-fall-2026",
+        "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "autograph.org.uk/blog/news/call-for-photographs-our-bodies-that-are-unruly",
+    "official_url": "https://autograph.org.uk/blog/news/call-for-photographs-our-bodies-that-are-unruly/",
+    "title": "Call for Photographs: Our Bodies that are Unruly",
+    "organiser": "Autograph",
+    "type": "open-call",
+    "deadline": "2026-12-07",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Anyone aged 18 or over, based anywhere",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": "Copyright stays with the photographer; Autograph may show selected images to promote the project on its website, social media and in press.",
+      "flags": []
+    },
+    "summary": "Autograph wants pictures of the body as a place of resistance and self-definition, from new work to old family snaps. Its favourites go into an online gallery; up to three images each, and film scans are welcome.",
+    "evidence": {
+      "deadline": "The deadline to apply is 10am, Monday 7 December 2026",
+      "fee": "The call for photographs is free to enter",
+      "rights": "Copyright for any images you submit will remain with you."
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/call-for-photographs-our-bodies-that-are-unruly/",
+        "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "earthphoto.world",
+    "official_url": "https://www.earthphoto.world/",
+    "title": "Earth Photo 2027",
+    "organiser": "Earth Photo (Parker Harris, Royal Geographical Society and Forestry England, with Photoworks)",
+    "type": "competition",
+    "deadline": "2027-02-03",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Anyone worldwide, for work made in the last five years",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "An international award for still and moving images about the planet, from climate impacts to restoration. Prizes include cash awards, a residency and a Royal Geographical Society exhibition, plus awards for entrants aged 25 or under.",
+    "evidence": {
+      "deadline": "Deadline: 03 February 2027",
+      "fee": "Earth Photo is free to enter",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "photoworks",
+        "url": "https://photoworks.org.uk/opportunities/open-call-earth-photo-2027/",
+        "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "onewater.blue/contest/walk-of-water-photostory-contest-out-of-sight-8c7e119f",
+    "official_url": "https://onewater.blue/contest/walk-of-water-photostory-contest-out-of-sight-8c7e119f",
+    "title": "Walk of Water Photostory Contest: Out of Sight",
+    "organiser": "Onewater",
+    "type": "competition",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": null,
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A photostory contest run with UN water and environment programmes on water and health, with its main prize aimed at the rarely photographed world of wastewater and sanitation.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee",
+      "needs-review:film"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/walk-of-water-photostory-contest-out-of-sight/",
+        "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "photoworks.org.uk/opportunities/open-call-the-draft",
+    "official_url": "https://photoworks.org.uk/opportunities/open-call-the-draft/",
+    "title": "THE DRAFT — Tessa Boffin: Where We Touch the Archive",
+    "organiser": "Devonshire Collective, Photoworks, BACKLIT and Aspex Portsmouth",
+    "type": "open-call",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "LGBTQIA+ artists, writers, researchers and activists",
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": "Copyright stays with the contributor; the organisers get a non-exclusive licence to reproduce contributions in the publication and related project materials.",
+      "flags": []
+    },
+    "summary": "A queer publication that grows over a UK touring exhibition about artist Tessa Boffin. Contributors share something that already exists, such as a photograph or contact sheet, along with a question for the next person.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": "You retain copyright of your contribution."
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "photoworks",
+        "url": "https://photoworks.org.uk/opportunities/open-call-the-draft/",
+        "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "rps.org/exhibitions/ipe-168",
+    "official_url": "https://rps.org/exhibitions/ipe-168/",
+    "title": "RPS International Photography Exhibition 168",
+    "organiser": "The Royal Photographic Society",
+    "type": "open-call",
+    "deadline": "2026-12-15",
+    "fee": {
+      "free": false,
+      "amount": 35,
+      "currency": "GBP",
+      "note": "per entry after one free single image; £27 RPS members, £20 under-30s"
+    },
+    "eligibility": "Anyone, of any age or level of practice",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "The Royal Photographic Society's long-running annual open exhibition. Selected work tours UK venues and is up for cash awards, including one for under-30s; shortlisted entrants send prints for the final round.",
+    "evidence": {
+      "deadline": "Entry will close for new entries at 23:59 GMT on Tuesday 15 December 2026",
+      "fee": "Subsequent entries are subject to payment: Standard £35, RPS Member £27, Under 30 years old £20.",
+      "rights": null
+    },
+    "flags": [
+      "fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-royal-photographic-society-international-photography-exhibition-168/",
+        "found": "2026-10-16"
+      }
+    ]
+  }
+]
