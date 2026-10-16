@@ -11,6 +11,7 @@
 //   pages/<id>.json     { url, fetched, text, links } for each fetched page
 //   sources.json        how each source fared, for the review PR
 
+import './proxy.js';
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { OPPORTUNITY_SOURCES, PREFILTER_WORDS } from './sources.config.js';
 import { normaliseUrl, htmlToText, extractLinks, parseFeed, politeFetch } from './lib.js';
@@ -38,7 +39,12 @@ for (const src of OPPORTUNITY_SOURCES) {
   for (const feed of src.feeds) {
     try {
       const { body } = await politeFetch(feed);
-      const parsed = parseFeed(body);
+      let parsed = parseFeed(body);
+      if (src.itemPath) {
+        const all = parsed.length;
+        parsed = parsed.filter((i) => { try { return new URL(i.url).pathname.startsWith(src.itemPath); } catch { return false; } });
+        if (all && !parsed.length) { errors.push(`${feed}: none of ${all} items under ${src.itemPath} — probably not the right feed`); continue; }
+      }
       if (parsed.length) { items = parsed; feedUsed = feed; break; }
       errors.push(`${feed}: no items`);
     } catch (e) {

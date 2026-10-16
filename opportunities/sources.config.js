@@ -4,15 +4,19 @@
 // source" in CLAUDE.md for the checks to do first.
 //
 // Every source is a feed. `feeds` is tried in order and the first one that
-// parses with at least one item wins — the alternatives are there because a
-// WordPress custom post type can sit at either of two addresses, and a site can
-// move between them without telling anyone. A source whose feeds all fail logs
-// a warning and contributes nothing; it can't stop the run.
+// parses with at least one item wins. A source whose feeds all fail logs a
+// warning and contributes nothing; it can't stop the run.
 //
 //   id        stable key, stored on every entry this source finds. Never rename.
 //   name      shown in the review PR, not on the site
 //   home      the listing page a human would browse, for the review PR
 //   feeds     RSS/Atom URLs, first that works wins
+//   itemPath  optional: the path every real item's URL starts with. Items
+//             elsewhere are ignored, and a feed with none under it counts as
+//             failed. This is the guard against a wrong feed URL that doesn't
+//             look wrong — WordPress answers `/feed/?post_type=<type>` for a
+//             type that doesn't exist with the site's MAIN feed, so a bad guess
+//             would otherwise quietly read every news post.
 //   film      'film-specific' when everything it lists is for film, otherwise
 //             'general' — a hint for the reviewer, the extraction decides per item
 //   prefilter true for a news source where opportunities are a small slice: an
@@ -23,10 +27,10 @@ export const OPPORTUNITY_SOURCES = [
     id: 'fast-forward',
     name: 'Fast Forward: Women in Photography',
     home: 'https://fastforward.photography/opportunities-category/commission/',
-    feeds: [
-      'https://fastforward.photography/feed/?post_type=opportunities',
-      'https://fastforward.photography/opportunities/feed/',
-    ],
+    // Its whole opportunities archive, jobs and fellowships included — the
+    // extraction sets those aside.
+    feeds: ['https://fastforward.photography/opportunities/feed/'],
+    itemPath: '/opportunities/',
     film: 'general',
     prefilter: false,
   },
@@ -45,10 +49,10 @@ export const OPPORTUNITY_SOURCES = [
     id: 'photoworks',
     name: 'Photoworks',
     home: 'https://photoworks.org.uk/opportunities/',
-    feeds: [
-      'https://photoworks.org.uk/opportunities/feed/',
-      'https://photoworks.org.uk/feed/?post_type=opportunities',
-    ],
+    // A custom post type with no archive feed; the itemPath check below is
+    // what proves this is the opportunities feed and not the news one.
+    feeds: ['https://photoworks.org.uk/feed/?post_type=opportunities'],
+    itemPath: '/opportunities/',
     film: 'general',
     prefilter: false,
   },
