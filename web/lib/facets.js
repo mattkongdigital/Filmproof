@@ -223,7 +223,12 @@ export function brandDirectory() {
 // drops films no shop returned, but the check is here too: if the catalogue
 // ever keeps a tombstone page for a film that has left the shops, it must not
 // carry its old brand up this list.
-export function topBrandsByListings(limit = 5) {
+//
+// Six, so the cards fill two even rows of three on the /brands page; the
+// Browse menu shows the same six.
+export const TOP_BRANDS = 6;
+
+export function topBrandsByListings(limit = TOP_BRANDS) {
   const totals = new Map();
   for (const f of getFilms()) {
     if (!f.brand || !f.offers || f.offers.length === 0) continue;

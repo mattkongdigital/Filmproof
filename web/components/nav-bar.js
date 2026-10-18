@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { SearchBox } from './search-box';
 
-export function NavBar({ formats, types, conditions = [] }) {
+export function NavBar({ formats, types, conditions = [], brands = [] }) {
   const [open, setOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
   const shopRef = useRef(null);
@@ -55,8 +55,12 @@ export function NavBar({ formats, types, conditions = [] }) {
                 </div>
               )}
               <div className="nav-mega-col">
+                <span className="nav-head">Brands</span>
+                {brands.map((b) => <Link key={b.slug} href={`/brand/${b.slug}`} onClick={() => setShopOpen(false)}>{b.label}</Link>)}
+                <Link href="/brands" className="nav-mega-all" onClick={() => setShopOpen(false)}>All brands →</Link>
+              </div>
+              <div className="nav-mega-col">
                 <span className="nav-head">More</span>
-                <Link href="/brands" onClick={() => setShopOpen(false)}>All brands</Link>
                 <Link href="/stores" onClick={() => setShopOpen(false)}>All stores</Link>
               </div>
             </div>
@@ -95,6 +99,14 @@ export function NavBar({ formats, types, conditions = [] }) {
               <span className="drawer-head">Condition</span>
               <div className="drawer-links">
                 {conditions.map((c) => <Link key={c.slug} href={`/${c.slug}`} onClick={close}>{c.label}</Link>)}
+              </div>
+            </div>
+          )}
+          {brands.length > 0 && (
+            <div className="drawer-section">
+              <span className="drawer-head">Brands</span>
+              <div className="drawer-links">
+                {brands.map((b) => <Link key={b.slug} href={`/brand/${b.slug}`} onClick={close}>{b.label}</Link>)}
               </div>
             </div>
           )}

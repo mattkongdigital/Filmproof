@@ -201,6 +201,7 @@ footer {
 .nav-mega-col { display:flex; flex-direction:column; gap:9px; min-width:110px; }
 .nav-mega-col a { font-size:13.5px; color:var(--ink); text-decoration:none; opacity:.82; }
 .nav-mega-col a:hover { color:var(--amber); opacity:1; }
+.nav-mega-col a.nav-mega-all { color:var(--amber); opacity:1; margin-top:3px; }
 
 /* ---- hub (homepage) ---- */
 .hub { padding:26px 0 6px; }
