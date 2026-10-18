@@ -15,7 +15,7 @@ export default function BrandsPage() {
   // Both lists are computed here, at build time, from the catalogue — so they
   // move with the daily rebuild and ship whole in the HTML.
   const groups = brandDirectory();
-  const top = topBrandsByListings(5);
+  const top = topBrandsByListings();
   return (
     <div className="wrap">
       <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Brands' }]} />
