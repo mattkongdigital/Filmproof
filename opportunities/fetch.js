@@ -45,8 +45,14 @@ for (const src of OPPORTUNITY_SOURCES) {
         parsed = parsed.filter((i) => { try { return new URL(i.url).pathname.startsWith(src.itemPath); } catch { return false; } });
         if (all && !parsed.length) { errors.push(`${feed}: none of ${all} items under ${src.itemPath} — probably not the right feed`); continue; }
       }
-      if (parsed.length) { items = parsed; feedUsed = feed; break; }
-      errors.push(`${feed}: no items`);
+      if (!parsed.length) { errors.push(`${feed}: no items`); continue; }
+      if (!src.union) { items = parsed; feedUsed = feed; break; }
+      // A union source reads every feed: one item filed under two categories
+      // arrives twice, so keep the first copy of each URL.
+      items ??= [];
+      const have = new Set(items.map((i) => normaliseUrl(i.url)));
+      items.push(...parsed.filter((i) => !have.has(normaliseUrl(i.url))));
+      feedUsed = feedUsed ? `${feedUsed} + ${feed}` : feed;
     } catch (e) {
       errors.push(`${feed}: ${e.message}`);
     }
@@ -56,6 +62,9 @@ for (const src of OPPORTUNITY_SOURCES) {
     report.push({ id: src.id, name: src.name, ok: false, errors });
     continue;
   }
+  // A union source that lost some of its feeds still runs on the rest, but
+  // says so — a category that has quietly stopped answering is worth knowing.
+  if (src.union && errors.length) console.warn(`  ${src.id}: ${errors.length} of ${src.feeds.length} feeds failed — ${errors.join('; ')}`);
 
   let fresh = 0, skippedSeen = 0, skippedFilter = 0, skippedOld = 0;
   for (const item of items) {
