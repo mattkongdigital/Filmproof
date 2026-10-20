@@ -202,6 +202,10 @@ footer {
 .nav-mega-col a { font-size:13.5px; color:var(--ink); text-decoration:none; opacity:.82; }
 .nav-mega-col a:hover { color:var(--amber); opacity:1; }
 .nav-mega-col a.nav-mega-all { color:var(--amber); opacity:1; margin-top:3px; }
+.nav-groups.nav-desktop { align-items:center; }
+.nav-social { display:flex; align-items:center; gap:12px; }
+.nav-social a { display:inline-flex; color:var(--ink); opacity:.82; padding:4px 0; }
+.nav-social a:hover { color:var(--amber); opacity:1; }
 
 /* ---- hub (homepage) ---- */
 .hub { padding:26px 0 6px; }
@@ -493,6 +497,7 @@ footer {
 .drawer-links { display:flex; flex-wrap:wrap; gap:12px 18px; }
 .drawer-links a { color:var(--ink); text-decoration:none; font-size:16px; }
 .drawer-links a:active, .drawer-links a:hover { color:var(--amber); }
+.drawer-social a { display:inline-flex; align-items:center; gap:8px; }
 .drawer-brands { color:var(--amber); text-decoration:none; font-size:16px; }
 .drawer-brands + .drawer-brands { margin-left:18px; }
 

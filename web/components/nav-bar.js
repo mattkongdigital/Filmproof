@@ -2,6 +2,22 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { SearchBox } from './search-box';
+import { SOCIAL_LINKS } from '../lib/config';
+
+const SOCIAL_ICONS = {
+  instagram: (
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  facebook: (
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+      <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z" />
+    </svg>
+  ),
+};
 
 export function NavBar({ formats, types, conditions = [], brands = [] }) {
   const [open, setOpen] = useState(false);
@@ -66,6 +82,13 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
             </div>
           )}
         </div>
+        <div className="nav-social">
+          {SOCIAL_LINKS.map((s) => (
+            <a key={s.id} href={s.href} target="_blank" rel="me noopener" aria-label={`Filmproof on ${s.label}`} title={s.label}>
+              {SOCIAL_ICONS[s.id]}
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* mobile hamburger (hidden on desktop) */}
@@ -113,6 +136,16 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
           <div className="drawer-section">
             <Link href="/brands" className="drawer-brands" onClick={close}>All brands →</Link>
             <Link href="/stores" className="drawer-brands" onClick={close}>All stores →</Link>
+          </div>
+          <div className="drawer-section">
+            <span className="drawer-head">Follow</span>
+            <div className="drawer-links drawer-social">
+              {SOCIAL_LINKS.map((s) => (
+                <a key={s.id} href={s.href} target="_blank" rel="me noopener" onClick={close}>
+                  {SOCIAL_ICONS[s.id]} {s.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}
