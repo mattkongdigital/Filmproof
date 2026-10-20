@@ -40,6 +40,44 @@ export const LEGACY_FILM_SLUGS = {
   'lucky-film-200-120': 'lucky-colour-c200-120-film',
   'dragonfilm-no-i-35mm-black-and-white-film': 'dragonfilm-no-i-100-iso-35mm-black-white',
   'kodak-portra-800-120-medium-format-film': 'kodak-portra-800-120-film',
+  // Eastman Kodak's own listings ("Kodak Eastman GOLD 200", "Eastman Kodak
+  // (EKC) ...") forked every stock they carry from the plain "Kodak Gold 200"
+  // page, until 'eastman' and 'ekc' went into BRAND_WORDS. Shop notes forked a
+  // few more: a use-by date ("2028 Expiry"), Tri-X's "TX" code, and
+  // "(Portra 800)" after Ektacolor Pro 800.
+  'kodak-gold-120-film': 'kodak-eastman-gold-200-120-film',
+  'kodak-eastman-gold-200-120': 'kodak-eastman-gold-200-120-film',
+  'kodak-gold-200-35mm-film': 'kodak-eastman-gold-200-35mm-film',
+  'kodak-eastman-gold-200-35mm': 'kodak-eastman-gold-200-35mm-film',
+  'kodak-ultramax-400-35mm-film': 'kodak-eastman-ultramax-400-35mm-film',
+  'kodak-eastman-ultramax-400-35mm': 'kodak-eastman-ultramax-400-35mm-film',
+  'kodak-kodacolor-100-35mm': 'kodak-eastman-kodacolor-100-35mm-film',
+  'kodak-kodacolor-200-35mm': 'kodak-eastman-kodacolor-200-35mm-film',
+  'kodak-eastman-kodacolor-200-35mm-colour-film': 'kodak-eastman-kodacolor-200-35mm-film',
+  'kodak-ektachrome-e100-120-film': 'kodak-eastman-ektachrome-e100-colour-reversal-120-film',
+  'kodak-ektachrome-e100-35mm-film': 'kodak-eastman-ektachrome-e100-colour-reversal-35mm-film',
+  'kodak-ektacolor-pro-160-120': 'kodak-eastman-ektacolor-pro-160-120-film',
+  'kodak-ektacolor-pro-160-35mm': 'kodak-eastman-ektacolor-pro-160-35mm-film',
+  'kodak-ektacolor-pro-400-120': 'kodak-eastman-ektacolor-pro-400-120-film',
+  'kodak-ektacolor-pro-400-35mm': 'kodak-eastman-ektacolor-pro-400-35mm-film',
+  'kodak-ektacolor-pro-800-120': 'kodak-eastman-ektacolor-pro-800-120-film',
+  'kodak-ektacolor-pro-800-120-film-portra-800': 'kodak-eastman-ektacolor-pro-800-120-film',
+  'kodak-ektacolor-pro-800-35mm': 'kodak-eastman-ektacolor-pro-800-35mm-film',
+  'kodak-ektapan-100-120': 'kodak-eastman-ektapan-100-120-film',
+  'kodak-ektapan-100-35mm': 'kodak-eastman-ektapan-100-35mm-film',
+  'kodak-ektapan-400-120': 'kodak-eastman-ektapan-400-120-film',
+  'kodak-ektapan-400-35mm': 'kodak-eastman-ektapan-400-35mm-film',
+  'kodak-ektar-120-film': 'kodak-eastman-ektar-100-120-film',
+  'kodak-ektar-100-35mm-film': 'kodak-eastman-ektar-100-35mm-film',
+  'kodak-ektar-100-8x10-large-format-film': 'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets',
+  'kodak-tri-x-400-35mm-film': 'kodak-eastman-tri-x-400-35mm-film',
+  'kodak-tri-x-tx-135-pack': 'kodak-eastman-tri-x-400-35mm-film',
+  'kodak-tri-x-400-120-film': 'kodak-eastman-tri-x-400-120-film',
+  'kodak-tri-x-400-tx-120-b-w-film': 'kodak-eastman-tri-x-400-120-film',
+  'kodak-tri-x-400-30-5m-bulk-roll-35mm': 'kodak-eastman-tri-x-400-30-5m-bulk-roll-35mm-film',
+  'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film',
+  'kodak-portra-400-120-film-2028-expiry': 'kodak-portra-400-120-film',
+  'cinestill-bwxx-black-white-negative-film-120-expiry-03-26': 'cinestill-bwxx-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

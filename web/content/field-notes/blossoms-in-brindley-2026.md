@@ -5,7 +5,7 @@ shot: 2026-03
 published: 2026-08-30
 location: [birmingham, brindley-place]
 camera: [pentax-p30]
-film: [kodak-gold-200-35mm-film]
+film: [kodak-eastman-gold-200-35mm-film]
 brand: [kodak]
 format: [35mm]
 ---

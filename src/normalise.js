@@ -73,6 +73,13 @@ const BRAND_WORDS = new Set([
   'yodica','candido','oriental','wittner','kosmo','optik','mira','lucky','rera',
   'cinemot','filmneverdie','fnd','dragonfilm','dragon','alaris','fujichrome','fujicolor','fujicolour',
   'alien','alienfilm',
+  // Eastman Kodak is the company behind the film Kodak Alaris no longer makes
+  // (Gold, Ektacolor, Ektar, Tri-X sold under the Eastman name since 2025), and
+  // shops write it every way: "Kodak Eastman GOLD 200", "Eastman Kodak (EKC)
+  // Kodak Eastman GOLD 200", or plain "Kodak Gold 200". It names the maker,
+  // not the stock, so it must not reach `line` — left in, each spelling forked
+  // the same roll into its own page.
+  'eastman','ekc',
 ]);
 
 const ISO_SPEEDS = new Set([25,32,40,50,64,80,100,125,160,200,250,320,400,500,640,800,1000,1250,1600,3200,6400]);
@@ -89,6 +96,10 @@ const NOISE = new Set([
   // Lomography line whose identity is the word alone, so dropping it merges
   // Metropolis, Purple, Turquoise and Classicolor rather than losing anything.
   'lomochrome',
+  // "2028 Expiry" / "Expiry 03/26" is a shop telling you the dating on fresh
+  // stock; the date itself is stripped in parseFilmTitle(). It is not expired
+  // film (that is the separate `expired` axis), and it is not the film's name.
+  'expiry',
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
@@ -101,10 +112,20 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\+/g, ' plus ')
     .replace(/[&']/g, ' ')
     .replace(/\b\d+\s*sheets?\b/g, ' ')          // Instant "10 sheets" shot count
+    // A use-by date is batch information, not identity: "Portra 400 - 2028
+    // Expiry" is the same film as "Portra 400". Strip the date here, while its
+    // slash is still there to delimit it — later it would split into tokens
+    // ("08 26") that leak into `line`. The bare word goes via NOISE.
+    .replace(/\bexpiry(?:\s*date)?\s*:?\s*(?:\d{1,2}\s*[/.-]\s*\d{2,4}|[a-z]{3,9}\.?\s+\d{2,4}|\d{4})?/g, ' expiry ')
+    .replace(/\b(?:19|20)\d{2}\s+expiry\b/g, ' expiry ')
     // Canonical names for mainstream ranges, so spacing/spelling variants merge.
     .replace(/\bcolou?r\s*plus\b/g, 'colorplus')
     .replace(/\bultra\s*max\b/g, 'ultramax')
     .replace(/\btri[\s-]?x\b/g, 'trix')
+    .replace(/\b(trix\b(?:\s+\d{3})?)\s+tx\b/g, '$1')   // TX is Tri-X's own code
+    // Shops gloss Eastman's Ektacolor Pro with the Portra it replaces —
+    // "Ektacolor Pro 800 (Portra 800)" — which is a note, not a second name.
+    .replace(/\b(ektacolou?r\b[^(]*)\(\s*portra[^)]*\)/g, '$1')
     .replace(/\bt[\s-]?max\b/g, 'tmax')
     .replace(/\bpro\s*image\b/g, 'proimage')
     .replace(/\bhp\s?5(?:\s*plus)?\b/g, 'hp5plus')   // "HP5" and "HP5 Plus" are one film
