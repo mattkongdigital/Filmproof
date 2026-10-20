@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { CookieSettingsLink } from './cookie-consent';
 import { SILOS } from '../lib/posts';
 import { liveOpportunities } from '../lib/opportunities';
+import { SOCIAL_LINKS } from '../lib/config';
+import { SOCIAL_ICONS } from './social-icons';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -29,6 +31,13 @@ export function SiteFooter() {
         <Link href="/terms">Terms</Link>
         <CookieSettingsLink />
       </nav>
+      <div className="foot-social">
+        {SOCIAL_LINKS.map((s) => (
+          <a key={s.id} href={s.href} target="_blank" rel="me noopener">
+            {SOCIAL_ICONS[s.id]} {s.label}
+          </a>
+        ))}
+      </div>
       <div className="foot-legal">
         © {year} Filmproof. An independent film stock &amp; price tracker, not affiliated with any retailer or manufacturer.
       </div>

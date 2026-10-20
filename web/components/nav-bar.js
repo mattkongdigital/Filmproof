@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { SearchBox } from './search-box';
+import { SOCIAL_LINKS } from '../lib/config';
+import { SOCIAL_ICONS } from './social-icons';
 
 export function NavBar({ formats, types, conditions = [], brands = [] }) {
   const [open, setOpen] = useState(false);
@@ -66,6 +68,13 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
             </div>
           )}
         </div>
+        <div className="nav-social">
+          {SOCIAL_LINKS.map((s) => (
+            <a key={s.id} href={s.href} target="_blank" rel="me noopener" aria-label={`Filmproof on ${s.label}`} title={s.label}>
+              {SOCIAL_ICONS[s.id]}
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* mobile hamburger (hidden on desktop) */}
@@ -113,6 +122,16 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
           <div className="drawer-section">
             <Link href="/brands" className="drawer-brands" onClick={close}>All brands →</Link>
             <Link href="/stores" className="drawer-brands" onClick={close}>All stores →</Link>
+          </div>
+          <div className="drawer-section">
+            <span className="drawer-head">Follow</span>
+            <div className="drawer-links drawer-social">
+              {SOCIAL_LINKS.map((s) => (
+                <a key={s.id} href={s.href} target="_blank" rel="me noopener" onClick={close}>
+                  {SOCIAL_ICONS[s.id]} {s.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}
