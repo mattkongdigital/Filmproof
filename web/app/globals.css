@@ -405,6 +405,14 @@ footer {
   text-decoration:none; opacity:.82;
 }
 .foot-links a:hover { color:var(--amber); opacity:1; }
+.foot-social { display:flex; flex-wrap:wrap; gap:18px; margin-bottom:16px; }
+.foot-social a {
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--ink);
+  text-decoration:none; opacity:.82;
+}
+.foot-social a:hover { color:var(--amber); opacity:1; }
+.foot-social svg { width:15px; height:15px; }
 .foot-legal { font-family:var(--mono); font-size:11px; letter-spacing:.03em; color:var(--muted); }
 
 /* ---- search ---- */
