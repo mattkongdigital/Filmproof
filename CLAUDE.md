@@ -42,8 +42,28 @@ behaviour of a catalogue rebuilt from live data.
 ### Adding a shop
 
 A shop is an entry in `SOURCES` in `sources.config.js` and a matching entry in
-`STORES` in `web/lib/stores.js` (its page, logo and blurb). Only Shopify shops
-with a public `/products.json` are wired up, so check that URL answers first.
+`STORES` in `web/lib/stores.js` (its page, logo and blurb). Two platforms are
+wired up, so check which one answers first:
+
+- **Shopify** (`kind: 'shopify'`): a public `/products.json`.
+- **WooCommerce** (`kind: 'woocommerce'`): the public Store API at
+  `/wp-json/wc/store/v1/products`. Give the entry a `category` (the shop's film
+  category slug, from `/wp-json/wc/store/v1/products/categories`) — a WooCommerce
+  photo shop is mostly not film. `src/adapters/woocommerce.js` reshapes each
+  product into Shopify's shape, so nothing downstream knows the difference. It
+  deliberately ignores the shop's product attributes: Parallax's "Film
+  Sensitivity" is wrong often enough to split films across pages.
+
+Anything else (BigCommerce, a bespoke site) needs its own adapter; there is no
+scraping of shop pages.
+
+Before adding the shop, build once and keep `web/data/site.json`; build again
+with it added and diff the slugs. A new shop's spellings are where the
+normaliser forks a film in two ("400Dynamic" for CineStill 400D, "Tri-X 320
+TXP"), and its titles can make an existing ISO-less stub merge into its entry
+and take its slug. Fix the first in `src/normalise.js`; the second is
+`LEGACY_FILM_SLUGS` (below). Also check that no existing shop's offer lost its
+page.
 
 Once a shop is in `SOURCES`, a live pull that yields no film fails the build —
 by name, before anything deploys — rather than letting the shop quietly vanish

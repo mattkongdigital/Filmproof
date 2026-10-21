@@ -48,7 +48,7 @@ export async function fetchAllProducts(baseUrl, opts = {}) {
 // 4xx is not retried: that is the shop telling us something, not a blip.
 // Throws once the retries run out, so a shop that is really down still stops
 // the build.
-async function fetchPage(fetchImpl, url, retries) {
+export async function fetchPage(fetchImpl, url, retries = [2000, 8000, 30000]) {
   for (let attempt = 0; ; attempt++) {
     let res = null, err = null;
     try {
@@ -101,7 +101,9 @@ export function productsToOffers(products, { retailer, baseUrl }) {
         title,
         price: parseFloat(v.price),
         inStock: v.available !== false,
-        url: `${clean}/products/${p.handle}?variant=${v.id}`,
+        // A variant reshaped from another platform (./woocommerce.js) brings
+        // its own URL, since only Shopify serves /products/<handle>.
+        url: v.url || `${clean}/products/${p.handle}?variant=${v.id}`,
         productType: p.product_type || '',
         tags: p.tags || [],
         // Only set when the variant itself states its roll count; matchOffer
@@ -160,6 +162,6 @@ function packCount(s) {
   return n >= 1 && n <= 20 ? n : null;
 }
 
-function sleep(ms) {
+export function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }

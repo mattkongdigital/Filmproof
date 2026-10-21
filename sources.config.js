@@ -1,6 +1,9 @@
 // sources.config.js
-// The shops the site pulls from — all live Shopify stores with a public
-// /products.json. Adding a shop is just a new entry here; no new code needed.
+// The shops the site pulls from — live Shopify stores with a public
+// /products.json, and WooCommerce stores with the public Store API at
+// /wp-json/wc/store/v1/products. Adding either is just a new entry here; no
+// new code needed. A WooCommerce entry names its film `category` (slug or id),
+// since those shops' full catalogues are mostly not film.
 // Any source that isn't Shopify (or has no film) logs a warning and contributes
 // nothing — it can't break the build.
 
@@ -19,4 +22,5 @@ export const SOURCES = [
   { retailer: 'Classic Photo Supplies',  kind: 'shopify', baseUrl: 'https://classicphotosupplies.co.uk' },
   { retailer: 'Chemical Dependency Lab', kind: 'shopify', baseUrl: 'https://chemicaldependency.co.uk' },
   { retailer: 'JFR Film',                kind: 'shopify', baseUrl: 'https://jfrfilm.co.uk' },
+  { retailer: 'Parallax Photographic',   kind: 'woocommerce', baseUrl: 'https://parallaxphotographic.coop', category: 'film' },
 ];

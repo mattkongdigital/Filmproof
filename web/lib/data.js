@@ -78,6 +78,20 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film',
   'kodak-portra-400-120-film-2028-expiry': 'kodak-portra-400-120-film',
   'cinestill-bwxx-black-white-negative-film-120-expiry-03-26': 'cinestill-bwxx-120-film',
+  // Onboarding Parallax Photographic. Its titles state the speed where other
+  // shops' don't, so the ISO-less listings now merge into its entry and take
+  // its slug (Dubblefilm 120, Revolog 460nm). And the normaliser learned the
+  // names it writes, which closed older forks too: "400Dynamic" is CineStill
+  // 400D, Kino is Lomography's family word, and a speed range ("100-400") no
+  // longer keys Metropolis and Purple apart from their ISO 400 pages.
+  'revolog-460nm-120-film': 'revolog-460nm-200-120-film',
+  'dubblefilm-apollo-120-film': 'dubblefilm-apollo-200-120-film',
+  'dubblefilm-bubblegum-120-film': 'dubblefilm-bubblegum-200-120-film',
+  'dubblefilm-pacific-120-film': 'dubblefilm-pacific-200-120-film',
+  'cinestill-400dynamic-colour-135-film': 'cinestill-400d-35mm-film',
+  'lomography-potsdam-kino-b-w-iso-100-35mm-film': 'lomography-potsdam-100-35mm-film',
+  'lomochrome-metropolis-100-400-35mm-film': 'lomography-metropolis-35mm-film',
+  'lomography-lomochrome-purple-35mm-film-100-400-iso': 'lomography-purple-35mm-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
