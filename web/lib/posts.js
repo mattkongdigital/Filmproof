@@ -33,7 +33,7 @@ export const SILOS = [
     slug: 'field-notes',
     label: 'Field notes',
     title: 'Field notes',
-    description: 'Rolls shot, cameras carried and places photographed — notes from actually using the film rather than reading about it.',
+    description: 'Rolls shot, cameras carried and places photographed, notes from actually using the film rather than reading about it.',
   },
 ];
 

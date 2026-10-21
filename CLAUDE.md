@@ -73,6 +73,22 @@ empty source. Onboarding a shop can merge or retire film slugs through the
 normaliser; check the built catalogue for slugs that disappeared and add any
 that were live to `LEGACY_FILM_SLUGS` (above).
 
+## House style: no dashes in copy
+
+Reader-facing text uses commas, not em or en dashes (`—`, `–`) or a spaced
+hyphen standing in for one. That covers shop blurbs in `web/lib/stores.js`,
+brand and category copy, page ledes, silo descriptions, field notes and
+opportunity summaries. Where a dashed aside holds a list, lead it in with a
+word so the commas still parse:
+
+- No: `Parallax carries a broad film range — 35mm, 120 and 110 — alongside…`
+- Yes: `Parallax carries a broad film range, covering 35mm, 120 and 110, alongside…`
+
+If commas alone make a sentence ambiguous, rewrite it rather than reaching for
+a dash. Not affected: code comments, an `A–Z` range, the `—` placeholder in an
+empty spec cell, and names quoted as their owner writes them (an opportunity's
+title is the organiser's).
+
 ## Opportunities board
 
 `/opportunities/` lists competitions, open calls and commissions a film
