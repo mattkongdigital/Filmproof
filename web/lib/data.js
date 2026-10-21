@@ -105,6 +105,15 @@ export const LEGACY_FILM_SLUGS = {
   'fujicolor-c200-35mm-film-double-pack-expired': 'fujicolor-c200-35mm-film-expired',
   'kodak-gold-200-35mm-film-double-pack-expired': 'kodak-gold-200-35mm-film-expired',
   'polaroid-color-go-instant-film-double-pack-black-frame-edition': 'polaroid-color-go-instant-film-black-frame-edition',
+  // Kentmere is sold as both "Kentmere 100" and "Kentmere Pan 100", PJL files
+  // some of it under Ilford, and PJL's 120 titles add "photographic film". Each
+  // of those forked a page; they now join the Pan pages.
+  'kentmere-100-35mm': 'kentmere-pan-100-35mm-film',
+  'kentmere-200-35mm': 'kentmere-pan-200-35mm-film',
+  'kentmere-400-35mm': 'kentmere-pan-400-35mm-film',
+  'kentmere-400-120': 'kentmere-pan-400-120-film',
+  'kentmere-400-120-photographic-film': 'kentmere-pan-400-120-film',
+  'kentmere-100-120-photographic-film': 'kentmere-pan-100-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
