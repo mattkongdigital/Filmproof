@@ -210,7 +210,11 @@ const cleanName = (t) => t
   .replace(/\b\d{1,3}\s*(?:exposures?|exp)\b/gi, '')
   .replace(/\bpack of \d+\b/gi, '')
   .replace(/\b\d+\s*[-x]?\s*pack\b/gi, '')
-  .replace(/\b(twin|multi)-?\s*pack\b/gi, '')
+  .replace(/\b(twin|double|triple|three|quad|five|multi)-?\s*pack\b/gi, '')
+  // A use-by date is batch information, as in parseFilmTitle(): left in, the
+  // first shop's "- Expiry 08/26" named the page for every shop's offers.
+  .replace(/\bexpiry(?:\s*date)?\s*:?\s*(?:\d{1,2}\s*[/.-]\s*\d{2,4}|\d{4})?/gi, '')
+  .replace(/\b(?:19|20)\d{2}\s+expiry\b/gi, '')
   .replace(/\b\d+\s*pk\b/gi, '')
   .replace(/\b(single roll|single|value pack|coming soon)\b/i, '')
   .replace(/\s*[-–—]\s*$/, '')

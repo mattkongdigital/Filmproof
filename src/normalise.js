@@ -104,8 +104,9 @@ const NOISE = new Set([
   // Babylon, Fantôme), and shops include or drop it — "Potsdam 100" and
   // "Potsdam Kino 100" are one film — so, like LomoChrome, it is not identity.
   'kino',
-  // "Five Pack" — the count is read in parseFilmTitle(); the word is not a name.
-  'five',
+  // "Three Pack", "Five Pack" — the count is read in parseFilmTitle(); the
+  // word is not a name.
+  'three','five',
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
@@ -247,8 +248,8 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // counted when the title also says "pack", so "Double 8mm" and Double-X stay
   // single rolls.
   if (packSize === 1 && /\bpack\b/.test(text)) {
-    const wm = text.match(/\b(twin|double|triple|quad|five)\b/);
-    if (wm) packSize = { twin: 2, double: 2, triple: 3, quad: 4, five: 5 }[wm[1]];
+    const wm = text.match(/\b(twin|double|triple|three|quad|five)\b/);
+    if (wm) packSize = { twin: 2, double: 2, triple: 3, three: 3, quad: 4, five: 5 }[wm[1]];
   }
 
   let iso = null;

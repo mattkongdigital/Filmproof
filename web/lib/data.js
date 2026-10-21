@@ -92,6 +92,19 @@ export const LEGACY_FILM_SLUGS = {
   'lomography-potsdam-kino-b-w-iso-100-35mm-film': 'lomography-potsdam-100-35mm-film',
   'lomochrome-metropolis-100-400-35mm-film': 'lomography-metropolis-35mm-film',
   'lomography-lomochrome-purple-35mm-film-100-400-iso': 'lomography-purple-35mm-film',
+  // "Three Pack" is now read as three rolls, so Classic Photo Supplies' Lomography
+  // three-packs join their films' pages instead of standing alone. And a page
+  // no longer takes its name from a pack word or a use-by date in the first
+  // shop's title ("- Three Pack - Expiry 08/26", "Double Pack").
+  'lomography-lady-grey-b-w-35mm-400-iso-film-three-pack': 'lomography-lady-grey-400-35mm-film',
+  'lomography-color-negative-400-35mm-three-pack': 'lomography-colour-negative-400-35mm-film',
+  'lomography-color-negative-800-35mm-film-three-pack': 'lomography-colour-negative-800-35mm-film',
+  'lomography-redscale-xr-50-200-35mm-film': 'lomography-redscale-xr-35mm-50-200-iso-film',
+  'lomography-redscale-xr-35mm-50-200-iso-film-three-pack-expiry-08-26': 'lomography-redscale-xr-35mm-50-200-iso-film',
+  'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso-triple-pack': 'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso',
+  'fujicolor-c200-35mm-film-double-pack-expired': 'fujicolor-c200-35mm-film-expired',
+  'kodak-gold-200-35mm-film-double-pack-expired': 'kodak-gold-200-35mm-film-expired',
+  'polaroid-color-go-instant-film-double-pack-black-frame-edition': 'polaroid-color-go-instant-film-black-frame-edition',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
