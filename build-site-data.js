@@ -14,6 +14,7 @@ import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
+import { fetchAllProducts as fetchWixProducts } from './src/adapters/wix.js';
 import { loadProducts } from './src/product-cache.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
@@ -39,18 +40,20 @@ const filmish = (o) =>
   (o.tags || []).some((t) => /film|35mm|120/i.test(t)) ||
   /\b(35\s?mm|135|120|110|127|instant)\b/i.test(o.title || '');
 
-// WooCommerce shops are reshaped into Shopify's product shape by their
-// adapter, so from here on both kinds take the same path.
+// WooCommerce and Wix shops are reshaped into Shopify's product shape by
+// their adapters, so from here on every kind takes the same path.
 const fetchProducts = (src) => src.kind === 'woocommerce'
   ? fetchWooProducts(src.baseUrl, { category: src.category })
-  : fetchAllProducts(src.baseUrl);
+  : src.kind === 'wix'
+    ? fetchWixProducts(src.baseUrl, { apiKey: process.env[src.keyEnv], siteId: src.siteId, collection: src.collection })
+    : fetchAllProducts(src.baseUrl);
 
 // Returns { offers, live }. `live` is true only when the offers actually came
 // from a live network fetch just now — the plausibility guard in run() needs
 // this to tell "shops are really down" apart from "sample fallback".
 async function resolveOffers(src) {
   try {
-    if (src.kind === 'shopify' || src.kind === 'woocommerce') {
+    if (src.kind === 'shopify' || src.kind === 'woocommerce' || src.kind === 'wix') {
       if (!OFFLINE && src.baseUrl) {
         try {
           // Reuse the pull build-catalogue made minutes ago (src/product-cache.js)

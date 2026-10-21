@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { SOURCES } from './sources.config.js';
 import { fetchAllProducts } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
+import { fetchAllProducts as fetchWixProducts } from './src/adapters/wix.js';
 import { saveProducts } from './src/product-cache.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
@@ -152,16 +153,18 @@ function isFilmProduct(type, title) {
   return /\b(35\s?mm|135|120|110|127|620|instant|sheet|movie|super\s?8|16\s?mm|large format)\b/i.test(title);
 }
 
-// WooCommerce shops are reshaped into Shopify's product shape by their
-// adapter, so from here on both kinds take the same path.
+// WooCommerce and Wix shops are reshaped into Shopify's product shape by
+// their adapters, so from here on every kind takes the same path.
 const fetchProducts = (src) => src.kind === 'woocommerce'
   ? fetchWooProducts(src.baseUrl, { category: src.category })
-  : fetchAllProducts(src.baseUrl);
+  : src.kind === 'wix'
+    ? fetchWixProducts(src.baseUrl, { apiKey: process.env[src.keyEnv], siteId: src.siteId, collection: src.collection })
+    : fetchAllProducts(src.baseUrl);
 
 // Yield {title, type} items for a source (products for Shopify; offers for feeds).
 async function itemsFor(src) {
   try {
-    if (src.kind === 'shopify' || src.kind === 'woocommerce') {
+    if (src.kind === 'shopify' || src.kind === 'woocommerce' || src.kind === 'wix') {
       let products = null;
       if (!OFFLINE && src.baseUrl) {
         try {

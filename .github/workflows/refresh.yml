@@ -34,6 +34,10 @@ jobs:
       # source, regenerating web/data/site.json + search-index.json from scratch.
       # (Root has no dependencies, so nothing to install for this step.)
       - name: Refresh catalogue & price data
+        env:
+          # Wix shops have no public feed, so each needs the shop's own API key
+          # as a repo secret. Unset, the shop is skipped (sources.config.js).
+          FILMPROOF_WIX_KEY_NOT_QUITE_NORTH: ${{ secrets.FILMPROOF_WIX_KEY_NOT_QUITE_NORTH }}
         run: |
           node build-catalogue.js
           node build-site-data.js
