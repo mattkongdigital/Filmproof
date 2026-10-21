@@ -13,6 +13,7 @@ import { matchOffer } from './src/match.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
+import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
 import { loadProducts } from './src/product-cache.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
@@ -38,18 +39,24 @@ const filmish = (o) =>
   (o.tags || []).some((t) => /film|35mm|120/i.test(t)) ||
   /\b(35\s?mm|135|120|110|127|instant)\b/i.test(o.title || '');
 
+// WooCommerce shops are reshaped into Shopify's product shape by their
+// adapter, so from here on both kinds take the same path.
+const fetchProducts = (src) => src.kind === 'woocommerce'
+  ? fetchWooProducts(src.baseUrl, { category: src.category })
+  : fetchAllProducts(src.baseUrl);
+
 // Returns { offers, live }. `live` is true only when the offers actually came
 // from a live network fetch just now — the plausibility guard in run() needs
 // this to tell "shops are really down" apart from "sample fallback".
 async function resolveOffers(src) {
   try {
-    if (src.kind === 'shopify') {
+    if (src.kind === 'shopify' || src.kind === 'woocommerce') {
       if (!OFFLINE && src.baseUrl) {
         try {
           // Reuse the pull build-catalogue made minutes ago (src/product-cache.js)
           // rather than hitting the shop a second time.
           const cached = loadProducts(src.retailer);
-          const products = cached || await fetchAllProducts(src.baseUrl);
+          const products = cached || await fetchProducts(src);
           const offers = productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl }).filter(filmish);
           console.log(`  ${src.retailer}: live${cached ? ' (catalogue pull)' : ''} — ${offers.length} film offers`);
           return { offers, live: true };

@@ -100,10 +100,19 @@ const NOISE = new Set([
   // stock; the date itself is stripped in parseFilmTitle(). It is not expired
   // film (that is the separate `expired` axis), and it is not the film's name.
   'expiry',
+  // Kino is the family name of Lomography's cine-stock lines (Berlin, Potsdam,
+  // Babylon, Fantôme), and shops include or drop it — "Potsdam 100" and
+  // "Potsdam Kino 100" are one film — so, like LomoChrome, it is not identity.
+  'kino',
+  // "Five Pack" — the count is read in parseFilmTitle(); the word is not a name.
+  'five',
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   let text = String(raw).toLowerCase()
+    // "Fantôme" and "Fantome" are one film; an accent would otherwise split
+    // the word in two at the non-ASCII strip below.
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/\bblack\s*(?:and|&|n)?\s*white\b/g, ' ')
     .replace(/\bb\s*&\s*w\b/g, ' ')
     .replace(/\bc-?41\b/g, ' ')
@@ -122,7 +131,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bcolou?r\s*plus\b/g, 'colorplus')
     .replace(/\bultra\s*max\b/g, 'ultramax')
     .replace(/\btri[\s-]?x\b/g, 'trix')
-    .replace(/\b(trix\b(?:\s+\d{3})?)\s+tx\b/g, '$1')   // TX is Tri-X's own code
+    .replace(/\b(trix\b(?:\s+\d{3})?)\s+txp?\b/g, '$1')   // TX/TXP are Tri-X's own codes
     // Shops gloss Eastman's Ektacolor Pro with the Portra it replaces —
     // "Ektacolor Pro 800 (Portra 800)" — which is a note, not a second name.
     .replace(/\b(ektacolou?r\b[^(]*)\(\s*portra[^)]*\)/g, '$1')
@@ -132,6 +141,26 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bfp\s?4(?:\s*plus)?\b/g, 'fp4plus')
     .replace(/\bpan\s?f(?:\s*plus)?\b/g, 'panfplus')
     .replace(/\bgold\s+gb\b/g, 'gold')          // GB is a factory code — same film
+    // Spelled-out and coded names for one stock: CineStill sells 400D as
+    // "400Dynamic", and "BWXX" is its Double-X, which some shops add in words.
+    .replace(/\b400\s?dynamic\b/g, '400d')
+    .replace(/\bbwxx\s+double[\s-]?x\b/g, 'bwxx')
+    .replace(/\bsx[\s-]?70\b/g, 'sx70')
+    .replace(/\bsuperia\s+venus\b/g, 'venus')   // sold as both
+    .replace(/\b160\s?ns\b/g, '160 ns')          // Fuji Pro "160NS" / "160 NS"
+    .replace(/\btesla\s+(ii|i)\b/g, (m, r) => `tesla ${r.length}`)   // Revolog Tesla I / 1
+    // "Metropolis XR" is Lomography's current name for Metropolis, and the same
+    // for Purple and Turquoise. Not XR everywhere: Redscale XR (50-200) is a
+    // different film from Redscale 100, and the XR is what tells them apart.
+    .replace(/\b(metropolis|purple|turquoise)\s+xr\b/g, '$1')
+    // A speed range ("Metropolis 100-400", "Redscale XR 50-200 ISO") is a film
+    // rated across speeds, not at the first one. Read as ISO 100, Parallax's
+    // "Metropolis XR 100-400 110" sat beside AW's ISO 400 entry and left the
+    // ISO-less listings between them ambiguous — one film split across three
+    // pages. So a range sets no ISO from the title; the film keys like any
+    // listing that states none, and joins its sibling in reconcileIsoStubs().
+    .replace(/\b(\d{2,4})\s*[-–/]\s*(\d{2,4})\b/g, (m, a, b) =>
+      (ISO_SPEEDS.has(Number(a)) && ISO_SPEEDS.has(Number(b)) && Number(a) < Number(b) ? ' ' : m))
     // Foma renamed its three main stocks (Classic 100 / Creative 200 / Action
     // 400) but shops still stock both spellings, and some carry the bare
     // "Fomapan 200". They are one film, so drop the range word.
@@ -143,7 +172,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // digits off *any* line name — plenty (Tri-X, HP5, T-Max, 3200) are
     // legitimately alphanumeric — so this only fires for known line names,
     // turning "SFX200" into "SFX 200" so the ISO parses out normally.
-    .replace(/\b(sfx|delta|ortho|superpan|acros|velvia|provia|portra|ektar|gold|colou?rplus|ultramax|proimage|superia|fomapan|kentmere)\s*(\d{2,4})\b/g, '$1 $2')
+    .replace(/\b(sfx|delta|ortho|superpan|acros|velvia|provia|portra|ektar|gold|colou?rplus|ultramax|proimage|superia|fomapan|kentmere|pancro|atm)\s*(\d{2,4})\b/g, '$1 $2')
     .replace(/[^a-z0-9 ]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -158,6 +187,17 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   if (/\blucky\b/.test(text)) {
     text = text.replace(/\bc\s?(\d{2,4})\b/g, (m, n) => (ISO_SPEEDS.has(Number(n)) ? n : m));
   }
+  // Lomography's colour negatives carry the same kind of range code — "Color
+  // Tiger CN200" is the Tiger 200 other shops list without it.
+  if (/\blomography\b|\blomo\b/.test(text)) {
+    text = text.replace(/\bcn\s?(\d{2,4})\b/g, (m, n) => (ISO_SPEEDS.has(Number(n)) ? n : m));
+  }
+
+  // An instant "10 Pack" is the shot count, like "10 sheets" above: Instax
+  // comes in tens and Polaroid in eights, and no shop lists ten boxes as one
+  // product. Read as a pack size it priced a £10.45 box of Instax Mini at
+  // £1.04 "per pack", the cheapest on the site by a mile.
+  if (/\b(?:instax|polaroid|instant)\b/.test(text)) text = text.replace(/\b(?:8|10)\s*pack\b/g, ' ').replace(/\s+/g, ' ').trim();
 
   const hint = String(typeHint).toLowerCase();
 
@@ -207,8 +247,8 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // counted when the title also says "pack", so "Double 8mm" and Double-X stay
   // single rolls.
   if (packSize === 1 && /\bpack\b/.test(text)) {
-    const wm = text.match(/\b(twin|double|triple|quad)\b/);
-    if (wm) packSize = { twin: 2, double: 2, triple: 3, quad: 4 }[wm[1]];
+    const wm = text.match(/\b(twin|double|triple|quad|five)\b/);
+    if (wm) packSize = { twin: 2, double: 2, triple: 3, quad: 4, five: 5 }[wm[1]];
   }
 
   let iso = null;
