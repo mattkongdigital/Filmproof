@@ -20,8 +20,8 @@ export default function StoresPage() {
         <div className="eyebrow">The shops</div>
         <h1>Film shops we track</h1>
         <p className="cat-lede">
-          Independent UK shops, labs and camera specialists — who they are, where they are, and how much
-          of the film we track you can buy from them.
+          Who the independent UK shops, labs and camera specialists are, where they are, and how much
+          of the film we track you can buy from each.
         </p>
       </header>
       <div className="store-grid">

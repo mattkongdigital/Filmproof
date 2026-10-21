@@ -108,7 +108,8 @@ looks exactly like a right one on the board; an empty one gets checked.
 - **summary** — one or two sentences, at most 300 characters, **in your own
   words**: what it is and who it suits. Don't copy or lightly reword the
   source's sentences (the merge rejects any run of eight words lifted from the
-  page), don't repeat the deadline or fee (shown separately), no hype.
+  page), don't repeat the deadline or fee (shown separately), no hype, and
+  no dashes (use commas; see House style in `CLAUDE.md`).
 - **evidence** — for `deadline`, `fee` and `rights`, the shortest exact quote
   from the page text (under 200 characters) that states it, copied character
   for character. The merge keeps a field only if its quote is found on a
