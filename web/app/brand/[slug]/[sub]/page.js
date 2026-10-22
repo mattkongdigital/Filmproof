@@ -58,8 +58,8 @@ export default function BrandSubPage({ params }) {
         </p>
       </header>
 
-      <div className="facet-links">
-        <span className="facet-links-head">Browse {r.brand.label} by</span>
+      <details className="facet-links">
+        <summary className="facet-links-head">Browse {r.brand.label} by</summary>
         <div className="facet-axes">
           <div className="axis">
             <span className="axis-label">{AXIS_LABEL[r.kind]}</span>
@@ -89,7 +89,7 @@ export default function BrandSubPage({ params }) {
             </div>
           )}
         </div>
-      </div>
+      </details>
 
       <FilmBrowser films={films} />
 

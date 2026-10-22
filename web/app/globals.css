@@ -592,7 +592,7 @@ img.store-logo { object-fit:contain; background:#fff; }
 .facet-links-head { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px; }
 .facet-links .chips { display:flex; flex-wrap:wrap; gap:8px; }
 .facet-axes { display:flex; flex-direction:column; gap:9px; }
-/* Category pages fold the chip rows away so the films sit higher; the summary
+/* Category and brand pages fold the chip rows away so the films sit higher; the summary
    is the toggle and the rows are still in the HTML for crawlers. */
 details.facet-links > summary { list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; margin-bottom:0; }
 details.facet-links > summary::-webkit-details-marker { display:none; }

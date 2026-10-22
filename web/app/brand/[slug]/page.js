@@ -52,8 +52,8 @@ export default function BrandPage({ params }) {
       </header>
 
       {subFacets.length > 0 && (
-        <div className="facet-links">
-          <span className="facet-links-head">Browse {label} by</span>
+        <details className="facet-links">
+          <summary className="facet-links-head">Browse {label} by</summary>
           <div className="facet-axes">
             {formatFacets.length > 0 && (
               <div className="axis">
@@ -82,7 +82,7 @@ export default function BrandPage({ params }) {
               </div>
             )}
           </div>
-        </div>
+        </details>
       )}
 
       <FilmBrowser films={films} hideAxes={['typ','fmt']} />
