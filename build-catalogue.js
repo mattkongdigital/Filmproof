@@ -397,6 +397,22 @@ async function run() {
     process.exit(1);
   }
 
+  // Two films with one slug export to one /film/<slug>/ page, so one of them
+  // (and every offer on it) silently vanishes from the site. That is how PJL's
+  // Kentmere 200, read as Ilford, hid behind the real Kentmere 200. A collision
+  // means the normaliser split one film in two: fix it there, don't rename.
+  const bySlug = new Map();
+  for (const f of catalogue) bySlug.set(f.slug, [...(bySlug.get(f.slug) || []), f.key]);
+  const collisions = [...bySlug].filter(([, keys]) => keys.length > 1);
+  if (collisions.length > 0) {
+    console.error(
+      `ERROR: ${collisions.length} slug(s) shared by more than one film, so only one of each would get a page:\n` +
+      collisions.map(([slug, keys]) => `    ${slug}  <-  ${keys.join(', ')}`).join('\n') +
+      `\nThese are usually one film the normaliser split in two; fix the split in src/normalise.js.`
+    );
+    process.exit(1);
+  }
+
   if (FAILED_SHOPS.length > 0) {
     console.error(
       `ERROR: live fetch failed for ${FAILED_SHOPS.join(', ')}. ` +

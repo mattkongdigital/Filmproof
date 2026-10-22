@@ -32,9 +32,12 @@ const BRAND_PATTERNS = [
   [/\blomography\b|\blomo\b/, 'lomography'],
   [/\bfomapan\b|\bfoma\b/, 'foma'],
   [/\bkodak\b/, 'kodak'],
+  // Kentmere is made by Harman, who also make Ilford, and shops file it under
+  // either vendor: PJL's "Kentmere 200 35mm" arrives as "Ilford Kentmere 200
+  // 35mm". The film's own name wins, so Kentmere is matched before Ilford.
+  [/\bkentmere\b/, 'kentmere'],
   [/\bilford\b/, 'ilford'],
   [/\bcinestill\b/, 'cinestill'],
-  [/\bkentmere\b/, 'kentmere'],
   [/\bleica\b|\bleitz\b/, 'leica'],
   [/\brollei\b/, 'rollei'],
   [/\bferrania\b/, 'ferrania'],
@@ -107,6 +110,9 @@ const NOISE = new Set([
   // "Three Pack", "Five Pack" — the count is read in parseFilmTitle(); the
   // word is not a name.
   'three','five',
+  // "Kentmere 400 120 photographic film" is the same roll as "Kentmere 400,
+  // 120"; the word describes the product, it doesn't name it.
+  'photographic',
 ]);
 
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
@@ -187,6 +193,13 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // because a leading C before digits means nothing of the sort elsewhere.
   if (/\blucky\b/.test(text)) {
     text = text.replace(/\bc\s?(\d{2,4})\b/g, (m, n) => (ISO_SPEEDS.has(Number(n)) ? n : m));
+  }
+  // Kentmere renamed its stocks "Kentmere Pan 100/200/400" and shops use both
+  // names, so "Kentmere 100" and "Kentmere Pan 100" forked into two pages per
+  // format. Pan is not identity for Kentmere (it has no other line), but it is
+  // elsewhere (Bergger PAN400, Derev Pan), so this is scoped to the brand.
+  if (/\bkentmere\b/.test(text)) {
+    text = text.replace(/\bpan\b/g, ' ').replace(/\s+/g, ' ').trim();
   }
   // Lomography's colour negatives carry the same kind of range code — "Color
   // Tiger CN200" is the Tiger 200 other shops list without it.
