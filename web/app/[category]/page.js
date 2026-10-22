@@ -91,10 +91,10 @@ export default function CategoryPage({ params }) {
       </header>
 
       {axes.length > 0 && (
-        <div className="facet-links">
-          <span className="facet-links-head">
+        <details className="facet-links">
+          <summary className="facet-links-head">
             Browse {cat.label} by {axes.map((a) => a.label.toLowerCase()).join(' or ')}
-          </span>
+          </summary>
           <div className="facet-axes">
             {axes.map((axis) => (
               <div className="axis" key={axis.label}>
@@ -112,7 +112,7 @@ export default function CategoryPage({ params }) {
               </div>
             ))}
           </div>
-        </div>
+        </details>
       )}
 
       {/* Hide the axis this page is already scoped by (constant here), plus any
