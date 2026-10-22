@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { brandList, filmsFor, subFacetsForBrand } from '../../../lib/facets';
 import { FilmBrowser } from '../../../components/film-browser';
+import { FoldAxis } from '../../../components/fold-axis';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { SITE_URL, brandLabel } from '../../../lib/data';
 import { getBrandContent } from '../../../lib/brand-content';
@@ -52,12 +53,11 @@ export default function BrandPage({ params }) {
       </header>
 
       {subFacets.length > 0 && (
-        <details className="facet-links">
-          <summary className="facet-links-head">Browse {label} by</summary>
+        <div className="facet-links">
+          <span className="facet-links-head">Browse {label} by</span>
           <div className="facet-axes">
             {formatFacets.length > 0 && (
-              <div className="axis">
-                <span className="axis-label">Format</span>
+              <FoldAxis label="Format" count={formatFacets.length} noun="formats">
                 <span className="chip current" aria-current="page">
                   All <span className="chip-count">{films.length}</span>
                 </span>
@@ -66,11 +66,10 @@ export default function BrandPage({ params }) {
                     {s.label} <span className="chip-count">{s.count}</span>
                   </Link>
                 ))}
-              </div>
+              </FoldAxis>
             )}
             {typeFacets.length > 0 && (
-              <div className="axis">
-                <span className="axis-label">Type</span>
+              <FoldAxis label="Type" count={typeFacets.length} noun="types">
                 <span className="chip current" aria-current="page">
                   All <span className="chip-count">{films.length}</span>
                 </span>
@@ -79,10 +78,10 @@ export default function BrandPage({ params }) {
                     {s.label} <span className="chip-count">{s.count}</span>
                   </Link>
                 ))}
-              </div>
+              </FoldAxis>
             )}
           </div>
-        </details>
+        </div>
       )}
 
       <FilmBrowser films={films} hideAxes={['typ','fmt']} />

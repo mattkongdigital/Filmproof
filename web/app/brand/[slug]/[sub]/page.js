@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { brandSubParams, resolveBrandSub, subFacetsForBrand, brandsForFacet, BRAND_CHIP_LIMIT, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
 import { getFilms } from '../../../../lib/data';
 import { ChipOverflow } from '../../../../components/chip-overflow';
+import { FoldAxis } from '../../../../components/fold-axis';
 import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
@@ -58,11 +59,10 @@ export default function BrandSubPage({ params }) {
         </p>
       </header>
 
-      <details className="facet-links">
-        <summary className="facet-links-head">Browse {r.brand.label} by</summary>
+      <div className="facet-links">
+        <span className="facet-links-head">Browse {r.brand.label} by</span>
         <div className="facet-axes">
-          <div className="axis">
-            <span className="axis-label">{AXIS_LABEL[r.kind]}</span>
+          <FoldAxis label={AXIS_LABEL[r.kind]} count={1 + siblings.length} noun={`${AXIS_LABEL[r.kind].toLowerCase()}s`}>
             <Link className="chip" href={`/brand/${params.slug}`}>All</Link>
             <span className="chip current" aria-current="page">
               {r.facet.label} <span className="chip-count">{films.length}</span>
@@ -72,10 +72,9 @@ export default function BrandSubPage({ params }) {
                 {s.label} <span className="chip-count">{s.count}</span>
               </Link>
             ))}
-          </div>
+          </FoldAxis>
           {otherBrands.length > 0 && (
-            <div className="axis">
-              <span className="axis-label">Brand</span>
+            <FoldAxis label="Brand" count={1 + otherBrands.length} noun="brands">
               <Link className="chip" href={`/${params.sub}`}>All <span className="chip-count">{facetCount}</span></Link>
               <span className="chip current" aria-current="page">
                 {r.brand.label} <span className="chip-count">{films.length}</span>
@@ -86,10 +85,10 @@ export default function BrandSubPage({ params }) {
                 limit={BRAND_CHIP_LIMIT - 1}
                 noun="more brands"
               />
-            </div>
+            </FoldAxis>
           )}
         </div>
-      </details>
+      </div>
 
       <FilmBrowser films={films} />
 

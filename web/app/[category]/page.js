@@ -6,6 +6,7 @@ import { SITE_URL, getFilms } from '../../lib/data';
 import { getFormatContent, getTypeContent, getConditionContent } from '../../lib/category-content';
 import Link from 'next/link';
 import { ChipOverflow } from '../../components/chip-overflow';
+import { FoldAxis } from '../../components/fold-axis';
 
 export function generateStaticParams() {
   return categoryParams();
@@ -91,14 +92,13 @@ export default function CategoryPage({ params }) {
       </header>
 
       {axes.length > 0 && (
-        <details className="facet-links">
-          <summary className="facet-links-head">
+        <div className="facet-links">
+          <span className="facet-links-head">
             Browse {cat.label} by {axes.map((a) => a.label.toLowerCase()).join(' or ')}
-          </summary>
+          </span>
           <div className="facet-axes">
             {axes.map((axis) => (
-              <div className="axis" key={axis.label}>
-                <span className="axis-label">{axis.label}</span>
+              <FoldAxis key={axis.label} label={axis.label} count={axis.links.length} noun={plural(axis.label)}>
                 <span className="chip current" aria-current="page">
                   All <span className="chip-count">{films.length}</span>
                 </span>
@@ -109,10 +109,10 @@ export default function CategoryPage({ params }) {
                     {l.label} <span className="chip-count">{l.count}</span>
                   </Link>
                 ))}
-              </div>
+              </FoldAxis>
             ))}
           </div>
-        </details>
+        </div>
       )}
 
       {/* Hide the axis this page is already scoped by (constant here), plus any
@@ -140,6 +140,7 @@ export default function CategoryPage({ params }) {
 }
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const plural = (label) => `${label.toLowerCase()}s`;
 
 // facet kind -> the FilmBrowser filter axis it corresponds to.
 const BROWSER_AXIS = { format: 'fmt', type: 'typ', condition: 'cond' };

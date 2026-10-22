@@ -3,6 +3,7 @@ import { useMemo, useState, useEffect, useRef } from 'react';
 import { FilmCard } from './film-card';
 import { formatLabel } from '../lib/data';
 import { EmptyState } from './empty-state';
+import { FoldAxis } from './fold-axis';
 
 const PER_PAGE = 24;
 
@@ -133,23 +134,17 @@ export function FilmBrowser({ films, hideAxes = [] }) {
   );
 }
 
-// A collapsible axis starts closed, so a long row (ISO runs to a dozen speeds)
-// doesn't push the films down. Closed, it still shows any chips that are on, so
-// an active filter is never hidden.
-function Axis({ label, items, sel, on, collapsible = false, noun = 'options' }) {
-  const [open, setOpen] = useState(!collapsible);
-  const shown = open ? items : items.filter(([val]) => sel.has(val));
+function Axis({ label, items, sel, on, collapsible = false, noun }) {
+  const chips = items.map(([val, lab]) => (
+    <button key={val} className={`fchip${sel.has(val) ? ' on' : ''}`} aria-pressed={sel.has(val)} onClick={() => on(val)}>{lab}</button>
+  ));
+  if (collapsible) {
+    return <FoldAxis label={label} count={items.filter(([val]) => !sel.has(val)).length} noun={noun}>{chips}</FoldAxis>;
+  }
   return (
     <div className="axis">
       <span className="axis-label">{label}</span>
-      {shown.map(([val, lab]) => (
-        <button key={val} className={`fchip${sel.has(val) ? ' on' : ''}`} aria-pressed={sel.has(val)} onClick={() => on(val)}>{lab}</button>
-      ))}
-      {collapsible && (
-        <button className="fchip axis-toggle" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-          {open ? 'Hide' : sel.size ? 'Show all' : `Show ${items.length} ${noun}`}
-        </button>
-      )}
+      {chips}
     </div>
   );
 }
