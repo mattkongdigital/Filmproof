@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import { SITE_URL } from '../../lib/data';
 import { STORES_ALPHABETICAL, storeFilmCount } from '../../lib/stores';
-import { StoreLogo } from '../../components/store-logo';
+import { StoreDirectory } from '../../components/store-directory';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 
 export function generateMetadata() {
@@ -21,19 +20,13 @@ export default function StoresPage() {
         <h1>Film shops we track</h1>
         <p className="cat-lede">
           Who the independent UK shops, labs and camera specialists are, where they are, and how much
-          of the film we track you can buy from each.
+          of the film we track you can buy from each. Some are photo labs too, and will develop the
+          rolls you buy from them.
         </p>
       </header>
-      <div className="store-grid">
-        {STORES_ALPHABETICAL.map((s) => (
-          <Link key={s.slug} href={`/store/${s.slug}`} className="store-card">
-            <StoreLogo store={s} size="md" />
-            <span className="store-card-name">{s.name}</span>
-            <span className="store-card-town">{s.town}</span>
-            <span className="store-card-count">{storeFilmCount(s.name)} films tracked</span>
-          </Link>
-        ))}
-      </div>
+      <StoreDirectory
+        stores={STORES_ALPHABETICAL.map((s) => ({ ...s, count: storeFilmCount(s.name) }))}
+      />
     </div>
   );
 }
