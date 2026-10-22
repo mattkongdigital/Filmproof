@@ -88,8 +88,8 @@ export default function ComboPage({ params }) {
       </header>
 
       {showChips && (
-        <div className="facet-links">
-          <span className="facet-links-head">Browse {combo.heading} by</span>
+        <details className="facet-links">
+          <summary className="facet-links-head">Browse {combo.heading} by</summary>
           <div className="facet-axes">
             <div className="axis">
               <span className="axis-label">{AXIS_LABEL[combo.parentKind]}</span>
@@ -120,7 +120,7 @@ export default function ComboPage({ params }) {
               </div>
             ))}
           </div>
-        </div>
+        </details>
       )}
 
       <FilmBrowser films={films} hideAxes={hiddenAxes} />
