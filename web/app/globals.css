@@ -365,6 +365,9 @@ footer {
 .fchip:hover { border-color:var(--amber); color:var(--amber); }
 .fchip.on { border-color:var(--china); color:#fff; background:rgba(232,83,46,0.16); }
 .axis-toggle { color:var(--amber); border-style:dashed; }
+/* A folded row (components/fold-axis.js) keeps its label, the current page's
+   chip and any filter that is on; the rest stay in the HTML but out of sight. */
+.axis.folded > :not(.axis-label):not(.current):not(.on):not(.axis-toggle) { display:none; }
 .filter-meta {
   font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.04em;
   display:flex; align-items:center; gap:12px; padding-top:4px;
@@ -593,14 +596,6 @@ img.store-logo { object-fit:contain; background:#fff; }
 .facet-links-head { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px; }
 .facet-links .chips { display:flex; flex-wrap:wrap; gap:8px; }
 .facet-axes { display:flex; flex-direction:column; gap:9px; }
-/* Category and brand pages fold the chip rows away so the films sit higher; the summary
-   is the toggle and the rows are still in the HTML for crawlers. */
-details.facet-links > summary { list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; margin-bottom:0; }
-details.facet-links > summary::-webkit-details-marker { display:none; }
-details.facet-links > summary::after { content:'+'; font-size:13px; line-height:1; color:var(--amber); }
-details.facet-links[open] > summary::after { content:'\2212'; }
-details.facet-links > summary:hover { color:var(--ink); }
-details.facet-links[open] > summary { margin-bottom:9px; }
 .chip-count { font-family:var(--mono); font-size:10px; color:var(--muted); margin-left:3px; }
 .chip:hover .chip-count { color:var(--amber); }
 

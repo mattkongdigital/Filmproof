@@ -5,6 +5,7 @@ import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { SITE_URL, getFilms } from '../../../lib/data';
 import { getComboContent } from '../../../lib/category-content';
 import Link from 'next/link';
+import { FoldAxis } from '../../../components/fold-axis';
 
 export function generateStaticParams() {
   return comboParams();
@@ -88,11 +89,10 @@ export default function ComboPage({ params }) {
       </header>
 
       {showChips && (
-        <details className="facet-links">
-          <summary className="facet-links-head">Browse {combo.heading} by</summary>
+        <div className="facet-links">
+          <span className="facet-links-head">Browse {combo.heading} by</span>
           <div className="facet-axes">
-            <div className="axis">
-              <span className="axis-label">{AXIS_LABEL[combo.parentKind]}</span>
+            <FoldAxis label={AXIS_LABEL[combo.parentKind]} count={1 + parentSiblings.length} noun={plural(AXIS_LABEL[combo.parentKind])}>
               <Link className="chip" href={`/${combo.sub.slug}`}>All <span className="chip-count">{subOnlyCount}</span></Link>
               <span className="chip current" aria-current="page">
                 {combo.parent.label} <span className="chip-count">{films.length}</span>
@@ -102,10 +102,9 @@ export default function ComboPage({ params }) {
                   {f.label} <span className="chip-count">{f.count}</span>
                 </Link>
               ))}
-            </div>
+            </FoldAxis>
             {subAxes.map((axis) => (
-              <div className="axis" key={axis.label}>
-                <span className="axis-label">{axis.label}</span>
+              <FoldAxis key={axis.label} label={axis.label} count={1 + axis.items.length} noun={plural(axis.label)}>
                 <Link className="chip" href={`/${params.category}`}>All <span className="chip-count">{parentOnlyCount}</span></Link>
                 {axis.current && (
                   <span className="chip current" aria-current="page">
@@ -117,10 +116,10 @@ export default function ComboPage({ params }) {
                     {t.label} <span className="chip-count">{t.count}</span>
                   </Link>
                 ))}
-              </div>
+              </FoldAxis>
             ))}
           </div>
-        </details>
+        </div>
       )}
 
       <FilmBrowser films={films} hideAxes={hiddenAxes} />
@@ -144,6 +143,7 @@ export default function ComboPage({ params }) {
 }
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const plural = (label) => `${label.toLowerCase()}s`;
 
 // facet kind -> the FilmBrowser filter axis it corresponds to.
 const BROWSER_AXIS = { format: 'fmt', type: 'typ', condition: 'cond' };
