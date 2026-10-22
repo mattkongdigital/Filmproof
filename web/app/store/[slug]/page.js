@@ -39,11 +39,17 @@ export default function StorePage({ params }) {
         <div className="store-meta">
           <h1>{store.name}</h1>
           <div className="store-town">{store.town}</div>
+          {store.lab && <div className="store-badge">Photo lab</div>}
           <a className="store-visit" href={store.url} target="_blank" rel="noopener noreferrer">Visit shop →</a>
         </div>
       </header>
 
       <p className="store-desc">{store.description}</p>
+      {store.lab && (
+        <p className="store-lab-note">
+          {store.name} is also a photo lab, so you can send your film back to them for developing.
+        </p>
+      )}
 
       {films.length > 0 ? (
         <>
