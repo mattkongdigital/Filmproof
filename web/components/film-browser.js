@@ -90,7 +90,7 @@ export function FilmBrowser({ films, hideAxes = [] }) {
         <div className="filters">
           {showTyp && <Axis label="Type" items={typVals.map((v) => [v, TYPE_LABEL[v]])} sel={typ} on={toggler(setTyp)} />}
           {showFmt && <Axis label="Format" items={fmtVals.map((v) => [v, formatLabel(v)])} sel={fmt} on={toggler(setFmt)} />}
-          {showIso && <Axis label="ISO" items={isoVals.map((v) => [v, String(v)])} sel={iso} on={toggler(setIso)} />}
+          {showIso && <Axis label="ISO" items={isoVals.map((v) => [v, String(v)])} sel={iso} on={toggler(setIso)} collapsible noun="speeds" />}
           {showCond && <Axis label="Condition" items={condVals.map((v) => [v, CONDITION_LABEL[v]])} sel={cond} on={toggler(setCond)} />}
           {hasStockMix && (
             <div className="axis">
@@ -133,13 +133,23 @@ export function FilmBrowser({ films, hideAxes = [] }) {
   );
 }
 
-function Axis({ label, items, sel, on }) {
+// A collapsible axis starts closed, so a long row (ISO runs to a dozen speeds)
+// doesn't push the films down. Closed, it still shows any chips that are on, so
+// an active filter is never hidden.
+function Axis({ label, items, sel, on, collapsible = false, noun = 'options' }) {
+  const [open, setOpen] = useState(!collapsible);
+  const shown = open ? items : items.filter(([val]) => sel.has(val));
   return (
     <div className="axis">
       <span className="axis-label">{label}</span>
-      {items.map(([val, lab]) => (
+      {shown.map(([val, lab]) => (
         <button key={val} className={`fchip${sel.has(val) ? ' on' : ''}`} aria-pressed={sel.has(val)} onClick={() => on(val)}>{lab}</button>
       ))}
+      {collapsible && (
+        <button className="fchip axis-toggle" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+          {open ? 'Hide' : sel.size ? 'Show all' : `Show ${items.length} ${noun}`}
+        </button>
+      )}
     </div>
   );
 }

@@ -364,6 +364,7 @@ footer {
 }
 .fchip:hover { border-color:var(--amber); color:var(--amber); }
 .fchip.on { border-color:var(--china); color:#fff; background:rgba(232,83,46,0.16); }
+.axis-toggle { color:var(--amber); border-style:dashed; }
 .filter-meta {
   font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.04em;
   display:flex; align-items:center; gap:12px; padding-top:4px;
