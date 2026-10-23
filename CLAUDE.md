@@ -42,7 +42,10 @@ behaviour of a catalogue rebuilt from live data.
 ### Adding a shop
 
 A shop is an entry in `SOURCES` in `sources.config.js` and a matching entry in
-`STORES` in `web/lib/stores.js` (its page, logo and blurb). Two platforms are
+`STORES` in `web/lib/stores.js` (its page, logo and blurb). If it also develops
+film in-house or repairs customers' cameras, list that in its `services`
+(`'lab'`, `'repairs'`, from `web/lib/store-services.js`): that is what puts the
+badge on its page and the shop under the matching filter on `/stores/`. Two platforms are
 wired up, so check which one answers first:
 
 - **Shopify** (`kind: 'shopify'`): a public `/products.json`.

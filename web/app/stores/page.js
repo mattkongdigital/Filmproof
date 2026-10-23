@@ -20,8 +20,8 @@ export default function StoresPage() {
         <h1>Film shops we track</h1>
         <p className="cat-lede">
           Who the independent UK shops, labs and camera specialists are, where they are, and how much
-          of the film we track you can buy from each. Some are photo labs too, and will develop the
-          rolls you buy from them.
+          of the film we track you can buy from each. Some are photo labs too, which develop the
+          rolls you buy from them, and some will repair your camera.
         </p>
       </header>
       <StoreDirectory
