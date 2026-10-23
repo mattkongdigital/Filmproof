@@ -574,9 +574,12 @@ img.store-logo { object-fit:contain; background:#fff; }
 .store-visit:hover { color:var(--china); }
 .store-desc { font-size:16px; line-height:1.65; color:var(--ink); opacity:.9; max-width:64ch; margin:0 0 26px; }
 .store-badge { display:inline-block; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--amber); border:1px solid rgba(230,173,70,.45); border-radius:2px; padding:2px 7px; margin:2px 0 8px; }
-.store-card .store-badge { margin:4px 0 0; }
-.store-meta .store-badge { display:table; }
-.store-lab-note { font-size:15px; line-height:1.6; color:var(--ink); max-width:64ch; margin:-12px 0 26px; padding-left:12px; border-left:2px solid var(--amber); }
+.store-badges { display:flex; flex-wrap:wrap; gap:6px; }
+.store-badges .store-badge { margin:0; }
+.store-card .store-badges { margin-top:4px; }
+.store-meta .store-badges { margin:2px 0 8px; }
+.store-service-note { font-size:15px; line-height:1.6; color:var(--ink); max-width:64ch; margin:-12px 0 26px; padding-left:12px; border-left:2px solid var(--amber); }
+.store-service-note + .store-service-note { margin-top:-18px; }
 .store-filter { margin:20px 0 16px; }
 .store-card[hidden] { display:none; }
 .store-films-head { font-family:var(--display); font-weight:600; font-size:20px; margin:0 0 14px; }
