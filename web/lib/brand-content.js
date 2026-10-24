@@ -656,8 +656,32 @@ export function getBrandContent(slug) {
 // while the brand has >= MIN_COMBO_FILMS films for the facet (lib/facets.js),
 // so an entry here can outlive its page for a build without breaking anything.
 export const BRAND_SUB_CONTENT = {
-  // Kodak's ranges. Ektacolor Pro and Ektapan run on the generated lede until
-  // there is copy we can stand behind.
+  // Kodak's ranges. Ektacolor Pro and Ektapan keep to what the shops' own
+  // listings say: neither is claimed to be Portra or T-Max under a new name.
+  'kodak/ektacolor-pro': {
+    meta: { title: 'Kodak Ektacolor Pro Film | Compare UK Prices', description: 'Compare Kodak Ektacolor Pro 160, 400 and 800 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Kodak Ektacolor Pro is the professional colour negative film Eastman Kodak sells under its own name, made for natural skin tones and a wide margin for exposure error. It comes in three speeds, 160, 400 and 800, across 35mm, 120 and sheet film. Compare Kodak Ektacolor Pro prices from UK shops below.',
+    sections: [
+      { heading: 'Ektacolor Pro 160, 400 or 800?', paragraphs: [
+        'Ektacolor Pro 160 is the slowest and finest grained of the three, with soft, accurate colour and smooth highlights. It suits bright light, studio work and portraits.',
+        'Ektacolor Pro 400 is the all-rounder, at home from bright daylight to dim interiors, and Eastman Kodak pitches it at lifestyle, travel, sport and street photography as well as portraits.',
+        'Ektacolor Pro 800 is the fast option for low light, keeping skin tones natural and colour balanced when the light is changing or poor.',
+      ] },
+      { heading: 'Ektacolor Pro and Portra', paragraphs: [
+        'Ektacolor Pro covers the same speeds and formats as Kodak Portra, and some shops list it with the matching Portra name in brackets after the title. Both are sold here, so compare them side by side on price per roll before you buy. Like any colour negative film, Ektacolor Pro develops in standard C-41 chemistry at any lab.',
+      ] },
+    ],
+  },
+  'kodak/ektapan': {
+    meta: { title: 'Kodak Ektapan Film | Compare UK Prices', description: 'Compare Kodak Ektapan 100, Ektapan 400 and Ektapan P3200 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak Ektapan is Eastman Kodak's black and white film, built on a flat, tabular grain emulsion for high sharpness and fine grain. It comes as Ektapan 100, Ektapan 400 and the push film Ektapan P3200, across 35mm, 120, bulk rolls and 4x5 sheet film. Compare Kodak Ektapan prices from UK shops below.",
+    sections: [
+      { heading: 'Ektapan 100, 400 or P3200?', paragraphs: [
+        'Ektapan 100 is the slow, fine grained choice for landscapes, architecture and any subject where detail matters most. Ektapan 400 is the general purpose speed, and Eastman Kodak bills it as the sharpest, finest grained 400 speed black and white film in the world. Ektapan P3200 is a multi-speed film made to be pushed to ISO 3200 or beyond for low light.',
+        "Tabular grain is the same approach Kodak's T-Max films use, so expect a cleaner, smoother look than traditional films such as Tri-X. The range has wide latitude and takes pushing and pulling well, and it develops in ordinary black and white chemistry at home or at a lab.",
+      ] },
+    ],
+  },
   'kodak/portra': {
     meta: { title: 'Kodak Portra Film | Compare UK Prices', description: 'Compare Kodak Portra 160, 400 and 800 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: "Kodak Portra is Kodak's professional colour negative film, made for natural skin tones, fine grain and a wide margin for exposure error. It comes in three speeds, 160, 400 and 800, across 35mm, 120 and sheet film, which makes it the default colour stock for a great many portrait, wedding and travel photographers. Compare Kodak Portra prices from UK shops below.",
