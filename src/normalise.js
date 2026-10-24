@@ -151,6 +151,18 @@ function instantPacks(text) {
     .replace(/\b(?:shots?|prints?)\b/g, ' ');
 }
 
+// A sheet film's size, as one token with the short side first, so "5x4" and
+// "4x5" are one size. null when the text names none we know. Exported for
+// build-catalogue.js, which splits a product sold in several sizes.
+const SHEET_SIZES = new Set(['4x5', '5x7', '8x10', '11x14', '9x12', '13x18', '2.25x3.25', '3.25x4.25', '6.5x9']);
+export function sheetSize(text) {
+  for (const m of String(text).toLowerCase().matchAll(/(\d{1,2}(?:\.\d{1,2})?)\s*x\s*(\d{1,2}(?:\.\d{1,2})?)(?![\d.])/g)) {
+    const [a, b] = [m[1], m[2]].sort((x, y) => Number(x) - Number(y));
+    if (SHEET_SIZES.has(`${a}x${b}`)) return `${a}x${b}`;
+  }
+  return null;
+}
+
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   let text = String(raw).toLowerCase();
   const instant = /\b(?:instax|polaroid|instant)\b/.test(text);
@@ -353,6 +365,11 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
       : /\b8\s?mm\b/.test(text) ? 'gd8' : null)
     : null;
 
+  // Sheet sizes share the 'sheet' format, so the size is part of the line, or
+  // 4x5 and 8x10 boxes of one film fold into one page and compare as one.
+  // Read from the raw title, before the dot in "2.25x3.25" is stripped.
+  const size = format === 'sheet' ? sheetSize(raw) : null;
+
   const tokens = lineText.split(' ').filter(Boolean).filter((t) => {
     if (BRAND_WORDS.has(t)) return false;
     if (FORMAT_TOKENS.has(t)) return false;
@@ -372,6 +389,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // cine it is not identity, the same as feet already are.
     if (format === 'movie' && /^\d{1,3}m$/.test(t)) return false;
     if (/^(8|16)$/.test(t)) return false;
+    if (size && /^\d{1,2}x\d{1,2}$/.test(t)) return false;
     // Every Kodak cine colour negative on sale is Vision3, and shops list it
     // with or without the name ("Kodak 500T, 16mm" is Vision3 500T 7219).
     if (format === 'movie' && brand === 'kodak' && t === 'vision3') return false;
@@ -382,6 +400,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // makes those one film instead of two. `line` is an identity key, never shown.
   });
   if (gauge) tokens.push(gauge);
+  if (size) tokens.push(`s${size}`);
   const line = tokens.sort().join('');
 
   if (titleIso == null) iso = isoFor(FIXED_ISO, brand, line) ?? iso ?? isoFor(DEFAULT_ISO, brand, line);

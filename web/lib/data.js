@@ -69,13 +69,12 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-ektapan-400-35mm': 'kodak-eastman-ektapan-400-35mm-film',
   'kodak-ektar-120-film': 'kodak-eastman-ektar-100-120-film',
   'kodak-ektar-100-35mm-film': 'kodak-eastman-ektar-100-35mm-film',
-  'kodak-ektar-100-8x10-large-format-film': 'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets',
   'kodak-tri-x-400-35mm-film': 'kodak-eastman-tri-x-400-35mm-film',
   'kodak-tri-x-tx-135-pack': 'kodak-eastman-tri-x-400-35mm-film',
   'kodak-tri-x-400-120-film': 'kodak-eastman-tri-x-400-120-film',
   'kodak-tri-x-400-tx-120-b-w-film': 'kodak-eastman-tri-x-400-120-film',
   'kodak-tri-x-400-30-5m-bulk-roll-35mm': 'kodak-eastman-tri-x-400-30-5m-bulk-roll-35mm-film',
-  'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film',
+  'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film-8x10',
   'kodak-portra-400-120-film-2028-expiry': 'kodak-portra-400-120-film',
   'cinestill-bwxx-black-white-negative-film-120-expiry-03-26': 'cinestill-bwxx-120-film',
   // Onboarding Parallax Photographic. Its titles state the speed where other
@@ -155,13 +154,23 @@ export const LEGACY_FILM_SLUGS = {
   'polaroid-colour-600-film': 'polaroid-600-film-colour',
   // "Polaroid Originals" was the company's name from 2017 to 2020.
   'polaroid-originals-600-colour-instant-film-8-shots': 'polaroid-600-film-colour',
+  // Sheet size is part of a sheet film's identity now, so 4x5 and 8x10 boxes
+  // of one film no longer share a page. A page that held both goes to its 4x5
+  // half, the size most of its offers were; Ektar 100 8x10, once folded into
+  // the 4x5 page, is a page of its own again and so is not in this map.
+  'kodak-eastman-ektacolor-pro-400-large-format-film': 'kodak-eastman-ektacolor-pro-400-large-format-film-4x5',
+  'kodak-eastman-ektacolor-pro-160-large-format-film': 'kodak-eastman-ektacolor-pro-160-large-format-film-4x5',
+  'kodak-eastman-tri-x-320-large-format-film': 'kodak-eastman-tri-x-320-large-format-film-4x5',
+  'kodak-tri-x-320-5x7-large-format-film-50-sheets': 'kodak-eastman-tri-x-320-large-format-film-5x7',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
-// has itself left the catalogue: a redirect to a 404 is worse than a 404.
+// has itself left the catalogue: a redirect to a 404 is worse than a 404. And
+// against a slug that is a live film again, as a split can bring one back: a
+// live page always wins over a redirect.
 export function resolveLegacyFilm(slug) {
   const target = LEGACY_FILM_SLUGS[slug];
-  if (!target) return null;
+  if (!target || getFilm(slug)) return null;
   const film = getFilm(target);
   return film ? { slug: target, film } : null;
 }

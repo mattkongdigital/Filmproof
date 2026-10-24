@@ -14,7 +14,7 @@ import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce
 import { saveProducts } from './src/product-cache.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
-import { parseFilmTitle } from './src/normalise.js';
+import { parseFilmTitle, sheetSize } from './src/normalise.js';
 import { deriveProcess, describe, extractIso, extractExp } from './src/describe.js';
 import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
@@ -175,7 +175,7 @@ async function itemsFor(src) {
       }
       if (!products && src.sample) products = JSON.parse(readFileSync(src.sample, 'utf8')).products;
       if (!products) return [];
-      return products.map((p) => ({
+      return products.flatMap(bySheetSize).map((p) => ({
         title: `${p.vendor && !p.title.toLowerCase().startsWith(p.vendor.toLowerCase()) ? p.vendor + ' ' : ''}${p.title}`.trim(),
         type: p.product_type || '',
         raw: p.title,
@@ -203,6 +203,17 @@ async function itemsFor(src) {
     console.warn(`  ${src.retailer}: ${e.message}`);
     return [];
   }
+}
+
+// A sheet film product sold in several sizes, with the size only in its
+// variants ("Ektacolor Pro 400 - Large Format Film" in 4x5 and 8x10), is one
+// product per size here, so each size has its own film. The size joins the
+// title, which the key and the page name are both read from.
+function bySheetSize(p) {
+  if (sheetSize(p.title)) return [p];
+  const sizes = [...new Set((p.variants || []).map((v) => sheetSize(v.title || '')).filter(Boolean))];
+  if (!sizes.length) return [p];
+  return sizes.map((s) => ({ ...p, title: `${p.title} ${s}` }));
 }
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
