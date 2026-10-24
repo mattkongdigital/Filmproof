@@ -114,6 +114,16 @@ export const LEGACY_FILM_SLUGS = {
   'kentmere-400-120': 'kentmere-pan-400-120-film',
   'kentmere-400-120-photographic-film': 'kentmere-pan-400-120-film',
   'kentmere-100-120-photographic-film': 'kentmere-pan-100-120-film',
+  // Tidied before range pages went up, since a range lists every film in it:
+  // "Expires 03/26" read like the "Expiry" note it is, "Porta" as the Portra
+  // it misspells, "400T-Max" as T-Max 400, and Foma's range words wherever
+  // they fall ("Fomapan 100 Classic"), not only straight after the brand.
+  'kodak-gold-200-35mm-expires-03-26': 'kodak-eastman-gold-200-35mm-film',
+  'kodak-porta-pro-800-35mm-colour-film': 'kodak-portra-800-35mm-film',
+  'kodak-400t-max-135': 'kodak-t-max-400-35mm-film',
+  'fomapan-100-classic-100-35mm-b-w-film': 'fomapan-classic-100-35mm-film',
+  'fomapan-200-creative-135-35mm-b-w-film': 'fomapan-creative-200-35mm-film',
+  'fomapan-400-action-135-35mm-b-w-film': 'fomapan-action-400-35mm-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

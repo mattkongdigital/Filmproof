@@ -132,8 +132,10 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // Expiry" is the same film as "Portra 400". Strip the date here, while its
     // slash is still there to delimit it — later it would split into tokens
     // ("08 26") that leak into `line`. The bare word goes via NOISE.
-    .replace(/\bexpiry(?:\s*date)?\s*:?\s*(?:\d{1,2}\s*[/.-]\s*\d{2,4}|[a-z]{3,9}\.?\s+\d{2,4}|\d{4})?/g, ' expiry ')
-    .replace(/\b(?:19|20)\d{2}\s+expiry\b/g, ' expiry ')
+    // "Expires 03/26" is the same note in a verb: Gold 200 listed that way had
+    // a page of its own beside the plain Gold 200. Not "expired", which is.
+    .replace(/\bexpir(?:y|es)(?:\s*date)?\s*:?\s*(?:\d{1,2}\s*[/.-]\s*\d{2,4}|[a-z]{3,9}\.?\s+\d{2,4}|\d{4})?/g, ' expiry ')
+    .replace(/\b(?:19|20)\d{2}\s+expir(?:y|es)\b/g, ' expiry ')
     // Canonical names for mainstream ranges, so spacing/spelling variants merge.
     .replace(/\bcolou?r\s*plus\b/g, 'colorplus')
     .replace(/\bultra\s*max\b/g, 'ultramax')
@@ -142,6 +144,8 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // Shops gloss Eastman's Ektacolor Pro with the Portra it replaces —
     // "Ektacolor Pro 800 (Portra 800)" — which is a note, not a second name.
     .replace(/\b(ektacolou?r\b[^(]*)\(\s*portra[^)]*\)/g, '$1')
+    // "400T-Max" puts the speed first and glues it on, which no \b can split.
+    .replace(/\b(\d{3,4})\s*t[\s-]?max\b/g, 'tmax $1')
     .replace(/\bt[\s-]?max\b/g, 'tmax')
     .replace(/\bpro\s*image\b/g, 'proimage')
     .replace(/\bhp\s?5(?:\s*plus)?\b/g, 'hp5plus')   // "HP5" and "HP5 Plus" are one film
@@ -171,7 +175,8 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // Foma renamed its three main stocks (Classic 100 / Creative 200 / Action
     // 400) but shops still stock both spellings, and some carry the bare
     // "Fomapan 200". They are one film, so drop the range word.
-    .replace(/\bfomapan\s+(?:classic|creative|action)\b/g, 'fomapan')
+    // Not always next to the brand, either: "Fomapan 100 Classic" is one too.
+    .replace(/\bfomapan\b(.*)/g, (m, rest) => `fomapan${rest.replace(/\b(?:classic|creative|action)\b/g, ' ')}`)
     // Shops glue the multipack word onto "pack" ("Twinpack") as often as they
     // space it, and the pack rule below keys off a standalone "pack".
     .replace(/\b(twin|double|triple|quad)pack\b/g, '$1 pack')
@@ -201,6 +206,9 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   if (/\bkentmere\b/.test(text)) {
     text = text.replace(/\bpan\b/g, ' ').replace(/\s+/g, ' ').trim();
   }
+  // "Porta" is a shop's misspelling of Portra, not a Kodak film; left alone it
+  // gave Portra 800 35mm a second page.
+  if (/\bkodak\b/.test(text)) text = text.replace(/\bporta\b/g, 'portra');
   // Lomography's colour negatives carry the same kind of range code — "Color
   // Tiger CN200" is the Tiger 200 other shops list without it.
   if (/\blomography\b|\blomo\b/.test(text)) {
