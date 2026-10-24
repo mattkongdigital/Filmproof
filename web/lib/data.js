@@ -130,6 +130,29 @@ export const LEGACY_FILM_SLUGS = {
   'ilford-fp4-plus-125-35mm-film': 'ilford-fp4-plus-35mm-film',
   'ilford-hp5-plus-400-35mm-black-white-film-exp-36': 'ilford-hp5-plus-35mm-film',
   'fujifilm-acros-100-ii-120-film': 'fujifilm-neopan-acros-ii-120-film',
+  // The duplicates the range pages showed up. A Kodak cine negative is
+  // Vision3 whether or not a shop says so, and a cine roll's length is not its
+  // identity; shops round a bulk roll's length ("30m", "30.5m"); FP4 Plus is
+  // ISO 125 whatever a shop's tag says; Phoenix with no speed is the original
+  // 200; and an Instax twin pack is two packs of the same film, however it is
+  // written ("20 shots", "2 x 10 shots"). On instant film black and white is
+  // now part of the name, which also split Polaroid's colour packs back off the
+  // black and white pages they had been merged into.
+  'kodak-vision3-500t-7219-colour-negative-16mm-film-30-5m': 'kodak-500t-16mm-movie-film',
+  'kodak-vision3-200t-7213-colour-negative-16mm-film-30-5m': 'kodak-200t-16mm-movie-film',
+  'kodak-vision3-50d-7203-colour-negative-16mm-film-30-5m': 'kodak-50d-16mm-movie-film',
+  'ilford-hp5-plus-400-35mm-film-bulk-roll-30m': 'ilford-hp5-plus-400-35mm-30-5m-bulk-roll',
+  'ilford-fp4-plus-125-4x5-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film-25-sheets',
+  'harman-phoenix-35mm-colour-film': 'harman-phoenix-200-35mm-film',
+  'fujifilm-instax-mini-twin-film-pack': 'fujifilm-instax-mini-film',
+  'fujifilm-instax-mini-colour-film-20-shots': 'fujifilm-instax-mini-film',
+  'fuji-instax-mini-film-2-x-10-shots': 'fujifilm-instax-mini-film',
+  'fuji-instax-mini-monochrome-instant-film': 'fujifilm-instax-mini-film-black-and-white',
+  'fujifilm-instax-square': 'fujifilm-instax-square-film-colour',
+  'fujifilm-instax-wide-colour-film': 'fujifilm-instax-wide-film',
+  'fujifilm-instax-wide-film-20-shots': 'fujifilm-instax-wide-film',
+  'fuji-instax-wide-monochrome-instant-film': 'fujifilm-instax-wide-film-b-w',
+  'polaroid-colour-600-film': 'polaroid-600-film-colour',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

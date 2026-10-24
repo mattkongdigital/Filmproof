@@ -711,7 +711,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: "Why photographers choose Tri-X", paragraphs: [
         "Tri-X has a recognisable look, with visible, even grain and strong midtones, and it is famously forgiving. It pushes well to 1600 and beyond for low light, and it handles a wide range of developers, so it is a favourite for home developing.",
-        "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 cameras, listed here alongside the still films.",
+        "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 and 16mm cine cameras, listed here alongside the still films.",
       ] },
     ],
   },

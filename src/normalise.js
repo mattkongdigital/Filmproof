@@ -115,8 +115,47 @@ const NOISE = new Set([
   'photographic',
 ]);
 
+// Speeds that belong to the film, not the listing. A shop's ISO tag only fills
+// in a speed the title leaves out, and Analogue Wonderland tags FP4 Plus
+// sheets "ISO 400", which keyed them apart from the same sheets at 125. These
+// films come in one speed, so the name settles it. Matched as a substring of
+// the sorted `line`, so "5x7fp4plus" and the Football HP5 count too.
+const FIXED_ISO = [
+  ['ilford', 'fp4plus', '125'],
+  ['ilford', 'hp5plus', '400'],
+  ['ilford', 'panfplus', '50'],
+  ['fujifilm', 'instax', '800'],
+];
+// Speeds assumed only when neither the title nor a tag gives one. Phoenix
+// without a number is the original ISO 200; Phoenix 125 always says so.
+const DEFAULT_ISO = [
+  ['harman', 'phoenix', '200'],
+];
+const isoFor = (table, brand, line) => (table.find(([b, l]) => b === brand && (l === line || (table === FIXED_ISO && line.includes(l)))) || [])[2] ?? null;
+
+// Instant film is sold by the pack, and shops write a twin pack every way:
+// "Twin Pack", "(20 shots)", "2 x 10 shots", "20 Sheet Pack". All but the first
+// read as one pack of an unknown film, so a twin pack forked a page of its own
+// and priced twenty shots as one pack. Here they all become "2 pack", which
+// the pack rules below already understand.
+function instantPacks(text) {
+  return text
+    .replace(/\b(\d)\s*x\s*10\s*(?:shots?|sheets?|exposures?|prints?)?\b/g, ' $1 pack ')
+    .replace(/\b(\d{2})\s*(?:shots?|sheets?|exposures?|prints?)(?:\s*pack)?\b/g, (m, n) => (Number(n) % 10 === 0 && Number(n) >= 20 ? ` ${Number(n) / 10} pack ` : ' '))
+    .replace(/\b(?:shots?|prints?)\b/g, ' ');
+}
+
 export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
-  let text = String(raw).toLowerCase()
+  let text = String(raw).toLowerCase();
+  const instant = /\b(?:instax|polaroid|instant)\b/.test(text);
+  if (instant) {
+    // On instant film, black and white IS the product: Instax Mini Monochrome
+    // and Instax Mini Film, Black and White are one pack, and neither is the
+    // colour one. Elsewhere it is the process, which the key does not carry.
+    text = instantPacks(text)
+      .replace(/\bblack\s*(?:and|&|n)?\s*white\b|\bb\s*[&/]\s*w\b/g, ' monochrome ');
+  }
+  text = text
     // "Fantôme" and "Fantome" are one film; an accent would otherwise split
     // the word in two at the non-ASCII strip below.
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -128,6 +167,10 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\+/g, ' plus ')
     .replace(/[&']/g, ' ')
     .replace(/\b\d+\s*sheets?\b/g, ' ')          // Instant "10 sheets" shot count
+    // Shops round a roll's length: "30.5m" and "30m" are the same 100ft bulk
+    // roll. One whole token, so a 17m roll still keys apart from a 30m one,
+    // and detectFormat() still reads it for bulk.
+    .replace(/\b(\d{1,3})\.\d\s?m\b/g, '$1m')
     // A use-by date is batch information, not identity: "Portra 400 - 2028
     // Expiry" is the same film as "Portra 400". Strip the date here, while its
     // slash is still there to delimit it — later it would split into tokens
@@ -224,7 +267,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // comes in tens and Polaroid in eights, and no shop lists ten boxes as one
   // product. Read as a pack size it priced a £10.45 box of Instax Mini at
   // £1.04 "per pack", the cheapest on the site by a mile.
-  if (/\b(?:instax|polaroid|instant)\b/.test(text)) text = text.replace(/\b(?:8|10)\s*pack\b/g, ' ').replace(/\s+/g, ' ').trim();
+  if (instant) text = text.replace(/\b(?:8|10)\s*pack\b/g, ' ').replace(/\s+/g, ' ').trim();
 
   const hint = String(typeHint).toLowerCase();
 
@@ -287,9 +330,21 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     const m = t.match(/^(\d{2,4})[std]?$/) || t.match(/^e(\d{2,4})$/);
     if (m) { const n = Number(m[1]); if (ISO_SPEEDS.has(n) && String(n) !== exp && n !== packSize) { iso = String(n); break; } }
   }
+  const titleIso = iso;
   if (iso == null && extraIso != null) iso = String(extraIso);
 
-  const line = lineText.split(' ').filter(Boolean).filter((t) => {
+  // Cine gauges share the 'movie' format, so the gauge has to be part of the
+  // line or Super 8 and 16mm of one stock fold into one page.
+  const gauge = format === 'movie'
+    ? (/\bdouble\s*super\s*8\b|\bds\s?8\b/.test(text) ? 'gds8'
+      : /\bsuper\s*8\b|\bsuper8\b/.test(text) ? 'gs8'
+      : /\bdouble\s*8\b|\b2\s*x\s*8\s*mm\b|\bstd\s?8\b/.test(text) ? 'gd8'
+      : /\b16\s?mm\b/.test(text) ? 'g16'
+      : /\b35\s?mm\b/.test(text) ? 'g35'
+      : /\b8\s?mm\b/.test(text) ? 'gd8' : null)
+    : null;
+
+  const tokens = lineText.split(' ').filter(Boolean).filter((t) => {
     if (BRAND_WORDS.has(t)) return false;
     if (FORMAT_TOKENS.has(t)) return false;
     if (NOISE.has(t)) return false;
@@ -304,13 +359,23 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // really is the pack count, or CatLABS X80 loses its name.
     if (packSize > 1 && t === `x${packSize}`) return false;
     if (/^\d+ft$/.test(t)) return false;
+    // A cine roll's length is left out by as many shops as give it, so for
+    // cine it is not identity, the same as feet already are.
+    if (format === 'movie' && /^\d{1,3}m$/.test(t)) return false;
     if (/^(8|16)$/.test(t)) return false;
+    // Every Kodak cine colour negative on sale is Vision3, and shops list it
+    // with or without the name ("Kodak 500T, 16mm" is Vision3 500T 7219).
+    if (format === 'movie' && brand === 'kodak' && t === 'vision3') return false;
     return true;
   // Sorted, not source order: shops write the same film's modifiers in whatever
   // order reads best ("Limited Edition Ilford HP5 Plus Football" vs "Ilford HP5
   // PLUS ... FOOTBALL Limited Edition"). The tokens are identical, so sorting
   // makes those one film instead of two. `line` is an identity key, never shown.
-  }).sort().join('');
+  });
+  if (gauge) tokens.push(gauge);
+  const line = tokens.sort().join('');
+
+  if (titleIso == null) iso = isoFor(FIXED_ISO, brand, line) ?? iso ?? isoFor(DEFAULT_ISO, brand, line);
 
   const identified = Boolean(brand && format && (line || iso));
   const baseKey = identified ? [brand, line, format, iso].filter(Boolean).join('-') : null;
