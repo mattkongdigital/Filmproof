@@ -131,7 +131,7 @@ function pickCleanImage(images) {
 // Decide whether a product is an actual roll/sheet of film (not accessories,
 // paper, chemicals, cameras...). Handles both Analogue Wonderland's short types
 // ("35mm", "Camera") and Firstcall's "Department : Category" paths.
-const NOT_FILM = /camera|merch|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|printer|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|\bcases?\b|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
+const NOT_FILM = /camera|merch|sticker|opener|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|printer|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|\bcases?\b|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
 
 function isFilmProduct(type, title) {
   if (NOT_FILM.test(title)) return false;
@@ -343,7 +343,7 @@ async function run() {
         ].join(' | '));
       }
       if (!films.has(parsed.key)) {
-        const process = deriveProcess(it.type, it.title);
+        const process = deriveProcess(it.type, it.title, it.tags, it.body);
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? extractIso('', it.body);
         const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body);
         films.set(parsed.key, {
@@ -364,6 +364,15 @@ async function run() {
         const f = films.get(parsed.key);
         if (it.image && !f.image) f.image = it.image;
         if (f.iso == null) { const i = extractIso(it.tags, it.body); if (i != null) f.iso = i; }
+        // The first shop may say nothing about the process where a later one
+        // does, in its category, tags or description.
+        if (!f.process) {
+          const p = deriveProcess(it.type, it.title, it.tags, it.body);
+          if (p) {
+            f.process = p;
+            f.description = describe({ display: f.display, brand: f.brand, format: f.format, iso: f.iso, process: p });
+          }
+        }
         if (f.exp == null) { const e = extractExp(it.tags, it.body); if (e != null) f.exp = e; }
       }
     }

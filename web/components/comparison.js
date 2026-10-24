@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { gbp } from '../lib/data';
+import { gbp, priceUnit } from '../lib/data';
 
 // Group a film's offers by exposure count. A 24exp and a 36exp roll are
 // different products, so they compare within their own group. Single-group
@@ -19,7 +19,7 @@ function groupByExp(offers) {
   return groups;
 }
 
-function OfferRow({ o }) {
+function OfferRow({ o, unit }) {
   return (
     <div>
       <div className={`offer${o.inStock ? '' : ' dim'}`}>
@@ -30,7 +30,7 @@ function OfferRow({ o }) {
         </div>
         <div className="price">
           <span className="price-val">{gbp(o.pricePerRoll)}</span>
-          <span className="per"> / roll</span>
+          <span className="per"> / {unit}</span>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ export function FilmFrame({ film, index, linked = true }) {
           <div className="exp-group" key={g.exp ?? 'x'}>
             {multi && <div className="exp-label">{g.exp ? `${g.exp} exposures` : 'Exposures not stated'}</div>}
             {g.offers.map((o, i) => (
-              <OfferRow key={o.retailer + i} o={o} />
+              <OfferRow key={o.retailer + i} o={o} unit={priceUnit(film)} />
             ))}
           </div>
         ))}
