@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getFilm, getFilms, gbp, formatLabel, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
+import { getFilm, getFilms, gbp, formatLabel, priceUnit, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
 import { LegacyRedirect } from '../../../components/legacy-redirect';
 import { FORMATS, TYPES, CONDITIONS, rangeForFilm } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
@@ -30,7 +30,7 @@ export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
   if (!film) return { title: 'Film not found' };
   const title = `${film.display} | In stock across UK shops`;
-  const description = `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`;
+  const description = `Where to buy ${film.display} in the UK right now, with live prices per ${priceUnit(film)} so you can restock before you run out.`;
   return {
     title,
     description,
@@ -90,7 +90,7 @@ export default function FilmPage({ params }) {
         </h1>
         <p className="lede">
           {cheapest
-            ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/roll</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
+            ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/{priceUnit(film)}</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
             : <>Out of stock at every shop we track. Prices below are the last seen.</>}
         </p>
       </header>
