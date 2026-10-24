@@ -17,9 +17,14 @@ export function matchOffer(rawOffer, filmByKey) {
   // An adapter that knows the roll count outright (a Shopify variant option)
   // passes it; otherwise it is read from the title.
   const pack = rawOffer.packSize || parsed.packSize || 1;
-  const pricePerRoll = +(rawOffer.price / pack).toFixed(2);
+  // Sheet film compares per sheet, since one film is boxed in 10s, 25s and
+  // 50s. `pricePerRoll` keeps its name, but for sheet film it is per sheet.
+  // A box with no stated count has no per-sheet price: unpriced, not guessed.
+  const sheets = parsed.format === 'sheet' ? (parsed.sheets ? parsed.sheets * pack : null) : undefined;
+  const units = sheets === undefined ? pack : sheets;
+  const pricePerRoll = units ? +(rawOffer.price / units).toFixed(2) : null;
   const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(tagStr, '');
-  const offer = { ...rawOffer, packSize: pack, pricePerRoll, exp };
+  const offer = { ...rawOffer, packSize: pack, pricePerRoll, exp, ...(sheets !== undefined ? { sheets } : {}) };
 
   if (!parsed.complete) {
     return { status: 'review', reason: 'incomplete_parse', parsed, offer };

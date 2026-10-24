@@ -104,6 +104,10 @@ async function run() {
         price: r.offer.price,
         packSize: r.offer.packSize,
         pricePerRoll: r.offer.pricePerRoll,
+        // Sheet film only: how many sheets the price buys (pricePerRoll is then
+        // per sheet). Never null for a matched offer today; if a box ever comes
+        // with no count it is unpriced, sorts last and is never the best price.
+        ...(r.offer.sheets !== undefined ? { sheets: r.offer.sheets } : {}),
         exp: r.offer.exp ?? null,
         inStock: r.offer.inStock,
         url: r.offer.url,
@@ -112,8 +116,8 @@ async function run() {
   }
 
   const site = FILMS.map((f) => {
-    const list = byFilm.get(f.id).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
-    const best = list.find((o) => o.inStock) || null;
+    const list = byFilm.get(f.id).sort((a, b) => (a.pricePerRoll ?? Infinity) - (b.pricePerRoll ?? Infinity));
+    const best = list.find((o) => o.inStock && o.pricePerRoll != null) || null;
     return {
       slug: f.slug || slugify(f.display),
       display: f.display,

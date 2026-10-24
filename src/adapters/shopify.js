@@ -21,6 +21,8 @@
 // then printed as pounds (£16 for JFR's £9.99 Gold 200). Shops without
 // Markets ignore the parameter. It must be country, not currency=GBP: the
 // latter also shifts Analogue Wonderland's prices, which are already sterling.
+import { sheetSize } from '../normalise.js';
+
 export async function fetchAllProducts(baseUrl, opts = {}) {
   const { fetchImpl = fetch, limit = 250, maxPages = 40, delayMs = 500, retries = [2000, 8000, 30000] } = opts;
   const clean = baseUrl.replace(/\/+$/, '');
@@ -90,11 +92,12 @@ export function productsToOffers(products, { retailer, baseUrl }) {
       vendor && p.title.toLowerCase().startsWith(vendor.toLowerCase());
     const namePrefix = startsWithVendor ? '' : (vendor ? vendor + ' ' : '');
 
-    const shots = instantShots(p);
+    const count = countFromBody(p);
     for (const v of p.variants || []) {
       const { label, packSize } = variantInfo(p, v);
       const vt = label ? ' ' + label : '';
-      const title = `${namePrefix}${p.title}${vt}${shots && !label ? ` ${shots} shots` : ''}`.trim();
+      const named = `${namePrefix}${p.title}${vt}`.trim();
+      const title = count && !COUNTED.test(named) ? `${named} ${count}` : named;
 
       offers.push({
         retailer,
@@ -153,18 +156,29 @@ function variantInfo(p, v) {
   return { label, packSize };
 }
 
-// How many shots an instant film listing holds, from its description, when
-// the title gives no count at all. Polaroid Go film only comes as a 16-shot
-// double pack, and Analogue Wonderland titles it "Polaroid Go Film - Colour"
-// with "Exposures: 16" in the spec, so read from the title alone a double pack
-// priced as one. Appended to the offer title, where the normaliser turns it
-// into packs. null for anything else, or when the title already counts.
-function instantShots(p) {
-  if (!/\b(?:instax|polaroid|instant)\b/i.test(p.title)) return null;
-  if (/\b\d+\s*(?:shots?|sheets?|exposures?|photos?|prints?|pack)\b|\b(?:twin|double|triple|five)\s*pack\b|\btwinpack\b/i.test(p.title)) return null;
+// What a listing's price buys, from its description, for the two kinds of
+// film counted in shots or sheets rather than rolls, when the offer's own title
+// gives no count. Appended to the offer title, where the normaliser reads it.
+//   - Instant: Polaroid Go film only comes as a 16-shot double pack, and
+//     Analogue Wonderland titles it "Polaroid Go Film - Colour" with
+//     "Exposures: 16" in the spec, so a double pack priced as one.
+//   - Sheet: sheet film is compared per sheet, and the same shop titles "Kodak
+//     Portra 400 - 4x5 Sheet Film" with the box's count only in its spec, as
+//     "Exposures: 10" (or "Sheets: 10" on its Eastman listings).
+// null for anything else.
+const COUNTED = /\b\d+\s*(?:shots?|sheets?|exposures?|photos?|prints?|pack)\b|\b(?:twin|double|triple|five)\s*pack\b|\btwinpack\b/i;
+function countFromBody(p) {
   const body = (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  const m = body.match(/\bexposures:\s*(\d{1,2})\b/i) || body.match(/\bpack (?:of|contains) (\d{1,2})\s+(?:instant\s+)?(?:colou?r\s+)?(?:photos|shots|prints)\b/i);
-  return m ? Number(m[1]) : null;
+  if (/\b(?:instax|polaroid|instant)\b/i.test(p.title)) {
+    const m = body.match(/\bexposures:\s*(\d{1,2})\b/i) || body.match(/\bpack (?:of|contains) (\d{1,2})\s+(?:instant\s+)?(?:colou?r\s+)?(?:photos|shots|prints)\b/i);
+    return m ? `${m[1]} shots` : null;
+  }
+  const sizes = [p.title, ...(p.variants || []).map((v) => v.title || '')];
+  if (/\b(?:sheet film|large format)\b/i.test(p.title) || sizes.some((t) => sheetSize(t))) {
+    const m = body.match(/\b(?:sheets|exposures):\s*(\d{1,3})\b/i) || body.match(/\b(\d{1,3})\s*sheets\b/i);
+    return m ? `${m[1]} sheets` : null;
+  }
+  return null;
 }
 
 // "5", "5 Pack", "5 Roll Pack", "1 Pack (5 rolls)", "Single Roll", "Triple".

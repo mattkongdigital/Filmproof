@@ -69,7 +69,7 @@ export default function FilmPage({ params }) {
     ...(film.expired ? [['Condition', 'Expired', conditionSlug ? `/${conditionSlug}` : null]] : []),
   ];
 
-  const inStock = film.offers.filter((o) => o.inStock).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
+  const inStock = film.offers.filter((o) => o.inStock && o.pricePerRoll != null).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
   const cheapest = inStock[0];
   const multiExp = new Set(film.offers.map((o) => o.exp).filter(Boolean)).size > 1;
 

@@ -12,7 +12,7 @@ function groupByExp(offers) {
     map.get(k).push(o);
   }
   const groups = [...map.entries()].map(([exp, offs]) => {
-    const sorted = [...offs].sort((a, b) => a.pricePerRoll - b.pricePerRoll);
+    const sorted = [...offs].sort((a, b) => (a.pricePerRoll ?? Infinity) - (b.pricePerRoll ?? Infinity));
     return { exp, offers: sorted };
   });
   groups.sort((a, b) => (a.exp == null ? 1 : b.exp == null ? -1 : b.exp - a.exp));
@@ -25,12 +25,13 @@ function OfferRow({ o, unit }) {
       <div className={`offer${o.inStock ? '' : ' dim'}`}>
         <div className="shop">
           <a className="shop-name" href={o.url} target="_blank" rel="noopener noreferrer">{o.retailer}</a>
-          {o.packSize > 1 && <span className="tag">{o.packSize}-pack</span>}
+          {o.sheets ? <span className="tag">{o.sheets} sheets</span> : o.packSize > 1 && <span className="tag">{o.packSize}-pack</span>}
           {!o.inStock && <span className="oos">out of stock</span>}
         </div>
         <div className="price">
-          <span className="price-val">{gbp(o.pricePerRoll)}</span>
-          <span className="per"> / {unit}</span>
+          {o.pricePerRoll != null
+            ? <><span className="price-val">{gbp(o.pricePerRoll)}</span><span className="per"> / {unit}</span></>
+            : <span className="price-val">{gbp(o.price)}</span>}
         </div>
       </div>
     </div>

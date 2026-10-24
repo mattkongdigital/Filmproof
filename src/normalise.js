@@ -369,6 +369,11 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // 4x5 and 8x10 boxes of one film fold into one page and compare as one.
   // Read from the raw title, before the dot in "2.25x3.25" is stripped.
   const size = format === 'sheet' ? sheetSize(raw) : null;
+  // How many sheets the box holds. Data, not identity: a 10-sheet and a
+  // 50-sheet box of one film share a page and compare per sheet.
+  const sheets = format === 'sheet'
+    ? (Number((String(raw).match(/\b(\d{1,3})\s*sheets?\b/i) || [])[1]) || null)
+    : null;
 
   const tokens = lineText.split(' ').filter(Boolean).filter((t) => {
     if (BRAND_WORDS.has(t)) return false;
@@ -409,7 +414,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   const baseKey = identified ? [brand, line, format, iso].filter(Boolean).join('-') : null;
   const key = baseKey && expired ? `${baseKey}-expired` : baseKey;
 
-  return { brand, line, format, iso, exp, packSize, expired, key, identified, complete: identified, cleaned: text };
+  return { brand, line, format, iso, exp, packSize, sheets, expired, key, identified, complete: identified, cleaned: text };
 }
 
 function detectFormat(s) {

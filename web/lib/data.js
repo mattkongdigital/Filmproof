@@ -177,10 +177,10 @@ export function resolveLegacyFilm(slug) {
 
 export const gbp = (n) => '£' + Number(n).toFixed(2);
 
-// What one price buys. Instant film is sold in packs of shots and sheet film
-// in boxes of sheets, so a roll is the wrong word for either; every other
-// format is a roll.
-export const priceUnit = (film) => ({ instant: 'pack', sheet: 'box' }[film?.format] || 'roll');
+// What one price buys. Instant film is sold in packs of shots, and sheet film
+// is compared per sheet (it is boxed in 10s, 25s and 50s, so a box is no unit
+// to compare on); every other format is a roll.
+export const priceUnit = (film) => ({ instant: 'pack', sheet: 'sheet' }[film?.format] || 'roll');
 
 export const formatLabel = (format) => ({
   '135': '35mm', '120': '120', '110': '110', '127': '127', '220': '220', '620': '620',
