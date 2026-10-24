@@ -39,6 +39,18 @@ redirect to a 404 is worse than a 404. Ordinary churn (a film going out of
 stock and its page vanishing for a build) is NOT for this map; it is the normal
 behaviour of a catalogue rebuilt from live data.
 
+### Ranges
+
+A range is a maker's product line across speeds and formats (Kodak Portra,
+Tri-X), listed by hand in `RANGES` in `web/lib/facets.js` and matched on the
+film's display title. It gets a page at `/brand/<brand>/<range>/`, sharing the
+route with the brand's facet pages, once it has `MIN_COMBO_FILMS` (3) fresh
+films; expired stock is listed on the page but never earns one, since it comes
+and goes between builds. Kodak Gold is in the list but has no page at two fresh
+stocks. A range slug must not end in `-film` (the build stops), and its copy
+goes in `BRAND_SUB_CONTENT` under `<brand>/<range>`. Without copy the page
+falls back to a generated lede.
+
 ### Adding a shop
 
 A shop is an entry in `SOURCES` in `sources.config.js` and a matching entry in

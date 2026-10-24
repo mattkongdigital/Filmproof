@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { brandSubParams, resolveBrandSub, subFacetsForBrand, brandsForFacet, BRAND_CHIP_LIMIT, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
+import { brandSubParams, resolveBrandSub, resolveBrandRange, rangesForBrand, subFacetsForBrand, brandsForFacet, BRAND_CHIP_LIMIT, filmsFor, AXIS_LABEL } from '../../../../lib/facets';
+import { formatLabel } from '../../../../lib/data';
 import { getFilms } from '../../../../lib/data';
 import { ChipOverflow } from '../../../../components/chip-overflow';
 import { FoldAxis } from '../../../../components/fold-axis';
@@ -16,7 +17,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }) {
-  const r = resolveBrandSub(params.slug, params.sub);
+  const r = resolveBrandSub(params.slug, params.sub) || resolveBrandRange(params.slug, params.sub);
   if (!r) return { title: 'Not found' };
   const content = getBrandSubContent(params.slug, params.sub);
   return {
@@ -27,6 +28,8 @@ export function generateMetadata({ params }) {
 }
 
 export default function BrandSubPage({ params }) {
+  const range = resolveBrandRange(params.slug, params.sub);
+  if (range) return <BrandRangePage params={params} r={range} />;
   const r = resolveBrandSub(params.slug, params.sub);
   if (!r) notFound();
 
@@ -106,6 +109,88 @@ export default function BrandSubPage({ params }) {
         </div>
       )}
 
+    </div>
+  );
+}
+
+// "160, 400 and 800" — the speeds or formats a range spans, for its lede.
+const listOf = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+
+// Formats in the order a reader expects them, then anything else.
+const FORMAT_ORDER = ['135', '120', '110', '127', 'sheet', 'movie', 'instant'];
+
+// A range page: one maker's line across its speeds and formats. It shares the
+// facet route and its look, but its sibling row is the brand's other ranges,
+// and it has no other-brands row, since no other brand makes Portra.
+function BrandRangePage({ params, r }) {
+  const content = getBrandSubContent(params.slug, params.sub);
+  const films = filmsFor(r.match);
+  const siblings = rangesForBrand(params.slug).filter((x) => x.slug !== params.sub);
+  const fresh = films.filter((f) => !f.expired);
+  const isos = [...new Set(fresh.map((f) => f.iso).filter(Boolean))].sort((a, b) => Number(a) - Number(b));
+  const formats = [...new Set(fresh.map((f) => f.format))]
+    .sort((a, b) => (FORMAT_ORDER.indexOf(a) + 1 || 99) - (FORMAT_ORDER.indexOf(b) + 1 || 99))
+    .map((f) => (f === 'sheet' ? 'large format' : formatLabel(f)));
+  // What the range spans, said only where it spans something.
+  const spans = [
+    isos.length > 1 && `ISO ${listOf(isos)}`,
+    formats.length > 1 && listOf(formats),
+  ].filter(Boolean).join(', in ');
+
+  return (
+    <div className="wrap">
+      <Breadcrumbs items={[
+        { name: 'Home', href: '/' },
+        { name: 'Brands', href: '/brands' },
+        { name: `${r.brand.label} film`, href: `/brand/${params.slug}` },
+        { name: r.range.label },
+      ]} />
+      <header className="cat-head">
+        <div className="eyebrow">{r.brand.label}</div>
+        <h1>{r.heading}</h1>
+        <p className="lede">
+          {content ? content.intro : (
+            <>
+              Every {r.heading} we track, in stock across UK shops, with live prices per roll.
+              {spans && ` ${r.range.label} comes in ${spans}.`}
+              {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
+            </>
+          )}
+        </p>
+      </header>
+
+      <div className="facet-links">
+        <span className="facet-links-head">Browse {r.brand.label} by</span>
+        <div className="facet-axes">
+          <FoldAxis label="Range" count={1 + siblings.length} noun="ranges">
+            <Link className="chip" href={`/brand/${params.slug}`}>All</Link>
+            <span className="chip current" aria-current="page">
+              {r.range.label} <span className="chip-count">{films.length}</span>
+            </span>
+            {siblings.map((s) => (
+              <Link key={s.slug} className="chip" href={`/brand/${params.slug}/${s.slug}`}>
+                {s.label} <span className="chip-count">{s.count}</span>
+              </Link>
+            ))}
+          </FoldAxis>
+        </div>
+      </div>
+
+      <FilmBrowser films={films} />
+
+      {content && (
+        <div className="brand-about">
+          <h2 className="store-films-head">About {r.heading}</h2>
+          {content.sections.map((section) => (
+            <div key={section.heading}>
+              <h3 className="brand-about-heading">{section.heading}</h3>
+              {section.paragraphs.map((paragraph, i) => (
+                <p key={i} className="brand-about-p">{paragraph}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

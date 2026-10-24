@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { gbp, formatLabel } from '../lib/data';
+import { gbp, formatLabel, priceUnit } from '../lib/data';
 
 export function FilmCard({ film, hidden = false }) {
   const [failed, setFailed] = useState(false);
@@ -32,7 +32,7 @@ export function FilmCard({ film, hidden = false }) {
           {film.expired && <span className="tag-expired">Expired</span>}
         </div>
         <div className="card-price">
-          {film.best != null ? <><span className="from">from</span> {gbp(film.best)}<span className="per">/roll</span></> : <span className="nostock">check price</span>}
+          {film.best != null ? <><span className="from">from</span> {gbp(film.best)}<span className="per">/{priceUnit(film)}</span></> : <span className="nostock">check price</span>}
         </div>
       </div>
     </Link>

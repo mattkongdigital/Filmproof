@@ -69,13 +69,12 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-ektapan-400-35mm': 'kodak-eastman-ektapan-400-35mm-film',
   'kodak-ektar-120-film': 'kodak-eastman-ektar-100-120-film',
   'kodak-ektar-100-35mm-film': 'kodak-eastman-ektar-100-35mm-film',
-  'kodak-ektar-100-8x10-large-format-film': 'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets',
   'kodak-tri-x-400-35mm-film': 'kodak-eastman-tri-x-400-35mm-film',
   'kodak-tri-x-tx-135-pack': 'kodak-eastman-tri-x-400-35mm-film',
   'kodak-tri-x-400-120-film': 'kodak-eastman-tri-x-400-120-film',
   'kodak-tri-x-400-tx-120-b-w-film': 'kodak-eastman-tri-x-400-120-film',
   'kodak-tri-x-400-30-5m-bulk-roll-35mm': 'kodak-eastman-tri-x-400-30-5m-bulk-roll-35mm-film',
-  'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film',
+  'kodak-tri-x-320-8x10-large-format-film-10-sheets': 'kodak-eastman-tri-x-320-large-format-film-8x10',
   'kodak-portra-400-120-film-2028-expiry': 'kodak-portra-400-120-film',
   'cinestill-bwxx-black-white-negative-film-120-expiry-03-26': 'cinestill-bwxx-120-film',
   // Onboarding Parallax Photographic. Its titles state the speed where other
@@ -114,18 +113,91 @@ export const LEGACY_FILM_SLUGS = {
   'kentmere-400-120': 'kentmere-pan-400-120-film',
   'kentmere-400-120-photographic-film': 'kentmere-pan-400-120-film',
   'kentmere-100-120-photographic-film': 'kentmere-pan-100-120-film',
+  // Tidied before range pages went up, since a range lists every film in it:
+  // "Expires 03/26" read like the "Expiry" note it is, "Porta" as the Portra
+  // it misspells, "400T-Max" as T-Max 400, and Foma's range words wherever
+  // they fall ("Fomapan 100 Classic"), not only straight after the brand.
+  'kodak-gold-200-35mm-expires-03-26': 'kodak-eastman-gold-200-35mm-film',
+  'kodak-porta-pro-800-35mm-colour-film': 'kodak-portra-800-35mm-film',
+  'kodak-400t-max-135': 'kodak-t-max-400-35mm-film',
+  'fomapan-100-classic-100-35mm-b-w-film': 'fomapan-classic-100-35mm-film',
+  'fomapan-200-creative-135-35mm-b-w-film': 'fomapan-creative-200-35mm-film',
+  'fomapan-400-action-135-35mm-b-w-film': 'fomapan-action-400-35mm-film',
+  // Same again for the Ilford, Fujifilm and Harman ranges: "FP4 24 EXP PLUS"
+  // said Plus twice, "EXP 36" put the count after the word, and Acros II is
+  // sold with and without the Neopan name.
+  'ilford-fp4-plus-125-35mm-film': 'ilford-fp4-plus-35mm-film',
+  'ilford-hp5-plus-400-35mm-black-white-film-exp-36': 'ilford-hp5-plus-35mm-film',
+  'fujifilm-acros-100-ii-120-film': 'fujifilm-neopan-acros-ii-120-film',
+  // The duplicates the range pages showed up. A Kodak cine negative is
+  // Vision3 whether or not a shop says so, and a cine roll's length is not its
+  // identity; shops round a bulk roll's length ("30m", "30.5m"); FP4 Plus is
+  // ISO 125 whatever a shop's tag says; Phoenix with no speed is the original
+  // 200; and an Instax twin pack is two packs of the same film, however it is
+  // written ("20 shots", "2 x 10 shots"). On instant film black and white is
+  // now part of the name, which also split Polaroid's colour packs back off the
+  // black and white pages they had been merged into.
+  'kodak-vision3-500t-7219-colour-negative-16mm-film-30-5m': 'kodak-500t-16mm-movie-film',
+  'kodak-vision3-200t-7213-colour-negative-16mm-film-30-5m': 'kodak-200t-16mm-movie-film',
+  'kodak-vision3-50d-7203-colour-negative-16mm-film-30-5m': 'kodak-50d-16mm-movie-film',
+  'ilford-hp5-plus-400-35mm-film-bulk-roll-30m': 'ilford-hp5-plus-400-35mm-30-5m-bulk-roll',
+  'ilford-fp4-plus-125-4x5-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film',
+  'harman-phoenix-35mm-colour-film': 'harman-phoenix-200-35mm-film',
+  'fujifilm-instax-mini-twin-film-pack': 'fujifilm-instax-mini-film',
+  'fujifilm-instax-mini-colour-film-20-shots': 'fujifilm-instax-mini-film',
+  'fuji-instax-mini-film-2-x-10-shots': 'fujifilm-instax-mini-film',
+  'fuji-instax-mini-monochrome-instant-film': 'fujifilm-instax-mini-film-black-and-white',
+  'fujifilm-instax-square': 'fujifilm-instax-square-film-colour',
+  'fujifilm-instax-wide-colour-film': 'fujifilm-instax-wide-film',
+  'fujifilm-instax-wide-film-20-shots': 'fujifilm-instax-wide-film',
+  'fuji-instax-wide-monochrome-instant-film': 'fujifilm-instax-wide-film-b-w',
+  'polaroid-colour-600-film': 'polaroid-600-film-colour',
+  // "Polaroid Originals" was the company's name from 2017 to 2020.
+  'polaroid-originals-600-colour-instant-film-8-shots': 'polaroid-600-film-colour',
+  // Sheet size is part of a sheet film's identity now, so 4x5 and 8x10 boxes
+  // of one film no longer share a page. A page that held both goes to its 4x5
+  // half, the size most of its offers were; Ektar 100 8x10, once folded into
+  // the 4x5 page, is a page of its own again and so is not in this map.
+  'kodak-eastman-ektacolor-pro-400-large-format-film': 'kodak-eastman-ektacolor-pro-400-large-format-film-4x5',
+  'kodak-eastman-ektacolor-pro-160-large-format-film': 'kodak-eastman-ektacolor-pro-160-large-format-film-4x5',
+  'kodak-eastman-tri-x-320-large-format-film': 'kodak-eastman-tri-x-320-large-format-film-4x5',
+  'kodak-tri-x-320-5x7-large-format-film-50-sheets': 'kodak-eastman-tri-x-320-large-format-film-5x7',
+  // Sheet film is priced per sheet now, and a page lists every box of its
+  // film, so a page name no longer carries the first shop's box count.
+  'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets': 'kodak-eastman-ektar-100-4x5-large-format-film',
+  'ilford-pan-f-plus-4x5-sheet-film-25-sheets': 'ilford-pan-f-plus-4x5-sheet-film',
+  'ilford-pan-f-plus-8x10-sheet-film-25-sheets': 'ilford-pan-f-plus-8x10-sheet-film',
+  'kodak-t-max-400-8x10-large-format-film-10-sheets': 'kodak-t-max-400-8x10-large-format-film',
+  'kodak-t-max-400-4x5-large-format-film-50-sheets': 'kodak-t-max-400-4x5-large-format-film',
+  'kodak-t-max-100-8x10-large-format-film-10-sheets': 'kodak-t-max-100-8x10-large-format-film',
+  'kodak-t-max-100-4x5-large-format-film-50-sheets': 'kodak-t-max-100-4x5-large-format-film',
+  'fpp-x-ray-film-4x5-sheet-film-25-sheets': 'fpp-x-ray-film-4x5-sheet-film',
+  'ilford-fp4-plus-5x7-sheet-film-25-sheets': 'ilford-fp4-plus-5x7-sheet-film',
+  'ilford-fp4-plus-4x5-sheet-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film',
+  'ilford-hp5-plus-4x5-sheet-film-25-sheets': 'ilford-hp5-plus-4x5-sheet-film',
+  'fuji-velvia-100-4x5-film-20-sheets': 'fuji-velvia-100-4x5-film',
+  'ilford-ortho-plus-4x5-film-25-sheets': 'ilford-ortho-plus-4x5-film',
+  'fomapan-400-8x10-film-50-sheets': 'fomapan-400-8x10-film',
+  'fomapan-100-8x10-film-50-sheets': 'fomapan-100-8x10-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
-// has itself left the catalogue: a redirect to a 404 is worse than a 404.
+// has itself left the catalogue: a redirect to a 404 is worse than a 404. And
+// against a slug that is a live film again, as a split can bring one back: a
+// live page always wins over a redirect.
 export function resolveLegacyFilm(slug) {
   const target = LEGACY_FILM_SLUGS[slug];
-  if (!target) return null;
+  if (!target || getFilm(slug)) return null;
   const film = getFilm(target);
   return film ? { slug: target, film } : null;
 }
 
 export const gbp = (n) => '£' + Number(n).toFixed(2);
+
+// What one price buys. Instant film is sold in packs of shots, and sheet film
+// is compared per sheet (it is boxed in 10s, 25s and 50s, so a box is no unit
+// to compare on); every other format is a roll.
+export const priceUnit = (film) => ({ instant: 'pack', sheet: 'sheet' }[film?.format] || 'roll');
 
 export const formatLabel = (format) => ({
   '135': '35mm', '120': '120', '110': '110', '127': '127', '220': '220', '620': '620',

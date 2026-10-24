@@ -14,7 +14,7 @@ import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce
 import { saveProducts } from './src/product-cache.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
-import { parseFilmTitle } from './src/normalise.js';
+import { parseFilmTitle, sheetSize } from './src/normalise.js';
 import { deriveProcess, describe, extractIso, extractExp } from './src/describe.js';
 import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
@@ -131,7 +131,7 @@ function pickCleanImage(images) {
 // Decide whether a product is an actual roll/sheet of film (not accessories,
 // paper, chemicals, cameras...). Handles both Analogue Wonderland's short types
 // ("35mm", "Camera") and Firstcall's "Department : Category" paths.
-const NOT_FILM = /camera|merch|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|printer|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|\bcases?\b|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
+const NOT_FILM = /camera|merch|sticker|opener|archival|adapter|empties|accessor|gift|\bbook\b|strap|\bbag\b|spool|canister|\bpot\b|bundle|zine|\btank\b|reel|chemical|develop|process|\bscan|printing|printer|thermometer|cylinder|funnel|clip|blower|glove|binder|holder|carrier|\bcases?\b|densitometer|loader|retriever|\bjug\b|beaker|hood|\bmask|riser|batter|viewer|lightbox|\blamp|\bpage|lens|prime|\bzoom|rangefinder|point and shoot|reflector|softbox|umbrella|tripod|\bpanel|album|instruction|manual|\bflash|trigger|bracket|\bstand\b|telephoto|wide.?angle|f\/?\d|\bback\b/i;
 
 function isFilmProduct(type, title) {
   if (NOT_FILM.test(title)) return false;
@@ -175,7 +175,7 @@ async function itemsFor(src) {
       }
       if (!products && src.sample) products = JSON.parse(readFileSync(src.sample, 'utf8')).products;
       if (!products) return [];
-      return products.map((p) => ({
+      return products.flatMap(bySheetSize).map((p) => ({
         title: `${p.vendor && !p.title.toLowerCase().startsWith(p.vendor.toLowerCase()) ? p.vendor + ' ' : ''}${p.title}`.trim(),
         type: p.product_type || '',
         raw: p.title,
@@ -205,6 +205,17 @@ async function itemsFor(src) {
   }
 }
 
+// A sheet film product sold in several sizes, with the size only in its
+// variants ("Ektacolor Pro 400 - Large Format Film" in 4x5 and 8x10), is one
+// product per size here, so each size has its own film. The size joins the
+// title, which the key and the page name are both read from.
+function bySheetSize(p) {
+  if (sheetSize(p.title)) return [p];
+  const sizes = [...new Set((p.variants || []).map((v) => sheetSize(v.title || '')).filter(Boolean))];
+  if (!sizes.length) return [p];
+  return sizes.map((s) => ({ ...p, title: `${p.title} ${s}` }));
+}
+
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const cleanName = (t) => t
   .replace(/\b\d{1,3}\s*(?:exposures?|exp)\b/gi, '')
@@ -221,6 +232,13 @@ const cleanName = (t) => t
   .replace(/\s+[-–—]\s+/g, ', ')
   .replace(/\s*,\s*$/, '')
   .replace(/\s{2,}/g, ' ').trim();
+
+// A sheet film page lists every box of its film, priced per sheet, so the
+// first shop's box count ("..., 10 Sheets", "(50 Sheets)") is not the film's
+// name. Only for sheet film: on instant film a count names the pack.
+const filmName = (raw, format) => cleanName(format === 'sheet'
+  ? raw.replace(/[\s,(-]*\b\d{1,3}\s*sheets?\b\)?/gi, '')
+  : raw);
 
 // Some shops name a film's speed in the title ("Ilford HP5 Plus 400") and some
 // don't ("Ilford HP5 PLUS 35mm film"). The ISO is part of the identity key, so
@@ -343,11 +361,11 @@ async function run() {
         ].join(' | '));
       }
       if (!films.has(parsed.key)) {
-        const process = deriveProcess(it.type, it.title);
+        const process = deriveProcess(it.type, it.title, it.tags, it.body);
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? extractIso('', it.body);
         const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body);
         films.set(parsed.key, {
-          id: films.size + 1, key: parsed.key, display: cleanName(it.raw),
+          id: films.size + 1, key: parsed.key, display: filmName(it.raw, parsed.format),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
           expired: parsed.expired,
           // The parts the key was built from. `iso` above can be backfilled
@@ -355,8 +373,8 @@ async function run() {
           // the KEY carries an ISO — reconcileIsoStubs() needs `keyIso`.
           line: parsed.line, keyIso: parsed.iso ?? null,
           image: it.image || null,
-          description: describe({ display: cleanName(it.raw), brand: parsed.brand, format: parsed.format, iso, process }),
-          type: it.type, slug: slugify(cleanName(it.raw)),
+          description: describe({ display: filmName(it.raw, parsed.format), brand: parsed.brand, format: parsed.format, iso, process }),
+          type: it.type, slug: slugify(filmName(it.raw, parsed.format)),
         });
         kept++;
       } else {
@@ -364,6 +382,15 @@ async function run() {
         const f = films.get(parsed.key);
         if (it.image && !f.image) f.image = it.image;
         if (f.iso == null) { const i = extractIso(it.tags, it.body); if (i != null) f.iso = i; }
+        // The first shop may say nothing about the process where a later one
+        // does, in its category, tags or description.
+        if (!f.process) {
+          const p = deriveProcess(it.type, it.title, it.tags, it.body);
+          if (p) {
+            f.process = p;
+            f.description = describe({ display: f.display, brand: f.brand, format: f.format, iso: f.iso, process: p });
+          }
+        }
         if (f.exp == null) { const e = extractExp(it.tags, it.body); if (e != null) f.exp = e; }
       }
     }

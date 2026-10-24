@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getFilm, getFilms, gbp, formatLabel, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
+import { getFilm, getFilms, gbp, formatLabel, priceUnit, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
 import { LegacyRedirect } from '../../../components/legacy-redirect';
-import { FORMATS, TYPES, CONDITIONS } from '../../../lib/facets';
+import { FORMATS, TYPES, CONDITIONS, rangeForFilm } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
@@ -30,7 +30,7 @@ export function generateMetadata({ params }) {
   const film = getFilm(params.slug);
   if (!film) return { title: 'Film not found' };
   const title = `${film.display} | In stock across UK shops`;
-  const description = `Where to buy ${film.display} in the UK right now, with live prices per roll so you can restock before you run out.`;
+  const description = `Where to buy ${film.display} in the UK right now, with live prices per ${priceUnit(film)} so you can restock before you run out.`;
   return {
     title,
     description,
@@ -59,15 +59,17 @@ export default function FilmPage({ params }) {
   // Condition only earns a spec row when it is expired — "Fresh" on every other
   // film would be noise.
   const conditionSlug = (CONDITIONS.find((x) => x.match(film)) || {}).slug;
+  const range = rangeForFilm(film);
   const specs = [
     ['Brand', pretty(film.brand), film.brand ? `/brand/${film.brand}` : null],
+    ...(range ? [['Range', range.label, range.href]] : []),
     ['Format', formatLabel(film.format), formatSlug ? `/${formatSlug}` : null],
     ['Process', film.process || '—', typeSlug ? `/${typeSlug}` : null],
     ['Speed', film.iso ? `ISO ${film.iso}` : '—', null],
     ...(film.expired ? [['Condition', 'Expired', conditionSlug ? `/${conditionSlug}` : null]] : []),
   ];
 
-  const inStock = film.offers.filter((o) => o.inStock).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
+  const inStock = film.offers.filter((o) => o.inStock && o.pricePerRoll != null).sort((a, b) => a.pricePerRoll - b.pricePerRoll);
   const cheapest = inStock[0];
   const multiExp = new Set(film.offers.map((o) => o.exp).filter(Boolean)).size > 1;
 
@@ -77,6 +79,7 @@ export default function FilmPage({ params }) {
       <Breadcrumbs items={[
         { name: 'Home', href: '/' },
         ...(film.brand ? [{ name: pretty(film.brand), href: `/brand/${film.brand}` }] : []),
+        ...(range ? [{ name: range.label, href: range.href }] : []),
         { name: film.display },
       ]} />
       <header className="detail-head">
@@ -87,7 +90,7 @@ export default function FilmPage({ params }) {
         </h1>
         <p className="lede">
           {cheapest
-            ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/roll</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
+            ? <>In stock from <strong>{gbp(cheapest.pricePerRoll)}/{priceUnit(film)}</strong>{multiExp && cheapest.exp ? ` (${cheapest.exp} exp)` : ''} at {cheapest.retailer}.</>
             : <>Out of stock at every shop we track. Prices below are the last seen.</>}
         </p>
       </header>

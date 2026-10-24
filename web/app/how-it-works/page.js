@@ -39,6 +39,12 @@ export default function HowItWorks() {
         five-pack and a single roll can be compared fairly side by side. The pack size is shown
         on the offer so you know what you're actually buying.
       </p>
+      <p>
+        Two kinds of film aren't sold by the roll. Instant film is priced <strong>per pack</strong>,
+        so a twin pack is halved. Sheet film is priced <strong>per sheet</strong>, because the same
+        film comes in boxes of 10, 25 or 50 sheets, and a box price alone would make the smallest
+        box look cheapest. The number of sheets is shown on each offer.
+      </p>
 
       <h2>What's included, and what isn't</h2>
       <ul>
