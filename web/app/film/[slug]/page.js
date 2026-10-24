@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFilm, getFilms, gbp, formatLabel, SITE_URL, LEGACY_FILM_SLUGS, resolveLegacyFilm } from '../../../lib/data';
 import { LegacyRedirect } from '../../../components/legacy-redirect';
-import { FORMATS, TYPES, CONDITIONS } from '../../../lib/facets';
+import { FORMATS, TYPES, CONDITIONS, rangeForFilm } from '../../../lib/facets';
 import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
@@ -59,8 +59,10 @@ export default function FilmPage({ params }) {
   // Condition only earns a spec row when it is expired — "Fresh" on every other
   // film would be noise.
   const conditionSlug = (CONDITIONS.find((x) => x.match(film)) || {}).slug;
+  const range = rangeForFilm(film);
   const specs = [
     ['Brand', pretty(film.brand), film.brand ? `/brand/${film.brand}` : null],
+    ...(range ? [['Range', range.label, range.href]] : []),
     ['Format', formatLabel(film.format), formatSlug ? `/${formatSlug}` : null],
     ['Process', film.process || '—', typeSlug ? `/${typeSlug}` : null],
     ['Speed', film.iso ? `ISO ${film.iso}` : '—', null],
@@ -77,6 +79,7 @@ export default function FilmPage({ params }) {
       <Breadcrumbs items={[
         { name: 'Home', href: '/' },
         ...(film.brand ? [{ name: pretty(film.brand), href: `/brand/${film.brand}` }] : []),
+        ...(range ? [{ name: range.label, href: range.href }] : []),
         { name: film.display },
       ]} />
       <header className="detail-head">

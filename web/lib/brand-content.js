@@ -656,6 +656,69 @@ export function getBrandContent(slug) {
 // while the brand has >= MIN_COMBO_FILMS films for the facet (lib/facets.js),
 // so an entry here can outlive its page for a build without breaking anything.
 export const BRAND_SUB_CONTENT = {
+  // Kodak's ranges. Ektacolor Pro and Ektapan run on the generated lede until
+  // there is copy we can stand behind.
+  'kodak/portra': {
+    meta: { title: 'Kodak Portra Film | Compare UK Prices', description: 'Compare Kodak Portra 160, 400 and 800 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak Portra is Kodak's professional colour negative film, made for natural skin tones, fine grain and a wide margin for exposure error. It comes in three speeds, 160, 400 and 800, across 35mm, 120 and sheet film, which makes it the default colour stock for a great many portrait, wedding and travel photographers. Compare Kodak Portra prices from UK shops below.",
+    sections: [
+      { heading: "Portra 160, 400 or 800?", paragraphs: [
+        "Portra 160 is the slowest and finest grained of the three, with the softest contrast. It suits bright light, studio work and portraits where you can give it plenty of exposure.",
+        "Portra 400 is the all-rounder and the most widely stocked. It tolerates overexposure by several stops with little loss, so many photographers rate it at 200 for a brighter, cleaner scan, and it copes with mixed light better than the slower stock.",
+        "Portra 800 is the fast option for dim interiors, evenings and longer lenses. Grain is more visible than at 400, but colour holds up well, and it is usually the priciest of the three per roll.",
+      ] },
+      { heading: "Buying Portra in the UK", paragraphs: [
+        "Portra is often sold in five-roll pro packs as well as single rolls, so the price per roll is the fairer comparison. Filmproof divides multipacks out for you and updates prices and stock across UK shops daily.",
+      ] },
+    ],
+  },
+  'kodak/ektar': {
+    meta: { title: 'Kodak Ektar 100 Film | Compare UK Prices', description: 'Compare Kodak Ektar 100 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak Ektar 100 is the finest grained colour negative film Kodak makes, with vivid, saturated colour that suits landscapes, travel and anything where detail and punch matter more than gentle skin tones. It is sold in 35mm, 120 and sheet film. Compare Kodak Ektar prices from UK shops below.",
+    sections: [
+      { heading: "Shooting Ektar", paragraphs: [
+        "Ektar has less exposure latitude than Portra, so it rewards metering with care, and it tends to render skin warm or ruddy. In good light, on a landscape or a city street, its saturation and fine grain are the reason to choose it. Like any colour negative, it develops in standard C-41 chemistry at any lab.",
+      ] },
+    ],
+  },
+  'kodak/tri-x': {
+    meta: { title: 'Kodak Tri-X Film | Compare UK Prices', description: 'Compare Kodak Tri-X 400 and Tri-X 320 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak Tri-X is the classic black and white film of street photography and photojournalism, in production since 1954. Tri-X 400 comes in 35mm, 120 and bulk rolls, and Tri-X 320 in sheet film for large format cameras. Compare Kodak Tri-X prices from UK shops below.",
+    sections: [
+      { heading: "Why photographers choose Tri-X", paragraphs: [
+        "Tri-X has a recognisable look, with visible, even grain and strong midtones, and it is famously forgiving. It pushes well to 1600 and beyond for low light, and it handles a wide range of developers, so it is a favourite for home developing.",
+        "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 cameras, listed here alongside the still films.",
+      ] },
+    ],
+  },
+  'kodak/t-max': {
+    meta: { title: 'Kodak T-Max Film | Compare UK Prices', description: 'Compare Kodak T-Max 100, T-Max 400 and T-Max P3200 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak T-Max is Kodak's modern black and white range, built on flat, tabular grain for a cleaner, sharper result than traditional films at the same speed. It comes as T-Max 100, T-Max 400 and the push film T-Max P3200, across 35mm, 120, bulk rolls and sheet film. Compare Kodak T-Max prices from UK shops below.",
+    sections: [
+      { heading: "T-Max or Tri-X?", paragraphs: [
+        "T-Max 400 is finer grained and sharper than Tri-X at the same speed, which suits enlargements, architecture and anyone who wants a smoother tone. It is less forgiving of careless development, so time and temperature matter more.",
+        "T-Max 100 is one of the sharpest, finest grained black and white films available. T-Max P3200 is designed to be shot at high speeds in poor light, with a base sensitivity well below its name and room to push.",
+      ] },
+    ],
+  },
+  'kodak/ektachrome': {
+    meta: { title: 'Kodak Ektachrome Film | Compare UK Prices', description: 'Compare Kodak Ektachrome E100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: "Kodak Ektachrome E100 is Kodak's colour slide film, brought back in 2018 after it had been discontinued, with fine grain and clean, fairly neutral colour. It is sold in 35mm, 120 and sheet film, and in a motion picture version for 16mm cameras. Compare Kodak Ektachrome prices from UK shops below.",
+    sections: [
+      { heading: "Shooting slide film", paragraphs: [
+        "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot.",
+      ] },
+    ],
+  },
+  'kodak/vision3': {
+    meta: { title: 'Kodak Vision3 Film | Compare UK Prices', description: 'Compare Kodak Vision3 50D, 250D, 200T and 500T motion picture film prices from UK shops, in Super 8 and 16mm, with live stock and prices.' },
+    intro: "Kodak Vision3 is Kodak's motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.",
+    sections: [
+      { heading: "Developing Vision3", paragraphs: [
+        "Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill's 800T and 50D still films are made from Vision3 stock with that backing taken off.",
+      ] },
+    ],
+  },
   'polaroid/colour-film': {
     meta: { title: 'Polaroid Colour Film | Compare UK Prices', description: 'Compare Polaroid colour film prices from UK shops. i-Type, 600, SX-70 and Go colour instant film, with live stock and prices per pack.' },
     intro: "Polaroid colour film is the original instant film, still made at Polaroid's factory in Enschede in the Netherlands and still developing into a real chemical print in your hand. Whether you shoot a modern Now or I-2, a vintage 600 camera, a folding SX-70 or the pocket-sized Go, there is a Polaroid colour film made for it. Compare Polaroid colour film prices from UK shops below and see who actually has packs in stock.",

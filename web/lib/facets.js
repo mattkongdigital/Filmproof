@@ -163,6 +163,8 @@ export function resolveBrandSub(brandSlug, subSlug) {
   };
 }
 
+// Every /brand/<slug>/<sub> page: the brand's facets, then its ranges. Both
+// share the one route, so the sitemap picks up ranges from here too.
 export function brandSubParams() {
   const out = [];
   for (const b of brandList()) {
@@ -170,7 +172,81 @@ export function brandSubParams() {
       if (countFor(b.slug, facet) >= MIN_COMBO_FILMS) out.push({ slug: b.slug, sub: facet.slug });
     }
   }
+  for (const r of builtRanges()) out.push({ slug: r.brand, sub: r.slug });
   return out;
+}
+
+// ---- ranges -----------------------------------------------------------------
+
+// A range is a maker's product line across its speeds and formats: Portra is
+// 160, 400 and 800, in 35mm, 120 and sheet. It is hand-listed rather than read
+// from the normaliser's `line`, which is an identity key (Ektachrome E100's is
+// "e100ektachrome") and never leaves the build.
+//
+// `match` reads the film's display title, which is the first shop's, so it
+// must hold for every spelling a shop uses. Ektacolor Pro excludes Portra
+// because shops gloss it with the Portra it replaces ("Ektacolor Pro 800
+// (Portra 800)"), and that note can end up in the display.
+//
+// A range slug lives beside the facet slugs under /brand/<slug>/, so it must
+// never end in "-film" like they all do. The check below stops the build.
+export const RANGES = [
+  { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'ektar', label: 'Ektar', match: (f) => /\bektar\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'gold', label: 'Gold', match: (f) => /\bgold\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'ultramax', label: 'UltraMax', match: (f) => /\bultra\s*max\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'colorplus', label: 'ColorPlus', match: (f) => /\bcolou?r\s*plus\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'ektachrome', label: 'Ektachrome', match: (f) => /\bektachrome\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'tri-x', label: 'Tri-X', match: (f) => /\btri[\s-]?x\b/i.test(f.display) },
+  { brand: 'kodak', slug: 't-max', label: 'T-Max', match: (f) => /\bt[\s-]?max\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'ektapan', label: 'Ektapan', match: (f) => /\bektapan\b/i.test(f.display) },
+  // Kodak's current cine colour negatives are all Vision3, and some shops list
+  // them by speed alone ("Kodak 500T, 16mm Movie Film").
+  { brand: 'kodak', slug: 'vision3', label: 'Vision3', match: (f) => /\bvision\s*3\b/i.test(f.display) || (f.format === 'movie' && /^kodak\s+(?:50d|250d|200t|500t)\b/i.test(f.display)) },
+];
+
+for (const r of RANGES) {
+  if (/-film$/.test(r.slug) || ALL_FACETS.some((x) => x.slug === r.slug)) {
+    throw new Error(`Range slug "${r.brand}/${r.slug}" would collide with a facet page under /brand/${r.brand}/.`);
+  }
+}
+
+const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.match(f));
+
+// A range earns a page on its fresh films alone. Expired stock is one-off
+// listings that come and go between builds, so a page standing on them would
+// flicker in and out of the sitemap; once the page exists it lists them too.
+// Gold, at two fresh stocks, waits for a third: two cards would only repeat
+// the film pages they link to.
+function builtRanges() {
+  return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= MIN_COMBO_FILMS);
+}
+
+// The brand's ranges that have a page, with how many films each lists, in the
+// order RANGES gives them (it reads as the maker's own line-up).
+export function rangesForBrand(brandSlug) {
+  return builtRanges()
+    .filter((r) => r.brand === brandSlug)
+    .map((r) => ({ slug: r.slug, label: r.label, count: rangeFilms(r).length }));
+}
+
+export function resolveBrandRange(brandSlug, rangeSlug) {
+  const range = builtRanges().find((r) => r.brand === brandSlug && r.slug === rangeSlug);
+  if (!range) return null;
+  return {
+    range,
+    brand: { slug: brandSlug, label: brandLabel(brandSlug) },
+    heading: `${brandLabel(brandSlug)} ${range.label} film`,
+    match: (f) => f.brand === brandSlug && range.match(f),
+  };
+}
+
+// The range page a film belongs to, or null. First match wins, and only a
+// range that has a page counts, so a film never links to one that wasn't built.
+export function rangeForFilm(film) {
+  const r = builtRanges().find((x) => x.brand === film.brand && x.match(film));
+  return r ? { slug: r.slug, label: r.label, href: `/brand/${r.brand}/${r.slug}` } : null;
 }
 
 export function brandList() {
