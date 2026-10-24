@@ -39,19 +39,27 @@ export function deriveProcess(type = '', title = '') {
   // 2. C-41 black & white exceptions, before any colour rule can grab them.
   if (/\bxp\s?2\b|bw400cn|\bg400\b/.test(s)) return 'Black & white';
 
-  // 3. Slide / cine (category or name).
+  // 3. Black and white reversal, before the cine rule below can call Tri-X
+  // Reversal and Fomapan R ECN-2: they are cine stocks, but black and white
+  // ones developed to a positive, not colour negative. Fomapan R often drops
+  // the word "reversal", and FPP writes "BW40". Never a colour stock.
+  if ((/reversal/.test(s) || /\bfomapan\s*r\b/.test(s))
+      && (bwSignal.test(s) || /\bbw\s?\d/.test(s) || BW_STOCKS.test(s))
+      && !/colou?r|chrome|\be-?6\b/.test(s)) return 'Black & white reversal';
+
+  // 4. Slide / cine (category or name).
   if (/slide|reversal|\be-?6\b/.test(t) || /\bslide\b|provia|velvia|ektachrome|\be100\b|\bchrome\b/.test(s)) return 'Colour slide (E-6)';
   if (/movie|cine|super\s?8/.test(t) || /super\s?8|\bcine\b|vision3|\becn/.test(s)) return 'Cine (ECN-2)';
 
-  // 4. The shop's own colour / B&W category.
+  // 5. The shop's own colour / B&W category.
   if (/black\s*&?\s*white|b&w|\bb\s*w\b|\bmono\b|monochrome/.test(t)) return 'Black & white';
   if (/colour|color/.test(t) && /film/.test(t)) return 'Colour negative (C-41)';
 
-  // 5. Known stock names (B&W before colour).
+  // 6. Known stock names (B&W before colour).
   if (BW_STOCKS.test(s)) return 'Black & white';
   if (COLOUR_STOCKS.test(s)) return 'Colour negative (C-41)';
 
-  // 6. Genuinely unsure — leave unclassified so it isn't misfiled.
+  // 7. Genuinely unsure — leave unclassified so it isn't misfiled.
   return null;
 }
 
