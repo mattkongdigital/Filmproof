@@ -719,6 +719,108 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'ilford/hp5-plus': {
+    meta: { title: 'Ilford HP5 Plus Film | Compare UK Prices', description: 'Compare Ilford HP5 Plus 400 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: 'Ilford HP5 Plus is a fast, forgiving ISO 400 black and white film, made in Cheshire and one of the most popular black and white stocks in the world. It is sold in 35mm, 120, bulk rolls and sheet film. Compare Ilford HP5 Plus prices from UK shops below.',
+    sections: [
+      { heading: 'Why HP5 Plus', paragraphs: [
+        'HP5 Plus has moderate grain, gentle contrast and a very wide exposure latitude, so it copes with mistakes and with mixed light. It pushes well to 1600 and even 3200 for low light, which makes it a favourite for street, documentary and gig photography, and it is easy to develop at home in almost any developer.',
+        'Ilford also releases limited edition HP5 Plus with special packaging from time to time. The film inside is the same, so compare those on price alone.',
+      ] },
+    ],
+  },
+  'ilford/fp4-plus': {
+    meta: { title: 'Ilford FP4 Plus Film | Compare UK Prices', description: 'Compare Ilford FP4 Plus 125 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: "Ilford FP4 Plus is a medium speed ISO 125 black and white film with fine grain and a classic tonal range, and one of Ilford's longest running stocks. It is sold in 35mm, 120, bulk rolls and several sheet film sizes. Compare Ilford FP4 Plus prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting FP4 Plus', paragraphs: [
+        'FP4 Plus sits between the very fine grain of Pan F Plus and the speed of HP5 Plus. It suits daylight portraits, landscapes and architecture, and takes overexposure well, so many photographers rate it at 100 or even 50 and cut development to keep the highlights soft.',
+      ] },
+    ],
+  },
+  'ilford/delta': {
+    meta: { title: 'Ilford Delta Film | Compare UK Prices', description: 'Compare Ilford Delta 100, Delta 400 and Delta 3200 prices from UK shops, in 35mm, 120, bulk and sheet film, with live stock and prices per roll.' },
+    intro: "Ilford Delta is Ilford's modern black and white range, built on a newer crystal technology for finer grain and greater sharpness than its traditional films at the same speed. It comes as Delta 100, Delta 400 and Delta 3200, across 35mm, 120, bulk rolls and sheet film. Compare Ilford Delta prices from UK shops below.",
+    sections: [
+      { heading: 'Delta 100, 400 or 3200?', paragraphs: [
+        'Delta 100 is extremely fine grained and sharp, suited to landscapes, architecture and large prints. Delta 400 gives a smoother result than HP5 Plus at the same speed, with a little less latitude. Delta 3200 is made for low light and pushing: its true speed is nearer ISO 1000, and it is shot anywhere from there up to 3200 and beyond, with grain that becomes part of the look.',
+        "If you like the tonality of Ilford's traditional films but want cleaner grain, Delta is the range to try; if you value forgiveness and a classic look, HP5 Plus and FP4 Plus are the alternatives.",
+      ] },
+    ],
+  },
+  'ilford/pan-f-plus': {
+    meta: { title: 'Ilford Pan F Plus Film | Compare UK Prices', description: 'Compare Ilford Pan F Plus 50 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Ilford Pan F Plus is a slow ISO 50 black and white film with extremely fine grain, high sharpness and rich contrast. It is sold in 35mm, 120 and sheet film. Compare Ilford Pan F Plus prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Pan F Plus', paragraphs: [
+        'At ISO 50, Pan F Plus wants bright light or a tripod, but it rewards both with detail and smooth tones that suit landscapes, still life and portraits in good light. It has less latitude than faster films, so meter carefully, and allow for reciprocity on exposures of a second or more.',
+      ] },
+    ],
+  },
+  'ilford/xp2': {
+    meta: { title: 'Ilford XP2 Super Film | Compare UK Prices', description: 'Compare Ilford XP2 Super 400 prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Ilford XP2 Super is a chromogenic ISO 400 black and white film, developed in the same C-41 chemistry as colour negative film, so any high street or online lab can process it. It is sold in 35mm and 120. Compare Ilford XP2 Super prices from UK shops below.',
+    sections: [
+      { heading: 'Why choose XP2 Super', paragraphs: [
+        'Because it forms its image from dye rather than silver, XP2 Super has very fine grain for its speed and a huge exposure latitude, giving usable negatives from around ISO 50 to 800 on one roll. It is the easy way into black and white for anyone who sends film to a colour lab rather than developing at home. Prints from a colour lab can carry a slight tint unless the lab prints them as black and white.',
+      ] },
+    ],
+  },
+  'ilford/ortho-plus': {
+    meta: { title: 'Ilford Ortho Plus Film | Compare UK Prices', description: 'Compare Ilford Ortho Plus 80 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Ilford Ortho Plus is an orthochromatic black and white film, sensitive to blue and green light but not to red. Rated at ISO 80 in daylight, it is sold in 35mm, 120 and sheet film. Compare Ilford Ortho Plus prices from UK shops below.',
+    sections: [
+      { heading: 'What orthochromatic film looks like', paragraphs: [
+        'Because Ortho Plus does not see red, reds and warm skin tones render dark, blue skies render light, and freckles and blemishes stand out, which gives portraits an old fashioned, early photography look. It can be handled and developed under a red safelight, which makes it popular for tray developing sheet film. Under tungsten light its speed falls to around ISO 40.',
+      ] },
+    ],
+  },
+  'fujifilm/instax-mini': {
+    meta: { title: 'Fujifilm Instax Mini Film | Compare UK Prices', description: 'Compare Fujifilm Instax Mini film prices from UK shops, in colour, monochrome and patterned frames, with live stock and prices per pack.' },
+    intro: 'Fujifilm Instax Mini is the smallest and most widely sold Instax format, giving credit card sized prints with an image of about 62 by 46mm. It fits Instax Mini cameras and printers, and comes in colour, monochrome and a long list of patterned frames. Compare Fujifilm Instax Mini prices from UK shops below.',
+    sections: [
+      { heading: 'Buying Instax Mini film', paragraphs: [
+        'Instax Mini comes in packs of ten shots and twin packs of twenty, and larger bundles bring the price per shot down, so compare on price per shot rather than per box. The frame designs change the border, not the film, so a Rainbow or Sky Blue pack develops just like the plain white one. Instax Mini will not fit Square or Wide cameras, so check your camera before you buy.',
+      ] },
+    ],
+  },
+  'fujifilm/instax-square': {
+    meta: { title: 'Fujifilm Instax Square Film | Compare UK Prices', description: 'Compare Fujifilm Instax Square film prices from UK shops, in colour, monochrome and framed editions, with live stock and prices per pack.' },
+    intro: 'Fujifilm Instax Square gives a square print with an image of about 62 by 62mm, between Mini and Wide in size. It fits Instax Square cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Square prices from UK shops below.',
+    sections: [
+      { heading: 'Buying Instax Square film', paragraphs: [
+        'Instax Square is sold in packs of ten shots and in twin packs, so compare on price per shot. It only fits Square format cameras and printers, not Mini or Wide models. Black frame and coloured frame editions use the same film with a different border.',
+      ] },
+    ],
+  },
+  'fujifilm/instax-wide': {
+    meta: { title: 'Fujifilm Instax Wide Film | Compare UK Prices', description: 'Compare Fujifilm Instax Wide film prices from UK shops, in colour and monochrome, with live stock and prices per pack.' },
+    intro: 'Fujifilm Instax Wide is the largest Instax format, with an image of about 99 by 62mm, twice the width of Instax Mini. It fits Instax Wide cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Wide prices from UK shops below.',
+    sections: [
+      { heading: 'Buying Instax Wide film', paragraphs: [
+        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. The wider frame suits groups and landscapes better than Mini. It fits only Wide format cameras and printers.',
+      ] },
+    ],
+  },
+  'fujifilm/velvia': {
+    meta: { title: 'Fujifilm Velvia Film | Compare UK Prices', description: 'Compare Fujifilm Velvia 50 and Velvia 100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Fujifilm Velvia is the slide film landscape photographers reach for, famous for intensely saturated colour, deep blacks and very fine grain. It comes as Velvia 50 and Velvia 100, in 35mm, 120 and sheet film. Compare Fujifilm Velvia prices from UK shops below.',
+    sections: [
+      { heading: 'Velvia 50 or Velvia 100?', paragraphs: [
+        'Velvia 50 is the original, with the strongest colour and a warmer rendering, and many photographers rate it slightly slower than box speed. Velvia 100 gives you a stop more speed with similar saturation and a cooler, more neutral balance, which makes it easier to handhold.',
+        'Like all slide film, Velvia has little exposure latitude, so meter for the highlights, and it develops in E-6 chemistry, which fewer labs run than C-41.',
+      ] },
+    ],
+  },
+  'harman/phoenix': {
+    meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
+    sections: [
+      { heading: 'Phoenix and Phoenix II', paragraphs: [
+        'The original Phoenix has a deliberately bold, experimental look, with high contrast, visible grain and strong halation around highlights. Phoenix II is a reworked version with finer grain and more even colour, for photographers who want the character without as much unpredictability. Both are worth shooting with some extra exposure, as they reward a generous meter reading.',
+      ] },
+    ],
+  },
   'polaroid/colour-film': {
     meta: { title: 'Polaroid Colour Film | Compare UK Prices', description: 'Compare Polaroid colour film prices from UK shops. i-Type, 600, SX-70 and Go colour instant film, with live stock and prices per pack.' },
     intro: "Polaroid colour film is the original instant film, still made at Polaroid's factory in Enschede in the Netherlands and still developing into a real chemical print in your hand. Whether you shoot a modern Now or I-2, a vintage 600 camera, a folding SX-70 or the pocket-sized Go, there is a Polaroid colour film made for it. Compare Polaroid colour film prices from UK shops below and see who actually has packs in stock.",

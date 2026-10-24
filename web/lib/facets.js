@@ -204,6 +204,25 @@ export const RANGES = [
   // Kodak's current cine colour negatives are all Vision3, and some shops list
   // them by speed alone ("Kodak 500T, 16mm Movie Film").
   { brand: 'kodak', slug: 'vision3', label: 'Vision3', match: (f) => /\bvision\s*3\b/i.test(f.display) || (f.format === 'movie' && /^kodak\s+(?:50d|250d|200t|500t)\b/i.test(f.display)) },
+  { brand: 'ilford', slug: 'hp5-plus', label: 'HP5 Plus', match: (f) => /\bhp\s?5\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'fp4-plus', label: 'FP4 Plus', match: (f) => /\bfp\s?4\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'delta', label: 'Delta', match: (f) => /\bdelta\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'pan-f-plus', label: 'Pan F Plus', match: (f) => /\bpan\s?f\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'xp2', label: 'XP2', match: (f) => /\bxp\s?2\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'ortho-plus', label: 'Ortho Plus', match: (f) => /\bortho\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'sfx', label: 'SFX', match: (f) => /\bsfx\b/i.test(f.display) },
+  // Instax is three formats that fit three sets of cameras, so each is a range
+  // of its own rather than one page a reader has to sort through.
+  { brand: 'fujifilm', slug: 'instax-mini', label: 'Instax Mini', match: (f) => /\binstax\s*mini\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'instax-square', label: 'Instax Square', match: (f) => /\binstax\s*square\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'instax-wide', label: 'Instax Wide', match: (f) => /\binstax\s*wide\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'velvia', label: 'Velvia', match: (f) => /\bvelvia\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'provia', label: 'Provia', match: (f) => /\bprovia\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'superia', label: 'Superia', match: (f) => /\bsuperia\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'acros', label: 'Acros', match: (f) => /\bacros\b/i.test(f.display) },
+  { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
+  { brand: 'harman', slug: 'red', label: 'Red', match: (f) => /\bred\s*125\b/i.test(f.display) },
+  { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', match: (f) => /\bswitch\b/i.test(f.display) },
 ];
 
 for (const r of RANGES) {
