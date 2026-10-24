@@ -151,6 +151,11 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bhp\s?5(?:\s*plus)?\b/g, 'hp5plus')   // "HP5" and "HP5 Plus" are one film
     .replace(/\bfp\s?4(?:\s*plus)?\b/g, 'fp4plus')
     .replace(/\bpan\s?f(?:\s*plus)?\b/g, 'panfplus')
+    // ...and a second "Plus" further on is the same word again: Film Camera
+    // Store's "FP4 24 EXP PLUS 125" keyed apart from every other FP4 Plus.
+    .replace(/\b(hp5plus|fp4plus|panfplus)\b(.*?)\s+plus\b/g, '$1$2')
+    // Acros II is sold with and without Fujifilm's old "Neopan" family name.
+    .replace(/\bneopan\s+((?:\d{2,4}\s+)?acros)\b/g, '$1')
     .replace(/\bgold\s+gb\b/g, 'gold')          // GB is a factory code — same film
     // Spelled-out and coded names for one stock: CineStill sells 400D as
     // "400Dynamic", and "BWXX" is its Double-X, which some shops add in words.
@@ -256,7 +261,8 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
       : (hintFormat || textFormat);
 
   let exp = null;
-  const em = text.match(/\b(\d{2})\s?(?:exp|exposure|exposures)\b/) || text.match(/\b135[\s-]?(\d{2})\b/);
+  // "36 Exp", and the other way round ("EXP 36"), and "135-36".
+  const em = text.match(/\b(\d{2})\s?(?:exp|exposure|exposures)\b/) || text.match(/\bexp\s?(\d{2})\b/) || text.match(/\b135[\s-]?(\d{2})\b/);
   if (em) exp = em[1];
 
   let packSize = 1;

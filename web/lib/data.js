@@ -124,6 +124,12 @@ export const LEGACY_FILM_SLUGS = {
   'fomapan-100-classic-100-35mm-b-w-film': 'fomapan-classic-100-35mm-film',
   'fomapan-200-creative-135-35mm-b-w-film': 'fomapan-creative-200-35mm-film',
   'fomapan-400-action-135-35mm-b-w-film': 'fomapan-action-400-35mm-film',
+  // Same again for the Ilford, Fujifilm and Harman ranges: "FP4 24 EXP PLUS"
+  // said Plus twice, "EXP 36" put the count after the word, and Acros II is
+  // sold with and without the Neopan name.
+  'ilford-fp4-plus-125-35mm-film': 'ilford-fp4-plus-35mm-film',
+  'ilford-hp5-plus-400-35mm-black-white-film-exp-36': 'ilford-hp5-plus-35mm-film',
+  'fujifilm-acros-100-ii-120-film': 'fujifilm-neopan-acros-ii-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
