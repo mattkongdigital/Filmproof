@@ -233,6 +233,13 @@ const cleanName = (t) => t
   .replace(/\s*,\s*$/, '')
   .replace(/\s{2,}/g, ' ').trim();
 
+// A sheet film page lists every box of its film, priced per sheet, so the
+// first shop's box count ("..., 10 Sheets", "(50 Sheets)") is not the film's
+// name. Only for sheet film: on instant film a count names the pack.
+const filmName = (raw, format) => cleanName(format === 'sheet'
+  ? raw.replace(/[\s,(-]*\b\d{1,3}\s*sheets?\b\)?/gi, '')
+  : raw);
+
 // Some shops name a film's speed in the title ("Ilford HP5 Plus 400") and some
 // don't ("Ilford HP5 PLUS 35mm film"). The ISO is part of the identity key, so
 // the same film arrives under two keys — one with the speed, one without — and
@@ -358,7 +365,7 @@ async function run() {
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? extractIso('', it.body);
         const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body);
         films.set(parsed.key, {
-          id: films.size + 1, key: parsed.key, display: cleanName(it.raw),
+          id: films.size + 1, key: parsed.key, display: filmName(it.raw, parsed.format),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
           expired: parsed.expired,
           // The parts the key was built from. `iso` above can be backfilled
@@ -366,8 +373,8 @@ async function run() {
           // the KEY carries an ISO — reconcileIsoStubs() needs `keyIso`.
           line: parsed.line, keyIso: parsed.iso ?? null,
           image: it.image || null,
-          description: describe({ display: cleanName(it.raw), brand: parsed.brand, format: parsed.format, iso, process }),
-          type: it.type, slug: slugify(cleanName(it.raw)),
+          description: describe({ display: filmName(it.raw, parsed.format), brand: parsed.brand, format: parsed.format, iso, process }),
+          type: it.type, slug: slugify(filmName(it.raw, parsed.format)),
         });
         kept++;
       } else {

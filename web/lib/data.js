@@ -141,7 +141,7 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-vision3-200t-7213-colour-negative-16mm-film-30-5m': 'kodak-200t-16mm-movie-film',
   'kodak-vision3-50d-7203-colour-negative-16mm-film-30-5m': 'kodak-50d-16mm-movie-film',
   'ilford-hp5-plus-400-35mm-film-bulk-roll-30m': 'ilford-hp5-plus-400-35mm-30-5m-bulk-roll',
-  'ilford-fp4-plus-125-4x5-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film-25-sheets',
+  'ilford-fp4-plus-125-4x5-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film',
   'harman-phoenix-35mm-colour-film': 'harman-phoenix-200-35mm-film',
   'fujifilm-instax-mini-twin-film-pack': 'fujifilm-instax-mini-film',
   'fujifilm-instax-mini-colour-film-20-shots': 'fujifilm-instax-mini-film',
@@ -162,6 +162,23 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-eastman-ektacolor-pro-160-large-format-film': 'kodak-eastman-ektacolor-pro-160-large-format-film-4x5',
   'kodak-eastman-tri-x-320-large-format-film': 'kodak-eastman-tri-x-320-large-format-film-4x5',
   'kodak-tri-x-320-5x7-large-format-film-50-sheets': 'kodak-eastman-tri-x-320-large-format-film-5x7',
+  // Sheet film is priced per sheet now, and a page lists every box of its
+  // film, so a page name no longer carries the first shop's box count.
+  'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets': 'kodak-eastman-ektar-100-4x5-large-format-film',
+  'ilford-pan-f-plus-4x5-sheet-film-25-sheets': 'ilford-pan-f-plus-4x5-sheet-film',
+  'ilford-pan-f-plus-8x10-sheet-film-25-sheets': 'ilford-pan-f-plus-8x10-sheet-film',
+  'kodak-t-max-400-8x10-large-format-film-10-sheets': 'kodak-t-max-400-8x10-large-format-film',
+  'kodak-t-max-400-4x5-large-format-film-50-sheets': 'kodak-t-max-400-4x5-large-format-film',
+  'kodak-t-max-100-8x10-large-format-film-10-sheets': 'kodak-t-max-100-8x10-large-format-film',
+  'kodak-t-max-100-4x5-large-format-film-50-sheets': 'kodak-t-max-100-4x5-large-format-film',
+  'fpp-x-ray-film-4x5-sheet-film-25-sheets': 'fpp-x-ray-film-4x5-sheet-film',
+  'ilford-fp4-plus-5x7-sheet-film-25-sheets': 'ilford-fp4-plus-5x7-sheet-film',
+  'ilford-fp4-plus-4x5-sheet-film-25-sheets': 'ilford-fp4-plus-4x5-sheet-film',
+  'ilford-hp5-plus-4x5-sheet-film-25-sheets': 'ilford-hp5-plus-4x5-sheet-film',
+  'fuji-velvia-100-4x5-film-20-sheets': 'fuji-velvia-100-4x5-film',
+  'ilford-ortho-plus-4x5-film-25-sheets': 'ilford-ortho-plus-4x5-film',
+  'fomapan-400-8x10-film-50-sheets': 'fomapan-400-8x10-film',
+  'fomapan-100-8x10-film-50-sheets': 'fomapan-100-8x10-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that
