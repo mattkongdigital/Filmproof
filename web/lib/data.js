@@ -153,6 +153,8 @@ export const LEGACY_FILM_SLUGS = {
   'fujifilm-instax-wide-film-20-shots': 'fujifilm-instax-wide-film',
   'fuji-instax-wide-monochrome-instant-film': 'fujifilm-instax-wide-film-b-w',
   'polaroid-colour-600-film': 'polaroid-600-film-colour',
+  // "Polaroid Originals" was the company's name from 2017 to 2020.
+  'polaroid-originals-600-colour-instant-film-8-shots': 'polaroid-600-film-colour',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

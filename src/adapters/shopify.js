@@ -90,10 +90,11 @@ export function productsToOffers(products, { retailer, baseUrl }) {
       vendor && p.title.toLowerCase().startsWith(vendor.toLowerCase());
     const namePrefix = startsWithVendor ? '' : (vendor ? vendor + ' ' : '');
 
+    const shots = instantShots(p);
     for (const v of p.variants || []) {
       const { label, packSize } = variantInfo(p, v);
       const vt = label ? ' ' + label : '';
-      const title = `${namePrefix}${p.title}${vt}`.trim();
+      const title = `${namePrefix}${p.title}${vt}${shots && !label ? ` ${shots} shots` : ''}`.trim();
 
       offers.push({
         retailer,
@@ -150,6 +151,20 @@ function variantInfo(p, v) {
     return s;
   }).join(' / ');
   return { label, packSize };
+}
+
+// How many shots an instant film listing holds, from its description, when
+// the title gives no count at all. Polaroid Go film only comes as a 16-shot
+// double pack, and Analogue Wonderland titles it "Polaroid Go Film - Colour"
+// with "Exposures: 16" in the spec, so read from the title alone a double pack
+// priced as one. Appended to the offer title, where the normaliser turns it
+// into packs. null for anything else, or when the title already counts.
+function instantShots(p) {
+  if (!/\b(?:instax|polaroid|instant)\b/i.test(p.title)) return null;
+  if (/\b\d+\s*(?:shots?|sheets?|exposures?|photos?|prints?|pack)\b|\b(?:twin|double|triple|five)\s*pack\b|\btwinpack\b/i.test(p.title)) return null;
+  const body = (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const m = body.match(/\bexposures:\s*(\d{1,2})\b/i) || body.match(/\bpack (?:of|contains) (\d{1,2})\s+(?:instant\s+)?(?:colou?r\s+)?(?:photos|shots|prints)\b/i);
+  return m ? Number(m[1]) : null;
 }
 
 // "5", "5 Pack", "5 Roll Pack", "1 Pack (5 rolls)", "Single Roll", "Triple".

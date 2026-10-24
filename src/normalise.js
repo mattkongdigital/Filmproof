@@ -137,11 +137,17 @@ const isoFor = (table, brand, line) => (table.find(([b, l]) => b === brand && (l
 // "Twin Pack", "(20 shots)", "2 x 10 shots", "20 Sheet Pack". All but the first
 // read as one pack of an unknown film, so a twin pack forked a page of its own
 // and priced twenty shots as one pack. Here they all become "2 pack", which
-// the pack rules below already understand.
+// the pack rules below already understand. A pack is ten shots of Instax and
+// eight of Polaroid, so Polaroid's "40 Shot Pack" is five packs, not four.
 function instantPacks(text) {
+  const perPack = /\binstax\b/.test(text) ? 10 : 8;
   return text
-    .replace(/\b(\d)\s*x\s*10\s*(?:shots?|sheets?|exposures?|prints?)?\b/g, ' $1 pack ')
-    .replace(/\b(\d{2})\s*(?:shots?|sheets?|exposures?|prints?)(?:\s*pack)?\b/g, (m, n) => (Number(n) % 10 === 0 && Number(n) >= 20 ? ` ${Number(n) / 10} pack ` : ' '))
+    .replace(/\b(\d)\s*x\s*(?:8|10)\s*(?:shots?|sheets?|exposures?|prints?|photos?)?\b/g, ' $1 pack ')
+    .replace(/\bx?(\d{1,2})\s*(?:shots?|sheets?|exposures?|prints?|photos?)(?:\s*pack)?\b/g, (m, n) => {
+      const packs = Number(n) / perPack;
+      return Number.isInteger(packs) && packs >= 2 ? ` ${packs} pack ` : ' ';
+    })
+    // Not "photo": Instax Mini "Photo Slide" is a frame design, not a count.
     .replace(/\b(?:shots?|prints?)\b/g, ' ');
 }
 
@@ -153,6 +159,9 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // and Instax Mini Film, Black and White are one pack, and neither is the
     // colour one. Elsewhere it is the process, which the key does not carry.
     text = instantPacks(text)
+      // "Polaroid Originals" was the company's name from 2017 to 2020; shops
+      // still carry stock listed under it, and it names no film.
+      .replace(/\boriginals\b/g, ' ')
       .replace(/\bblack\s*(?:and|&|n)?\s*white\b|\bb\s*[&/]\s*w\b/g, ' monochrome ');
   }
   text = text
