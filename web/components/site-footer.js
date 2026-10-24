@@ -10,7 +10,8 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="foot-note">
-        Prices are shop list prices per roll, with multipacks divided out. Loyalty points,
+        Prices are shop list prices per roll (per pack for instant film, per sheet for sheet
+        film), with multipacks divided out. Loyalty points,
         basket and checkout discounts, and delivery are not included. Prices update daily and
         may be out of date, always confirm on the shop's own page before buying.{' '}
         <Link href="/how-it-works">How it works →</Link>
