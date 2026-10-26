@@ -846,6 +846,26 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'fujifilm/superia': {
+    meta: { title: 'Fujifilm Superia Film | Compare UK Prices', description: 'Compare Fujifilm Superia X-Tra 400 and Superia Premium 400 prices from UK shops, in 35mm, with live stock and prices per roll.' },
+    intro: "Fujifilm Superia is Fujifilm's everyday ISO 400 colour negative range, a forgiving all rounder for travel, family photos and changeable light. Two versions are sold in the UK, Superia X-Tra 400 and Superia Premium 400, both in 35mm. Compare Fujifilm Superia prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting Superia', paragraphs: [
+        "At ISO 400, Superia copes with dull days, interiors and fast movement, and it handles a stop or two of overexposure well, which suits point and shoot cameras. Its colour has the cooler greens and blues that many photographers associate with Fujifilm, a contrast to the warmer look of Kodak's consumer films.",
+        'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day.',
+      ] },
+    ],
+  },
+  'fujifilm/acros': {
+    meta: { title: 'Fujifilm Acros II Film | Compare UK Prices', description: 'Compare Fujifilm Neopan 100 Acros II prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Fujifilm Neopan 100 Acros II is a fine grained ISO 100 black and white film, brought out in 2019 after the original Acros was discontinued. It is known for sharp detail, smooth tones and unusually good behaviour on long exposures. It is sold in 35mm and 120. Compare Fujifilm Acros II prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Acros II', paragraphs: [
+        "Most films need extra exposure once a shot runs past a second or so, but Acros II needs little or no correction for exposures up to about two minutes, by Fujifilm's own figures. That makes it a favourite for night scenes, long exposure seascapes and anything on a tripod.",
+        'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X.',
+      ] },
+    ],
+  },
   'fujifilm/velvia': {
     meta: { title: 'Fujifilm Velvia Film | Compare UK Prices', description: 'Compare Fujifilm Velvia 50 and Velvia 100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: 'Fujifilm Velvia is the slide film landscape photographers reach for, famous for intensely saturated colour, deep blacks and very fine grain. It comes as Velvia 50 and Velvia 100, in 35mm, 120 and sheet film. Compare Fujifilm Velvia prices from UK shops below.',
