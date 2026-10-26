@@ -826,6 +826,26 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'ilford/sfx': {
+    meta: { title: 'Ilford SFX 200 Film | Compare UK Prices', description: 'Compare Ilford SFX 200 prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Ilford SFX 200 is a black and white film with extended red sensitivity, reaching further towards infrared than ordinary panchromatic film. Shot through a deep red filter it gives an infrared look, with dark skies and pale, glowing foliage, while without one it behaves as a fine grained ISO 200 film. It is sold in 35mm and 120. Compare Ilford SFX 200 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting SFX 200', paragraphs: [
+        'The infrared effect comes from the filter. A deep red or infrared filter blocks most visible light, so expect to give several stops of extra exposure and to use a tripod, and bracket while you learn how your filter and light behave. Sunny days with plenty of foliage show the effect most strongly.',
+        'SFX develops in ordinary black and white chemistry, so there is nothing special to ask of a lab or your home setup.',
+      ] },
+    ],
+  },
+  'fujifilm/provia': {
+    meta: { title: 'Fujifilm Provia 100F Film | Compare UK Prices', description: 'Compare Fujifilm Provia 100F slide film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Fujifilm Provia 100F is a professional ISO 100 colour slide film, known for very fine grain and natural, accurate colour. Where Velvia pushes saturation, Provia stays neutral, which makes it a dependable all round slide film for landscapes, portraits and travel. It is sold in 35mm and 120. Compare Fujifilm Provia prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Provia 100F', paragraphs: [
+        'Like all slide film, Provia has little exposure latitude, so meter carefully and favour the highlights. It holds up well on long exposures, which suits night scenes and low light work on a tripod.',
+        'Provia develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. For bolder colour from the same maker, see Fujifilm Velvia.',
+      ] },
+    ],
+  },
   'fujifilm/velvia': {
     meta: { title: 'Fujifilm Velvia Film | Compare UK Prices', description: 'Compare Fujifilm Velvia 50 and Velvia 100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: 'Fujifilm Velvia is the slide film landscape photographers reach for, famous for intensely saturated colour, deep blacks and very fine grain. It comes as Velvia 50 and Velvia 100, in 35mm, 120 and sheet film. Compare Fujifilm Velvia prices from UK shops below.',
