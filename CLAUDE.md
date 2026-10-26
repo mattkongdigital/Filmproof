@@ -113,8 +113,12 @@ close.
 
 ### How it is filled
 
-Once a week (Monday morning, a Claude Code scheduled task on the owner's plan),
-a fresh session follows `opportunities/RUNBOOK.md`:
+Once a week (Monday 07:52 UK time) a Claude Code scheduled task on the owner's
+plan wakes the long-running session that built this pipeline, which follows
+`opportunities/RUNBOOK.md`. (Scheduled runs that started a fresh session never
+reached GitHub, so the task resumes a session known to have repo push access,
+GitHub and the network. If that session is ever archived, the task needs
+setting up again from a new one.)
 
 1. `node opportunities/fetch.js` reads every feed in
    `opportunities/sources.config.js`, skips items already in
