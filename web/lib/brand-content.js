@@ -39,21 +39,23 @@ export const BRAND_CONTENT = {
     ],
   },
   ilford: {
-    meta: { title: 'Ilford Film Prices UK | Compare & Buy', description: 'Compare Ilford black and white film prices from UK retailers on Filmproof. HP5 Plus, FP4 Plus, Delta, XP2 Super and more in one place.' },
-    intro: "Ilford Photo is Britain's own black and white film specialist, manufacturing continuously in Mobberley, Cheshire since the nineteenth century. From the classic grain of HP5 Plus to the ultra-fine detail of Delta 100, Ilford film is a mainstay for street, documentary and fine art photographers around the world. Compare Ilford film prices from UK retailers on Filmproof.",
+    meta: { title: 'Ilford Film Prices UK | Compare & Buy', description: 'Compare Ilford black and white film prices from UK shops. HP5 Plus, FP4 Plus, Delta, Pan F Plus, XP2 Super, SFX and Ortho Plus, in 35mm, 120, sheet film and bulk rolls.' },
+    intro: "Ilford is Britain's best known black and white film, made by Harman Technology in Mobberley, Cheshire. Its films run from the forgiving HP5 Plus that street and documentary photographers have relied on for decades to the very fine grained Delta 100 and Pan F Plus, in 35mm, 120, sheet film and bulk rolls. Compare Ilford film prices from UK shops below.",
     sections: [
-      { heading: "The History of Ilford Photo", paragraphs: [
-        "Ilford Photo was founded in 1879 by Alfred Hugh Harman, who began manufacturing photographic plates in the basement of his home in Ilford, East London. The business grew steadily, becoming the Britannia Works Company in 1891 and adopting the Ilford Limited name in 1902, with roll film production beginning in 1912.",
-        "The company survived bomb damage during the London Blitz in 1945 and went on to introduce a series of important innovations, including Multigrade variable-contrast paper in 1940 and, in 1980, XP1, the world's first chromogenic black and white film, designed to be processed using standard colour C-41 chemistry.",
-        "A management buyout in 2005 established Harman Technology Limited, trading as Ilford Photo, which continues to manufacture film at Mobberley, Cheshire, one of the last remaining traditional film factories anywhere in the world. The company was acquired by Pemberstone Ventures in 2015 and remains dedicated exclusively to black and white photographic materials, including film, paper and chemistry.",
+      { heading: 'A short history of Ilford', paragraphs: [
+        'Alfred Hugh Harman began making photographic plates in 1879 in Ilford, then a town in Essex, and the company took its name from the town. Over the following century Ilford became one of the best known names in photography, introducing Multigrade variable contrast paper in 1940 and XP1, the first chromogenic black and white film developed in colour chemistry, in 1980.',
+        'When the business went into receivership in 2004, a management buyout the following year formed Harman Technology, named after the founder, which has made Ilford film, paper and chemistry in Mobberley ever since. Harman has since added the budget Kentmere range and, in 2023, Phoenix, its first colour film, sold under the Harman name.',
       ] },
-      { heading: "Ilford's Camera Film Ranges", paragraphs: [
-        "HP5 Plus 400 is Ilford's classic fast, versatile all-rounder, long favoured by documentary, street and press photographers for its wide exposure latitude and forgiving nature. FP4 Plus 125 offers finer grain at a medium speed, popular for landscape and studio work.",
-        "The Delta range (100, 400 and 3200) uses modern tabular grain technology to deliver sharper detail and finer grain than Ilford's traditional emulsions, with Delta 3200 pushed to extreme speed for very low light shooting. Pan F Plus 50 is Ilford's slowest and finest-grained film, chosen when maximum detail is the priority.",
-        "XP2 Super 400 is a chromogenic black and white film processed in standard C-41 colour chemistry, offering the convenience of one-hour lab processing. SFX 200 extends sensitivity into the near-infrared, allowing for creative infrared-style effects when used with the right filters. Ilford also manufactures the budget-friendly Kentmere range on the same production lines.",
+      { heading: 'Traditional films or Delta?', paragraphs: [
+        "Ilford's traditional films are HP5 Plus at ISO 400, FP4 Plus at ISO 125 and Pan F Plus at ISO 50. They have the classic look many photographers want from black and white, with visible but pleasing grain and wide latitude, and HP5 Plus in particular pushes to 1600 and beyond.",
+        "The Delta films are Ilford's modern emulsions, made with its core shell crystal technology for finer grain and sharper detail at the same speed: Delta 100, Delta 400 and Delta 3200. Delta 3200 is a low light film whose true speed is nearer ISO 1000, shot anywhere from there up to 3200 and beyond. Choose traditional films for forgiveness and character, and Delta for the cleanest result.",
       ] },
-      { heading: "Choosing the Right Ilford Film", paragraphs: [
-        "For general purpose and street photography, HP5 Plus is the reliable classic. For fine detail landscape or studio work, choose FP4 Plus or Pan F Plus. For low light, Delta 3200 is the film to reach for, while XP2 Super suits anyone who wants the convenience of standard colour-lab processing. For creative infrared effects, try SFX 200. Compare Ilford film prices on Filmproof across all the UK's leading film retailers.",
+      { heading: "Ilford's specialist films", paragraphs: [
+        'XP2 Super is a chromogenic black and white film that develops in standard C-41 chemistry, so any colour lab can process it, with very wide exposure latitude. SFX 200 extends sensitivity towards infrared for dark skies and pale foliage through a deep red filter. Ortho Plus is an orthochromatic film, blind to red light, which gives portraits an early photography look and can be developed under a red safelight.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Most Ilford films come in 35mm and 120, and HP5 Plus, FP4 Plus, Delta 100 and Pan F Plus are also sold as sheet film for large format cameras, with Filmproof keeping each sheet size on its own page and pricing it per sheet. HP5 Plus, FP4 Plus and Delta 100 come in 30.5m bulk rolls for loading your own cassettes.',
+        "Ilford also releases special editions now and then, such as football themed packaging for HP5 Plus and XP2. The film inside is the same, so they are worth comparing on price alone. Every Ilford film develops in ordinary black and white chemistry, apart from XP2 Super, and Ilford's own developers such as ID-11 and Ilfosol 3 are made for them.",
       ] },
     ],
   },
