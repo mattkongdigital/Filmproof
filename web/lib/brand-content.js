@@ -127,19 +127,22 @@ export const BRAND_CONTENT = {
     ],
   },
   kentmere: {
-    meta: { title: 'Kentmere Film Prices UK | Compare', description: 'Compare Kentmere black and white film prices from UK retailers on Filmproof. Affordable Pan 100, 200 and 400 from the makers of Ilford.' },
-    intro: "Kentmere is the budget-friendly black and white film range from Harman Technology, the makers of Ilford film. Manufactured in the same Mobberley, Cheshire factory as Ilford's professional stocks, Kentmere offers a genuinely affordable way into black and white photography without compromising on quality. Compare Kentmere film prices on Filmproof.",
+    meta: { title: 'Kentmere Film Prices UK | Compare', description: 'Compare Kentmere Pan 100, 200 and 400 black and white film prices from UK shops, in 35mm, 120 and bulk rolls, from the makers of Ilford.' },
+    intro: 'Kentmere is the budget black and white film from Harman Technology, the Cheshire company that makes Ilford. It comes as Kentmere Pan 100, 200 and 400, in 35mm, 120 and 30.5m bulk rolls, and it is one of the cheapest ways to shoot real black and white film in the UK. Compare Kentmere prices from UK shops below.',
     sections: [
-      { heading: "The History of Kentmere", paragraphs: [
-        "Kentmere takes its name from the Kentmere Valley in England's Lake District, close to where Harman Technology's paper-coating heritage began. The Kentmere name was originally used for photographic paper before being applied to a dedicated line of budget black and white film, manufactured by Harman Technology, the same Mobberley, Cheshire company that produces Ilford film.",
-        "Kentmere was designed to give photography students, hobbyists and anyone shooting in volume access to genuine UK-made black and white film at a lower price point than Ilford's core HP5 Plus and FP4 Plus lines, produced on the same production lines using decades of manufacturing expertise. In 2025, Harman Technology expanded the range with the launch of Kentmere Pan 200, sitting between the existing 100 and 400 speed options.",
+      { heading: 'Where Kentmere comes from', paragraphs: [
+        'Kentmere was a photographic paper maker in Cumbria, named after the Kentmere valley in the Lake District. Harman Technology bought the business and later put the Kentmere name on a line of low cost black and white film, made in Mobberley in Cheshire, where Harman also makes Ilford.',
+        "Shops list the same film under two names, Kentmere 400 and Kentmere Pan 400 for example, as the range has been sold both ways. Filmproof treats them as one film, so every shop's price appears on the same page.",
       ] },
-      { heading: "Kentmere's Camera Film Ranges", paragraphs: [
-        "Kentmere Pan 100 is a fine-grain, slower speed film suited to bright conditions and maximum sharpness. Kentmere Pan 200, the newest addition to the range launched in 2025, offers a flexible middle ground between the 100 and 400 speed stocks.",
-        "Kentmere Pan 400 is a faster, more versatile film for variable lighting, making it a popular choice for street and everyday photography. Both 35mm and 120 medium format rolls are available across the range.",
+      { heading: 'Pan 100, 200 or 400?', paragraphs: [
+        'Kentmere Pan 100 is the slowest and finest grained of the three, suited to bright days, landscapes and anything on a tripod. Kentmere Pan 400 is the all rounder, fast enough for overcast days, street photography and indoor light, and it pushes a stop or two when you need more speed. Kentmere Pan 200 is the newest of the three, sitting between them for photographers who want a little more speed than 100 without the grain of 400.',
       ] },
-      { heading: "Choosing the Right Kentmere Film", paragraphs: [
-        "For bright daylight and studio work, choose Pan 100. For flexible everyday shooting, Pan 200 offers a good middle ground. For lower light or fast-moving subjects, go for Pan 400. As a budget-friendly alternative to Ilford's core range, Kentmere is an excellent starting point for anyone new to black and white film. Compare Kentmere film prices on Filmproof.",
+      { heading: 'Kentmere or Ilford?', paragraphs: [
+        "Kentmere is cheaper than Ilford's HP5 Plus and FP4 Plus, and that is the main reason to choose it: it is a good film for learning, for testing a camera, or for shooting a lot of rolls. In return, Kentmere Pan 400 has a slightly coarser grain and less exposure latitude than HP5 Plus, and it is less forgiving when pushed hard. If those matter for a particular roll, the Ilford film is worth the extra.",
+      ] },
+      { heading: 'Buying and developing Kentmere', paragraphs: [
+        'Kentmere is sold as single rolls, multipacks and 30.5m bulk rolls for loading your own cassettes, which brings the cost per roll down further. Filmproof divides multipacks out so you can compare the price per roll across shops.',
+        'It develops in ordinary black and white chemistry, at home or at any lab that handles black and white film, and it works with the common developers such as Ilfosol 3, ID-11 and Rodinal.',
       ] },
     ],
   },
