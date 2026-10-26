@@ -495,7 +495,7 @@
       "rights:all-entrants",
       "rights:commercial-unpaid"
     ],
-    "publish": false,
+    "publish": true,
     "sources": [
       {
         "id": "fast-forward",
