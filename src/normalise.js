@@ -278,6 +278,10 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // "Porta" is a shop's misspelling of Portra, not a Kodak film; left alone it
   // gave Portra 800 35mm a second page.
   if (/\bkodak\b/.test(text)) text = text.replace(/\bporta\b/g, 'portra');
+  // Harman Red is a redscale film, and one shop names it for that: "Harman
+  // Redscale 125" is the Red 125 every other shop lists. Scoped to Harman, as
+  // Lomography's Redscale is a film of its own.
+  if (/\bharman\b/.test(text)) text = text.replace(/\bredscale\b/g, 'red');
   // Lomography's colour negatives carry the same kind of range code — "Color
   // Tiger CN200" is the Tiger 200 other shops list without it.
   if (/\blomography\b|\blomo\b/.test(text)) {
@@ -318,7 +322,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   const ROLL_FORMATS = new Set(['135', '120', '110', '127', '220', '620']);
   const hintFormat = detectFormat(hint);
   const textFormat = detectFormat(text);
-  const format =
+  let format =
     hintFormat && textFormat && hintFormat !== textFormat &&
     ROLL_FORMATS.has(hintFormat) && ROLL_FORMATS.has(textFormat)
       ? textFormat
@@ -328,6 +332,10 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // "36 Exp", and the other way round ("EXP 36"), and "135-36".
   const em = text.match(/\b(\d{2})\s?(?:exp|exposure|exposures)\b/) || text.match(/\bexp\s?(\d{2})\b/) || text.match(/\b135[\s-]?(\d{2})\b/);
   if (em) exp = em[1];
+  // A title with no format but a 24, 27 or 36 exposure count is 35mm: no
+  // other roll film comes in those lengths. Classic Photo Supplies lists
+  // Harman Red as "Harman Redscale 125 Film - 36 Exposure" and nothing else.
+  if (!format && ['24', '27', '36'].includes(exp)) format = '135';
 
   let packSize = 1;
   const pm = text.match(/(\d+)\s*[-x]?\s*pack\b/) || text.match(/pack of (\d+)/) || text.match(/\bset of (\d+)/) || text.match(/\bbundle of (\d+)/);
