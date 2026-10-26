@@ -194,7 +194,7 @@ export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektar', label: 'Ektar', match: (f) => /\bektar\b/i.test(f.display) },
-  { brand: 'kodak', slug: 'gold', label: 'Gold', match: (f) => /\bgold\b/i.test(f.display) },
+  { brand: 'kodak', slug: 'gold', label: 'Gold', minFresh: 2, match: (f) => /\bgold\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ultramax', label: 'UltraMax', match: (f) => /\bultra\s*max\b/i.test(f.display) },
   { brand: 'kodak', slug: 'colorplus', label: 'ColorPlus', match: (f) => /\bcolou?r\s*plus\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektachrome', label: 'Ektachrome', match: (f) => /\bektachrome\b/i.test(f.display) },
@@ -236,10 +236,10 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // A range earns a page on its fresh films alone. Expired stock is one-off
 // listings that come and go between builds, so a page standing on them would
 // flicker in and out of the sitemap; once the page exists it lists them too.
-// Gold, at two fresh stocks, waits for a third: two cards would only repeat
-// the film pages they link to. A range can lower its own bar with `minFresh`
-// where two films are worth a page for its copy (SFX, Provia, Superia, Acros,
-// Harman Red and Switch Azure).
+// A range needs MIN_COMBO_FILMS fresh films, since a page of one or two cards
+// only repeats the film pages it links to. A range can lower its own bar with
+// `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
+// Provia, Superia, Acros, Harman Red and Switch Azure).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
