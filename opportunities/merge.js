@@ -67,16 +67,6 @@ for (const x of extractions) {
   }
 
   const source = { id: cand.source, url: cand.item_url, found: today };
-  const prior = existing.get(entry.key);
-  if (prior) {
-    // Already on file, from an earlier run or earlier in this one. Its fields
-    // have been (or are about to be) reviewed, so they are left alone; the new
-    // source is only recorded.
-    if (!prior.sources.some((s) => s.id === source.id)) prior.sources.push(source);
-    alsoSeen.push({ entry: prior, source });
-    continue;
-  }
-
   const flags = entryFlags(entry, review);
   const record = {
     ...entry,
@@ -85,6 +75,30 @@ for (const x of extractions) {
     publish: flags.length === 0,
     sources: [source],
   };
+
+  const prior = existing.get(entry.key);
+  const priorAdded = prior && added.find((a) => a.entry === prior);
+  if (priorAdded && review.length < priorAdded.review.length) {
+    // The same call reached twice in THIS run, and this copy is better backed —
+    // typically the organiser's own feed after an aggregator's summary that
+    // stated nothing. Nobody has reviewed either yet, so the better copy wins
+    // and keeps both sources, rather than whichever happened to come first.
+    record.sources = [...prior.sources, source];
+    existing.set(entry.key, record);
+    priorAdded.entry = record;
+    priorAdded.review = review;
+    alsoSeen.push({ entry: record, source: prior.sources[0] });
+    continue;
+  }
+  if (prior) {
+    // Already on file, from an earlier run or from a better-backed copy earlier
+    // in this one. Fields on file may already be reviewed, so they are left
+    // alone; the new source is only recorded.
+    if (!prior.sources.some((s) => s.id === source.id)) prior.sources.push(source);
+    alsoSeen.push({ entry: prior, source });
+    continue;
+  }
+
   existing.set(entry.key, record);
   added.push({ entry: record, review });
 }

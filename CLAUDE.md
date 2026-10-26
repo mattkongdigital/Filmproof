@@ -113,8 +113,12 @@ close.
 
 ### How it is filled
 
-Once a week (Monday morning, a Claude Code scheduled task on the owner's plan),
-a fresh session follows `opportunities/RUNBOOK.md`:
+Once a week (Monday 07:52 UK time) a Claude Code scheduled task on the owner's
+plan wakes the long-running session that built this pipeline, which follows
+`opportunities/RUNBOOK.md`. (Scheduled runs that started a fresh session never
+reached GitHub, so the task resumes a session known to have repo push access,
+GitHub and the network. If that session is ever archived, the task needs
+setting up again from a new one.)
 
 1. `node opportunities/fetch.js` reads every feed in
    `opportunities/sources.config.js`, skips items already in
@@ -195,7 +199,11 @@ Same thin-page reasoning as the editorial silos.
 3. **Add it to `OPPORTUNITY_SOURCES`** with a new, permanent `id`. Set
    `prefilter: true` for a general news feed where calls are a small share, so
    only items mentioning `PREFILTER_WORDS` are read. List alternative feed URLs
-   in `feeds` if the site has more than one plausible address.
+   in `feeds` if the site has more than one plausible address. When a site
+   files its opportunities under categories and only some are in scope (Fast
+   Forward mixes jobs and conference calls in with real calls), list the
+   in-scope category feeds and set `union: true` so all of them are read and
+   merged, rather than the whole archive.
 4. **Allow its domain** in the cloud environment's network settings, or the
    weekly session can't reach it.
 5. **Dry-run it:** `node opportunities/fetch.js` and look at the source's line

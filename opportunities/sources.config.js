@@ -10,7 +10,11 @@
 //   id        stable key, stored on every entry this source finds. Never rename.
 //   name      shown in the review PR, not on the site
 //   home      the listing page a human would browse, for the review PR
-//   feeds     RSS/Atom URLs, first that works wins
+//   feeds     RSS/Atom URLs, first that works wins — unless `union` is set
+//   union     optional: read EVERY feed and merge the items, deduped by URL.
+//             For a site whose opportunities are split across category feeds,
+//             so the in-scope categories can be read without the rest. The
+//             source fails only if all its feeds do.
 //   itemPath  optional: the path every real item's URL starts with. Items
 //             elsewhere are ignored, and a feed with none under it counts as
 //             failed. This is the guard against a wrong feed URL that doesn't
@@ -27,9 +31,17 @@ export const OPPORTUNITY_SOURCES = [
     id: 'fast-forward',
     name: 'Fast Forward: Women in Photography',
     home: 'https://fastforward.photography/opportunities-category/commission/',
-    // Its whole opportunities archive, jobs and fellowships included — the
-    // extraction sets those aside.
-    feeds: ['https://fastforward.photography/opportunities/feed/'],
+    // Only the categories in scope. The archive feed (/opportunities/feed/) is
+    // mostly jobs, fellowships and conference calls — nine of its ten items on
+    // 19 October — and none of those are filed under these five.
+    feeds: [
+      'https://fastforward.photography/opportunities-category/commission/feed/',
+      'https://fastforward.photography/opportunities-category/award/feed/',
+      'https://fastforward.photography/opportunities-category/open-exhibition/feed/',
+      'https://fastforward.photography/opportunities-category/submission/feed/',
+      'https://fastforward.photography/opportunities-category/publication/feed/',
+    ],
+    union: true,
     itemPath: '/opportunities/',
     film: 'general',
     prefilter: false,
@@ -57,6 +69,36 @@ export const OPPORTUNITY_SOURCES = [
     prefilter: false,
   },
   {
+    id: 'shutter-hub',
+    name: 'Shutter Hub',
+    home: 'https://shutterhub.org.uk/',
+    // Mostly its own pay-what-you-can calls and photobooks, plus portfolio
+    // reviews the extraction sets aside. Same itemPath guard as Photoworks.
+    feeds: ['https://shutterhub.org.uk/feed/?post_type=opportunity'],
+    itemPath: '/opportunity/',
+    film: 'general',
+    prefilter: false,
+  },
+  {
+    id: 'impressions-gallery',
+    name: 'Impressions Gallery',
+    home: 'https://www.impressions-gallery.com/',
+    // The Bradford gallery's news feed: jobs and announcements, with the odd
+    // open call among them.
+    feeds: ['https://www.impressions-gallery.com/feed/'],
+    film: 'general',
+    prefilter: true,
+  },
+  {
+    id: 'open-eye-gallery',
+    name: 'Open Eye Gallery',
+    home: 'https://openeye.org.uk/',
+    // Liverpool; news feed, same shape as Impressions.
+    feeds: ['https://openeye.org.uk/feed/'],
+    film: 'general',
+    prefilter: true,
+  },
+  {
     id: 'kosmo-foto',
     name: 'Kosmo Foto',
     home: 'https://kosmofoto.com/',
@@ -78,7 +120,8 @@ export const OPPORTUNITY_SOURCES = [
 // title and body; one hit is enough. Deliberately broad — this only decides
 // what gets read, not what gets listed.
 export const PREFILTER_WORDS = [
-  'competition', 'open call', 'call for entries', 'call for entry', 'submissions',
+  'competition', 'open call', 'call out', 'call-out', 'callout', 'call for entries',
+  'call for entry', 'submissions',
   'submit', 'award', 'prize', 'commission', 'deadline', 'enter',
 ];
 
