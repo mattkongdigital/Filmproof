@@ -210,14 +210,14 @@ export const RANGES = [
   { brand: 'ilford', slug: 'pan-f-plus', label: 'Pan F Plus', match: (f) => /\bpan\s?f\b/i.test(f.display) },
   { brand: 'ilford', slug: 'xp2', label: 'XP2', match: (f) => /\bxp\s?2\b/i.test(f.display) },
   { brand: 'ilford', slug: 'ortho-plus', label: 'Ortho Plus', match: (f) => /\bortho\b/i.test(f.display) },
-  { brand: 'ilford', slug: 'sfx', label: 'SFX', match: (f) => /\bsfx\b/i.test(f.display) },
+  { brand: 'ilford', slug: 'sfx', label: 'SFX', minFresh: 2, match: (f) => /\bsfx\b/i.test(f.display) },
   // Instax is three formats that fit three sets of cameras, so each is a range
   // of its own rather than one page a reader has to sort through.
   { brand: 'fujifilm', slug: 'instax-mini', label: 'Instax Mini', match: (f) => /\binstax\s*mini\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'instax-square', label: 'Instax Square', match: (f) => /\binstax\s*square\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'instax-wide', label: 'Instax Wide', match: (f) => /\binstax\s*wide\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'velvia', label: 'Velvia', match: (f) => /\bvelvia\b/i.test(f.display) },
-  { brand: 'fujifilm', slug: 'provia', label: 'Provia', match: (f) => /\bprovia\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'provia', label: 'Provia', minFresh: 2, match: (f) => /\bprovia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'superia', label: 'Superia', match: (f) => /\bsuperia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'acros', label: 'Acros', match: (f) => /\bacros\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
@@ -237,9 +237,10 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // listings that come and go between builds, so a page standing on them would
 // flicker in and out of the sitemap; once the page exists it lists them too.
 // Gold, at two fresh stocks, waits for a third: two cards would only repeat
-// the film pages they link to.
+// the film pages they link to. A range can lower its own bar with `minFresh`
+// where one film in two formats is worth a page for its copy (SFX, Provia).
 function builtRanges() {
-  return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= MIN_COMBO_FILMS);
+  return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
 
 // The brand's ranges that have a page, with how many films each lists, in the
