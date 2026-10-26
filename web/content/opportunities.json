@@ -74,6 +74,45 @@
     ]
   },
   {
+    "key": "dayinyourlife.co.uk/competition",
+    "official_url": "https://www.dayinyourlife.co.uk/competition",
+    "title": "A Day in Your Life 2026",
+    "organiser": "A Day in Your Life",
+    "type": "competition",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Residents of Kensington and Chelsea or Westminster, aged five and over",
+    "region": "uk",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A community photography competition for two central London boroughs, tied to free workshops and mentoring; prizes include a short course at UAL.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-a-day-in-your-life-2026/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
     "key": "earthphoto.world",
     "official_url": "https://www.earthphoto.world/",
     "title": "Earth Photo 2027",
@@ -106,6 +145,127 @@
         "id": "photoworks",
         "url": "https://photoworks.org.uk/opportunities/open-call-earth-photo-2027/",
         "found": "2026-10-16"
+      },
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-earth-photo-2027/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "form.photography/award/open-call-form-unseen",
+    "official_url": "https://form.photography/award/open-call-form-unseen",
+    "title": "Form Photo Award x UNSEEN 2027",
+    "organiser": "Form",
+    "type": "competition",
+    "deadline": "2026-10-31",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "An open-theme award for contemporary photography whose winners show at UNSEEN during Art Rotterdam in March 2027. Longlisted entrants are published in Form Magazine.",
+    "evidence": {
+      "deadline": "31 October 2026 Submission deadline",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-form-photo-award-x-unseen/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "forms.gle/W2b2jAB3pRRdVPcd7",
+    "official_url": "https://forms.gle/W2b2jAB3pRRdVPcd7",
+    "title": "Let Our Hearts Speak",
+    "organiser": "Rethinking Eastern Europe",
+    "type": "open-call",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A call for a collective publication on Eastern Europe as memory, migration and inheritance as much as geography, shaped by bell hooks’ writing on love.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/rethinking-eastern-europe-open-call/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "mesnographies.com",
+    "official_url": "https://www.mesnographies.com/",
+    "title": "Mesnographies 2027: The pursuit of happiness",
+    "organiser": "Mesnographies",
+    "type": "open-call",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A free open-air photography festival in Les Mesnuls, France, calling for work on what happiness means. Its site gives no date for the call.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/call-for-applications-mesnographies-the-pursuit-of-happiness/",
+        "found": "2026-10-26"
       }
     ]
   },
@@ -150,6 +310,45 @@
     ]
   },
   {
+    "key": "opencall.chennaiphotobiennale.com",
+    "official_url": "https://opencall.chennaiphotobiennale.com/",
+    "title": "Chennai Photo Biennale International Open Call, Edition 3",
+    "organiser": "Chennai Photo Biennale",
+    "type": "open-call",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Anyone, from anywhere, on any subject",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "The biennale’s international call for single images and series on any subject, run with SIGMA India.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-chennai-photo-biennale-international-edition-3/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
     "key": "photoworks.org.uk/opportunities/open-call-the-draft",
     "official_url": "https://photoworks.org.uk/opportunities/open-call-the-draft/",
     "title": "THE DRAFT — Tessa Boffin: Where We Touch the Archive",
@@ -189,6 +388,42 @@
     ]
   },
   {
+    "key": "pridephoto.org/pride-photo-2027-open-call-for-entries",
+    "official_url": "https://pridephoto.org/pride-photo-2027-open-call-for-entries/",
+    "title": "Pride Photo 2027",
+    "organiser": "Pride Photo Foundation",
+    "type": "competition",
+    "deadline": "2026-10-31",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photographers of any age or level, worldwide",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "An annual contest for photography about LGBTQIA+ lives, taking single images or a series of three to fifteen. Selected work joins a travelling exhibition; fully AI-generated images are not accepted.",
+    "evidence": {
+      "deadline": "Submission deadline: October 31, 2026, at 23:59 CET",
+      "fee": "Participation is free.",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-pride-photo-2027/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
     "key": "rps.org/exhibitions/ipe-168",
     "official_url": "https://rps.org/exhibitions/ipe-168/",
     "title": "RPS International Photography Exhibition 168",
@@ -223,6 +458,168 @@
         "id": "fast-forward",
         "url": "https://fastforward.photography/opportunities/open-call-royal-photographic-society-international-photography-exhibition-168/",
         "found": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "key": "shutterhub.org.uk/opportunity/the-city-series-london-a-shutter-hub-editions-publication",
+    "official_url": "https://shutterhub.org.uk/opportunity/the-city-series-london-a-shutter-hub-editions-publication/",
+    "title": "The City Series: London",
+    "organiser": "Shutter Hub",
+    "type": "open-call",
+    "deadline": "2026-11-12",
+    "fee": {
+      "free": false,
+      "amount": 15,
+      "currency": "GBP",
+      "note": "pay what you can, £15 minimum; some free places"
+    },
+    "eligibility": null,
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": "Copyright stays with the photographer, but Shutter Hub may reproduce and publish any entry without payment for the book and its promotion.",
+      "flags": [
+        "all-entrants",
+        "commercial-unpaid"
+      ]
+    },
+    "summary": "Pictures of London for the next book in Shutter Hub’s city photobook series, launching in early 2027 with an event for everyone who entered. Up to ten images each.",
+    "evidence": {
+      "deadline": "Deadline: 12 November 2026 (5pm UK time)",
+      "fee": "Pay what you can, minimum fee of £15.",
+      "rights": "Shutter Hub reserves the right to display, reproduce and publish in any media any entry, without payment, for the purpose of the publication and its promotion and publicity."
+    },
+    "flags": [
+      "fee",
+      "rights:all-entrants",
+      "rights:commercial-unpaid"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-the-city-series-london-a-shutter-hub-editions-publication/",
+        "found": "2026-10-26"
+      },
+      {
+        "id": "shutter-hub",
+        "url": "https://shutterhub.org.uk/opportunity/the-city-series-london-a-shutter-hub-editions-publication/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "site.picter.com/fotodoks-open-call-2027",
+    "official_url": "https://site.picter.com/fotodoks-open-call-2027",
+    "title": "FOTODOKS Open Call 2027",
+    "organiser": "FOTODOKS",
+    "type": "open-call",
+    "deadline": "2026-11-20",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Munich’s documentary photography festival wants projects on care and its politics for its October 2027 edition. Selected photographers are paid an artist fee plus travel costs.",
+    "evidence": {
+      "deadline": "Nov 20, 2026, 10:59 PM",
+      "fee": "Open Free",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/fotodoks-open-call-2027/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "textileexchange.org/photography-competition",
+    "official_url": "https://textileexchange.org/photography-competition/",
+    "title": "Textile Exchange Photography Competition 2026",
+    "organiser": "Textile Exchange, with Atmos",
+    "type": "competition",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A competition for photographs and short films about regeneration across the fashion and textile industry, from farming to finished garments. Its own page turned us away, so dates and fees are unconfirmed.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/textile-exchange-photography-competition-2026/",
+        "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "wexphotovideo.com/blog/competitions/human-impact-awards?account=853-353-2386&adext=&campaign=PPC+-+DSAs+-+Global&cpgnid=23505860596&gad_campaignid=23505860596&gad_source=1&gbraid=0AAAAAD6dWBcXISBGLvZKbwZautpWqNka9&group=DSAs+-+all+web+pages&kword=&match=&mkwid=s_dc&pcrid=794508420931&pgrid=190920067414&plid=&ptaid=dsa-19959388920&si=",
+    "official_url": "https://www.wexphotovideo.com/blog/competitions/human-impact-awards/?cpgnid=23505860596&adext=&account=853-353-2386&campaign=PPC+-+DSAs+-+Global&group=DSAs+-+all+web+pages&mkwid=s_dc&pcrid=794508420931&kword=&match=&plid=&pgrid=190920067414&ptaid=dsa-19959388920&si=&gad_source=1&gad_campaignid=23505860596&gbraid=0AAAAAD6dWBcXISBGLvZKbwZautpWqNka9&gclid=Cj0KCQjw-MDTBhCgARIsAKAkdlRqPxEVRQhY2TW2ZpOLXrzhGLfpFl3pVf56scac0jz21KoCHhJPICAaArvqEALw_wcB",
+    "title": "Human Impact Awards 2026",
+    "organiser": "Wex Photo Video, with Sony",
+    "type": "competition",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": null,
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Wex’s annual award for photographs about people and their effect on the world, with an open brief that runs from community and identity to everyday connection.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/human-impact-awards-2026/",
+        "found": "2026-10-26"
       }
     ]
   }
