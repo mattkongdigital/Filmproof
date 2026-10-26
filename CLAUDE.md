@@ -48,7 +48,7 @@ route with the brand's facet pages, once it has `MIN_COMBO_FILMS` (3) fresh
 films; expired stock is listed on the page but never earns one, since it comes
 and goes between builds. Kodak Gold is in the list but has no page at two fresh
 stocks. A range can lower its own bar with `minFresh`, as Ilford SFX and
-Fujifilm Provia do at 2: one film in two formats, worth a page for its copy.
+Fujifilm Provia, Superia and Acros do at 2: two films, worth a page for its copy.
 Use it only alongside copy. A range slug must not end in `-film` (the build stops), and its copy
 goes in `BRAND_SUB_CONTENT` under `<brand>/<range>`. Without copy the page
 falls back to a generated lede.

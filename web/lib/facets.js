@@ -218,8 +218,8 @@ export const RANGES = [
   { brand: 'fujifilm', slug: 'instax-wide', label: 'Instax Wide', match: (f) => /\binstax\s*wide\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'velvia', label: 'Velvia', match: (f) => /\bvelvia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'provia', label: 'Provia', minFresh: 2, match: (f) => /\bprovia\b/i.test(f.display) },
-  { brand: 'fujifilm', slug: 'superia', label: 'Superia', match: (f) => /\bsuperia\b/i.test(f.display) },
-  { brand: 'fujifilm', slug: 'acros', label: 'Acros', match: (f) => /\bacros\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'superia', label: 'Superia', minFresh: 2, match: (f) => /\bsuperia\b/i.test(f.display) },
+  { brand: 'fujifilm', slug: 'acros', label: 'Acros', minFresh: 2, match: (f) => /\bacros\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', match: (f) => /\bswitch\b/i.test(f.display) },
@@ -238,7 +238,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // flicker in and out of the sitemap; once the page exists it lists them too.
 // Gold, at two fresh stocks, waits for a third: two cards would only repeat
 // the film pages they link to. A range can lower its own bar with `minFresh`
-// where one film in two formats is worth a page for its copy (SFX, Provia).
+// where two films are worth a page for its copy (SFX, Provia, Superia, Acros).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
