@@ -682,6 +682,16 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'kodak/gold': {
+    meta: { title: 'Kodak Gold 200 Film | Compare UK Prices', description: 'Compare Kodak Gold 200 prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: "Kodak Gold 200 is Kodak's everyday colour negative film, known for warm, punchy colour and a price that makes it many photographers' first roll. It is sold in 35mm and, since Kodak added the format in 2022, in 120 for medium format cameras. Compare Kodak Gold prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting Gold 200', paragraphs: [
+        'At ISO 200, Gold is happiest in daylight, and it gives sunny days and skin a golden, nostalgic warmth that has made it a favourite for holidays and everyday snapshots. It forgives a stop or two of overexposure, which suits simple point and shoot cameras, though it gets grainy and muddy when underexposed indoors.',
+        'Gold develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and as multipacks, and Filmproof divides the packs out so you can compare the price per roll. You will also see expired Gold listed here, which is older stock sold off cheaply, with less predictable results.',
+      ] },
+    ],
+  },
   'kodak/portra': {
     meta: { title: 'Kodak Portra Film | Compare UK Prices', description: 'Compare Kodak Portra 160, 400 and 800 prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: "Kodak Portra is Kodak's professional colour negative film, made for natural skin tones, fine grain and a wide margin for exposure error. It comes in three speeds, 160, 400 and 800, across 35mm, 120 and sheet film, which makes it the default colour stock for a great many portrait, wedding and travel photographers. Compare Kodak Portra prices from UK shops below.",
