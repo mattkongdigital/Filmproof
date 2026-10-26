@@ -876,6 +876,26 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'harman/red': {
+    meta: { title: 'Harman Red 125 Film | Compare UK Prices', description: 'Compare Harman Red 125 redscale film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: "Harman Red 125 is a factory made redscale film from Harman Technology in Cheshire, the maker of Ilford. It is Harman's Phoenix 200 colour film spooled in reverse, so light reaches the red sensitive layer first and pictures come back in reds, oranges and yellows. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Red prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting Harman Red', paragraphs: [
+        'Redscale has long been made by hand, by winding colour film back into its cassette the wrong way round. Harman Red arrives finished and DX coded, without the light leaks and frame spacing problems that come with doing it yourself. Phoenix suits the conversion because of its clear base, high red sensitivity and lack of an anti-halation layer, which is why Red keeps a speed of ISO 125.',
+        'Exposure is the creative control. Harman suggests shooting between EI 100 and 200, with a usable range from 50 to 400. Underexposed frames give deeper reds, stronger shadows and coarser grain, while overexposed frames turn brighter and finer grained, with hints of green appearing among the oranges.',
+      ] },
+    ],
+  },
+  'harman/switch-azure': {
+    meta: { title: 'Harman Switch Azure 125 Film | Compare UK Prices', description: 'Compare Harman Switch Azure 125 colour switching film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Harman Switch Azure 125 is a creative colour film from Harman Technology that swaps colours around: blues come out orange, bright yellows turn azure, and reds become purple and blue. Red buses turn blue and sunsets go cool and violet. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Switch Azure prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Switch Azure', paragraphs: [
+        'Switch Azure is rated at ISO 125 and works best on sunny or bright overcast days, where strong colour gives the switch the most to work with. It has fine grain and a wide exposure latitude, so it forgives a meter reading that is a little out.',
+        'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
