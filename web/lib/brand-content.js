@@ -160,19 +160,24 @@ export const BRAND_CONTENT = {
     ],
   },
   foma: {
-    meta: { title: 'Fomapan Film Prices UK | Compare', description: 'Compare Fomapan film prices from UK retailers on Filmproof. Classic, Creative and Action stocks from Czech manufacturer Foma.' },
-    intro: "Fomapan is the classic black and white film range from Foma, a family-run manufacturer based in the Czech Republic with roots stretching back over a century. Loved for its traditional grain structure and budget-friendly pricing, Fomapan is a favourite among film photographers who enjoy bulk rolling and experimental darkroom work. Compare Fomapan prices on Filmproof.",
+    meta: { title: 'Fomapan Film Prices UK | Compare', description: 'Compare Foma film prices from UK shops. Fomapan 100 Classic, 200 Creative and 400 Action, Retropan 320 Soft, Ortho 400 and Fomapan R 100, in 35mm, 120, sheet and cine film.' },
+    intro: "Foma is a Czech maker of black and white film, paper and chemistry, and its Fomapan films are among the cheapest real black and white films you can buy. The range runs from Fomapan 100 Classic, 200 Creative and 400 Action to the low contrast Retropan 320 Soft, the orthochromatic Ortho 400 and the Fomapan R reversal films. Compare Foma film prices from UK shops below.",
     sections: [
-      { heading: "The History of Fomapan", paragraphs: [
-        "Foma Bohemia traces its origins back to 1919, when a group of engineers established a photographic plate manufacturer in Prague. In 1921, production moved to Hradec Kralove in the Czech Republic, operating under the name Fotochema for most of the twentieth century before privatisation in 1995 established the company as Foma Bohemia.",
-        "Throughout decades of Central European photographic manufacturing, Foma developed and refined its own traditional emulsion technology, which remains largely unchanged in character today, giving Fomapan its distinctive classic grain and tonal rendering, quite different from the more modern tabular-grain emulsions used by some competitors. Foma remains one of the last independent, family-owned traditional film manufacturers in the world, producing black and white film, paper and chemistry from its Czech factory.",
+      { heading: 'Where Foma film comes from', paragraphs: [
+        'Foma traces its roots to 1919, when a company making photographic plates was set up in Prague. It moved to Hradec Králové in 1921 under the name Fotochema, added black and white papers in 1931 and roll film in 1932, and has made film in the same town ever since. It became Foma Bohemia on privatisation in 1995 and is a privately owned Czech company.',
+        'Foma makes its film itself, in its own factory, rather than buying it in, and the edge markings on Fomapan 100 and 400 still read ULTRA 100 and ULTRA 400. Some shops also sell Fomapan in retro or limited edition packaging, which is the same film in a different box.',
       ] },
-      { heading: "Fomapan's Camera Film Ranges", paragraphs: [
-        "Fomapan 100 Classic is a fine-grain, traditional panchromatic film suited to bright conditions and detailed work. Fomapan 200 Creative is a modern general-purpose film with a versatile ISO 200 speed, while Fomapan 400 Action is a faster, traditional-style film designed for handheld shooting and lower light.",
-        "Retropan 320 Soft is designed for a low-contrast, vintage-inspired aesthetic, and Fomapan Ortho 400 is an orthochromatic film, insensitive to red light, useful for high-contrast copy work and creative effects. Fomapan R100 is a black and white reversal film, producing positive slides rather than negatives. The range is available across 35mm, 120 and sheet film formats, plus bulk rolls for photographers who load their own cassettes.",
+      { heading: 'Fomapan 100, 200 or 400?', paragraphs: [
+        'Fomapan 100 Classic is the slow, fine grained film of the three, with a wide range of tones, for bright light and detailed work. Fomapan 400 Action is the fast one, made for poor light and short shutter speeds, and it has the traditional grain and bite many people buy it for. Fomapan 200 Creative is the odd one out: its emulsion uses flat T grains, which give it fine grain for its speed, but Foma warns that this makes it more sensitive to pressure marks in some medium format cameras, so test a roll of the 120 first.',
+        "All three tolerate a stop of overexposure and two stops of underexposure without changing the development, by Foma's own figures. All three need generous extra exposure for long shutter speeds, though: a metered 10 seconds on Fomapan 200 Creative wants about 90.",
       ] },
-      { heading: "Choosing the Right Fomapan Film", paragraphs: [
-        "For bright light and fine detail, choose Fomapan 100 Classic. For general everyday use, Fomapan 200 Creative is a versatile option, while Fomapan 400 Action suits lower light and action. For a vintage, soft-contrast look, try Retropan 320 Soft. Fomapan's affordable pricing makes it especially popular for photographers shooting in volume or loading their own bulk cassettes. Compare Fomapan prices on Filmproof.",
+      { heading: 'Specialist Foma films', paragraphs: [
+        'Retropan 320 Soft is a low contrast film with a deliberately old fashioned look, and Foma recommends its own Retro Special developer for it. Ortho 400 is an orthochromatic film, blind to red light, so skin and red tones darken and blue skies lighten; it arrived in 120 in 2023 and in 35mm in 2024, and at ISO 400 it is much faster than most ortho films.',
+        'Fomapan R 100 is a black and white reversal film that gives positive slides rather than negatives. It is sold in 35mm and in cine gauges, including 16mm, double 8mm and double Super 8, and it needs a black and white reversal process, which few labs offer, so check before you shoot it.',
+      ] },
+      { heading: 'Buying and developing Foma film', paragraphs: [
+        'Fomapan comes in 35mm, 120, bulk rolls for loading your own cassettes, and sheet film in sizes from 4x5 to 8x10, which makes it one of the cheaper ways into large format. Filmproof divides multipacks out and prices sheet film per sheet, so you can compare shops fairly.',
+        'The negative films develop in ordinary black and white chemistry, at home or at any lab that handles black and white film, and they work with the common developers. Foma also makes its own, such as Fomadon LQN.',
       ] },
     ],
   },
