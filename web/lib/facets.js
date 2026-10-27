@@ -197,6 +197,9 @@ const lomo = (f, re) => re.test(f.display) && !/\b(?:duet|trio|quartet)\b/i.test
 // plain speed.
 const foma = (f) => /\b(?:ortho|retropan|reversal)\b|\bfomapan\s*r\s*100\b/i.test(f.display);
 
+// The speed of a Kentmere title, from the number after "Kentmere" or "Pan".
+const kentmere = (f) => (/\b(?:kentmere|pan)\s*(?:pan\s*)?(\d{3})\b/i.exec(f.display) || [])[1];
+
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
@@ -267,8 +270,14 @@ export const RANGES = [
   { brand: 'foma', slug: '200-creative', label: 'Fomapan 200 Creative', match: (f) => /\bcreative\b|\bfomapan\s*200\b/i.test(f.display) && !foma(f) },
   { brand: 'foma', slug: '400-action', label: 'Fomapan 400 Action', match: (f) => /\baction\b|\bfomapan\s*400\b/i.test(f.display) && !foma(f) },
   { brand: 'foma', slug: 'retropan', label: 'Retropan 320 Soft', match: (f) => /\bretropan\b/i.test(f.display) },
-  { brand: 'foma', slug: 'ortho-400', label: 'Fomapan Ortho 400', minFresh: 2, match: (f) => /\bortho\b/i.test(f.display) },
-  { brand: 'foma', slug: 'r100', label: 'Fomapan R100', minFresh: 2, match: (f) => /\bfomapan\s*r\s*100\b|\breversal\b/i.test(f.display) },
+  { brand: 'foma', slug: 'ortho-400', label: 'Ortho 400', minFresh: 2, match: (f) => /\bortho\b/i.test(f.display) },
+  { brand: 'foma', slug: 'r100', label: 'Fomapan R 100', minFresh: 2, match: (f) => /\bfomapan\s*r\s*100\b|\breversal\b/i.test(f.display) },
+  // Kentmere is three films, each in 35mm, 120 and bulk, sold as both
+  // "Kentmere 400" and "Kentmere Pan 400". The speed is the number straight
+  // after the name, so a bulk roll's "100ft" never reads as Pan 100.
+  { brand: 'kentmere', slug: 'pan-100', label: 'Pan 100', match: (f) => kentmere(f) === '100' },
+  { brand: 'kentmere', slug: 'pan-200', label: 'Pan 200', minFresh: 2, match: (f) => kentmere(f) === '200' },
+  { brand: 'kentmere', slug: 'pan-400', label: 'Pan 400', match: (f) => kentmere(f) === '400' },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -290,7 +299,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
 // and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
-// Fomapan Ortho 400 and R100).
+// Foma Ortho 400 and R 100, and Kentmere Pan 200).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }

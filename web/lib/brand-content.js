@@ -1170,7 +1170,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Fomapan 200 Creative is Foma\'s general purpose black and white film, a versatile middle speed between its 100 and 400 films. It is sold in 35mm, 120 and sheet film. Compare Fomapan 200 Creative prices from UK shops below.',
     sections: [
       { heading: 'Shooting Fomapan 200 Creative', paragraphs: [
-        'At ISO 200, Creative covers most daylight shooting with a little more room for shade and overcast days than a 100 speed film. It develops in ordinary black and white chemistry at home or at any lab.',
+        'At ISO 200, Creative covers most daylight shooting with a little more room for shade and overcast days than a 100 speed film. Its emulsion uses flat T grains, which keep grain fine for the speed, but Foma warns that this makes it more prone to pressure marks in some medium format cameras, so test a roll of the 120 first. It develops in ordinary black and white chemistry at home or at any lab.',
         'Fomapan 100 Classic is the slower, finer grained choice for bright light, and Fomapan 400 Action the faster one for low light and movement.',
       ] },
     ],
@@ -1181,7 +1181,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Fomapan 400 Action', paragraphs: [
         'Action has visible grain and a classic look. Many photographers rate it a little slower than box speed, around ISO 200 to 320, for fuller shadows, so it is worth a test roll before you rely on it. It develops in ordinary black and white chemistry at home or at any lab.',
-        'Fomapan 100 Classic and Fomapan 200 Creative are the slower, finer grained films in the same family, and Fomapan Ortho 400 is the orthochromatic film at the same speed.',
+        'Fomapan 100 Classic and Fomapan 200 Creative are the slower, finer grained films in the same family, and Ortho 400 is the orthochromatic film at the same speed.',
       ] },
     ],
   },
@@ -1196,22 +1196,53 @@ export const BRAND_SUB_CONTENT = {
     ],
   },
   'foma/ortho-400': {
-    meta: { title: 'Fomapan Ortho 400 Film | Compare UK Prices', description: 'Compare Fomapan Ortho 400 orthochromatic film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Fomapan Ortho 400 is an orthochromatic black and white film, insensitive to red light, unusually fast for an ortho film. Compare Fomapan Ortho 400 prices from UK shops below.',
+    meta: { title: 'Foma Ortho 400 Film | Compare UK Prices', description: 'Compare Foma Ortho 400 orthochromatic film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Foma Ortho 400 is an orthochromatic black and white film, insensitive to red light, unusually fast for an ortho film. It arrived in 120 in 2023 and in 35mm in 2024. Compare Foma Ortho 400 prices from UK shops below.',
     sections: [
-      { heading: 'Shooting Fomapan Ortho 400', paragraphs: [
+      { heading: 'Shooting Ortho 400', paragraphs: [
         'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits an early photography look and suits high contrast copy work. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
         'For ordinary panchromatic tones at the same speed, Fomapan 400 Action is Foma\'s fast traditional film.',
       ] },
     ],
   },
   'foma/r100': {
-    meta: { title: 'Fomapan R100 Film | Compare UK Prices', description: 'Compare Fomapan R100 black and white reversal film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Fomapan R100 is a black and white reversal film from Foma, made to give positive slides rather than negatives, for projection or a light box. It is sold for still and cine cameras. Compare Fomapan R100 prices from UK shops below.',
+    meta: { title: 'Fomapan R 100 Film | Compare UK Prices', description: 'Compare Fomapan R 100 black and white reversal film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Fomapan R 100 is a black and white reversal film from Foma, made to give positive slides rather than negatives, for projection or a light box. It is sold in 35mm and in cine gauges, including 16mm, double 8mm and double Super 8. Compare Fomapan R 100 prices from UK shops below.',
     sections: [
-      { heading: 'Developing Fomapan R100', paragraphs: [
-        'R100 needs a reversal process to give slides, which fewer labs offer than ordinary black and white development, so check with your lab first. Foma sells a reversal kit for developing it at home, and it can also be developed as an ordinary negative if you only want to scan or print.',
+      { heading: 'Developing Fomapan R 100', paragraphs: [
+        'R 100 needs a reversal process to give slides, which fewer labs offer than ordinary black and white development, so check with your lab first. Foma sells a reversal kit for developing it at home, and it can also be developed as an ordinary negative if you only want to scan or print.',
         'For ordinary black and white negatives at the same speed, Fomapan 100 Classic is Foma\'s fine grained traditional film.',
+      ] },
+    ],
+  },
+  // Kentmere's ranges.
+  'kentmere/pan-100': {
+    meta: { title: 'Kentmere Pan 100 Film | Compare UK Prices', description: 'Compare Kentmere Pan 100 black and white film prices from UK shops, in 35mm, 120 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 100 is the slow, fine grained black and white film from Harman Technology\'s budget Kentmere range, made in Cheshire alongside Ilford. It is sold in 35mm, 120 and 30.5m bulk rolls, and some shops list it simply as Kentmere 100. Compare Kentmere Pan 100 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 100', paragraphs: [
+        'At ISO 100, Pan 100 suits bright days, landscapes and anything on a tripod, where its fine grain and smooth tones show best. It develops in ordinary black and white chemistry, at home or at any lab, which makes it a cheap film to learn developing on.',
+        'Kentmere Pan 400 is the faster all rounder for dull days and street photography, and Kentmere Pan 200 sits between the two.',
+      ] },
+    ],
+  },
+  'kentmere/pan-200': {
+    meta: { title: 'Kentmere Pan 200 Film | Compare UK Prices', description: 'Compare Kentmere Pan 200 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 200 is the newest film in Harman Technology\'s budget Kentmere range, a middle speed black and white film for photographers who want a little more speed than 100 without the grain of 400. Compare Kentmere Pan 200 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 200', paragraphs: [
+        'At ISO 200, Pan 200 covers most daylight shooting, with a little more room for shade and overcast days than a slower film. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 400 the faster one for low light.',
+      ] },
+    ],
+  },
+  'kentmere/pan-400': {
+    meta: { title: 'Kentmere Pan 400 Film | Compare UK Prices', description: 'Compare Kentmere Pan 400 black and white film prices from UK shops, in 35mm, 120 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 400 is the fast all rounder in Harman Technology\'s budget Kentmere range, and one of the cheapest ISO 400 black and white films in the UK. It is sold in 35mm, 120 and 30.5m bulk rolls, and some shops list it simply as Kentmere 400. Compare Kentmere Pan 400 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 400', paragraphs: [
+        'Pan 400 is fast enough for overcast days, street photography and indoor light, and it pushes a stop or two when you need more speed. Next to Ilford HP5 Plus it has slightly coarser grain and less latitude, but it costs less, which makes it a good film for learning, testing a camera or shooting a lot of rolls.',
+        'It develops in ordinary black and white chemistry, at home or at any lab. Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 200 sits between the two.',
       ] },
     ],
   },
