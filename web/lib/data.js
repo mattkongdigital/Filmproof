@@ -100,7 +100,7 @@ export const LEGACY_FILM_SLUGS = {
   'lomography-color-negative-800-35mm-film-three-pack': 'lomography-colour-negative-800-35mm-film',
   'lomography-redscale-xr-50-200-35mm-film': 'lomography-redscale-xr-35mm-50-200-iso-film',
   'lomography-redscale-xr-35mm-50-200-iso-film-three-pack-expiry-08-26': 'lomography-redscale-xr-35mm-50-200-iso-film',
-  'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso-triple-pack': 'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso',
+  'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso-triple-pack': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
   'fujicolor-c200-35mm-film-double-pack-expired': 'fujicolor-c200-35mm-film-expired',
   'kodak-gold-200-35mm-film-double-pack-expired': 'kodak-gold-200-35mm-film-expired',
   'polaroid-color-go-instant-film-double-pack-black-frame-edition': 'polaroid-color-go-instant-film-black-frame-edition',
@@ -162,6 +162,11 @@ export const LEGACY_FILM_SLUGS = {
   'kodak-eastman-ektacolor-pro-160-large-format-film': 'kodak-eastman-ektacolor-pro-160-large-format-film-4x5',
   'kodak-eastman-tri-x-320-large-format-film': 'kodak-eastman-tri-x-320-large-format-film-4x5',
   'kodak-tri-x-320-5x7-large-format-film-50-sheets': 'kodak-eastman-tri-x-320-large-format-film-5x7',
+  // LomoChrome Color '92 Sun-Kissed, written three ways by shops, is one film
+  // per format; plain Color '92 is a different film and keeps its pages.
+  'lomography-lomochrome-92-sun-kissed-400-iso-120-film': 'lomography-lomochrome-colour-92-sunkissed-120-film',
+  'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
+  'lomography-lomochrome-sun-kissed-400-35mm-film': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
   // Sheet film is priced per sheet now, and a page lists every box of its
   // film, so a page name no longer carries the first shop's box count.
   'kodak-eastman-ektar-100-4x5-large-format-film-10-sheets': 'kodak-eastman-ektar-100-4x5-large-format-film',

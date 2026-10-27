@@ -29,7 +29,9 @@ const BRAND_PATTERNS = [
   [/\bfujichrome\b/, 'fujifilm'],
   [/\bfujicolou?r\b/, 'fujifilm'],
   [/\bfujifilm\b|\bfuji\b/, 'fujifilm'],
-  [/\blomography\b|\blomo\b/, 'lomography'],
+  // LomoChrome is only ever Lomography's, and Take It Easy Lab lists its films
+  // under that name alone ("Lomochrome Color 92 - 35mm").
+  [/\blomography\b|\blomo\b|\blomochrome\b/, 'lomography'],
   [/\bfomapan\b|\bfoma\b/, 'foma'],
   [/\bkodak\b/, 'kodak'],
   // Kentmere is made by Harman, who also make Ilford, and shops file it under
@@ -227,6 +229,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bbwxx\s+double[\s-]?x\b/g, 'bwxx')
     .replace(/\bsx[\s-]?70\b/g, 'sx70')
     .replace(/\bsuperia\s+venus\b/g, 'venus')   // sold as both
+    .replace(/\bsun[\s-]?kissed\b/g, 'sunkissed')
     .replace(/\b160\s?ns\b/g, '160 ns')          // Fuji Pro "160NS" / "160 NS"
     .replace(/\btesla\s+(ii|i)\b/g, (m, r) => `tesla ${r.length}`)   // Revolog Tesla I / 1
     // "Metropolis XR" is Lomography's current name for Metropolis, and the same
@@ -282,6 +285,13 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // Redscale 125" is the Red 125 every other shop lists. Scoped to Harman, as
   // Lomography's Redscale is a film of its own.
   if (/\bharman\b/.test(text)) text = text.replace(/\bredscale\b/g, 'red');
+  // LomoChrome Color '92 Sun-Kissed is a film of its own, a later and warmer
+  // edition of Color '92, but shops write it "Colour '92 (Sunkissed)", "92
+  // Sun-Kissed" or plain "Sun-Kissed", which forked it three ways per format.
+  // The name settles it, so the "92" goes; plain Color '92 keeps its own page.
+  if (/\blomography\b|\blomochrome\b/.test(text) && /\bsunkissed\b/.test(text)) {
+    text = text.replace(/\b92\b/g, ' ').replace(/\s+/g, ' ').trim();
+  }
   // Lomography's colour negatives carry the same kind of range code — "Color
   // Tiger CN200" is the Tiger 200 other shops list without it.
   if (/\blomography\b|\blomo\b/.test(text)) {
