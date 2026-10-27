@@ -284,12 +284,13 @@ export const RANGES = [
   { brand: 'ferrania', slug: 'orto', label: 'Orto', minFresh: 2, match: (f) => /\borto\b/i.test(f.display) },
   { brand: 'ferrania', slug: 'p33', label: 'P33', minFresh: 2, match: (f) => /\bp\s*33\b/i.test(f.display) },
   // Adox's films are one emulsion each. CHS 100 II comes in enough sizes to
-  // stand at the usual bar; the rest are 35mm and 120, so they take a page
-  // at two.
+  // stand at the usual bar; the rest take a page at two. Scala covers today's
+  // Scala 50 and old Scala 160 stock alike. Silvermax is discontinued, so it
+  // has no range.
   { brand: 'adox', slug: 'chs-100-ii', label: 'CHS 100 II', match: (f) => /\bchs\b/i.test(f.display) },
-  { brand: 'adox', slug: 'silvermax', label: 'Silvermax', minFresh: 2, match: (f) => /\bsilver\s*max\b/i.test(f.display) },
-  { brand: 'adox', slug: 'scala', label: 'Scala', minFresh: 2, match: (f) => /\bscala\b/i.test(f.display) },
   { brand: 'adox', slug: 'hr-50', label: 'HR-50', minFresh: 2, match: (f) => /\bhr[\s-]?50\b/i.test(f.display) },
+  { brand: 'adox', slug: 'scala', label: 'Scala', minFresh: 2, match: (f) => /\bscala\b/i.test(f.display) },
+  { brand: 'adox', slug: 'cms-20-ii', label: 'CMS 20 II', minFresh: 2, match: (f) => /\bcms\s*20\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -312,7 +313,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
 // and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
 // Foma Ortho 400 and R 100, Kentmere Pan 200, Ferrania's three films, and
-// Adox Silvermax, Scala and HR-50).
+// Adox HR-50, Scala and CMS 20 II).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
