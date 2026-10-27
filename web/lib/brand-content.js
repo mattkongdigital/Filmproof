@@ -749,6 +749,26 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'kodak/ultramax': {
+    meta: { title: 'Kodak UltraMax 400 Film | Compare UK Prices', description: 'Compare Kodak UltraMax 400 prices from UK shops, in 35mm, with live stock and prices per roll.' },
+    intro: "Kodak UltraMax 400 is Kodak's fast everyday colour negative film, with the warm, saturated colour of its consumer films and the speed to keep shooting when the light drops. It is sold in 35mm. Compare Kodak UltraMax prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting UltraMax 400', paragraphs: [
+        'At ISO 400, UltraMax handles overcast days, shade, interiors and moving subjects that would leave a slower film underexposed, which makes it a safe choice for a point and shoot or a camera with a fixed shutter speed. Grain is a little more visible than on a 200 speed film, and like most colour negative film it copes far better with too much light than too little.',
+        'UltraMax develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and multipacks, so compare on price per roll, and you will also see expired UltraMax listed, older stock sold off cheaply with less predictable results. For bright days, Gold 200 gives the same warm look at a slower speed, and ColorPlus 200 is Kodak\'s other ISO 200 everyday film.',
+      ] },
+    ],
+  },
+  'kodak/colorplus': {
+    meta: { title: 'Kodak ColorPlus 200 Film | Compare UK Prices', description: 'Compare Kodak ColorPlus 200 prices from UK shops, in 35mm, with live stock and prices per roll.' },
+    intro: "Kodak ColorPlus 200 is one of the cheapest Kodak films, a simple everyday colour negative with warm, slightly vintage colour. It is sold in 35mm. Compare Kodak ColorPlus prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting ColorPlus 200', paragraphs: [
+        'ColorPlus is at its best in good daylight, where it gives warm tones and soft, slightly muted colour that suits a nostalgic look. Its grain is more visible than on Kodak\'s professional films, and it prefers a little extra exposure to too little, so rate it at box speed or slower if your camera lets you choose.',
+        'ColorPlus develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and multipacks, so compare on price per roll, and expired ColorPlus is listed too. Gold 200 is the step up at the same speed, with richer colour, and UltraMax 400 is the faster choice for dull days and interiors.',
+      ] },
+    ],
+  },
   'kodak/ektachrome': {
     meta: { title: 'Kodak Ektachrome Film | Compare UK Prices', description: 'Compare Kodak Ektachrome E100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: "Kodak Ektachrome E100 is Kodak's colour slide film, brought back in 2018 after it had been discontinued, with fine grain and clean, fairly neutral colour. It is sold in 35mm, 120 and sheet film, and in a motion picture version for 16mm cameras. Compare Kodak Ektachrome prices from UK shops below.",
