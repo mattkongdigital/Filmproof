@@ -22,21 +22,24 @@ export const BRAND_CONTENT = {
     ],
   },
   fujifilm: {
-    meta: { title: 'Fujifilm Film Prices UK | Compare', description: 'Compare Fujifilm film prices from UK retailers on Filmproof. C200, Superia X-Tra, Velvia, Provia and Acros II, find the best deal today.' },
-    intro: "Fujifilm has been shaping the look of colour photography since the 1930s, known for its vivid greens, punchy contrast and dependable everyday film stocks. Whether you're after the affordable Fujicolor C200 or the legendary slide film Velvia, Fujifilm's film ranges offer a distinctly different palette to Kodak's. Compare Fujifilm film prices from UK retailers on Filmproof.",
+    meta: { title: 'Fujifilm Film Prices UK | Compare', description: 'Compare Fujifilm film prices from UK shops. Instax Mini, Square and Wide, Fujifilm 200 and 400, Superia, Velvia, Provia and Acros II, with live stock and prices.' },
+    intro: "Fujifilm is the Japanese maker behind Instax instant film, the Velvia and Provia slide films and a range of everyday colour negatives, with a colour palette many photographers find cooler and greener than Kodak's. Compare Fujifilm film prices from UK shops below, from Instax packs to 35mm, 120 and sheet film.",
     sections: [
-      { heading: "The History of Fujifilm", paragraphs: [
-        "Fujifilm was founded in Tokyo in 1934 as Fuji Photo Film Co., originally established to manufacture photographic film domestically in Japan and reduce reliance on imported stock. The company grew rapidly into a global imaging giant, developing its own line of Fujicolor negative films alongside professional slide film.",
-        "Fujifilm's Velvia slide film, launched in 1990, became an instant favourite among landscape and nature photographers for its intensely saturated colour, a reputation it still holds today. The company also built a strong reputation in instant photography with its Instax format, which has introduced a new generation to shooting on film.",
-        "Fujifilm has maintained analogue film production more consistently than many of its rivals, continuing to manufacture film in Japan even as digital photography became dominant. Raw material shortages and rising costs led to some notable discontinuations in recent years, including the much-loved Pro 400H in 2021, but the company has reaffirmed its commitment to keeping its core film range in production.",
+      { heading: 'A short history of Fujifilm', paragraphs: [
+        'Fujifilm was founded in Tokyo in 1934 as Fuji Photo Film, set up to make photographic film in Japan rather than import it. Velvia, launched in 1990, became the slide film of choice for landscape photographers, and Instax, launched in 1998, introduced a new generation to instant photography.',
+        'Fujifilm has trimmed its film range in recent years, discontinuing Pro 400H in 2021 among others, but it still makes slide film and Instax, and it brought back Acros as Acros II in 2019 after the original was discontinued.',
       ] },
-      { heading: "Fujifilm's Camera Film Ranges", paragraphs: [
-        "Fujicolor C200 is Fujifilm's affordable, everyday colour negative film and a popular entry point for those new to shooting film, offering punchy colour at a friendly price. Fujicolor Superia X-Tra 400 is a versatile step up, performing well across variable lighting conditions and delivering natural skin tones with the cooler, green-cyan cast that has become something of a Fujifilm signature.",
-        "On the black and white side, Neopan 100 Acros II offers ultra-fine grain and excellent reciprocity characteristics, making it a favourite for long exposure and low-light work. It was relaunched in 2019 after the original Acros was discontinued, reflecting continued demand for high quality monochrome film.",
-        "For slide film shooters, Velvia 50 remains the choice for landscape and nature photographers chasing vivid, saturated colour, while Provia 100F offers a more neutral, balanced palette suited to general purpose slide photography.",
+      { heading: 'Instax instant film', paragraphs: [
+        "Instax is the Fujifilm film most people know today, and it comes in three formats that fit three different sets of cameras and printers: Mini, the small credit card sized print; Square; and Wide, the largest. Each has its own page, listing colour, monochrome and patterned frame packs with prices compared per pack, since shops sell them as singles and twin packs.",
       ] },
-      { heading: "Choosing the Right Fujifilm Film", paragraphs: [
-        "For everyday, budget-friendly shooting, choose Fujicolor C200. For a more versatile all-rounder with a distinctive colour cast, go for Superia X-Tra 400. Fine art and long exposure black and white photographers should look to Acros II, while landscape photographers chasing vivid colour should reach for Velvia 50, with Provia 100F as the more balanced alternative. Compare Fujifilm film prices on Filmproof to find the best deal across UK retailers.",
+      { heading: 'Colour negative film', paragraphs: [
+        "Fujifilm 200 and Fujifilm 400 are the current everyday colour films, affordable and forgiving for travel and snapshots, and older Fujicolor C200 stock still turns up too. Superia X-Tra 400 and Superia Premium 400 are Fujifilm's ISO 400 Superia films, with the cooler greens and blues the brand is known for.",
+      ] },
+      { heading: 'Slide and black and white film', paragraphs: [
+        'Velvia 50 and Velvia 100 give intensely saturated colour for landscapes, while Provia 100F is the more neutral, natural slide film. Both develop in E-6 chemistry, and Velvia 100 also comes as 4x5 sheet film. In black and white, Neopan 100 Acros II is a fine grained ISO 100 film known for handling long exposures well, and Neopan 400CN is a chromogenic black and white film that develops in standard C-41 colour chemistry.',
+      ] },
+      { heading: 'Older and Japanese market films', paragraphs: [
+        'Shops also list Fujifilm films that are discontinued or were made mainly for Japan, such as Natura 1600, Venus 800, Pro 160NS and Pro 400H. These are usually remaining or older stock, so prices vary widely and supply comes and goes, and expired stock is clearly marked on Filmproof.',
       ] },
     ],
   },
