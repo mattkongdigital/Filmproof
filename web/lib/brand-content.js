@@ -1044,6 +1044,47 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // CineStill's ranges.
+  'cinestill/800t': {
+    meta: { title: 'CineStill 800T Film | Compare UK Prices', description: 'Compare CineStill 800T prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 800T is a tungsten balanced colour film adapted from motion picture stock, made for night, neon and artificial light. It is the film CineStill is known for, with a red glow around bright lights that comes from removing the remjet backing. It is sold in 35mm and 120. Compare CineStill 800T prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 800T', paragraphs: [
+        'Because it is balanced for tungsten light, 800T renders streetlights, interiors and neon cleanly, and point light sources pick up its signature halation. In daylight it turns blue, so add a warming 85 filter and allow for a little lost speed, or choose a daylight film instead. It is fast enough for handheld night work and takes a push of a stop or more when the light is very low.',
+        '800T develops in standard C-41 chemistry at any lab. For daylight, 400D is CineStill\'s all rounder and 50D its slow, fine grained film, and BwXX is its black and white.',
+      ] },
+    ],
+  },
+  'cinestill/50d': {
+    meta: { title: 'CineStill 50D Film | Compare UK Prices', description: 'Compare CineStill 50D prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 50D is a slow, daylight balanced colour film adapted from motion picture stock, with very fine grain and natural colour. It is sold in 35mm and 120. Compare CineStill 50D prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 50D', paragraphs: [
+        'At ISO 50, 50D wants bright sun or a tripod, and rewards it with clean detail for landscapes, beaches and portraits in good light. Halation is gentler than on 800T, showing mainly around the brightest highlights.',
+        '50D develops in standard C-41 chemistry at any lab. For more speed in daylight, 400D is the all rounder, and for night and artificial light, 800T.',
+      ] },
+    ],
+  },
+  'cinestill/400d': {
+    meta: { title: 'CineStill 400D Film | Compare UK Prices', description: 'Compare CineStill 400D prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 400D is a daylight balanced colour film launched in 2022, the all rounder of the CineStill range, with wide latitude for mixed and changing light. It is sold in 35mm and 120. Compare CineStill 400D prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 400D', paragraphs: [
+        '400D copes with everything from bright sun to shade and overcast days, and it can be pushed to 800 or 1600 when the light drops. Like the other CineStill colour films it shows some halation around bright highlights. If you want one CineStill film for everyday use, it is the safest place to start.',
+        '400D develops in standard C-41 chemistry at any lab. For bright light and the finest grain, look at 50D, and for night and artificial light, 800T.',
+      ] },
+    ],
+  },
+  'cinestill/bwxx': {
+    meta: { title: 'CineStill BwXX Film | Compare UK Prices', description: 'Compare CineStill BwXX black and white film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill BwXX is a black and white film based on Kodak\'s Double-X cinema stock, with the high contrast, classic look of black and white movies. It is sold in 35mm and 120. Compare CineStill BwXX prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting BwXX', paragraphs: [
+        'BwXX has a gritty, cinematic character, with strong contrast and visible grain, and it suits street photography and moody portraits. Unlike CineStill\'s colour films, it develops in ordinary black and white chemistry, at home or at any lab.',
+        'For colour, CineStill\'s films are 800T for night and artificial light, 400D for everyday daylight shooting and 50D for bright sun.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',

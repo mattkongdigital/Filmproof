@@ -239,6 +239,13 @@ export const RANGES = [
   { brand: 'lomography', slug: 'earl-grey', label: 'Earl Grey', minFresh: 2, match: (f) => lomo(f, /\bearl\s*grey\b/i) },
   { brand: 'lomography', slug: 'lady-grey', label: 'Lady Grey', minFresh: 2, match: (f) => lomo(f, /\blady\s*grey\b/i) },
   { brand: 'lomography', slug: 'kino', label: 'Kino', match: (f) => lomo(f, /\b(?:kino|potsdam|berlin|babylon|fantome)\b/i) },
+  // CineStill sells each film in two or three formats rather than a line of
+  // speeds, so its ranges are single films, each worth a page at two. Shops
+  // spell the suffix out as often as not ("800Tungsten", "400Dynamic").
+  { brand: 'cinestill', slug: '800t', label: '800T', minFresh: 2, match: (f) => /\b800\s*t(?:ungsten)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: '50d', label: '50D', minFresh: 2, match: (f) => /\b50\s*d(?:aylight)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: '400d', label: '400D', minFresh: 2, match: (f) => /\b400\s*d(?:ynamic)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: 'bwxx', label: 'BwXX', minFresh: 2, match: (f) => /\bbw\s*xx\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -259,7 +266,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // only repeats the film pages it links to. A range can lower its own bar with
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
-// and Lady Grey).
+// and Lady Grey, and the CineStill films).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
