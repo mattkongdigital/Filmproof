@@ -190,6 +190,16 @@ export function brandSubParams() {
 //
 // A range slug lives beside the facet slugs under /brand/<slug>/, so it must
 // never end in "-film" like they all do. The check below stops the build.
+// A Lomography title that names this line and is not a mixed pack.
+const lomo = (f, re) => re.test(f.display) && !/\b(?:duet|trio|quartet)\b/i.test(f.display);
+
+// A Foma title for one of its specialist films, which never belongs to a
+// plain speed.
+const foma = (f) => /\b(?:ortho|retropan|reversal)\b|\bfomapan\s*r\s*100\b/i.test(f.display);
+
+// The speed of a Kentmere title, from the number after "Kentmere" or "Pan".
+const kentmere = (f) => (/\b(?:kentmere|pan)\s*(?:pan\s*)?(\d{3})\b/i.exec(f.display) || [])[1];
+
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
@@ -220,6 +230,75 @@ export const RANGES = [
   { brand: 'fujifilm', slug: 'provia', label: 'Provia', minFresh: 2, match: (f) => /\bprovia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'superia', label: 'Superia', minFresh: 2, match: (f) => /\bsuperia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'acros', label: 'Acros', minFresh: 2, match: (f) => /\bacros\b/i.test(f.display) },
+  // Lomography's lines. Its mixed packs (Analogue Duet, Trio, Quartet) name
+  // several films in one title, so they belong to none. Color Negative is
+  // the plain everyday film, so a title naming a LomoChrome or other line
+  // alongside it ("LomoChrome Purple Color Negative") is that line's, not
+  // this one's. Color Tiger is its 110 version, Lobster Redscale is
+  // Redscale's, and the Kino films are named by city.
+  { brand: 'lomography', slug: 'color-negative', label: 'Color Negative', match: (f) => lomo(f, /\bcolou?r\s*(?:negative|tiger)\b/i) && !/\b(?:purple|turquoise|metropolis|classicolou?r|92|redscale)\b/i.test(f.display) },
+  { brand: 'lomography', slug: 'purple', label: 'Purple', match: (f) => lomo(f, /\bpurple\b/i) },
+  { brand: 'lomography', slug: 'turquoise', label: 'Turquoise', match: (f) => lomo(f, /\bturquoise\b/i) },
+  { brand: 'lomography', slug: 'metropolis', label: 'Metropolis', match: (f) => lomo(f, /\bmetropolis\b/i) },
+  { brand: 'lomography', slug: 'classicolor', label: 'Classicolor', match: (f) => lomo(f, /\bclassicolou?r\b/i) },
+  { brand: 'lomography', slug: 'color-92', label: 'Color 92', match: (f) => lomo(f, /\bcolou?r\s*['’]?92\b/i) },
+  { brand: 'lomography', slug: 'redscale', label: 'Redscale', match: (f) => lomo(f, /\b(?:redscale|lobster)\b/i) },
+  { brand: 'lomography', slug: 'earl-grey', label: 'Earl Grey', minFresh: 2, match: (f) => lomo(f, /\bearl\s*grey\b/i) },
+  { brand: 'lomography', slug: 'lady-grey', label: 'Lady Grey', minFresh: 2, match: (f) => lomo(f, /\blady\s*grey\b/i) },
+  { brand: 'lomography', slug: 'kino', label: 'Kino', match: (f) => lomo(f, /\b(?:kino|potsdam|berlin|babylon|fantome)\b/i) },
+  // CineStill sells each film in two or three formats rather than a line of
+  // speeds, so its ranges are single films, each worth a page at two. Shops
+  // spell the suffix out as often as not ("800Tungsten", "400Dynamic").
+  { brand: 'cinestill', slug: '800t', label: '800T', minFresh: 2, match: (f) => /\b800\s*t(?:ungsten)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: '50d', label: '50D', minFresh: 2, match: (f) => /\b50\s*d(?:aylight)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: '400d', label: '400D', minFresh: 2, match: (f) => /\b400\s*d(?:ynamic)?\b/i.test(f.display) },
+  { brand: 'cinestill', slug: 'bwxx', label: 'BwXX', minFresh: 2, match: (f) => /\bbw\s*xx\b/i.test(f.display) },
+  // Rollei's lines, as Maco sells them. Retro is 80S and 400S. Superpan and
+  // Infrared are one film each in a few formats, so they take a page at two.
+  { brand: 'rollei', slug: 'rpx', label: 'RPX', match: (f) => /\brpx\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'retro', label: 'Retro', match: (f) => /\bretro\s*\d+\s*s\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'superpan', label: 'Superpan', minFresh: 2, match: (f) => /\bsuperpan\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'infrared', label: 'Infrared', minFresh: 2, match: (f) => /\binfra\s*red\b/i.test(f.display) && !/\bsuperpan\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'ortho-25-plus', label: 'Ortho 25 Plus', match: (f) => /\bortho\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'crossbird', label: 'CrossBird', match: (f) => /\bcross\s*bird\b/i.test(f.display) },
+  // Foma's films are each one emulsion across formats. Shops write the
+  // speed and the name in either order ("Fomapan Classic 100", "Fomapan 100
+  // Classic") or drop the name on sheet film ("Fomapan 400 8x10"), so the
+  // speed after "Fomapan" is enough, and the reversal and ortho films are
+  // kept out of the speed they share.
+  { brand: 'foma', slug: '100-classic', label: 'Fomapan 100 Classic', match: (f) => /\bclassic\b|\bfomapan\s*100\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: '200-creative', label: 'Fomapan 200 Creative', match: (f) => /\bcreative\b|\bfomapan\s*200\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: '400-action', label: 'Fomapan 400 Action', match: (f) => /\baction\b|\bfomapan\s*400\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: 'retropan', label: 'Retropan 320 Soft', match: (f) => /\bretropan\b/i.test(f.display) },
+  { brand: 'foma', slug: 'ortho-400', label: 'Ortho 400', minFresh: 2, match: (f) => /\bortho\b/i.test(f.display) },
+  { brand: 'foma', slug: 'r100', label: 'Fomapan R 100', minFresh: 2, match: (f) => /\bfomapan\s*r\s*100\b|\breversal\b/i.test(f.display) },
+  // Kentmere is three films, each in 35mm, 120 and bulk, sold as both
+  // "Kentmere 400" and "Kentmere Pan 400". The speed is the number straight
+  // after the name, so a bulk roll's "100ft" never reads as Pan 100.
+  { brand: 'kentmere', slug: 'pan-100', label: 'Pan 100', match: (f) => kentmere(f) === '100' },
+  { brand: 'kentmere', slug: 'pan-200', label: 'Pan 200', minFresh: 2, match: (f) => kentmere(f) === '200' },
+  { brand: 'kentmere', slug: 'pan-400', label: 'Pan 400', match: (f) => kentmere(f) === '400' },
+  // Ferrania's films are one emulsion each, like CineStill's, so each takes a
+  // page at two. P30 was launched as "P30 Alpha" and shops use both names.
+  { brand: 'ferrania', slug: 'p30', label: 'P30', minFresh: 2, match: (f) => /\bp\s*30\b/i.test(f.display) },
+  { brand: 'ferrania', slug: 'orto', label: 'Orto', minFresh: 2, match: (f) => /\borto\b/i.test(f.display) },
+  { brand: 'ferrania', slug: 'p33', label: 'P33', minFresh: 2, match: (f) => /\bp\s*33\b/i.test(f.display) },
+  // Adox's films are one emulsion each. CHS 100 II comes in enough sizes to
+  // stand at the usual bar; the rest take a page at two. Scala covers today's
+  // Scala 50 and old Scala 160 stock alike. Silvermax is discontinued, so it
+  // has no range.
+  { brand: 'adox', slug: 'chs-100-ii', label: 'CHS 100 II', match: (f) => /\bchs\b/i.test(f.display) },
+  { brand: 'adox', slug: 'hr-50', label: 'HR-50', minFresh: 2, match: (f) => /\bhr[\s-]?50\b/i.test(f.display) },
+  { brand: 'adox', slug: 'scala', label: 'Scala', minFresh: 2, match: (f) => /\bscala\b/i.test(f.display) },
+  { brand: 'adox', slug: 'cms-20-ii', label: 'CMS 20 II', minFresh: 2, match: (f) => /\bcms\s*20\b/i.test(f.display) },
+  // Polaroid's film is sold by the cameras it fits, like Instax, so each
+  // format is a range of its own. i-Type and SX-70 packs are kept out of
+  // 600, which a title can mention alongside them.
+  { brand: 'polaroid', slug: 'i-type', label: 'i-Type', match: (f) => /\bi[\s-]?type\b/i.test(f.display) },
+  { brand: 'polaroid', slug: '600', label: '600', match: (f) => /\b600\b/.test(f.display) && !/\bi[\s-]?type\b|\bsx[\s-]?70\b/i.test(f.display) },
+  { brand: 'polaroid', slug: 'sx-70', label: 'SX-70', match: (f) => /\bsx[\s-]?70\b/i.test(f.display) },
+  { brand: 'polaroid', slug: 'go', label: 'Go', mention: /\bGo film\b/, match: (f) => /\bgo\b/i.test(f.display) },
+  { brand: 'polaroid', slug: '8x10', label: '8x10', minFresh: 2, match: (f) => /\b8\s*x\s*10\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -239,7 +318,10 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // A range needs MIN_COMBO_FILMS fresh films, since a page of one or two cards
 // only repeats the film pages it links to. A range can lower its own bar with
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
-// Provia, Superia, Acros, Harman Red and Switch Azure).
+// Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
+// and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
+// Foma Ortho 400 and R 100, Kentmere Pan 200, Ferrania's three films, and
+// Adox HR-50, Scala and CMS 20 II, and Polaroid 8x10).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }

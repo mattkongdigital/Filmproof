@@ -695,7 +695,7 @@ export const BRAND_SUB_CONTENT = {
         'Ektacolor Pro 800 is the fast option for low light, keeping skin tones natural and colour balanced when the light is changing or poor.',
       ] },
       { heading: 'Ektacolor Pro and Portra', paragraphs: [
-        'Ektacolor Pro covers the same speeds and formats as Kodak Portra, and some shops list it with the matching Portra name in brackets after the title. Both are sold here, so compare them side by side on price per roll before you buy. Like any colour negative film, Ektacolor Pro develops in standard C-41 chemistry at any lab.',
+        'Ektacolor Pro covers the same speeds and formats as Kodak Portra, and some shops list it with the matching Portra name in brackets after the title. Both are sold here, so compare them side by side on price per roll before you buy. Like any colour negative film, Ektacolor Pro develops in standard C-41 chemistry at any lab. For more saturated colour and the finest grain, Ektar 100 is Kodak\'s landscape and travel colour negative.',
       ] },
     ],
   },
@@ -762,12 +762,32 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'kodak/ultramax': {
+    meta: { title: 'Kodak UltraMax 400 Film | Compare UK Prices', description: 'Compare Kodak UltraMax 400 prices from UK shops, in 35mm, with live stock and prices per roll.' },
+    intro: "Kodak UltraMax 400 is Kodak's fast everyday colour negative film, with the warm, saturated colour of its consumer films and the speed to keep shooting when the light drops. It is sold in 35mm. Compare Kodak UltraMax prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting UltraMax 400', paragraphs: [
+        'At ISO 400, UltraMax handles overcast days, shade, interiors and moving subjects that would leave a slower film underexposed, which makes it a safe choice for a point and shoot or a camera with a fixed shutter speed. Grain is a little more visible than on a 200 speed film, and like most colour negative film it copes far better with too much light than too little.',
+        'UltraMax develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and multipacks, so compare on price per roll, and you will also see expired UltraMax listed, older stock sold off cheaply with less predictable results. For bright days, Gold 200 gives the same warm look at a slower speed, and ColorPlus 200 is Kodak\'s other ISO 200 everyday film.',
+      ] },
+    ],
+  },
+  'kodak/colorplus': {
+    meta: { title: 'Kodak ColorPlus 200 Film | Compare UK Prices', description: 'Compare Kodak ColorPlus 200 prices from UK shops, in 35mm, with live stock and prices per roll.' },
+    intro: "Kodak ColorPlus 200 is one of the cheapest Kodak films, a simple everyday colour negative with warm, slightly vintage colour. It is sold in 35mm. Compare Kodak ColorPlus prices from UK shops below.",
+    sections: [
+      { heading: 'Shooting ColorPlus 200', paragraphs: [
+        'ColorPlus is at its best in good daylight, where it gives warm tones and soft, slightly muted colour that suits a nostalgic look. Its grain is more visible than on Kodak\'s professional films, and it prefers a little extra exposure to too little, so rate it at box speed or slower if your camera lets you choose.',
+        'ColorPlus develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and multipacks, so compare on price per roll, and expired ColorPlus is listed too. Gold 200 is the step up at the same speed, with richer colour, and UltraMax 400 is the faster choice for dull days and interiors.',
+      ] },
+    ],
+  },
   'kodak/ektachrome': {
     meta: { title: 'Kodak Ektachrome Film | Compare UK Prices', description: 'Compare Kodak Ektachrome E100 slide film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
     intro: "Kodak Ektachrome E100 is Kodak's colour slide film, brought back in 2018 after it had been discontinued, with fine grain and clean, fairly neutral colour. It is sold in 35mm, 120 and sheet film, and in a motion picture version for 16mm cameras. Compare Kodak Ektachrome prices from UK shops below.",
     sections: [
       { heading: "Shooting slide film", paragraphs: [
-        "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot.",
+        "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. If you want strong colour with the latitude of negative film instead, Ektar 100 is Kodak's finest grained colour negative, and Portra is the softer, more forgiving choice.",
       ] },
     ],
   },
@@ -832,7 +852,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Ilford Ortho Plus is an orthochromatic black and white film, sensitive to blue and green light but not to red. Rated at ISO 80 in daylight, it is sold in 35mm, 120 and sheet film. Compare Ilford Ortho Plus prices from UK shops below.',
     sections: [
       { heading: 'What orthochromatic film looks like', paragraphs: [
-        'Because Ortho Plus does not see red, reds and warm skin tones render dark, blue skies render light, and freckles and blemishes stand out, which gives portraits an old fashioned, early photography look. It can be handled and developed under a red safelight, which makes it popular for tray developing sheet film. Under tungsten light its speed falls to around ISO 40.',
+        'Because Ortho Plus does not see red, reds and warm skin tones render dark, blue skies render light, and freckles and blemishes stand out, which gives portraits an old fashioned, early photography look. It can be handled and developed under a red safelight, which makes it popular for tray developing sheet film. Under tungsten light its speed falls to around ISO 40. For ordinary panchromatic tones at a similar speed, FP4 Plus at ISO 125 is the traditional fine grained choice, and Pan F Plus at ISO 50 is slower and finer still. SFX 200 goes the other way, with extra sensitivity to red.',
       ] },
     ],
   },
@@ -869,7 +889,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting SFX 200', paragraphs: [
         'The infrared effect comes from the filter. A deep red or infrared filter blocks most visible light, so expect to give several stops of extra exposure and to use a tripod, and bracket while you learn how your filter and light behave. Sunny days with plenty of foliage show the effect most strongly.',
-        'SFX develops in ordinary black and white chemistry, so there is nothing special to ask of a lab or your home setup.',
+        'SFX develops in ordinary black and white chemistry, so there is nothing special to ask of a lab or your home setup. Ortho Plus is its opposite, a film that does not see red at all. For everyday black and white without a filter, HP5 Plus and FP4 Plus are the traditional choices.',
       ] },
     ],
   },
@@ -889,7 +909,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Superia', paragraphs: [
         "At ISO 400, Superia copes with dull days, interiors and fast movement, and it handles a stop or two of overexposure well, which suits point and shoot cameras. Its colour has the cooler greens and blues that many photographers associate with Fujifilm, a contrast to the warmer look of Kodak's consumer films.",
-        'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day.',
+        'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day. For finer grain and stronger colour in good light, Fujifilm\'s slide films, Velvia and Provia, are the step up, though they need careful metering and E-6 processing.',
       ] },
     ],
   },
@@ -899,7 +919,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Acros II', paragraphs: [
         "Most films need extra exposure once a shot runs past a second or so, but Acros II needs little or no correction for exposures up to about two minutes, by Fujifilm's own figures. That makes it a favourite for night scenes, long exposure seascapes and anything on a tripod.",
-        'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X.',
+        'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X. For colour from Fujifilm, Superia is the everyday ISO 400 negative, and Velvia and Provia are its slide films.',
       ] },
     ],
   },
@@ -915,30 +935,455 @@ export const BRAND_SUB_CONTENT = {
   },
   'harman/red': {
     meta: { title: 'Harman Red 125 Film | Compare UK Prices', description: 'Compare Harman Red 125 redscale film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
-    intro: "Harman Red 125 is a factory made redscale film from Harman Technology in Cheshire, the maker of Ilford. It is Harman's Phoenix 200 colour film spooled in reverse, so light reaches the red sensitive layer first and pictures come back in reds, oranges and yellows. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Red prices from UK shops below.",
+    intro: 'Harman Red 125 is a factory made redscale film from Harman Technology in Cheshire, the maker of Ilford. It is the original Phoenix colour film spooled in reverse, so light reaches the red sensitive layer first and pictures come back in reds, oranges and yellows. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Red prices from UK shops below.',
     sections: [
       { heading: 'Shooting Harman Red', paragraphs: [
-        'Redscale has long been made by hand, by winding colour film back into its cassette the wrong way round. Harman Red arrives finished and DX coded, without the light leaks and frame spacing problems that come with doing it yourself. Phoenix suits the conversion because of its clear base, high red sensitivity and lack of an anti-halation layer, which is why Red keeps a speed of ISO 125.',
+        'Redscale has long been made by hand, by winding colour film back into its cassette the wrong way round. Harman Red arrives finished and DX coded, without the light leaks and frame spacing problems that come with doing it yourself. Phoenix suits the conversion because of its clear base, high red sensitivity and lack of an anti-halation layer.',
         'Exposure is the creative control. Harman suggests shooting between EI 100 and 200, with a usable range from 50 to 400. Underexposed frames give deeper reds, stronger shadows and coarser grain, while overexposed frames turn brighter and finer grained, with hints of green appearing among the oranges.',
+        'For colour the right way round, Phoenix 125 and Phoenix II are Harman\'s colour negatives, and Switch Azure 125 swaps colours rather than tinting them red.',
       ] },
     ],
   },
   'harman/switch-azure': {
     meta: { title: 'Harman Switch Azure 125 Film | Compare UK Prices', description: 'Compare Harman Switch Azure 125 colour switching film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
-    intro: 'Harman Switch Azure 125 is a creative colour film from Harman Technology that swaps colours around: blues come out orange, bright yellows turn azure, and reds become purple and blue. Red buses turn blue and sunsets go cool and violet. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Switch Azure prices from UK shops below.',
+    intro: 'Harman Switch Azure 125 is a creative colour film from Harman Technology that swaps colours around, turning blue skies orange, bright yellows azure and red buses blue, while sunsets go cool and violet. It develops in standard C-41 chemistry and is sold in 35mm and 120. Compare Harman Switch Azure prices from UK shops below.',
     sections: [
       { heading: 'Shooting Switch Azure', paragraphs: [
         'Switch Azure is rated at ISO 125 and works best on sunny or bright overcast days, where strong colour gives the switch the most to work with. It has fine grain and a wide exposure latitude, so it forgives a meter reading that is a little out.',
-        'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home. Harman\'s other colour films are Phoenix and Harman Red 125, a redscale version of Phoenix.',
+        'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home.',
+        'Harman\'s other colour films are Phoenix, as the original Phoenix 125 and the second generation Phoenix II, and Harman Red 125, the original Phoenix spooled in reverse for redscale.',
+      ] },
+    ],
+  },
+  // Lomography's ranges.
+  'lomography/color-negative': {
+    meta: { title: 'Lomography Color Negative Film | Compare UK Prices', description: 'Compare Lomography Color Negative 100, 400 and 800 prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'Lomography Color Negative is Lomography\'s everyday colour film, with bright, saturated colour and none of the colour shifting of its LomoChrome films. It comes in ISO 100, 400 and 800, in 35mm and 120, and as Color Tiger in 110. Compare Lomography Color Negative prices from UK shops below.',
+    sections: [
+      { heading: 'Color Negative 100, 400 or 800?', paragraphs: [
+        'Color Negative 100 is the fine grained choice for bright sun. 400 is the all rounder for changeable light and the easiest to recommend to anyone starting out, and 800 is the fast option for evenings, interiors and dull winter days, with more visible grain.',
+        'All three develop in standard C-41 chemistry at any lab. Shops often sell them in three packs, and Filmproof divides the packs out so you can compare the price per roll. For a warmer, more nostalgic look, try Classicolor or Color 92, and for colour that shifts, the LomoChrome films such as Purple and Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/purple': {
+    meta: { title: 'Lomography LomoChrome Purple Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Purple prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Purple is the colour shifting film that started Lomography\'s LomoChrome range. It turns greens to purple and violet and shifts blues towards green, so foliage, grass and skies take on a surreal palette. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Purple prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Purple', paragraphs: [
+        'Purple can be shot anywhere from ISO 100 to 400 on the same roll. Scenes with plenty of green show the effect most strongly, so parks, woods and gardens are the obvious subjects. Exposure changes how strong the shift looks, so it is worth bracketing a few frames while you learn the film.',
+        'It develops in standard C-41 chemistry at any lab. Turquoise and Metropolis are the other LomoChrome films, Turquoise for a cool turquoise and teal shift and Metropolis for muted, high contrast colour.',
+      ] },
+    ],
+  },
+  'lomography/turquoise': {
+    meta: { title: 'Lomography LomoChrome Turquoise Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Turquoise prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Turquoise is a colour shifting film from Lomography that pushes colour towards turquoise and teal and turns blue skies warm and golden. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Turquoise prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Turquoise', paragraphs: [
+        'Turquoise can be shot anywhere from ISO 100 to 400 on the same roll. Bright, sunny days with plenty of sky give the strongest effect, and exposure changes how far the shift goes, so bracket a few frames while you learn it.',
+        'It develops in standard C-41 chemistry at any lab. For the purple and violet take on the same idea, try Purple, and for muted colour rather than shifted colour, Metropolis.',
+      ] },
+    ],
+  },
+  'lomography/metropolis': {
+    meta: { title: 'Lomography LomoChrome Metropolis Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Metropolis prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Metropolis is Lomography\'s film for muted colour and strong contrast, draining a scene towards a gritty, urban look while keeping a little colour in it. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Metropolis prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Metropolis', paragraphs: [
+        'Metropolis can be shot anywhere from ISO 100 to 400 on the same roll. It suits streets, architecture and overcast days, where its muted palette and deep shadows do the most.',
+        'It develops in standard C-41 chemistry at any lab. For colour that shifts rather than fades, try Purple or Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/classicolor': {
+    meta: { title: 'Lomography LomoChrome Classicolor Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Classicolor prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Classicolor is one of Lomography\'s newer films, made for the warm, nostalgic look of older consumer colour film rather than a colour shift. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Classicolor prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Classicolor', paragraphs: [
+        'Classicolor suits everyday shooting, holidays and portraits in good light, where its warm tones read like film from a few decades ago. It develops in standard C-41 chemistry at any lab.',
+        'Color 92 is its closest sibling, also made for a nostalgic look, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+    ],
+  },
+  'lomography/color-92': {
+    meta: { title: 'Lomography Color 92 Film | Compare UK Prices', description: 'Compare Lomography Color 92 prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'Lomography Color 92 is a colour negative film made for the look of 1990s consumer film, with warm tones and a slightly faded, nostalgic feel. It is sold in 35mm, 120 and 110. Compare Lomography Color 92 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Color 92', paragraphs: [
+        'Color 92 is at its best in daylight, on holidays, days out and everyday snapshots, where its warm cast and soft colour suit the subject. It develops in standard C-41 chemistry at any lab.',
+        'Classicolor is its closest sibling, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+    ],
+  },
+  'lomography/redscale': {
+    meta: { title: 'Lomography Redscale Film | Compare UK Prices', description: 'Compare Lomography Redscale, Redscale XR and Lobster Redscale prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Redscale is colour negative film loaded into the cassette back to front at the factory, so light reaches the red sensitive layer first and pictures come out in reds, oranges and yellows. It comes as Redscale 100, as Redscale XR, which covers a wider range of speeds, and as Lobster Redscale in 110. Compare Lomography Redscale prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Redscale', paragraphs: [
+        'Exposure is the creative control. Less light gives deeper reds and stronger contrast, while more light pushes the colour towards yellow, so bracket a few frames while you learn it. You load, shoot and develop it like any other roll, in standard C-41 chemistry.',
+        'For a colour shift without the red cast, try the LomoChrome films such as Purple and Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/earl-grey': {
+    meta: { title: 'Lomography Earl Grey 100 Film | Compare UK Prices', description: 'Compare Lomography Earl Grey 100 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Earl Grey 100 is a classic panchromatic black and white film with fine grain, suited to bright light and everyday shooting. Compare Lomography Earl Grey prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Earl Grey', paragraphs: [
+        'At ISO 100, Earl Grey suits daylight, landscapes and anything where fine grain matters, and it develops in ordinary black and white chemistry at home or at any lab.',
+        'Lady Grey 400 is the faster sibling for dull days and interiors, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+    ],
+  },
+  'lomography/lady-grey': {
+    meta: { title: 'Lomography Lady Grey 400 Film | Compare UK Prices', description: 'Compare Lomography Lady Grey 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Lady Grey 400 is a fast panchromatic black and white film, a forgiving all rounder for street photography, dull days and interiors. Compare Lomography Lady Grey prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Lady Grey', paragraphs: [
+        'At ISO 400, Lady Grey has more visible grain than a slower film and plenty of latitude, and it develops in ordinary black and white chemistry at home or at any lab.',
+        'Earl Grey 100 is the slower, finer grained sibling, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+    ],
+  },
+  'lomography/kino': {
+    meta: { title: 'Lomography Kino Film | Compare UK Prices', description: 'Compare Lomography Kino black and white film prices from UK shops, including Potsdam 100, Berlin 400, Babylon 13 and Fantome 8, with live stock and prices per roll.' },
+    intro: 'Lomography\'s Kino films are black and white stocks cut from cinema film and spooled for still cameras: Potsdam 100, Berlin 400 and the very slow Babylon 13, alongside Fantome 8, an ultra slow, high contrast film for bright light. Compare Lomography Kino film prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting the Kino films', paragraphs: [
+        'Potsdam 100 is the fine grained daylight choice and Berlin 400 the faster one, both with the tonal character of motion picture stock. Babylon 13 and Fantome 8 are so slow that they need bright sun or a tripod, and reward it with very fine grain and strong contrast. All of them develop in ordinary black and white chemistry.',
+        'For a conventional black and white film, Earl Grey and Lady Grey are Lomography\'s everyday choices.',
+      ] },
+    ],
+  },
+  // CineStill's ranges.
+  'cinestill/800t': {
+    meta: { title: 'CineStill 800T Film | Compare UK Prices', description: 'Compare CineStill 800T prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 800T is a tungsten balanced colour film adapted from motion picture stock, made for night, neon and artificial light. It is the film CineStill is known for, with a red glow around bright lights that comes from removing the remjet backing. It is sold in 35mm and 120. Compare CineStill 800T prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 800T', paragraphs: [
+        'Because it is balanced for tungsten light, 800T renders streetlights, interiors and neon cleanly, and point light sources pick up its signature halation. In daylight it turns blue, so add a warming 85 filter and allow for a little lost speed, or choose a daylight film instead. It is fast enough for handheld night work and takes a push of a stop or more when the light is very low.',
+        '800T develops in standard C-41 chemistry at any lab. For daylight, 400D is CineStill\'s all rounder and 50D its slow, fine grained film, and BwXX is its black and white.',
+      ] },
+    ],
+  },
+  'cinestill/50d': {
+    meta: { title: 'CineStill 50D Film | Compare UK Prices', description: 'Compare CineStill 50D prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 50D is a slow, daylight balanced colour film adapted from motion picture stock, with very fine grain and natural colour. It is sold in 35mm and 120. Compare CineStill 50D prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 50D', paragraphs: [
+        'At ISO 50, 50D wants bright sun or a tripod, and rewards it with clean detail for landscapes, beaches and portraits in good light. Halation is gentler than on 800T, showing mainly around the brightest highlights.',
+        '50D develops in standard C-41 chemistry at any lab. For more speed in daylight, 400D is the all rounder, and for night and artificial light, 800T.',
+      ] },
+    ],
+  },
+  'cinestill/400d': {
+    meta: { title: 'CineStill 400D Film | Compare UK Prices', description: 'Compare CineStill 400D prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill 400D is a daylight balanced colour film launched in 2022, the all rounder of the CineStill range, with wide latitude for mixed and changing light. It is sold in 35mm and 120. Compare CineStill 400D prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 400D', paragraphs: [
+        '400D copes with everything from bright sun to shade and overcast days, and it can be pushed to 800 or 1600 when the light drops. Like the other CineStill colour films it shows some halation around bright highlights. If you want one CineStill film for everyday use, it is the safest place to start.',
+        '400D develops in standard C-41 chemistry at any lab. For bright light and the finest grain, look at 50D, and for night and artificial light, 800T.',
+      ] },
+    ],
+  },
+  'cinestill/bwxx': {
+    meta: { title: 'CineStill BwXX Film | Compare UK Prices', description: 'Compare CineStill BwXX black and white film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill BwXX is a black and white film based on Kodak\'s Double-X cinema stock, with the high contrast, classic look of black and white movies. It is sold in 35mm and 120. Compare CineStill BwXX prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting BwXX', paragraphs: [
+        'BwXX has a gritty, cinematic character, with strong contrast and visible grain, and it suits street photography and moody portraits. Unlike CineStill\'s colour films, it develops in ordinary black and white chemistry, at home or at any lab.',
+        'For colour, CineStill\'s films are 800T for night and artificial light, 400D for everyday daylight shooting and 50D for bright sun.',
+      ] },
+    ],
+  },
+  // Rollei's ranges.
+  'rollei/rpx': {
+    meta: { title: 'Rollei RPX Film | Compare UK Prices', description: 'Compare Rollei RPX 25, 100 and 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei RPX is Rollei\'s traditional black and white range, known for sharpness and punchy contrast. It comes as RPX 25, RPX 100 and RPX 400. Compare Rollei RPX prices from UK shops below.',
+    sections: [
+      { heading: 'RPX 25, 100 or 400?', paragraphs: [
+        'RPX 25 is a very slow, very fine grained film for bright light, landscapes and work on a tripod. RPX 100 is the everyday daylight speed, and RPX 400 the fast all rounder for street photography, dull days and interiors, with more visible grain.',
+        'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, for true infrared, Rollei Infrared, and for the opposite, Ortho 25 Plus, which is blind to red.',
+      ] },
+    ],
+  },
+  'rollei/retro': {
+    meta: { title: 'Rollei Retro Film | Compare UK Prices', description: 'Compare Rollei Retro 80S and Retro 400S black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Retro is a pair of black and white films, Retro 80S and Retro 400S, made for a classic tonal character. Both have extended red sensitivity, so a red filter darkens blue skies dramatically. Compare Rollei Retro prices from UK shops below.',
+    sections: [
+      { heading: 'Retro 80S or 400S?', paragraphs: [
+        'Retro 80S is the slower, finer grained of the two, suited to bright light and detailed subjects. Retro 400S is the faster film for changeable light and everyday shooting. With a deep red filter both can give an infrared look, with dark skies and pale foliage, at the cost of a few stops of exposure.',
+        'Both develop in ordinary black and white chemistry. RPX is Rollei\'s traditional black and white range, and Superpan and Rollei Infrared go further towards infrared.',
+      ] },
+    ],
+  },
+  'rollei/superpan': {
+    meta: { title: 'Rollei Superpan 200 Film | Compare UK Prices', description: 'Compare Rollei Superpan 200 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Superpan 200 is a black and white film with extended red sensitivity, reaching towards infrared. Without a filter it behaves as an ordinary ISO 200 film, and through a deep red filter it gives dark skies and glowing foliage. Compare Rollei Superpan prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Superpan 200', paragraphs: [
+        'The infrared look comes from the filter. A deep red or infrared filter blocks most visible light, so give several stops of extra exposure, use a tripod, and bracket while you learn how your filter behaves. Sunny days with plenty of foliage show the effect most strongly.',
+        'Superpan develops in ordinary black and white chemistry. Rollei Infrared reaches further into infrared for a stronger effect, and Retro 80S and 400S share the extended red sensitivity.',
+      ] },
+    ],
+  },
+  'rollei/infrared': {
+    meta: { title: 'Rollei Infrared 400 Film | Compare UK Prices', description: 'Compare Rollei Infrared 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Infrared 400 is a black and white film sensitive to near infrared light, for the glowing white foliage and black skies of infrared photography. Without a filter it shoots as an ordinary ISO 400 film. Compare Rollei Infrared prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Rollei Infrared', paragraphs: [
+        'For the infrared effect, shoot through an infrared filter such as an R72, which blocks visible light, and expect long exposures on a tripod. Exposure varies with the light and the season, so bracket generously. Load and unload the film in subdued light.',
+        'It develops in ordinary black and white chemistry. Superpan is the gentler alternative with extended red sensitivity, and Retro 80S and 400S give some of the same effect through a red filter.',
+      ] },
+    ],
+  },
+  'rollei/ortho-25-plus': {
+    meta: { title: 'Rollei Ortho 25 Plus Film | Compare UK Prices', description: 'Compare Rollei Ortho 25 Plus prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Rollei Ortho 25 Plus is a technical orthochromatic black and white film, blind to red light, with extremely fine grain and high contrast. It is sold in 35mm, 120 and sheet film. Compare Rollei Ortho 25 Plus prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ortho 25 Plus', paragraphs: [
+        'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits and landscapes an early photography look. At ISO 25 it wants bright light or a tripod. Being blind to red, it can be handled and developed under a red safelight, which suits tray developing sheet film.',
+        'It develops in ordinary black and white chemistry. For ordinary panchromatic tones, RPX 25 is Rollei\'s other very slow, fine grained film, and Superpan goes the opposite way, with extended red sensitivity.',
+      ] },
+    ],
+  },
+  'rollei/crossbird': {
+    meta: { title: 'Rollei CrossBird Film | Compare UK Prices', description: 'Compare Rollei CrossBird cross processing film prices from UK shops, in 35mm, 120 and 127, with live stock and prices per roll.' },
+    intro: 'Rollei CrossBird is a colour slide film made to be cross processed. Developed in C-41 colour negative chemistry instead of E-6, it gives vivid greens and strong colour shifts. It is sold in 35mm, 120 and 127. Compare Rollei CrossBird prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting CrossBird', paragraphs: [
+        'Cross processing raises contrast and saturation and shifts colour in ways that are hard to predict, so bright, colourful scenes make the most of it. Tell your lab you want it developed in C-41 and that it is a slide film, as the negatives come back without the usual orange mask. Developed in E-6, it behaves as an ordinary slide film.',
+        'It is the colour film in a Rollei range that is otherwise mostly black and white, from RPX and Retro to Superpan and Infrared.',
+      ] },
+    ],
+  },
+  // Foma's ranges.
+  'foma/100-classic': {
+    meta: { title: 'Fomapan 100 Classic Film | Compare UK Prices', description: 'Compare Fomapan 100 Classic black and white film prices from UK shops, in 35mm, 120, sheet film and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Fomapan 100 Classic is a fine grained, traditional black and white film from Foma in the Czech Republic, and one of the most affordable ways to shoot slow black and white. It is sold in 35mm, 120, sheet film and bulk rolls. Compare Fomapan 100 Classic prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Fomapan 100 Classic', paragraphs: [
+        'At ISO 100, Classic suits daylight, landscapes, architecture and anything where fine grain and detail matter. It has the classic look of a traditional emulsion, and it develops in ordinary black and white chemistry at home or at any lab, which makes it a favourite for learning to develop your own film.',
+        'For more speed, Fomapan 200 Creative is the middle choice and Fomapan 400 Action the fast one. Retropan 320 Soft gives a softer, vintage look.',
+      ] },
+    ],
+  },
+  'foma/200-creative': {
+    meta: { title: 'Fomapan 200 Creative Film | Compare UK Prices', description: 'Compare Fomapan 200 Creative black and white film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Fomapan 200 Creative is Foma\'s general purpose black and white film, a versatile middle speed between its 100 and 400 films. It is sold in 35mm, 120 and sheet film. Compare Fomapan 200 Creative prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Fomapan 200 Creative', paragraphs: [
+        'At ISO 200, Creative covers most daylight shooting with a little more room for shade and overcast days than a 100 speed film. Its emulsion uses flat T grains, which keep grain fine for the speed, but Foma warns that this makes it more prone to pressure marks in some medium format cameras, so test a roll of the 120 first. It develops in ordinary black and white chemistry at home or at any lab.',
+        'Fomapan 100 Classic is the slower, finer grained choice for bright light, and Fomapan 400 Action the faster one for low light and movement.',
+      ] },
+    ],
+  },
+  'foma/400-action': {
+    meta: { title: 'Fomapan 400 Action Film | Compare UK Prices', description: 'Compare Fomapan 400 Action black and white film prices from UK shops, in 35mm, 120, sheet film and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Fomapan 400 Action is Foma\'s fast black and white film, a traditional emulsion for handheld shooting, street photography and lower light, at a price that suits shooting in volume. It is sold in 35mm, 120, sheet film and bulk rolls. Compare Fomapan 400 Action prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Fomapan 400 Action', paragraphs: [
+        'Action has visible grain and a classic look. Many photographers rate it a little slower than box speed, around ISO 200 to 320, for fuller shadows, so it is worth a test roll before you rely on it. It develops in ordinary black and white chemistry at home or at any lab.',
+        'Fomapan 100 Classic and Fomapan 200 Creative are the slower, finer grained films in the same family, and Ortho 400 is the orthochromatic film at the same speed.',
+      ] },
+    ],
+  },
+  'foma/retropan': {
+    meta: { title: 'Foma Retropan 320 Soft Film | Compare UK Prices', description: 'Compare Foma Retropan 320 Soft black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Retropan 320 Soft is a black and white film from Foma made for a low contrast, vintage look, with soft tones and visible grain. Compare Foma Retropan 320 Soft prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Retropan 320 Soft', paragraphs: [
+        'Retropan suits portraits and scenes where a gentle, old fashioned rendering fits the subject. Foma makes a dedicated developer for it, Retro Special, though it develops in other ordinary black and white developers too.',
+        'For a more conventional look, Fomapan 100 Classic and Fomapan 400 Action are Foma\'s traditional films.',
+      ] },
+    ],
+  },
+  'foma/ortho-400': {
+    meta: { title: 'Foma Ortho 400 Film | Compare UK Prices', description: 'Compare Foma Ortho 400 orthochromatic film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Foma Ortho 400 is an orthochromatic black and white film, insensitive to red light, unusually fast for an ortho film. It arrived in 120 in 2023 and in 35mm in 2024. Compare Foma Ortho 400 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ortho 400', paragraphs: [
+        'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits an early photography look and suits high contrast copy work. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
+        'For ordinary panchromatic tones at the same speed, Fomapan 400 Action is Foma\'s fast traditional film.',
+      ] },
+    ],
+  },
+  'foma/r100': {
+    meta: { title: 'Fomapan R 100 Film | Compare UK Prices', description: 'Compare Fomapan R 100 black and white reversal film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Fomapan R 100 is a black and white reversal film from Foma, made to give positive slides rather than negatives, for projection or a light box. It is sold in 35mm and in cine gauges, including 16mm, double 8mm and double Super 8. Compare Fomapan R 100 prices from UK shops below.',
+    sections: [
+      { heading: 'Developing Fomapan R 100', paragraphs: [
+        'R 100 needs a reversal process to give slides, which fewer labs offer than ordinary black and white development, so check with your lab first. Foma sells a reversal kit for developing it at home, and it can also be developed as an ordinary negative if you only want to scan or print.',
+        'For ordinary black and white negatives at the same speed, Fomapan 100 Classic is Foma\'s fine grained traditional film.',
+      ] },
+    ],
+  },
+  // Kentmere's ranges.
+  'kentmere/pan-100': {
+    meta: { title: 'Kentmere Pan 100 Film | Compare UK Prices', description: 'Compare Kentmere Pan 100 black and white film prices from UK shops, in 35mm, 120 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 100 is the slow, fine grained black and white film from Harman Technology\'s budget Kentmere range, made in Cheshire alongside Ilford. It is sold in 35mm, 120 and 30.5m bulk rolls, and some shops list it simply as Kentmere 100. Compare Kentmere Pan 100 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 100', paragraphs: [
+        'At ISO 100, Pan 100 suits bright days, landscapes and anything on a tripod, where its fine grain and smooth tones show best. It develops in ordinary black and white chemistry, at home or at any lab, which makes it a cheap film to learn developing on.',
+        'Kentmere Pan 400 is the faster all rounder for dull days and street photography, and Kentmere Pan 200 sits between the two.',
+      ] },
+    ],
+  },
+  'kentmere/pan-200': {
+    meta: { title: 'Kentmere Pan 200 Film | Compare UK Prices', description: 'Compare Kentmere Pan 200 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 200 is the newest film in Harman Technology\'s budget Kentmere range, a middle speed black and white film for photographers who want a little more speed than 100 without the grain of 400. Compare Kentmere Pan 200 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 200', paragraphs: [
+        'At ISO 200, Pan 200 covers most daylight shooting, with a little more room for shade and overcast days than a slower film. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 400 the faster one for low light.',
+      ] },
+    ],
+  },
+  'kentmere/pan-400': {
+    meta: { title: 'Kentmere Pan 400 Film | Compare UK Prices', description: 'Compare Kentmere Pan 400 black and white film prices from UK shops, in 35mm, 120 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Kentmere Pan 400 is the fast all rounder in Harman Technology\'s budget Kentmere range, and one of the cheapest ISO 400 black and white films in the UK. It is sold in 35mm, 120 and 30.5m bulk rolls, and some shops list it simply as Kentmere 400. Compare Kentmere Pan 400 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Kentmere Pan 400', paragraphs: [
+        'Pan 400 is fast enough for overcast days, street photography and indoor light, and it pushes a stop or two when you need more speed. Next to Ilford HP5 Plus it has slightly coarser grain and less latitude, but it costs less, which makes it a good film for learning, testing a camera or shooting a lot of rolls.',
+        'It develops in ordinary black and white chemistry, at home or at any lab. Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 200 sits between the two.',
+      ] },
+    ],
+  },
+  // Ferrania's ranges.
+  'ferrania/p30': {
+    meta: { title: 'Ferrania P30 Film | Compare UK Prices', description: 'Compare Film Ferrania P30 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania P30 is a black and white panchromatic film rated at ISO 80, reviving a 1960s Ferrania cinema formula with an unusually high silver content. It was launched as P30 Alpha, and shops list it under both names. Compare Ferrania P30 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania P30', paragraphs: [
+        'P30 has deep blacks, strong contrast and fine grain, a look tied to the classic Italian cinema it was made for. At ISO 80 it suits daylight, and it develops in ordinary black and white chemistry, at home or at any lab.',
+        'Ferrania\'s other black and white films are Orto, an orthochromatic film at ISO 50, and P33, a faster panchromatic film at ISO 160.',
+      ] },
+    ],
+  },
+  'ferrania/orto': {
+    meta: { title: 'Ferrania Orto Film | Compare UK Prices', description: 'Compare Film Ferrania Orto orthochromatic film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania Orto is an orthochromatic black and white film rated at ISO 50, blind to red light, for an unusual, early photography look. Compare Ferrania Orto prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania Orto', paragraphs: [
+        'Because Orto does not see red, reds and warm skin tones render dark and blue skies render light. At ISO 50 it wants bright light or a tripod. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
+        'For ordinary panchromatic tones, P30 is Ferrania\'s classic film at ISO 80, and P33 the faster one at ISO 160.',
+      ] },
+    ],
+  },
+  'ferrania/p33': {
+    meta: { title: 'Ferrania P33 Film | Compare UK Prices', description: 'Compare Film Ferrania P33 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania P33 is a newer panchromatic black and white film from Film Ferrania, rated at ISO 160, a faster and more flexible companion to P30. Compare Ferrania P33 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania P33', paragraphs: [
+        'At ISO 160, P33 gives more room for shade, overcast days and handheld shooting than Ferrania\'s slower films. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'P30 is Ferrania\'s classic high silver film at ISO 80, and Orto its orthochromatic film at ISO 50.',
+      ] },
+    ],
+  },
+  // Adox's ranges.
+  'adox/chs-100-ii': {
+    meta: { title: 'Adox CHS 100 II Film | Compare UK Prices', description: 'Compare Adox CHS 100 II black and white film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Adox CHS 100 II is the everyday Adox film, an ISO 100 black and white film modelled on the company\'s 1950s emulsion, with a classic orthopanchromatic tonal rendering. It is sold in 35mm, 120 and sheet film, and some shops list it simply as CHS 100. Compare Adox CHS 100 II prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting CHS 100 II', paragraphs: [
+        'Orthopanchromatic means the film is a little less sensitive to red than most modern black and white films, so skin and red tones render slightly darker and skies keep more tone, a look closer to older films. At ISO 100 it suits daylight and detailed work, and it develops in ordinary black and white chemistry, at home or at any lab.',
+        'HR-50 is Adox\'s slower, ultra fine grained film, Scala its black and white slide film, and CMS 20 II its extreme resolution film.',
+      ] },
+    ],
+  },
+  'adox/scala': {
+    meta: { title: 'Adox Scala 50 Film | Compare UK Prices', description: 'Compare Adox Scala 50 black and white reversal film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox Scala 50 is a black and white reversal film that gives positive slides rather than negatives, for projection or a light box. It is made on the same base as HR-50. The older Scala 160 has been discontinued, so any listing for it is old stock. Compare Adox Scala prices from UK shops below.',
+    sections: [
+      { heading: 'Developing Scala', paragraphs: [
+        'Scala needs a black and white reversal process to give slides, which few labs offer, so check with your lab before you shoot it, or develop it at home with a reversal kit. Like any slide film it has less exposure latitude than a negative, so meter carefully.',
+        'For black and white negatives, HR-50 is the same ultra fine grained base as a negative film, and CHS 100 II is Adox\'s everyday film.',
+      ] },
+    ],
+  },
+  'adox/cms-20-ii': {
+    meta: { title: 'Adox CMS 20 II Film | Compare UK Prices', description: 'Compare Adox CMS 20 II black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox CMS 20 II is a converted microfilm with extraordinary resolution, among the sharpest black and white films you can put in a camera. Compare Adox CMS 20 II prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting CMS 20 II', paragraphs: [
+        'CMS 20 II is best rated around ISO 12 to 20, so it wants bright light or a tripod. It needs a special low contrast developer such as Adox Adotech to give a full range of tones; in an ordinary developer it gives the stark contrast of a document copy.',
+        'For fine grain without the special handling, HR-50 is Adox\'s ultra fine grained ISO 50 film, and CHS 100 II its everyday film.',
+      ] },
+    ],
+  },
+  'adox/hr-50': {
+    meta: { title: 'Adox HR-50 Film | Compare UK Prices', description: 'Compare Adox HR-50 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox HR-50 is an ISO 50 black and white film based on an Agfa-Gevaert aerial film, with ultra fine grain, high resolution and extended red sensitivity. Compare Adox HR-50 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting HR-50', paragraphs: [
+        'At ISO 50, HR-50 wants bright light or a tripod, and rewards it with fine detail for landscapes, architecture and anything you plan to enlarge. Its extended red sensitivity means a red filter darkens skies strongly, and a deep red filter takes it towards an infrared look. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'Scala 50 is the same base made as a slide film, CHS 100 II is Adox\'s faster, classic looking film, and CMS 20 II goes further still for resolution.',
+      ] },
+    ],
+  },
+  // Polaroid's ranges.
+  'polaroid/i-type': {
+    meta: { title: 'Polaroid i-Type Film | Compare UK Prices', description: 'Compare Polaroid i-Type instant film prices from UK shops, in colour, black and white and special editions, with live stock and prices per pack.' },
+    intro: 'Polaroid i-Type is the instant film for Polaroid\'s modern cameras, such as the Now, the I-2 and the OneStep 2. It comes in colour, black and white and a changing run of special edition frames, eight shots to a pack. Compare Polaroid i-Type prices from UK shops below.',
+    sections: [
+      { heading: 'Buying i-Type film', paragraphs: [
+        'i-Type cameras have their own rechargeable battery, so unlike 600 film the packs carry no battery, which keeps the price down. Shops sell single packs and double packs, so compare on price per shot. Special edition frames change the border, not the film.',
+        'i-Type film will not power a vintage camera, so for a 600 camera you need 600 film, and for an SX-70 camera, SX-70 film. 600 film does work in i-Type cameras, if you find it cheaper.',
+      ] },
+    ],
+  },
+  'polaroid/600': {
+    meta: { title: 'Polaroid 600 Film | Compare UK Prices', description: 'Compare Polaroid 600 instant film prices from UK shops, in colour, black and white and special editions, with live stock and prices per pack.' },
+    intro: 'Polaroid 600 film is made for the classic 600 series cameras from the 1980s onwards, and each pack carries its own battery to power them. It comes in colour, black and white and special edition frames, eight shots to a pack. Compare Polaroid 600 prices from UK shops below.',
+    sections: [
+      { heading: 'Buying 600 film', paragraphs: [
+        'Because the battery is in the pack, 600 film is the one to buy for a vintage 600 camera, and it also works in Polaroid\'s modern i-Type cameras. Shops sell single packs and double packs, so compare on price per shot.',
+        'If you only shoot a modern camera, i-Type film is usually cheaper, and for an SX-70 camera, choose SX-70 film.',
+      ] },
+    ],
+  },
+  'polaroid/sx-70': {
+    meta: { title: 'Polaroid SX-70 Film | Compare UK Prices', description: 'Compare Polaroid SX-70 instant film prices from UK shops, with live stock and prices per pack.' },
+    intro: 'Polaroid SX-70 film is made for the SX-70 cameras, including the famous folding SX-70 SLR from 1972. It is slower than 600 film, at around ISO 160, and each pack carries its own battery. It comes eight shots to a pack. Compare Polaroid SX-70 prices from UK shops below.',
+    sections: [
+      { heading: 'Buying SX-70 film', paragraphs: [
+        'SX-70 cameras are set for the slower film, so 600 or i-Type film will come out badly overexposed in them unless you add a neutral density filter. Shoot it in good light, and compare single and double packs on price per shot.',
+        'For a 600 camera choose 600 film, and for Polaroid\'s modern cameras, i-Type.',
+      ] },
+    ],
+  },
+  'polaroid/go': {
+    meta: { title: 'Polaroid Go Film | Compare UK Prices', description: 'Compare Polaroid Go instant film prices from UK shops, with live stock and prices per pack.' },
+    intro: 'Polaroid Go film is the smaller instant format made for the Polaroid Go camera, with a square image a little under 5cm across in Polaroid\'s classic white frame. Compare Polaroid Go film prices from UK shops below.',
+    sections: [
+      { heading: 'Buying Go film', paragraphs: [
+        'Go film only fits Go cameras, and the other Polaroid films will not fit them. Shops sell it in single and double packs, and in colour, black and white and special editions, so compare on price per shot.',
+        'For Polaroid\'s full size prints, i-Type film fits the modern cameras and 600 film the vintage ones.',
+      ] },
+    ],
+  },
+  'polaroid/8x10': {
+    meta: { title: 'Polaroid 8x10 Film | Compare UK Prices', description: 'Compare Polaroid 8x10 instant sheet film prices from UK shops, with live stock and prices per sheet.' },
+    intro: 'Polaroid 8x10 film is large format instant sheet film, for 8x10 cameras and a Polaroid 8x10 processor, which spreads the chemistry as each sheet goes through. Compare Polaroid 8x10 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 8x10 instant film', paragraphs: [
+        'Each sheet is loaded and exposed like any 8x10 sheet film, then run through the processor with its positive sheet to develop. It is a specialist, expensive way to shoot, valued for the size and immediacy of the print.',
+        'For everyday instant photography, i-Type and 600 film fit Polaroid\'s modern and vintage cameras.',
       ] },
     ],
   },
   'harman/phoenix': {
-    meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
-    intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
+    meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix 125 and Phoenix II 200 colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'Harman Phoenix is the colour negative film from Harman Technology in Mobberley, Cheshire, the maker of Ilford, and the first colour film made entirely at the factory. It now comes in two versions, the original sold as Phoenix 125 and the second generation Phoenix II 200, both in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
     sections: [
-      { heading: 'Phoenix and Phoenix II', paragraphs: [
-        'The original Phoenix has a deliberately bold, experimental look, with high contrast, visible grain and strong halation around highlights. Phoenix II is a reworked version with finer grain and more even colour, for photographers who want the character without as much unpredictability. Both are worth shooting with some extra exposure, as they reward a generous meter reading. Harman has since added two creative colour films, Harman Red 125, which is Phoenix spooled in reverse for a redscale look, and Switch Azure 125, which swaps colours around.',
+      { heading: 'Phoenix 125 or Phoenix II?', paragraphs: [
+        'The original Phoenix is bold and experimental, with high contrast, strong grain, no orange mask and a glow of halation around bright highlights. It was launched in 2023 at ISO 200 and is now sold as Phoenix 125, the same film rated at the speed most photographers were already shooting it at. Meter for the midtones and it rewards careful exposure.',
+        'Phoenix II 200, launched in 2025, was redesigned layer by layer for more normal contrast and colour, finer grain and wider latitude, while keeping some of the original\'s character, including the halation. Harman recommends rating it between ISO 100 and 200. Choose Phoenix 125 for the wildest look and Phoenix II for something more dependable.',
+      ] },
+      { heading: 'Developing and scanning Phoenix', paragraphs: [
+        'Both develop in standard C-41 chemistry at any lab. With no orange mask and an unusual palette, the scanner has a big say in the final look, so tell your lab what you shot.',
+        'Harman Red 125 is the original Phoenix spooled in reverse for a redscale look, and Switch Azure 125 swaps colours around.',
       ] },
     ],
   },
