@@ -774,7 +774,7 @@ export const BRAND_SUB_CONTENT = {
     intro: "Kodak Ektachrome E100 is Kodak's colour slide film, brought back in 2018 after it had been discontinued, with fine grain and clean, fairly neutral colour. It is sold in 35mm, 120 and sheet film, and in a motion picture version for 16mm cameras. Compare Kodak Ektachrome prices from UK shops below.",
     sections: [
       { heading: "Shooting slide film", paragraphs: [
-        "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot.",
+        "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. If you want strong colour with the latitude of negative film instead, Ektar 100 is Kodak's finest grained colour negative, and Portra is the softer, more forgiving choice.",
       ] },
     ],
   },
@@ -896,7 +896,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Superia', paragraphs: [
         "At ISO 400, Superia copes with dull days, interiors and fast movement, and it handles a stop or two of overexposure well, which suits point and shoot cameras. Its colour has the cooler greens and blues that many photographers associate with Fujifilm, a contrast to the warmer look of Kodak's consumer films.",
-        'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day.',
+        'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day. For finer grain and stronger colour in good light, Fujifilm\'s slide films, Velvia and Provia, are the step up, though they need careful metering and E-6 processing.',
       ] },
     ],
   },
@@ -906,7 +906,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Acros II', paragraphs: [
         "Most films need extra exposure once a shot runs past a second or so, but Acros II needs little or no correction for exposures up to about two minutes, by Fujifilm's own figures. That makes it a favourite for night scenes, long exposure seascapes and anything on a tripod.",
-        'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X.',
+        'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X. For colour from Fujifilm, Superia is the everyday ISO 400 negative, and Velvia and Provia are its slide films.',
       ] },
     ],
   },
