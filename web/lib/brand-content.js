@@ -1,21 +1,23 @@
 export const BRAND_CONTENT = {
   kodak: {
-    meta: { title: 'Kodak Film Prices UK | Compare & Buy', description: 'Compare Kodak film prices from UK retailers on Filmproof. Gold, Portra, Ektar, Tri-X and more, find the best deal on 35mm and 120 rolls.' },
-    intro: "Kodak is the world's most recognisable name in camera film, trusted by photographers for well over a century. From the warm, punchy tones of Kodak Gold to the soft, true-to-life colours of Portra, Kodak's 35mm and 120 film ranges suit everything from everyday snapshots to professional portrait and wedding work. Compare Kodak film prices from UK retailers on Filmproof and find the best deal on your next roll.",
+    meta: { title: 'Kodak Film Prices UK | Compare & Buy', description: 'Compare Kodak film prices from UK shops. Gold, UltraMax, Portra, Ektar, Tri-X, T-Max, Ektachrome and Vision3, in 35mm, 120, sheet and cine film.' },
+    intro: 'Kodak is the best known name in camera film, made in Rochester, New York, for well over a century. Its films run from Gold and UltraMax for everyday snapshots, through Portra and Ektar for professional colour, to Tri-X and T-Max in black and white, Ektachrome slide film and Vision3 for cine cameras. Compare Kodak film prices from UK shops below.',
     sections: [
-      { heading: "The History of Kodak", paragraphs: [
-        "George Eastman founded Kodak in Rochester, New York, in 1888, built around the promise \"you press the button, we do the rest.\" The company pioneered roll film and put photography into the hands of ordinary people for the first time, moving it out of the professional studio and into everyday life.",
-        "Kodak went on to shape the look of twentieth-century photography and cinema. Kodachrome, introduced in 1935, became one of the most celebrated colour films ever made and remained in production for over seventy years before its discontinuation in 2009, and it is still fondly remembered by collectors today. Kodak also introduced enduring stocks such as Tri-X black and white film in 1954, which became the standard for photojournalism.",
-        "The digital era hit Kodak hard, and the company filed for bankruptcy in 2012. Its film business was restructured, with Kodak Alaris taking over consumer and professional still-film manufacturing and distribution while Eastman Kodak continued producing motion picture and other film stocks. Both companies have leaned into the recent resurgence of interest in analogue photography, continuing to invest in film production rather than winding it down.",
+      { heading: 'A short history of Kodak', paragraphs: [
+        'George Eastman launched the first Kodak camera in 1888 with the promise "you press the button, we do the rest", and the company went on to make photography something ordinary people did. Kodachrome, introduced in 1935, became one of the most celebrated colour films ever made before it was discontinued in 2009, and Tri-X, launched in 1954, became the standard film of photojournalism.',
+        'Digital photography hit Kodak hard, and the company filed for bankruptcy in 2012. Eastman Kodak kept making film in Rochester, while for years a separate company, Kodak Alaris, marketed and sold the still films. More recently Eastman Kodak has begun selling them under its own name, which is why shops now list Kodak Eastman Gold and Ektar, and new names such as Ektacolor Pro and Ektapan. Filmproof groups each film on one page whichever name a shop uses.',
       ] },
-      { heading: "Kodak's Camera Film Ranges", paragraphs: [
-        "Kodak's range covers almost every type of film shooter, from complete beginners to working professionals.",
-        "Consumer colour negative film, including Gold 200, UltraMax 400 and ColorPlus 200, is designed for everyday shooting. These films are affordable, forgiving of exposure mistakes, and known for warm, punchy colours that suit holiday snaps and family photography.",
-        "Kodak's professional colour negative range, built around Portra in 160, 400 and 800 speeds, is prized for natural, flattering skin tones and fine grain, making it the go-to choice for portrait and wedding photographers worldwide. Ektar 100 sits alongside it as the finest-grained colour negative film Kodak produces, favoured by landscape photographers for its vivid, highly saturated colour.",
-        "On the black and white side, Tri-X 400 remains a classic fast, gritty film beloved by street and documentary photographers, while the T-Max range (100, 400 and 3200) offers a more modern, fine-grain alternative. For slide film fans, Ektachrome E100 was relaunched in 2018 after a period of discontinuation and delivers vibrant colour and fine grain for both projection and scanning.",
+      { heading: 'Everyday colour film', paragraphs: [
+        "Gold 200, UltraMax 400 and ColorPlus 200 are Kodak's affordable colour negatives, with the warm, punchy colour that suits holidays and everyday snapshots, and plenty of latitude for simple cameras. Gold is also sold in 120, and you will see expired Gold, UltraMax and ColorPlus listed too, older stock sold off cheaply with less predictable results.",
       ] },
-      { heading: "Choosing the Right Kodak Film", paragraphs: [
-        "New to film or shooting everyday moments? Gold 200 or UltraMax 400 are affordable, easy-going choices. Shooting portraits or weddings? Portra is the industry favourite. Chasing punchy, saturated landscapes? Reach for Ektar 100. Want classic black and white grit? Tri-X 400 is hard to beat, while T-Max suits those after a cleaner, more modern monochrome look. Whatever you're shooting, compare Kodak film prices across UK stockists on Filmproof to find the best value on 35mm and 120 rolls.",
+      { heading: 'Professional colour and slide film', paragraphs: [
+        "Portra, in 160, 400 and 800, is the professional colour negative many portrait and wedding photographers default to, for natural skin tones and wide latitude. Ektacolor Pro is Eastman Kodak's professional colour negative in the same three speeds. Ektar 100 is the finest grained colour negative Kodak makes, with vivid colour for landscapes and travel. Ektachrome E100, brought back in 2018, is Kodak's colour slide film. Most of these also come as sheet film for large format cameras.",
+      ] },
+      { heading: 'Black and white and cine film', paragraphs: [
+        "Tri-X 400 is the classic fast black and white film, gritty and forgiving and happy to be pushed. T-Max 100, T-Max 400 and T-Max P3200 are Kodak's modern, finer grained alternative, and Ektapan is Eastman Kodak's black and white line in 100, 400 and P3200. For cine cameras, Vision3 50D, 250D, 200T and 500T are the colour negatives much of the film industry shoots on, sold here in Super 8 and 16mm, alongside Tri-X Reversal and Ektachrome for cine.",
+      ] },
+      { heading: 'Choosing a Kodak film', paragraphs: [
+        'For everyday shooting on a budget, start with Gold 200 or UltraMax 400. For portraits and weddings, Portra. For saturated landscapes, Ektar 100. For classic black and white, Tri-X, or T-Max for a cleaner look. Gold, Portra, Ektar, Tri-X and T-Max each have a range page, linked above, listing every speed and format with live prices from UK shops.',
       ] },
     ],
   },
