@@ -103,19 +103,19 @@ export const BRAND_CONTENT = {
     ],
   },
   cinestill: {
-    meta: { title: 'CineStill Film Prices UK | Compare', description: 'Compare CineStill film prices from UK retailers on Filmproof. 800T, 50D, 400D and BwXX, genuine motion picture film for stills.' },
-    intro: "CineStill takes genuine Hollywood motion picture film stock and adapts it for still cameras, giving photographers access to the same film used on movie sets. Best known for the glowing halation and cinematic tungsten colours of 800T, CineStill film has become a cult favourite for night photography and moody, film-look portraits. Compare CineStill film prices on Filmproof.",
+    meta: { title: 'CineStill Film Prices UK | Compare', description: 'Compare CineStill 800T, 50D, 400D and BwXX film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill adapts motion picture film for still cameras, so photographers can shoot the kind of stock used on film sets and have it developed at an ordinary lab. It is best known for 800T and the red glow it puts around lights at night, and the range also covers the fine grained 50D, the all round 400D and BwXX black and white, all in 35mm and 120. Compare CineStill film prices from UK shops below.',
     sections: [
-      { heading: "The History of CineStill", paragraphs: [
-        "CineStill was founded in 2012 by brothers Brandon and Brian Wright in California, who were captivated by the distinctive look of motion picture film used in Hollywood cinema. Motion picture film differs from standard still camera film mainly through its \"remjet\" backing, an anti-halation layer that stops light bouncing back through the film base but which also makes it incompatible with standard C-41 photo lab processing.",
-        "The Wright brothers developed a process to remove this remjet layer, allowing genuine cinema film stock to be processed in any regular colour lab. Their first product, CineStill 800T, launched in 2013 and quickly built a cult following for its glowing red \"halation\" around light sources, a side effect of removing the remjet backing that photographers came to embrace as a signature creative look rather than a flaw. CineStill has since grown from a niche remjet-removal specialist into a broader film brand in its own right.",
+      { heading: 'Where CineStill comes from', paragraphs: [
+        'CineStill was founded in 2012 by brothers Brandon and Brian Wright in California. Motion picture colour film carries a black backing called remjet, which stops light bouncing back through the base but needs special processing, so it cannot go through a normal photo lab. The Wright brothers found a way to remove it, which lets the film be developed in standard C-41 chemistry.',
+        "Removing the remjet has a side effect: bright lights bounce back through the base and leave a red or orange glow, known as halation. Rather than a flaw, it became the look CineStill is known for. The colour films are widely reported to start life as Kodak's Vision3 motion picture stocks, 500T for 800T and 50D for 50D.",
       ] },
-      { heading: "CineStill's Camera Film Ranges", paragraphs: [
-        "CineStill 800T is tungsten-balanced for indoor and artificial light, adapted from Kodak Vision3 500T motion picture stock, and is famous for its red halation glow around highlights and neon signs, making it a favourite for night and low-light photography. CineStill 50D is daylight-balanced and fine-grained, adapted from Kodak Vision3 50D cinema stock, and suits bright outdoor shooting with true-to-life colour.",
-        "CineStill 400D, launched in 2022, is a daylight-balanced all-rounder offering greater exposure latitude for mixed lighting conditions. CineStill BwXX is a black and white film based on Kodak's Double-X cinema stock, delivering the classic high-contrast, cinematic monochrome look used in numerous Hollywood films.",
+      { heading: '800T, 50D or 400D?', paragraphs: [
+        '800T is balanced for tungsten light, so it renders streetlights, interiors and neon cleanly, with strong halation around bright points. In daylight it turns blue unless you add a warming 85 filter, which also costs a little speed. 50D is a slow, fine grained daylight film for bright conditions, with natural colour and only gentle halation.',
+        "400D, launched in 2022, is CineStill's daylight all rounder, with wide latitude for mixed and changing light and room to push to 800 or 1600 when the light drops. If you want one CineStill film for everyday use, 400D is the safest place to start.",
       ] },
-      { heading: "Choosing the Right CineStill Film", paragraphs: [
-        "For night photography and city lights, 800T is the film that made CineStill famous. For bright daylight and fine grain, choose 50D. For general everyday daylight shooting with more flexibility, go for 400D, and for classic cinematic black and white, choose BwXX. Compare CineStill film prices on Filmproof to find the best deal from UK stockists.",
+      { heading: 'BwXX and developing', paragraphs: [
+        "BwXX is CineStill's black and white film, based on Kodak's Double-X cinema stock, with the high contrast, classic look of black and white movies. It develops in ordinary black and white chemistry. The colour films develop in standard C-41 at any lab, and as they are sold in 35mm and 120, Filmproof lists each format on its own page with live prices from UK shops.",
       ] },
     ],
   },
