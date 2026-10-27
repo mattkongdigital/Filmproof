@@ -103,19 +103,19 @@ export const BRAND_CONTENT = {
     ],
   },
   cinestill: {
-    meta: { title: 'CineStill Film Prices UK | Compare', description: 'Compare CineStill film prices from UK retailers on Filmproof. 800T, 50D, 400D and BwXX, genuine motion picture film for stills.' },
-    intro: "CineStill takes genuine Hollywood motion picture film stock and adapts it for still cameras, giving photographers access to the same film used on movie sets. Best known for the glowing halation and cinematic tungsten colours of 800T, CineStill film has become a cult favourite for night photography and moody, film-look portraits. Compare CineStill film prices on Filmproof.",
+    meta: { title: 'CineStill Film Prices UK | Compare', description: 'Compare CineStill 800T, 50D, 400D and BwXX film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
+    intro: 'CineStill adapts motion picture film for still cameras, so photographers can shoot the kind of stock used on film sets and have it developed at an ordinary lab. It is best known for 800T and the red glow it puts around lights at night, and the range also covers the fine grained 50D, the all round 400D and BwXX black and white, all in 35mm and 120. Compare CineStill film prices from UK shops below.',
     sections: [
-      { heading: "The History of CineStill", paragraphs: [
-        "CineStill was founded in 2012 by brothers Brandon and Brian Wright in California, who were captivated by the distinctive look of motion picture film used in Hollywood cinema. Motion picture film differs from standard still camera film mainly through its \"remjet\" backing, an anti-halation layer that stops light bouncing back through the film base but which also makes it incompatible with standard C-41 photo lab processing.",
-        "The Wright brothers developed a process to remove this remjet layer, allowing genuine cinema film stock to be processed in any regular colour lab. Their first product, CineStill 800T, launched in 2013 and quickly built a cult following for its glowing red \"halation\" around light sources, a side effect of removing the remjet backing that photographers came to embrace as a signature creative look rather than a flaw. CineStill has since grown from a niche remjet-removal specialist into a broader film brand in its own right.",
+      { heading: 'Where CineStill comes from', paragraphs: [
+        'CineStill was founded in 2012 by brothers Brandon and Brian Wright in California. Motion picture colour film carries a black backing called remjet, which stops light bouncing back through the base but needs special processing, so it cannot go through a normal photo lab. The Wright brothers found a way to remove it, which lets the film be developed in standard C-41 chemistry.',
+        "Removing the remjet has a side effect: bright lights bounce back through the base and leave a red or orange glow, known as halation. Rather than a flaw, it became the look CineStill is known for. The colour films are widely reported to start life as Kodak's Vision3 motion picture stocks, 500T for 800T and 50D for 50D.",
       ] },
-      { heading: "CineStill's Camera Film Ranges", paragraphs: [
-        "CineStill 800T is tungsten-balanced for indoor and artificial light, adapted from Kodak Vision3 500T motion picture stock, and is famous for its red halation glow around highlights and neon signs, making it a favourite for night and low-light photography. CineStill 50D is daylight-balanced and fine-grained, adapted from Kodak Vision3 50D cinema stock, and suits bright outdoor shooting with true-to-life colour.",
-        "CineStill 400D, launched in 2022, is a daylight-balanced all-rounder offering greater exposure latitude for mixed lighting conditions. CineStill BwXX is a black and white film based on Kodak's Double-X cinema stock, delivering the classic high-contrast, cinematic monochrome look used in numerous Hollywood films.",
+      { heading: '800T, 50D or 400D?', paragraphs: [
+        '800T is balanced for tungsten light, so it renders streetlights, interiors and neon cleanly, with strong halation around bright points. In daylight it turns blue unless you add a warming 85 filter, which also costs a little speed. 50D is a slow, fine grained daylight film for bright conditions, with natural colour and only gentle halation.',
+        "400D, launched in 2022, is CineStill's daylight all rounder, with wide latitude for mixed and changing light and room to push to 800 or 1600 when the light drops. If you want one CineStill film for everyday use, 400D is the safest place to start.",
       ] },
-      { heading: "Choosing the Right CineStill Film", paragraphs: [
-        "For night photography and city lights, 800T is the film that made CineStill famous. For bright daylight and fine grain, choose 50D. For general everyday daylight shooting with more flexibility, go for 400D, and for classic cinematic black and white, choose BwXX. Compare CineStill film prices on Filmproof to find the best deal from UK stockists.",
+      { heading: 'BwXX and developing', paragraphs: [
+        "BwXX is CineStill's black and white film, based on Kodak's Double-X cinema stock, with the high contrast, classic look of black and white movies. It develops in ordinary black and white chemistry. The colour films develop in standard C-41 at any lab, and as they are sold in 35mm and 120, Filmproof lists each format on its own page with live prices from UK shops.",
       ] },
     ],
   },
@@ -323,19 +323,22 @@ export const BRAND_CONTENT = {
     ],
   },
   harman: {
-    meta: { title: 'Harman Film Prices UK | Phoenix, Red & Switch Azure', description: 'Compare Harman Phoenix 200, Harman Red 125 and Switch Azure 125 colour film prices from UK shops on Filmproof, in 35mm and 120, from the makers of Ilford.' },
-    intro: "Harman is the name behind Ilford Photo and Kentmere film, and since 2023 it has made colour film under its own name too. Harman Phoenix 200 was the first colour film ever produced at the historic Mobberley, Cheshire factory, and it has been joined by Harman Red 125, a factory made redscale film, and Switch Azure 125, which swaps colours around. Compare Harman film prices from UK shops on Filmproof.",
+    meta: { title: 'Harman Film Prices UK | Phoenix, Red & Switch Azure', description: 'Compare Harman Phoenix II, Phoenix 125, Harman Red 125 and Switch Azure 125 colour film prices from UK shops, in 35mm and 120, from the makers of Ilford.' },
+    intro: 'Harman Technology makes Ilford and Kentmere black and white film in Mobberley, Cheshire, and since 2023 it has made colour film there under its own name. Phoenix was the first colour film made entirely at the factory, from emulsion to cassette, and it has been followed by Phoenix II, the redscale Harman Red 125 and the colour switching Switch Azure 125. Compare Harman film prices from UK shops below.',
     sections: [
-      { heading: "The History of Harman", paragraphs: [
-        "Harman Technology Limited traces its roots to Alfred Harman's Britannia Works, founded in Ilford, England, in the late 1800s, which became Ilford Limited in 1902. After a period of administration in the mid-2000s, a 2005 management buyout formed Harman Technology Limited, named in tribute to the company's founder, trading as Ilford Photo and continuing to manufacture film at Mobberley, Cheshire, one of the last true film factories in the world. Harman also acquired the Kentmere film brand in 2007, and the whole operation has been owned by Pemberstone Ventures since 2015.",
-        "Phoenix 200 arrived in December 2023. Because the Ilford name is so closely tied to black and white photography, it went out under a separate \"Harman Photo\" identity, and the colour films that followed it carry the Harman name too.",
+      { heading: 'A short history of Harman', paragraphs: [
+        "Harman takes its name from Alfred Hugh Harman, who founded Ilford in 1879. When Ilford's business went into receivership in 2004, a management buyout the following year formed Harman Technology, which has made Ilford film, paper and chemistry in Mobberley ever since. It later bought Kentmere, a Cumbrian photographic paper maker, and put that name on its budget film.",
+        'In December 2023 Harman launched Phoenix, its first colour film. Because the Ilford name is so closely tied to black and white, the colour films carry the Harman name instead.',
       ] },
-      { heading: "Harman's Camera Film Ranges", paragraphs: [
-        "Harman Phoenix 200 is a 35mm colour negative film rated at ISO 200, though it can be shot anywhere from ISO 100 to 400, and processed using standard C-41 chemistry. It has a distinctive, high-contrast, saturated look, with visible grain and occasional halation that reflects its status as an early, experimental release from a company more used to working in black and white. It has quickly built a following among photographers who enjoy its bold, slightly unpredictable character.",
-        "Harman Red 125 is Phoenix spooled in reverse, so light reaches the red sensitive layer first and scenes come back in reds, oranges and yellows, without the light leaks of winding your own. Switch Azure 125 turns blue skies orange, bright yellows azure and red buses blue. Both are rated at ISO 125, develop in standard C-41 chemistry and come in 35mm and 120.",
+      { heading: 'Phoenix, Phoenix II and Phoenix 125', paragraphs: [
+        'The original Phoenix is a bold, experimental colour negative, with high contrast, strong grain, no orange mask and a glow of halation around bright highlights. It was launched at ISO 200 and is now sold as Phoenix 125, the same film rated at the speed most photographers were shooting it at. It rewards careful exposure, metered for the midtones.',
+        'Phoenix II 200, launched in 2025, is a second generation film redesigned layer by layer. It has more normal contrast and colour, finer grain and wider latitude than the original, while keeping some of its character, including the halation, and Harman recommends rating it between ISO 100 and 200. Choose Phoenix 125 for the wildest look and Phoenix II for something more dependable.',
       ] },
-      { heading: "Choosing the Right Harman Film", paragraphs: [
-        "Phoenix 200 suits photographers who want a striking, characterful colour look rather than clean, neutral realism, with bold contrast and saturated, sometimes unexpected colour. If you love Ilford's black and white heritage and want to see what the same factory does in colour, start there. For something stranger, Red gives warm, glowing redscale and Switch Azure a cool, colour switched world. Compare Harman film prices on Filmproof.",
+      { heading: 'Harman Red and Switch Azure', paragraphs: [
+        'Harman Red 125 is the original Phoenix spooled in reverse at the factory, so light reaches the red sensitive layer first and pictures come back in reds, oranges and yellows, without the light leaks of rolling your own redscale. Switch Azure 125 swaps colours around instead, turning blue skies orange, yellows azure and red buses blue. Both are rated at ISO 125.',
+      ] },
+      { heading: 'Buying and developing Harman film', paragraphs: [
+        "Every Harman colour film comes in 35mm and 120 and develops in standard C-41 chemistry at any lab. Because the films have no orange mask and an unusual palette, the scanner has a big say in the final look, so it is worth telling your lab what you shot. Shops sometimes sell bundles and collector's editions, and Filmproof compares them on price per roll.",
       ] },
     ],
   },
