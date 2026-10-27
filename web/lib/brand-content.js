@@ -702,7 +702,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Gold 200', paragraphs: [
         'At ISO 200, Gold is happiest in daylight, and it gives sunny days and skin a golden, nostalgic warmth that has made it a favourite for holidays and everyday snapshots. It forgives a stop or two of overexposure, which suits simple point and shoot cameras, though it gets grainy and muddy when underexposed indoors.',
-        'Gold develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and as multipacks, and Filmproof divides the packs out so you can compare the price per roll. You will also see expired Gold listed here, which is older stock sold off cheaply, with less predictable results.',
+        'Gold develops in standard C-41 chemistry at any lab. Shops sell it as single rolls and as multipacks, and Filmproof divides the packs out so you can compare the price per roll. You will also see expired Gold listed here, which is older stock sold off cheaply, with less predictable results. Kodak\'s other everyday colour films are UltraMax 400, the faster choice for dull days and interiors, and ColorPlus 200.',
       ] },
     ],
   },
@@ -713,7 +713,7 @@ export const BRAND_SUB_CONTENT = {
       { heading: "Portra 160, 400 or 800?", paragraphs: [
         "Portra 160 is the slowest and finest grained of the three, with the softest contrast. It suits bright light, studio work and portraits where you can give it plenty of exposure.",
         "Portra 400 is the all-rounder and the most widely stocked. It tolerates overexposure by several stops with little loss, so many photographers rate it at 200 for a brighter, cleaner scan, and it copes with mixed light better than the slower stock.",
-        "Portra 800 is the fast option for dim interiors, evenings and longer lenses. Grain is more visible than at 400, but colour holds up well, and it is usually the priciest of the three per roll.",
+        "Portra 800 is the fast option for dim interiors, evenings and longer lenses. Grain is more visible than at 400, but colour holds up well, and it is usually the priciest of the three per roll. Kodak also sells Ektacolor Pro in the same three speeds and formats, and Ektar 100 is the one to choose for vivid, saturated colour rather than soft skin tones.",
       ] },
       { heading: "Buying Portra in the UK", paragraphs: [
         "Portra is often sold in five-roll pro packs as well as single rolls, so the price per roll is the fairer comparison. Filmproof divides multipacks out for you and updates prices and stock across UK shops daily.",
@@ -735,7 +735,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: "Why photographers choose Tri-X", paragraphs: [
         "Tri-X has a recognisable look, with visible, even grain and strong midtones, and it is famously forgiving. It pushes well to 1600 and beyond for low light, and it handles a wide range of developers, so it is a favourite for home developing.",
-        "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 and 16mm cine cameras, listed here alongside the still films.",
+        "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 and 16mm cine cameras, listed here alongside the still films. For a cleaner, finer grained look, T-Max and Eastman Kodak's Ektapan are Kodak's tabular grain black and white films.",
       ] },
     ],
   },
@@ -763,7 +763,7 @@ export const BRAND_SUB_CONTENT = {
     intro: "Kodak Vision3 is Kodak's motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.",
     sections: [
       { heading: "Developing Vision3", paragraphs: [
-        "Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill's 800T and 50D still films are made from Vision3 stock with that backing taken off.",
+        "Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill's 800T and 50D still films are made from Vision3 stock with that backing taken off. For black and white cine, Kodak sells Tri-X as a reversal stock for Super 8 and 16mm.",
       ] },
     ],
   },
@@ -773,7 +773,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Why HP5 Plus', paragraphs: [
         'HP5 Plus has moderate grain, gentle contrast and a very wide exposure latitude, so it copes with mistakes and with mixed light. It pushes well to 1600 and even 3200 for low light, which makes it a favourite for street, documentary and gig photography, and it is easy to develop at home in almost any developer.',
-        'Ilford also releases limited edition HP5 Plus with special packaging from time to time. The film inside is the same, so compare those on price alone.',
+        'Ilford also releases limited edition HP5 Plus with special packaging from time to time. The film inside is the same, so compare those on price alone. For finer grain at the same speed, Delta 400 is Ilford\'s modern alternative, FP4 Plus is the slower ISO 125 film for bright light, and XP2 Super is the ISO 400 choice if you send your film to a colour lab.',
       ] },
     ],
   },
@@ -801,7 +801,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Ilford Pan F Plus is a slow ISO 50 black and white film with extremely fine grain, high sharpness and rich contrast. It is sold in 35mm, 120 and sheet film. Compare Ilford Pan F Plus prices from UK shops below.',
     sections: [
       { heading: 'Shooting Pan F Plus', paragraphs: [
-        'At ISO 50, Pan F Plus wants bright light or a tripod, but it rewards both with detail and smooth tones that suit landscapes, still life and portraits in good light. It has less latitude than faster films, so meter carefully, and allow for reciprocity on exposures of a second or more.',
+        'At ISO 50, Pan F Plus wants bright light or a tripod, but it rewards both with detail and smooth tones that suit landscapes, still life and portraits in good light. It has less latitude than faster films, so meter carefully, and allow for reciprocity on exposures of a second or more. If ISO 50 is too slow, FP4 Plus at ISO 125 and Delta 100 keep fine grain with more speed.',
       ] },
     ],
   },
@@ -810,7 +810,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Ilford XP2 Super is a chromogenic ISO 400 black and white film, developed in the same C-41 chemistry as colour negative film, so any high street or online lab can process it. It is sold in 35mm and 120. Compare Ilford XP2 Super prices from UK shops below.',
     sections: [
       { heading: 'Why choose XP2 Super', paragraphs: [
-        'Because it forms its image from dye rather than silver, XP2 Super has very fine grain for its speed and a huge exposure latitude, giving usable negatives from around ISO 50 to 800 on one roll. It is the easy way into black and white for anyone who sends film to a colour lab rather than developing at home. Prints from a colour lab can carry a slight tint unless the lab prints them as black and white.',
+        'Because it forms its image from dye rather than silver, XP2 Super has very fine grain for its speed and a huge exposure latitude, giving usable negatives from around ISO 50 to 800 on one roll. It is the easy way into black and white for anyone who sends film to a colour lab rather than developing at home. Prints from a colour lab can carry a slight tint unless the lab prints them as black and white. If you develop at home, HP5 Plus is Ilford\'s traditional ISO 400 film for ordinary black and white chemistry.',
       ] },
     ],
   },
@@ -828,13 +828,13 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Fujifilm Instax Mini is the smallest and most widely sold Instax format, giving credit card sized prints with an image of about 62 by 46mm. It fits Instax Mini cameras and printers, and comes in colour, monochrome and a long list of patterned frames. Compare Fujifilm Instax Mini prices from UK shops below.',
     sections: [
       { heading: 'Buying Instax Mini film', paragraphs: [
-        'Instax Mini comes in packs of ten shots and twin packs of twenty, and larger bundles bring the price per shot down, so compare on price per shot rather than per box. The frame designs change the border, not the film, so a Rainbow or Sky Blue pack develops just like the plain white one. Instax Mini will not fit Square or Wide cameras, so check your camera before you buy.',
+        'Instax Mini comes in packs of ten shots and twin packs of twenty, and larger bundles bring the price per shot down, so compare on price per shot rather than per box. The frame designs change the border, not the film, so a Rainbow or Sky Blue pack develops just like the plain white one. Instax Mini will not fit Instax Square or Instax Wide cameras, so check your camera before you buy.',
       ] },
     ],
   },
   'fujifilm/instax-square': {
     meta: { title: 'Fujifilm Instax Square Film | Compare UK Prices', description: 'Compare Fujifilm Instax Square film prices from UK shops, in colour, monochrome and framed editions, with live stock and prices per pack.' },
-    intro: 'Fujifilm Instax Square gives a square print with an image of about 62 by 62mm, between Mini and Wide in size. It fits Instax Square cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Square prices from UK shops below.',
+    intro: 'Fujifilm Instax Square gives a square print with an image of about 62 by 62mm, between Instax Mini and Instax Wide in size. It fits Instax Square cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Square prices from UK shops below.',
     sections: [
       { heading: 'Buying Instax Square film', paragraphs: [
         'Instax Square is sold in packs of ten shots and in twin packs, so compare on price per shot. It only fits Square format cameras and printers, not Mini or Wide models. Black frame and coloured frame editions use the same film with a different border.',
@@ -846,7 +846,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Fujifilm Instax Wide is the largest Instax format, with an image of about 99 by 62mm, twice the width of Instax Mini. It fits Instax Wide cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Wide prices from UK shops below.',
     sections: [
       { heading: 'Buying Instax Wide film', paragraphs: [
-        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. The wider frame suits groups and landscapes better than Mini. It fits only Wide format cameras and printers.',
+        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. The wider frame suits groups and landscapes better than Mini. It fits only Wide format cameras and printers, not Instax Mini or Instax Square models.',
       ] },
     ],
   },
@@ -896,7 +896,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Velvia 50 or Velvia 100?', paragraphs: [
         'Velvia 50 is the original, with the strongest colour and a warmer rendering, and many photographers rate it slightly slower than box speed. Velvia 100 gives you a stop more speed with similar saturation and a cooler, more neutral balance, which makes it easier to handhold.',
-        'Like all slide film, Velvia has little exposure latitude, so meter for the highlights, and it develops in E-6 chemistry, which fewer labs run than C-41.',
+        'Like all slide film, Velvia has little exposure latitude, so meter for the highlights, and it develops in E-6 chemistry, which fewer labs run than C-41. For a more neutral, natural slide film, Provia 100F is Fujifilm\'s other E-6 stock.',
       ] },
     ],
   },
@@ -916,7 +916,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting Switch Azure', paragraphs: [
         'Switch Azure is rated at ISO 125 and works best on sunny or bright overcast days, where strong colour gives the switch the most to work with. It has fine grain and a wide exposure latitude, so it forgives a meter reading that is a little out.',
-        'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home.',
+        'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home. Harman\'s other colour films are Phoenix and Harman Red 125, a redscale version of Phoenix.',
       ] },
     ],
   },
@@ -925,7 +925,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
     sections: [
       { heading: 'Phoenix and Phoenix II', paragraphs: [
-        'The original Phoenix has a deliberately bold, experimental look, with high contrast, visible grain and strong halation around highlights. Phoenix II is a reworked version with finer grain and more even colour, for photographers who want the character without as much unpredictability. Both are worth shooting with some extra exposure, as they reward a generous meter reading.',
+        'The original Phoenix has a deliberately bold, experimental look, with high contrast, visible grain and strong halation around highlights. Phoenix II is a reworked version with finer grain and more even colour, for photographers who want the character without as much unpredictability. Both are worth shooting with some extra exposure, as they reward a generous meter reading. Harman has since added two creative colour films, Harman Red 125, which is Phoenix spooled in reverse for a redscale look, and Switch Azure 125, which swaps colours around.',
       ] },
     ],
   },

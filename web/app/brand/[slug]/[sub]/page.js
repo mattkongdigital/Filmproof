@@ -9,6 +9,7 @@ import { FilmBrowser } from '../../../../components/film-browser';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { SITE_URL } from '../../../../lib/data';
 import { getBrandSubContent } from '../../../../lib/brand-content';
+import { linkRanges } from '../../../../components/range-links';
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -126,6 +127,10 @@ function BrandRangePage({ params, r }) {
   const content = getBrandSubContent(params.slug, params.sub);
   const films = filmsFor(r.match);
   const siblings = rangesForBrand(params.slug).filter((x) => x.slug !== params.sub);
+  // Sibling ranges named in the copy link from their first mention, as on the
+  // brand page. The range's own name stays plain.
+  const linked = new Set();
+  const intro = content ? linkRanges(content.intro, siblings, linked) : null;
   const fresh = films.filter((f) => !f.expired);
   const isos = [...new Set(fresh.map((f) => f.iso).filter(Boolean))].sort((a, b) => Number(a) - Number(b));
   const formats = [...new Set(fresh.map((f) => f.format))]
@@ -149,7 +154,7 @@ function BrandRangePage({ params, r }) {
         <div className="eyebrow">{r.brand.label}</div>
         <h1>{r.heading}</h1>
         <p className="lede">
-          {content ? content.intro : (
+          {content ? intro : (
             <>
               Every {r.heading} we track, in stock across UK shops, with live prices per roll.
               {spans && ` ${r.range.label} comes in ${spans}.`}
@@ -185,7 +190,7 @@ function BrandRangePage({ params, r }) {
             <div key={section.heading}>
               <h3 className="brand-about-heading">{section.heading}</h3>
               {section.paragraphs.map((paragraph, i) => (
-                <p key={i} className="brand-about-p">{paragraph}</p>
+                <p key={i} className="brand-about-p">{linkRanges(paragraph, siblings, linked)}</p>
               ))}
             </div>
           ))}
