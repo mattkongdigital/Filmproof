@@ -1095,7 +1095,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'RPX 25, 100 or 400?', paragraphs: [
         'RPX 25 is a very slow, very fine grained film for bright light, landscapes and work on a tripod. RPX 100 is the everyday daylight speed, and RPX 400 the fast all rounder for street photography, dull days and interiors, with more visible grain.',
-        'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, and for true infrared, Rollei Infrared.',
+        'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, for true infrared, Rollei Infrared, and for the opposite, Ortho 25 Plus, which is blind to red.',
       ] },
     ],
   },
@@ -1129,13 +1129,23 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
-  'rollei/digibase': {
-    meta: { title: 'Rollei Digibase CN200 Film | Compare UK Prices', description: 'Compare Rollei Digibase CN200 colour negative film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Rollei Digibase CN200 is a colour negative film made with digital scanning in mind, on a clear base without the usual orange mask. Compare Rollei Digibase prices from UK shops below.',
+  'rollei/ortho-25-plus': {
+    meta: { title: 'Rollei Ortho 25 Plus Film | Compare UK Prices', description: 'Compare Rollei Ortho 25 Plus prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Rollei Ortho 25 Plus is a technical orthochromatic black and white film, blind to red light, with extremely fine grain and high contrast. It is sold in 35mm, 120 and sheet film. Compare Rollei Ortho 25 Plus prices from UK shops below.',
     sections: [
-      { heading: 'Shooting Digibase CN200', paragraphs: [
-        'At ISO 200, Digibase suits daylight and everyday shooting. Its clear base makes the negatives look different from ordinary colour negative, and a scanner or camera scan does the colour work, so tell your lab what it is.',
-        'It develops in standard C-41 chemistry. It is Rollei\'s colour film, alongside black and white ranges such as RPX and Retro.',
+      { heading: 'Shooting Ortho 25 Plus', paragraphs: [
+        'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits and landscapes an early photography look. At ISO 25 it wants bright light or a tripod. Being blind to red, it can be handled and developed under a red safelight, which suits tray developing sheet film.',
+        'It develops in ordinary black and white chemistry. For ordinary panchromatic tones, RPX 25 is Rollei\'s other very slow, fine grained film, and Superpan goes the opposite way, with extended red sensitivity.',
+      ] },
+    ],
+  },
+  'rollei/crossbird': {
+    meta: { title: 'Rollei CrossBird Film | Compare UK Prices', description: 'Compare Rollei CrossBird cross processing film prices from UK shops, in 35mm, 120 and 127, with live stock and prices per roll.' },
+    intro: 'Rollei CrossBird is a colour slide film made to be cross processed. Developed in C-41 colour negative chemistry instead of E-6, it gives vivid greens and strong colour shifts. It is sold in 35mm, 120 and 127. Compare Rollei CrossBird prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting CrossBird', paragraphs: [
+        'Cross processing raises contrast and saturation and shifts colour in ways that are hard to predict, so bright, colourful scenes make the most of it. Tell your lab you want it developed in C-41 and that it is a slide film, as the negatives come back without the usual orange mask. Developed in E-6, it behaves as an ordinary slide film.',
+        'It is the colour film in a Rollei range that is otherwise mostly black and white, from RPX and Retro to Superpan and Infrared.',
       ] },
     ],
   },
