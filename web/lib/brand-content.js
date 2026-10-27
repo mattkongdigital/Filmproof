@@ -120,19 +120,22 @@ export const BRAND_CONTENT = {
     ],
   },
   rollei: {
-    meta: { title: 'Rollei Film Prices UK | Compare & Buy', description: 'Compare Rollei film prices from UK retailers on Filmproof. RPX, Retro, Superpan, Infrared and Digibase CN200, all in one place.' },
-    intro: "Rollei is a legendary name in German camera history, and its film range today continues that heritage with a distinctive collection of black and white and specialist films. From the sharp, high-contrast RPX range to creative infrared and superpan stocks, Rollei film offers something a little different for experimental photographers. Compare Rollei film prices on Filmproof.",
+    meta: { title: 'Rollei Film Prices UK | Compare & Buy', description: 'Compare Rollei film prices from UK shops. RPX, Retro 80S and 400S, Superpan 200, Infrared 400, Ortho 25 Plus, Blackbird and CrossBird, in 35mm, 120 and sheet film.' },
+    intro: 'Rollei is a name from German camera history, and today it sits on a range of mostly black and white film with an unusual number of specialist stocks, from the everyday RPX films to infrared, orthochromatic and cross processing film. Compare Rollei film prices from UK shops below.',
     sections: [
-      { heading: "The History of Rollei", paragraphs: [
-        "Rollei, formally Rollei-Werke Franke & Heidecke, was founded in Germany in 1920 and became world famous for its twin-lens reflex cameras, most notably the Rolleiflex, alongside black and white roll film produced for its own cameras.",
-        "As digital photography took hold through the 2000s, Rollei's traditional camera business struggled, and the company went through bankruptcy in the mid-2010s. The Rollei name for film has continued under new ownership and licensing arrangements, notably through Maco Photo Products in Germany, which produces and distributes Rollei-branded film today, often based on emulsions manufactured by other established film makers including Harman Technology, the company behind Ilford. This means Rollei film today combines the brand's classic identity with production expertise from some of the film industry's most experienced manufacturers.",
+      { heading: 'Where Rollei film comes from', paragraphs: [
+        'Rollei was founded in 1920 by Paul Franke and Reinhold Heidecke in Braunschweig, Germany, and became famous for its cameras, above all the twin lens Rolleiflex. The company made cameras rather than film, and after several changes of ownership the Rollei name is now licensed for film, which is sold through the German company Maco Photo Products.',
+        'Rollei film is made to order by other manufacturers rather than in a Rollei factory, and the RPX range is widely reported to come from Harman, the maker of Ilford. The Paul and Reinhold twin pack, a limited ISO 640 black and white film, marks the two founders.',
       ] },
-      { heading: "Rollei's Camera Film Ranges", paragraphs: [
-        "The RPX range, in 25, 100 and 400 speeds, is a traditional black and white film known for sharpness and punchy contrast, a modern continuation of Rollei's classic monochrome heritage. Retro 80S and 400S are fine-grain black and white stocks designed for a classic, retro-leaning tonal character.",
-        "Superpan 200 offers extended red sensitivity, popular for dramatic skies and infrared-style effects when shot with a red filter, while Rollei Infrared 400 is a true infrared-sensitive film for striking, otherworldly monochrome results. Digibase CN200 is a colour negative film designed to scan cleanly for digital workflows.",
+      { heading: 'Everyday black and white', paragraphs: [
+        "RPX 25, RPX 100 and RPX 400 are Rollei's traditional black and white films, with good sharpness and a classic look, from the very slow, very fine grained RPX 25 to the all round RPX 400, which is also sold in bulk rolls. Retro 80S and Retro 400S are coated on a clear polyester base that lies flat and scans well. Retro 80S can be rated anywhere from ISO 32 to 100, and Retro 400S pushes to 800.",
       ] },
-      { heading: "Choosing the Right Rollei Film", paragraphs: [
-        "For everyday sharp black and white, choose RPX 100 or 400. For classic retro tonality, go for Retro 80S or 400S. For creative red-filter or infrared effects, try Superpan 200 or Infrared 400, and for a colour film built around digital scanning, choose Digibase CN200. Compare Rollei film prices on Filmproof to find the best deal.",
+      { heading: 'Specialist films', paragraphs: [
+        'Superpan 200 has extended red sensitivity, so a red filter darkens skies dramatically. Infrared 400 reaches further into infrared, and through a deep infrared filter it turns foliage white and skies black; it is sold in 35mm, 120 and 4x5 sheets. Ortho 25 Plus is a technical orthochromatic film, blind to red, with extremely fine grain and high contrast. Blackbird is a slow, deliberately dramatic black and white film made in limited runs.',
+        'CrossBird is a colour slide film made to be cross processed: developed in C-41 colour negative chemistry instead of E-6, it gives vivid greens and strong colour shifts. Developed in E-6 it behaves as an ordinary slide film. It comes in 35mm, 120 and the rarer 127 size.',
+      ] },
+      { heading: 'Developing Rollei film', paragraphs: [
+        'All the black and white films develop in ordinary black and white chemistry, at home or at a lab. Infrared and the slowest films reward careful metering and a tripod. Rollei also sells its own developers, though any common black and white developer will work.',
       ] },
     ],
   },
