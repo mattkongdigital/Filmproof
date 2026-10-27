@@ -30,7 +30,7 @@ export const BRAND_CONTENT = {
         'Fujifilm has trimmed its film range in recent years, discontinuing Pro 400H in 2021 among others, but it still makes slide film and Instax, and it brought back Acros as Acros II in 2019 after the original was discontinued.',
       ] },
       { heading: 'Instax instant film', paragraphs: [
-        "Instax is the Fujifilm film most people know today, and it comes in three formats that fit three different sets of cameras and printers: Mini, the small credit card sized print; Square; and Wide, the largest. Each has its own page, listing colour, monochrome and patterned frame packs with prices compared per pack, since shops sell them as singles and twin packs.",
+        "Instax is the Fujifilm film most people know today, and it comes in three formats that fit three different sets of cameras and printers. Instax Mini gives the small, credit card sized print, Instax Square a square one, and Instax Wide the largest. Each has its own page, listing colour, monochrome and patterned frame packs with prices compared per pack, since shops sell them as singles and twin packs.",
       ] },
       { heading: 'Colour negative film', paragraphs: [
         "Fujifilm 200 and Fujifilm 400 are the current everyday colour films, affordable and forgiving for travel and snapshots, and older Fujicolor C200 stock still turns up too. Superia X-Tra 400 and Superia Premium 400 are Fujifilm's ISO 400 Superia films, with the cooler greens and blues the brand is known for.",
@@ -323,18 +323,19 @@ export const BRAND_CONTENT = {
     ],
   },
   harman: {
-    meta: { title: 'Harman Phoenix Film Prices UK | Compare', description: 'Compare Harman Phoenix 200 film prices from UK retailers on Filmproof. Ilford\'s first ever colour film, bold and experimental.' },
-    intro: "Harman is the name behind Ilford Photo and Kentmere film, and also its own standalone colour film, Harman Phoenix 200, the first colour film ever produced at the historic Mobberley, Cheshire factory. Compare Harman Phoenix film prices on Filmproof.",
+    meta: { title: 'Harman Film Prices UK | Phoenix, Red & Switch Azure', description: 'Compare Harman Phoenix 200, Harman Red 125 and Switch Azure 125 colour film prices from UK shops on Filmproof, in 35mm and 120, from the makers of Ilford.' },
+    intro: "Harman is the name behind Ilford Photo and Kentmere film, and since 2023 it has made colour film under its own name too. Harman Phoenix 200 was the first colour film ever produced at the historic Mobberley, Cheshire factory, and it has been joined by Harman Red 125, a factory made redscale film, and Switch Azure 125, which swaps colours around. Compare Harman film prices from UK shops on Filmproof.",
     sections: [
       { heading: "The History of Harman", paragraphs: [
         "Harman Technology Limited traces its roots to Alfred Harman's Britannia Works, founded in Ilford, England, in the late 1800s, which became Ilford Limited in 1902. After a period of administration in the mid-2000s, a 2005 management buyout formed Harman Technology Limited, named in tribute to the company's founder, trading as Ilford Photo and continuing to manufacture film at Mobberley, Cheshire, one of the last true film factories in the world. Harman also acquired the Kentmere film brand in 2007, and the whole operation has been owned by Pemberstone Ventures since 2015.",
-        "In December 2023, Harman did something it had never done before: it launched a colour film. Because the Ilford name is closely tied to black and white photography, the new stock was released under a distinct \"Harman Photo\" identity instead, Harman Phoenix 200, the first colour film ever coated at the Mobberley factory.",
+        "Phoenix 200 arrived in December 2023. Because the Ilford name is so closely tied to black and white photography, it went out under a separate \"Harman Photo\" identity, and the colour films that followed it carry the Harman name too.",
       ] },
       { heading: "Harman's Camera Film Ranges", paragraphs: [
         "Harman Phoenix 200 is a 35mm colour negative film rated at ISO 200, though it can be shot anywhere from ISO 100 to 400, and processed using standard C-41 chemistry. It has a distinctive, high-contrast, saturated look, with visible grain and occasional halation that reflects its status as an early, experimental release from a company more used to working in black and white. It has quickly built a following among photographers who enjoy its bold, slightly unpredictable character.",
+        "Harman Red 125 is Phoenix spooled in reverse, so light reaches the red sensitive layer first and scenes come back in reds, oranges and yellows, without the light leaks of winding your own. Switch Azure 125 turns blue skies orange, bright yellows azure and red buses blue. Both are rated at ISO 125, develop in standard C-41 chemistry and come in 35mm and 120.",
       ] },
       { heading: "Choosing the Right Harman Film", paragraphs: [
-        "Harman Phoenix 200 is best suited to photographers who want a striking, characterful colour look rather than clean, neutral realism, think bold contrast and saturated, sometimes unexpected colour shifts. If you love Ilford's black and white heritage and want to see what the same manufacturer does in colour, this is the film to try. Compare Harman Phoenix film prices on Filmproof.",
+        "Phoenix 200 suits photographers who want a striking, characterful colour look rather than clean, neutral realism, with bold contrast and saturated, sometimes unexpected colour. If you love Ilford's black and white heritage and want to see what the same factory does in colour, start there. For something stranger, Red gives warm, glowing redscale and Switch Azure a cool, colour switched world. Compare Harman film prices on Filmproof.",
       ] },
     ],
   },
