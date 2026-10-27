@@ -682,7 +682,7 @@ export const BRAND_SUB_CONTENT = {
         'Ektacolor Pro 800 is the fast option for low light, keeping skin tones natural and colour balanced when the light is changing or poor.',
       ] },
       { heading: 'Ektacolor Pro and Portra', paragraphs: [
-        'Ektacolor Pro covers the same speeds and formats as Kodak Portra, and some shops list it with the matching Portra name in brackets after the title. Both are sold here, so compare them side by side on price per roll before you buy. Like any colour negative film, Ektacolor Pro develops in standard C-41 chemistry at any lab.',
+        'Ektacolor Pro covers the same speeds and formats as Kodak Portra, and some shops list it with the matching Portra name in brackets after the title. Both are sold here, so compare them side by side on price per roll before you buy. Like any colour negative film, Ektacolor Pro develops in standard C-41 chemistry at any lab. For more saturated colour and the finest grain, Ektar 100 is Kodak\'s landscape and travel colour negative.',
       ] },
     ],
   },
@@ -839,7 +839,7 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Ilford Ortho Plus is an orthochromatic black and white film, sensitive to blue and green light but not to red. Rated at ISO 80 in daylight, it is sold in 35mm, 120 and sheet film. Compare Ilford Ortho Plus prices from UK shops below.',
     sections: [
       { heading: 'What orthochromatic film looks like', paragraphs: [
-        'Because Ortho Plus does not see red, reds and warm skin tones render dark, blue skies render light, and freckles and blemishes stand out, which gives portraits an old fashioned, early photography look. It can be handled and developed under a red safelight, which makes it popular for tray developing sheet film. Under tungsten light its speed falls to around ISO 40.',
+        'Because Ortho Plus does not see red, reds and warm skin tones render dark, blue skies render light, and freckles and blemishes stand out, which gives portraits an old fashioned, early photography look. It can be handled and developed under a red safelight, which makes it popular for tray developing sheet film. Under tungsten light its speed falls to around ISO 40. For ordinary panchromatic tones at a similar speed, FP4 Plus at ISO 125 is the traditional fine grained choice, and Pan F Plus at ISO 50 is slower and finer still. SFX 200 goes the other way, with extra sensitivity to red.',
       ] },
     ],
   },
@@ -876,7 +876,7 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting SFX 200', paragraphs: [
         'The infrared effect comes from the filter. A deep red or infrared filter blocks most visible light, so expect to give several stops of extra exposure and to use a tripod, and bracket while you learn how your filter and light behave. Sunny days with plenty of foliage show the effect most strongly.',
-        'SFX develops in ordinary black and white chemistry, so there is nothing special to ask of a lab or your home setup.',
+        'SFX develops in ordinary black and white chemistry, so there is nothing special to ask of a lab or your home setup. Ortho Plus is its opposite, a film that does not see red at all. For everyday black and white without a filter, HP5 Plus and FP4 Plus are the traditional choices.',
       ] },
     ],
   },
