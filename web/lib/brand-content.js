@@ -1322,6 +1322,57 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Polaroid's ranges.
+  'polaroid/i-type': {
+    meta: { title: 'Polaroid i-Type Film | Compare UK Prices', description: 'Compare Polaroid i-Type instant film prices from UK shops, in colour, black and white and special editions, with live stock and prices per pack.' },
+    intro: 'Polaroid i-Type is the instant film for Polaroid\'s modern cameras, such as the Now, the I-2 and the OneStep 2. It comes in colour, black and white and a changing run of special edition frames, eight shots to a pack. Compare Polaroid i-Type prices from UK shops below.',
+    sections: [
+      { heading: 'Buying i-Type film', paragraphs: [
+        'i-Type cameras have their own rechargeable battery, so unlike 600 film the packs carry no battery, which keeps the price down. Shops sell single packs and double packs, so compare on price per shot. Special edition frames change the border, not the film.',
+        'i-Type film will not power a vintage camera, so for a 600 camera you need 600 film, and for an SX-70 camera, SX-70 film. 600 film does work in i-Type cameras, if you find it cheaper.',
+      ] },
+    ],
+  },
+  'polaroid/600': {
+    meta: { title: 'Polaroid 600 Film | Compare UK Prices', description: 'Compare Polaroid 600 instant film prices from UK shops, in colour, black and white and special editions, with live stock and prices per pack.' },
+    intro: 'Polaroid 600 film is made for the classic 600 series cameras from the 1980s onwards, and each pack carries its own battery to power them. It comes in colour, black and white and special edition frames, eight shots to a pack. Compare Polaroid 600 prices from UK shops below.',
+    sections: [
+      { heading: 'Buying 600 film', paragraphs: [
+        'Because the battery is in the pack, 600 film is the one to buy for a vintage 600 camera, and it also works in Polaroid\'s modern i-Type cameras. Shops sell single packs and double packs, so compare on price per shot.',
+        'If you only shoot a modern camera, i-Type film is usually cheaper, and for an SX-70 camera, choose SX-70 film.',
+      ] },
+    ],
+  },
+  'polaroid/sx-70': {
+    meta: { title: 'Polaroid SX-70 Film | Compare UK Prices', description: 'Compare Polaroid SX-70 instant film prices from UK shops, with live stock and prices per pack.' },
+    intro: 'Polaroid SX-70 film is made for the SX-70 cameras, including the famous folding SX-70 SLR from 1972. It is slower than 600 film, at around ISO 160, and each pack carries its own battery. It comes eight shots to a pack. Compare Polaroid SX-70 prices from UK shops below.',
+    sections: [
+      { heading: 'Buying SX-70 film', paragraphs: [
+        'SX-70 cameras are set for the slower film, so 600 or i-Type film will come out badly overexposed in them unless you add a neutral density filter. Shoot it in good light, and compare single and double packs on price per shot.',
+        'For a 600 camera choose 600 film, and for Polaroid\'s modern cameras, i-Type.',
+      ] },
+    ],
+  },
+  'polaroid/go': {
+    meta: { title: 'Polaroid Go Film | Compare UK Prices', description: 'Compare Polaroid Go instant film prices from UK shops, with live stock and prices per pack.' },
+    intro: 'Polaroid Go film is the smaller instant format made for the Polaroid Go camera, with a square image a little under 5cm across in Polaroid\'s classic white frame. Compare Polaroid Go film prices from UK shops below.',
+    sections: [
+      { heading: 'Buying Go film', paragraphs: [
+        'Go film only fits Go cameras, and the other Polaroid films will not fit them. Shops sell it in single and double packs, and in colour, black and white and special editions, so compare on price per shot.',
+        'For Polaroid\'s full size prints, i-Type film fits the modern cameras and 600 film the vintage ones.',
+      ] },
+    ],
+  },
+  'polaroid/8x10': {
+    meta: { title: 'Polaroid 8x10 Film | Compare UK Prices', description: 'Compare Polaroid 8x10 instant sheet film prices from UK shops, with live stock and prices per sheet.' },
+    intro: 'Polaroid 8x10 film is large format instant sheet film, for 8x10 cameras and a Polaroid 8x10 processor, which spreads the chemistry as each sheet goes through. Compare Polaroid 8x10 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting 8x10 instant film', paragraphs: [
+        'Each sheet is loaded and exposed like any 8x10 sheet film, then run through the processor with its positive sheet to develop. It is a specialist, expensive way to shoot, valued for the size and immediacy of the print.',
+        'For everyday instant photography, i-Type and 600 film fit Polaroid\'s modern and vintage cameras.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix 125 and Phoenix II 200 colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology in Mobberley, Cheshire, the maker of Ilford, and the first colour film made entirely at the factory. It now comes in two versions, the original sold as Phoenix 125 and the second generation Phoenix II 200, both in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',

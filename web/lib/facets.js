@@ -291,6 +291,14 @@ export const RANGES = [
   { brand: 'adox', slug: 'hr-50', label: 'HR-50', minFresh: 2, match: (f) => /\bhr[\s-]?50\b/i.test(f.display) },
   { brand: 'adox', slug: 'scala', label: 'Scala', minFresh: 2, match: (f) => /\bscala\b/i.test(f.display) },
   { brand: 'adox', slug: 'cms-20-ii', label: 'CMS 20 II', minFresh: 2, match: (f) => /\bcms\s*20\b/i.test(f.display) },
+  // Polaroid's film is sold by the cameras it fits, like Instax, so each
+  // format is a range of its own. i-Type and SX-70 packs are kept out of
+  // 600, which a title can mention alongside them.
+  { brand: 'polaroid', slug: 'i-type', label: 'i-Type', match: (f) => /\bi[\s-]?type\b/i.test(f.display) },
+  { brand: 'polaroid', slug: '600', label: '600', match: (f) => /\b600\b/.test(f.display) && !/\bi[\s-]?type\b|\bsx[\s-]?70\b/i.test(f.display) },
+  { brand: 'polaroid', slug: 'sx-70', label: 'SX-70', match: (f) => /\bsx[\s-]?70\b/i.test(f.display) },
+  { brand: 'polaroid', slug: 'go', label: 'Go', mention: /\bGo film\b/, match: (f) => /\bgo\b/i.test(f.display) },
+  { brand: 'polaroid', slug: '8x10', label: '8x10', minFresh: 2, match: (f) => /\b8\s*x\s*10\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -313,7 +321,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
 // and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
 // Foma Ortho 400 and R 100, Kentmere Pan 200, Ferrania's three films, and
-// Adox HR-50, Scala and CMS 20 II).
+// Adox HR-50, Scala and CMS 20 II, and Polaroid 8x10).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
