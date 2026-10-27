@@ -383,18 +383,20 @@ export const BRAND_CONTENT = {
     ],
   },
   adox: {
-    meta: { title: 'Adox Film Prices UK | Compare & Buy', description: 'Compare Adox film prices from UK retailers on Filmproof. CHS 100 II, Silvermax and Scala, genuine German-made black and white film.' },
-    intro: "Adox is a genuine German film manufacturer with roots stretching back to 1860, reborn in the 2000s and still coating its own black and white emulsions today. From the classic tones of CHS 100 II to the true reversal film Scala, Adox offers real manufacturing pedigree. Compare Adox film prices on Filmproof.",
+    meta: { title: 'Adox Film Prices UK | Compare & Buy', description: 'Compare Adox film prices from UK shops. CHS 100 II, HR-50, Scala 50 slide film, CMS 20 II and Pan-X 100 Reverso Super 8, black and white film from Germany.' },
+    intro: 'Adox is a German black and white film brand with a name that goes back to 1860, now run by a small company near Berlin that makes film, paper and chemistry for traditional photography. Its range runs from the classic CHS 100 II to the ultra fine grained HR-50, the Scala 50 slide film and the extreme resolution CMS 20 II. Compare Adox film prices from UK shops below.',
     sections: [
-      { heading: "The History of Adox", paragraphs: [
-        "Adox has one of the oldest lineages of any film brand still active today. It was originally founded in 1860 by Dr Carl Schleussner in Frankfurt am Main, Germany, and went on to have connections with both DuPont and Agfa over the following century, before the Adox trademark lapsed in the early 2000s.",
-        "The name was revived in 2003 by Fotoimpex, a Berlin-based photographic import company originally founded in 1992 to bring Eastern European film and paper, including Foma, to Western markets. Adox Fotowerke now operates from Bad Saarow near Berlin, genuinely coating its own film emulsion using equipment salvaged from former Agfa and Forte factories, alongside a leased former Ilford coating line in Marly, Switzerland, acquired in 2015. This makes Adox one of the very few companies left in the world still manufacturing film from raw materials rather than sourcing it from elsewhere.",
+      { heading: 'Where Adox film comes from', paragraphs: [
+        "The name comes from Dr C. Schleussner Fotowerke of Frankfurt, founded in 1860, which made plates, papers and later roll film under the Adox brand. The family sold the business to DuPont in 1962, and after passing through other hands the trademark lapsed in 2003. Fotoimpex, a Berlin importer founded in 1992, registered it straight away, so today's Adox carries the old name rather than the old company's factory.",
+        "Adox Fotowerke now works from Bad Saarow, near Berlin, where it finishes and packs film, paper and chemistry and has added a small coating line built from a former Agfa machine. In 2015 it also took on the former Ilford Imaging coating line in Marly, Switzerland, where CHS 100 II was trial coated before its return. Some Adox films are its own emulsions and others are technical films from Agfa-Gevaert, converted and packed by Adox for camera use.",
       ] },
-      { heading: "Adox's Camera Film Ranges", paragraphs: [
-        "CHS 100 II is Adox's core black and white film, available in 35mm, 120 and sheet formats, known for a classic orthopanchromatic tonal rendering rooted in the company's historic formulas. Silvermax 100 uses an unusually high silver content to deliver an extended tonal range and fine grain, while Scala 160 is a genuine black and white reversal film, producing true slides rather than negatives, a rare and technically demanding product few manufacturers still offer. Adox also produces HR-50, colour film, photographic papers and its well-known Rodinal developer.",
+      { heading: 'The Adox films', paragraphs: [
+        "CHS 100 II is the everyday Adox film, an ISO 100 film modelled on the company's 1950s emulsion. It is orthopanchromatic, a little less sensitive to red than most modern films, so skin and red tones render slightly darker for a classic look. It comes in 35mm, 120 and sheet film, and some shops list it simply as CHS 100.",
+        'HR-50 is an ISO 50 film based on an Agfa-Gevaert aerial film, with ultra fine grain and extended red sensitivity, so a red filter darkens skies strongly and a deep red filter takes it towards infrared. Scala 50 is the same base made as a black and white reversal film, giving positive slides for projection. CMS 20 II is a converted microfilm with extraordinary resolution, best rated around ISO 12 to 20 and developed in a special low contrast developer such as Adox Adotech, or it gives document style contrast.',
+        'Pan-X 100 Reverso is a black and white reversal film in Super 8 cassettes, made by Adox as a replacement for Kodak Plus-X. Silvermax 100 and its reversal twin Scala 160 have been discontinued, so any listing you find is old stock.',
       ] },
-      { heading: "Choosing the Right Adox Film", paragraphs: [
-        "For classic black and white character with real manufacturing heritage, CHS 100 II is the natural starting point. Photographers chasing maximum tonal range should look at Silvermax 100, while anyone wanting genuine black and white slides for projection should try Scala 160. Compare Adox film prices on Filmproof.",
+      { heading: 'Developing Adox film', paragraphs: [
+        'CHS 100 II and HR-50 develop in ordinary black and white chemistry, at home or at any lab that handles black and white film. Adox also makes developers of its own, including Adonal, the Rodinal formula, and Atomal 49. Scala 50 and Pan-X 100 Reverso need a black and white reversal process, which few labs offer, so check before you shoot them.',
       ] },
     ],
   },
