@@ -221,7 +221,7 @@ export const RANGES = [
   { brand: 'fujifilm', slug: 'superia', label: 'Superia', minFresh: 2, match: (f) => /\bsuperia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'acros', label: 'Acros', minFresh: 2, match: (f) => /\bacros\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
-  { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, match: (f) => /\bred\s*125\b/i.test(f.display) },
+  { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
 ];
 
@@ -244,12 +244,22 @@ function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
 
+// How the brand's copy names a range, for linking it. By default the label
+// itself, case-sensitive so "Gold" never catches "golden", with a space or
+// hyphen allowed where the label has either. A range whose label is an
+// ordinary word (Harman Red) sets `mention` instead.
+function mentionPattern(r) {
+  if (r.mention) return r.mention;
+  const body = r.label.split(/[\s-]+/).map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[\\s-]?');
+  return new RegExp(`\\b${body}\\b`);
+}
+
 // The brand's ranges that have a page, with how many films each lists, in the
 // order RANGES gives them (it reads as the maker's own line-up).
 export function rangesForBrand(brandSlug) {
   return builtRanges()
     .filter((r) => r.brand === brandSlug)
-    .map((r) => ({ slug: r.slug, label: r.label, count: rangeFilms(r).length }));
+    .map((r) => ({ slug: r.slug, label: r.label, count: rangeFilms(r).length, href: `/brand/${r.brand}/${r.slug}`, mention: mentionPattern(r) }));
 }
 
 export function resolveBrandRange(brandSlug, rangeSlug) {

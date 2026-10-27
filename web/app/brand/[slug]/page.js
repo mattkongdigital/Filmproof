@@ -6,6 +6,7 @@ import { FoldAxis } from '../../../components/fold-axis';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { SITE_URL, brandLabel } from '../../../lib/data';
 import { getBrandContent } from '../../../lib/brand-content';
+import { linkRanges } from '../../../components/range-links';
 
 export function generateStaticParams() {
   return brandList().map((b) => ({ slug: b.slug }));
@@ -32,6 +33,9 @@ export default function BrandPage({ params }) {
   const formatFacets = subFacets.filter((s) => s.kind === 'format');
   const typeFacets = subFacets.filter((s) => s.kind === 'type');
   const ranges = rangesForBrand(params.slug);
+  // Ranges linked so far, so each one links from its first mention only.
+  const linked = new Set();
+  const intro = content ? linkRanges(content.intro, ranges, linked) : null;
 
   return (
     <div className="wrap">
@@ -44,7 +48,7 @@ export default function BrandPage({ params }) {
         <div className="eyebrow">By brand</div>
         <h1>{label} film</h1>
         <p className="lede">
-          {content ? content.intro : (
+          {content ? intro : (
             <>
               Every {label} stock we track, in stock across UK shops, with live prices per roll.
               {' '}<strong>{films.length}</strong> stock{films.length === 1 ? '' : 's'} listed.
@@ -106,7 +110,7 @@ export default function BrandPage({ params }) {
             <div key={section.heading}>
               <h3 className="brand-about-heading">{section.heading}</h3>
               {section.paragraphs.map((paragraph, i) => (
-                <p key={i} className="brand-about-p">{paragraph}</p>
+                <p key={i} className="brand-about-p">{linkRanges(paragraph, ranges, linked)}</p>
               ))}
             </div>
           ))}
