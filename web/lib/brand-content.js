@@ -317,8 +317,8 @@ export const BRAND_CONTENT = {
     ],
   },
   harman: {
-    meta: { title: 'Harman Phoenix Film Prices UK | Compare', description: 'Compare Harman Phoenix 200 film prices from UK retailers on Filmproof. Ilford\'s first ever colour film, bold and experimental.' },
-    intro: "Harman is the name behind Ilford Photo and Kentmere film, and also its own standalone colour film, Harman Phoenix 200, the first colour film ever produced at the historic Mobberley, Cheshire factory. Compare Harman Phoenix film prices on Filmproof.",
+    meta: { title: 'Harman Film Prices UK | Phoenix, Red & Switch Azure', description: 'Compare Harman Phoenix 200, Harman Red 125 and Switch Azure 125 colour film prices from UK shops on Filmproof, in 35mm and 120, from the makers of Ilford.' },
+    intro: "Harman is the name behind Ilford Photo and Kentmere film, and since 2023 it has made colour film under its own name too. Harman Phoenix 200 was the first colour film ever produced at the historic Mobberley, Cheshire factory, and it has been joined by Harman Red 125, a factory made redscale film, and Switch Azure 125, which swaps colours around. Compare Harman film prices from UK shops on Filmproof.",
     sections: [
       { heading: "The History of Harman", paragraphs: [
         "Harman Technology Limited traces its roots to Alfred Harman's Britannia Works, founded in Ilford, England, in the late 1800s, which became Ilford Limited in 1902. After a period of administration in the mid-2000s, a 2005 management buyout formed Harman Technology Limited, named in tribute to the company's founder, trading as Ilford Photo and continuing to manufacture film at Mobberley, Cheshire, one of the last true film factories in the world. Harman also acquired the Kentmere film brand in 2007, and the whole operation has been owned by Pemberstone Ventures since 2015.",
