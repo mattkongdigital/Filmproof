@@ -1246,6 +1246,37 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Ferrania's ranges.
+  'ferrania/p30': {
+    meta: { title: 'Ferrania P30 Film | Compare UK Prices', description: 'Compare Film Ferrania P30 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania P30 is a black and white panchromatic film rated at ISO 80, reviving a 1960s Ferrania cinema formula with an unusually high silver content. It was launched as P30 Alpha, and shops list it under both names. Compare Ferrania P30 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania P30', paragraphs: [
+        'P30 has deep blacks, strong contrast and fine grain, a look tied to the classic Italian cinema it was made for. At ISO 80 it suits daylight, and it develops in ordinary black and white chemistry, at home or at any lab.',
+        'Ferrania\'s other black and white films are Orto, an orthochromatic film at ISO 50, and P33, a faster panchromatic film at ISO 160.',
+      ] },
+    ],
+  },
+  'ferrania/orto': {
+    meta: { title: 'Ferrania Orto Film | Compare UK Prices', description: 'Compare Film Ferrania Orto orthochromatic film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania Orto is an orthochromatic black and white film rated at ISO 50, blind to red light, for an unusual, early photography look. Compare Ferrania Orto prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania Orto', paragraphs: [
+        'Because Orto does not see red, reds and warm skin tones render dark and blue skies render light. At ISO 50 it wants bright light or a tripod. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
+        'For ordinary panchromatic tones, P30 is Ferrania\'s classic film at ISO 80, and P33 the faster one at ISO 160.',
+      ] },
+    ],
+  },
+  'ferrania/p33': {
+    meta: { title: 'Ferrania P33 Film | Compare UK Prices', description: 'Compare Film Ferrania P33 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Ferrania P33 is a newer panchromatic black and white film from Film Ferrania, rated at ISO 160, a faster and more flexible companion to P30. Compare Ferrania P33 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Ferrania P33', paragraphs: [
+        'At ISO 160, P33 gives more room for shade, overcast days and handheld shooting than Ferrania\'s slower films. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'P30 is Ferrania\'s classic high silver film at ISO 80, and Orto its orthochromatic film at ISO 50.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',

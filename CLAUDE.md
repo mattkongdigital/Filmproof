@@ -49,8 +49,8 @@ films; expired stock is listed on the page but never earns one, since it comes
 and goes between builds. A range can lower its own bar with `minFresh`, as
 Kodak Gold, Ilford SFX, Fujifilm Provia, Superia and Acros, Harman Red and
 Switch Azure, Lomography Earl Grey and Lady Grey, CineStill's four films, Rollei
-Superpan and Infrared, Foma Ortho 400 and R 100, and
-Kentmere Pan 200 do at 2: two films, worth a page for its copy.
+Superpan and Infrared, Foma Ortho 400 and R 100,
+Kentmere Pan 200, and Ferrania's three films do at 2: two films, worth a page for its copy.
 Use it only alongside copy. A range slug must not end in `-film` (the build stops), and its copy
 goes in `BRAND_SUB_CONTENT` under `<brand>/<range>`. Without copy the page
 falls back to a generated lede.

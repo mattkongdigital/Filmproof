@@ -278,6 +278,11 @@ export const RANGES = [
   { brand: 'kentmere', slug: 'pan-100', label: 'Pan 100', match: (f) => kentmere(f) === '100' },
   { brand: 'kentmere', slug: 'pan-200', label: 'Pan 200', minFresh: 2, match: (f) => kentmere(f) === '200' },
   { brand: 'kentmere', slug: 'pan-400', label: 'Pan 400', match: (f) => kentmere(f) === '400' },
+  // Ferrania's films are one emulsion each, like CineStill's, so each takes a
+  // page at two. P30 was launched as "P30 Alpha" and shops use both names.
+  { brand: 'ferrania', slug: 'p30', label: 'P30', minFresh: 2, match: (f) => /\bp\s*30\b/i.test(f.display) },
+  { brand: 'ferrania', slug: 'orto', label: 'Orto', minFresh: 2, match: (f) => /\borto\b/i.test(f.display) },
+  { brand: 'ferrania', slug: 'p33', label: 'P33', minFresh: 2, match: (f) => /\bp\s*33\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -299,7 +304,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
 // and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
-// Foma Ortho 400 and R 100, and Kentmere Pan 200).
+// Foma Ortho 400 and R 100, Kentmere Pan 200, and Ferrania's three films).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
