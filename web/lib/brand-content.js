@@ -940,6 +940,107 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Lomography's ranges.
+  'lomography/color-negative': {
+    meta: { title: 'Lomography Color Negative Film | Compare UK Prices', description: 'Compare Lomography Color Negative 100, 400 and 800 prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'Lomography Color Negative is Lomography\'s everyday colour film, with bright, saturated colour and none of the colour shifting of its LomoChrome films. It comes in ISO 100, 400 and 800, in 35mm and 120, and as Color Tiger in 110. Compare Lomography Color Negative prices from UK shops below.',
+    sections: [
+      { heading: 'Color Negative 100, 400 or 800?', paragraphs: [
+        'Color Negative 100 is the fine grained choice for bright sun. 400 is the all rounder for changeable light and the easiest to recommend to anyone starting out, and 800 is the fast option for evenings, interiors and dull winter days, with more visible grain.',
+        'All three develop in standard C-41 chemistry at any lab. Shops often sell them in three packs, and Filmproof divides the packs out so you can compare the price per roll. For a warmer, more nostalgic look, try Classicolor or Color 92, and for colour that shifts, the LomoChrome films such as Purple and Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/purple': {
+    meta: { title: 'Lomography LomoChrome Purple Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Purple prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Purple is the colour shifting film that started Lomography\'s LomoChrome range. It turns greens to purple and violet and shifts blues towards green, so foliage, grass and skies take on a surreal palette. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Purple prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Purple', paragraphs: [
+        'Purple can be shot anywhere from ISO 100 to 400 on the same roll. Scenes with plenty of green show the effect most strongly, so parks, woods and gardens are the obvious subjects. Exposure changes how strong the shift looks, so it is worth bracketing a few frames while you learn the film.',
+        'It develops in standard C-41 chemistry at any lab. Turquoise and Metropolis are the other LomoChrome films, Turquoise for a cool turquoise and teal shift and Metropolis for muted, high contrast colour.',
+      ] },
+    ],
+  },
+  'lomography/turquoise': {
+    meta: { title: 'Lomography LomoChrome Turquoise Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Turquoise prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Turquoise is a colour shifting film from Lomography that pushes colour towards turquoise and teal and turns blue skies warm and golden. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Turquoise prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Turquoise', paragraphs: [
+        'Turquoise can be shot anywhere from ISO 100 to 400 on the same roll. Bright, sunny days with plenty of sky give the strongest effect, and exposure changes how far the shift goes, so bracket a few frames while you learn it.',
+        'It develops in standard C-41 chemistry at any lab. For the purple and violet take on the same idea, try Purple, and for muted colour rather than shifted colour, Metropolis.',
+      ] },
+    ],
+  },
+  'lomography/metropolis': {
+    meta: { title: 'Lomography LomoChrome Metropolis Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Metropolis prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Metropolis is Lomography\'s film for muted colour and strong contrast, draining a scene towards a gritty, urban look while keeping a little colour in it. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Metropolis prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting LomoChrome Metropolis', paragraphs: [
+        'Metropolis can be shot anywhere from ISO 100 to 400 on the same roll. It suits streets, architecture and overcast days, where its muted palette and deep shadows do the most.',
+        'It develops in standard C-41 chemistry at any lab. For colour that shifts rather than fades, try Purple or Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/classicolor': {
+    meta: { title: 'Lomography LomoChrome Classicolor Film | Compare UK Prices', description: 'Compare Lomography LomoChrome Classicolor prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'LomoChrome Classicolor is one of Lomography\'s newer films, made for the warm, nostalgic look of older consumer colour film rather than a colour shift. It is sold in 35mm, 120 and 110. Compare Lomography LomoChrome Classicolor prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Classicolor', paragraphs: [
+        'Classicolor suits everyday shooting, holidays and portraits in good light, where its warm tones read like film from a few decades ago. It develops in standard C-41 chemistry at any lab.',
+        'Color 92 is its closest sibling, also made for a nostalgic look, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+    ],
+  },
+  'lomography/color-92': {
+    meta: { title: 'Lomography Color 92 Film | Compare UK Prices', description: 'Compare Lomography Color 92 prices from UK shops, in 35mm, 120 and 110, with live stock and prices per roll.' },
+    intro: 'Lomography Color 92 is a colour negative film made for the look of 1990s consumer film, with warm tones and a slightly faded, nostalgic feel. It is sold in 35mm, 120 and 110. Compare Lomography Color 92 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Color 92', paragraphs: [
+        'Color 92 is at its best in daylight, on holidays, days out and everyday snapshots, where its warm cast and soft colour suit the subject. It develops in standard C-41 chemistry at any lab.',
+        'Classicolor is its closest sibling, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+    ],
+  },
+  'lomography/redscale': {
+    meta: { title: 'Lomography Redscale Film | Compare UK Prices', description: 'Compare Lomography Redscale, Redscale XR and Lobster Redscale prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Redscale is colour negative film loaded into the cassette back to front at the factory, so light reaches the red sensitive layer first and pictures come out in reds, oranges and yellows. It comes as Redscale 100, as Redscale XR, which covers a wider range of speeds, and as Lobster Redscale in 110. Compare Lomography Redscale prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Redscale', paragraphs: [
+        'Exposure is the creative control. Less light gives deeper reds and stronger contrast, while more light pushes the colour towards yellow, so bracket a few frames while you learn it. You load, shoot and develop it like any other roll, in standard C-41 chemistry.',
+        'For a colour shift without the red cast, try the LomoChrome films such as Purple and Turquoise.',
+      ] },
+    ],
+  },
+  'lomography/earl-grey': {
+    meta: { title: 'Lomography Earl Grey 100 Film | Compare UK Prices', description: 'Compare Lomography Earl Grey 100 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Earl Grey 100 is a classic panchromatic black and white film with fine grain, suited to bright light and everyday shooting. Compare Lomography Earl Grey prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Earl Grey', paragraphs: [
+        'At ISO 100, Earl Grey suits daylight, landscapes and anything where fine grain matters, and it develops in ordinary black and white chemistry at home or at any lab.',
+        'Lady Grey 400 is the faster sibling for dull days and interiors, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+    ],
+  },
+  'lomography/lady-grey': {
+    meta: { title: 'Lomography Lady Grey 400 Film | Compare UK Prices', description: 'Compare Lomography Lady Grey 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Lomography Lady Grey 400 is a fast panchromatic black and white film, a forgiving all rounder for street photography, dull days and interiors. Compare Lomography Lady Grey prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Lady Grey', paragraphs: [
+        'At ISO 400, Lady Grey has more visible grain than a slower film and plenty of latitude, and it develops in ordinary black and white chemistry at home or at any lab.',
+        'Earl Grey 100 is the slower, finer grained sibling, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+    ],
+  },
+  'lomography/kino': {
+    meta: { title: 'Lomography Kino Film | Compare UK Prices', description: 'Compare Lomography Kino black and white film prices from UK shops, including Potsdam 100, Berlin 400, Babylon 13 and Fantome 8, with live stock and prices per roll.' },
+    intro: 'Lomography\'s Kino films are black and white stocks cut from cinema film and spooled for still cameras: Potsdam 100, Berlin 400 and the very slow Babylon 13, alongside Fantome 8, an ultra slow, high contrast film for bright light. Compare Lomography Kino film prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting the Kino films', paragraphs: [
+        'Potsdam 100 is the fine grained daylight choice and Berlin 400 the faster one, both with the tonal character of motion picture stock. Babylon 13 and Fantome 8 are so slow that they need bright sun or a tripod, and reward it with very fine grain and strong contrast. All of them develop in ordinary black and white chemistry.',
+        'For a conventional black and white film, Earl Grey and Lady Grey are Lomography\'s everyday choices.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',

@@ -190,6 +190,9 @@ export function brandSubParams() {
 //
 // A range slug lives beside the facet slugs under /brand/<slug>/, so it must
 // never end in "-film" like they all do. The check below stops the build.
+// A Lomography title that names this line and is not a mixed pack.
+const lomo = (f, re) => re.test(f.display) && !/\b(?:duet|trio|quartet)\b/i.test(f.display);
+
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
@@ -220,6 +223,22 @@ export const RANGES = [
   { brand: 'fujifilm', slug: 'provia', label: 'Provia', minFresh: 2, match: (f) => /\bprovia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'superia', label: 'Superia', minFresh: 2, match: (f) => /\bsuperia\b/i.test(f.display) },
   { brand: 'fujifilm', slug: 'acros', label: 'Acros', minFresh: 2, match: (f) => /\bacros\b/i.test(f.display) },
+  // Lomography's lines. Its mixed packs (Analogue Duet, Trio, Quartet) name
+  // several films in one title, so they belong to none. Color Negative is
+  // the plain everyday film, so a title naming a LomoChrome or other line
+  // alongside it ("LomoChrome Purple Color Negative") is that line's, not
+  // this one's. Color Tiger is its 110 version, Lobster Redscale is
+  // Redscale's, and the Kino films are named by city.
+  { brand: 'lomography', slug: 'color-negative', label: 'Color Negative', match: (f) => lomo(f, /\bcolou?r\s*(?:negative|tiger)\b/i) && !/\b(?:purple|turquoise|metropolis|classicolou?r|92|redscale)\b/i.test(f.display) },
+  { brand: 'lomography', slug: 'purple', label: 'Purple', match: (f) => lomo(f, /\bpurple\b/i) },
+  { brand: 'lomography', slug: 'turquoise', label: 'Turquoise', match: (f) => lomo(f, /\bturquoise\b/i) },
+  { brand: 'lomography', slug: 'metropolis', label: 'Metropolis', match: (f) => lomo(f, /\bmetropolis\b/i) },
+  { brand: 'lomography', slug: 'classicolor', label: 'Classicolor', match: (f) => lomo(f, /\bclassicolou?r\b/i) },
+  { brand: 'lomography', slug: 'color-92', label: 'Color 92', match: (f) => lomo(f, /\bcolou?r\s*['’]?92\b/i) },
+  { brand: 'lomography', slug: 'redscale', label: 'Redscale', match: (f) => lomo(f, /\b(?:redscale|lobster)\b/i) },
+  { brand: 'lomography', slug: 'earl-grey', label: 'Earl Grey', minFresh: 2, match: (f) => lomo(f, /\bearl\s*grey\b/i) },
+  { brand: 'lomography', slug: 'lady-grey', label: 'Lady Grey', minFresh: 2, match: (f) => lomo(f, /\blady\s*grey\b/i) },
+  { brand: 'lomography', slug: 'kino', label: 'Kino', match: (f) => lomo(f, /\b(?:kino|potsdam|berlin|babylon|fantome)\b/i) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -239,7 +258,8 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // A range needs MIN_COMBO_FILMS fresh films, since a page of one or two cards
 // only repeats the film pages it links to. A range can lower its own bar with
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
-// Provia, Superia, Acros, Harman Red and Switch Azure).
+// Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
+// and Lady Grey).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
