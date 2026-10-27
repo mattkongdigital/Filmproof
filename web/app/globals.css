@@ -606,6 +606,7 @@ img.store-logo { object-fit:contain; background:#fff; }
 .brand-about { margin-top:48px; padding-top:30px; border-top:1px solid var(--rebate); }
 .brand-about-heading { font-family:var(--display); font-weight:600; font-size:17px; letter-spacing:-0.01em; margin:26px 0 10px; }
 .brand-about-p { font-size:16px; line-height:1.65; color:var(--ink); opacity:.9; max-width:64ch; margin:0 0 14px; }
+.cat-head .lede a, .brand-about-p a { color:var(--amber); }
 
 /* --- Editorial ---------------------------------------------------------- */
 /* Structure only. Post bodies sit inside .doc and inherit its prose styles;
