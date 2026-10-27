@@ -83,19 +83,22 @@ export const BRAND_CONTENT = {
     ],
   },
   lomography: {
-    meta: { title: 'Lomography Film Prices UK | Compare', description: 'Compare Lomography film prices from UK retailers on Filmproof. Color Negative, LomoChrome Purple, Turquoise, Metropolis and more.' },
-    intro: "Lomography began as a movement built around a cult Soviet-era camera and grew into a full range of experimental, colour-shifting camera film. Known for bold saturation, unpredictable colour casts and creative redscale and infrared-style effects, Lomography film is a favourite for photographers who want something different from the everyday. Compare Lomography film prices on Filmproof.",
+    meta: { title: 'Lomography Film Prices UK | Compare', description: 'Compare Lomography film prices from UK shops. Color Negative, LomoChrome Purple, Turquoise, Metropolis, Classicolor and Color 92, Redscale, Earl Grey, Lady Grey and Kino films, in 35mm, 120 and 110.' },
+    intro: 'Lomography is the Vienna based company behind some of the most playful film on sale, from its everyday Color Negative to the colour shifting LomoChrome films, ready made Redscale, and black and white stocks cut from cinema film. It is also one of the few makers still producing new 110 cartridge film. Compare Lomography film prices from UK shops below.',
     sections: [
-      { heading: "The History of Lomography", paragraphs: [
-        "The Lomography story began around 1991-1992, when a group of students in Vienna discovered the Soviet-made LOMO LC-A compact camera, originally manufactured in Leningrad, while visiting Prague. They fell in love with the camera's unpredictable vignetting, saturated colours and spontaneous shooting style, and founded the Lomographic Society International to promote a playful, instinctive approach to photography, later codified in the brand's well-known \"Ten Golden Rules\" (including the famous \"don't think, just shoot\").",
-        "What started as a camera-focused subculture grew into a global lifestyle brand, complete with \"Lomography Embassy\" stores around the world. From the 2010s onwards, Lomography began developing its own film emulsions, purpose-built to create the bold, experimental colours and effects its community loves, rather than the accurate colour reproduction pursued by traditional manufacturers.",
+      { heading: 'A short history of Lomography', paragraphs: [
+        'Lomography began in the early 1990s, when a group of students from Vienna came across the Soviet made LOMO LC-A compact camera on a trip to Prague. They loved its vignetting, saturated colour and shoot from the hip spirit, founded the Lomographic Society International, and summed up the approach in the Ten Golden Rules, the best known being "don\'t think, just shoot".',
+        'The society grew into a business making cameras and, from the 2010s, its own films, built for character rather than accurate colour. LomoChrome Purple was the first LomoChrome film, and the range has grown every few years since.',
       ] },
-      { heading: "Lomography's Camera Film Ranges", paragraphs: [
-        "Lomography Color Negative, available in 100, 400 and 800 speeds, forms the brand's core everyday colour range, offering fine grain and vivid, reliable colour for general shooting. LomoChrome Purple shifts greens towards purple and magenta for a striking, otherworldly palette, while LomoChrome Turquoise creates a cool blue-green colour shift popular for dreamlike, surreal results. LomoChrome Metropolis takes a different approach, offering a desaturated, high-contrast look with a variable ISO of 100-400, designed to evoke urban and cinematic scenes.",
-        "Redscale film is shot through the base of the film rather than the emulsion side, producing warm, glowing red and orange tones. Lomography also offers black and white \"kino\" films, such as Potsdam Kino B&W 100 and Babylon Kino B&W 13, repurposed from cinema stock for distinctive contrast. Most colour ranges are available in 35mm and 120 formats, alongside speciality options including 110 cartridge and instant film.",
+      { heading: 'Everyday colour and LomoChrome', paragraphs: [
+        'Lomography Color Negative comes in ISO 100, 400 and 800, a straightforward, saturated colour film for everyday shooting in 35mm and 120, with Color Tiger as its 110 version. The LomoChrome films are where the brand gets creative: Purple turns greens to purple and violet, Turquoise shifts colours towards turquoise and teal, and Metropolis mutes colour into a desaturated, high contrast look. The newer Classicolor and Color 92 aim instead for the warm, nostalgic look of older consumer film. Purple, Turquoise and Metropolis can each be shot anywhere from ISO 100 to 400.',
       ] },
-      { heading: "Choosing the Right Lomography Film", paragraphs: [
-        "For everyday reliable colour, choose Color Negative 100 or 400. For bold, experimental colour shifts, try LomoChrome Purple or Turquoise. For a cinematic, desaturated urban look, reach for Metropolis, and for warm vintage tones, try Redscale film. Compare Lomography film prices on Filmproof to find the best deal.",
+      { heading: 'Redscale and black and white', paragraphs: [
+        'Lomography Redscale is colour negative film loaded into the cassette back to front at the factory, so the red layer is exposed first and pictures come out in reds, oranges and yellows. You shoot it like any other roll. Redscale XR covers a wider range of speeds, and Lobster Redscale is the 110 version.',
+        "In black and white, Earl Grey 100 and Lady Grey 400 are Lomography's classic panchromatic films, and Orca is its 110 black and white. The Kino films, Potsdam 100, Berlin 400 and the very slow Babylon 13, are cut from black and white cinema stock, and Fantome 8 is an ultra slow, high contrast film for bright light.",
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Most Lomography films come in 35mm and 120, and much of the range also comes in 110 for pocket cameras, including Purple, Turquoise, Metropolis, Classicolor and Color 92. Lomography also sells mixed packs such as the Analogue Duet, Trio and Quartet, which bundle different films to try. Shops often sell Lomography films in three packs, and Filmproof divides the packs out so you can compare the price per roll. All the colour films develop in standard C-41 chemistry, and the black and white films in ordinary black and white chemistry.',
       ] },
     ],
   },
