@@ -43,13 +43,22 @@ export function deriveProcess(type = '', title = '', tags = '', body = '') {
   // Reversal and Fomapan R ECN-2: they are cine stocks, but black and white
   // ones developed to a positive, not colour negative. Fomapan R often drops
   // the word "reversal", and FPP writes "BW40". Never a colour stock.
-  if ((/reversal/.test(s) || /\bfomapan\s*r\b/.test(s))
+  if ((/reversal|\breverso\b/.test(s) || /\bfomapan\s*r\b/.test(s))
       && (bwSignal.test(s) || /\bbw\s?\d/.test(s) || BW_STOCKS.test(s))
       && !/colou?r|chrome|\be-?6\b/.test(s)) return 'Black & white reversal';
 
   // 4. Slide / cine (category or name).
   if (/slide|reversal|\be-?6\b/.test(t) || /\bslide\b|provia|velvia|ektachrome|\be100\b|\bchrome\b/.test(s)) return 'Colour slide (E-6)';
-  if (/movie|cine|super\s?8/.test(t) || /super\s?8|\bcine\b|vision3|\becn/.test(s)) return 'Cine (ECN-2)';
+  // Not every cine stock is ECN-2 colour negative: FPP and Foma sell black and
+  // white movie film (Double-X, Cine8 400BW, Fomapan Cine 100), and FPP's
+  // Cine8 100D is an E-6 positive. The title or Analogue Wonderland's
+  // "type:B&W" tag says which, and the 100D's only clue is its description.
+  if (/movie|cine|super\s?8/.test(t) || /super\s?8|\bcine\b|vision3|\becn/.test(s)) {
+    const tagList = String(tags || '').toLowerCase().split(',').map((x) => x.trim());
+    if (bwSignal.test(s) || /\d\s?bw\b/.test(s) || BW_STOCKS.test(s) || tagList.includes('type:b&w')) return 'Black & white';
+    if (/\bprocess(?:ed)? in e-?6\b|\btype:\s*e-?6\b/.test(String(body || '').toLowerCase())) return 'Colour slide (E-6)';
+    return 'Cine (ECN-2)';
+  }
 
   // 5. The shop's own colour / B&W category.
   if (/black\s*&?\s*white|b&w|\bb\s*w\b|\bmono\b|monochrome/.test(t)) return 'Black & white';
