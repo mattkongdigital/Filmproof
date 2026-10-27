@@ -246,6 +246,14 @@ export const RANGES = [
   { brand: 'cinestill', slug: '50d', label: '50D', minFresh: 2, match: (f) => /\b50\s*d(?:aylight)?\b/i.test(f.display) },
   { brand: 'cinestill', slug: '400d', label: '400D', minFresh: 2, match: (f) => /\b400\s*d(?:ynamic)?\b/i.test(f.display) },
   { brand: 'cinestill', slug: 'bwxx', label: 'BwXX', minFresh: 2, match: (f) => /\bbw\s*xx\b/i.test(f.display) },
+  // Rollei's lines, as Maco sells them. Retro is 80S and 400S; Superpan,
+  // Infrared and Digibase are one film each in 35mm and 120, so they take a
+  // page at two.
+  { brand: 'rollei', slug: 'rpx', label: 'RPX', match: (f) => /\brpx\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'retro', label: 'Retro', match: (f) => /\bretro\s*\d+\s*s\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'superpan', label: 'Superpan', minFresh: 2, match: (f) => /\bsuperpan\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'infrared', label: 'Infrared', minFresh: 2, match: (f) => /\binfra\s*red\b/i.test(f.display) && !/\bsuperpan\b/i.test(f.display) },
+  { brand: 'rollei', slug: 'digibase', label: 'Digibase', minFresh: 2, match: (f) => /\bdigibase\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -266,7 +274,8 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // only repeats the film pages it links to. A range can lower its own bar with
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
-// and Lady Grey, and the CineStill films).
+// and Lady Grey, the CineStill films, and Rollei Superpan, Infrared and
+// Digibase).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }

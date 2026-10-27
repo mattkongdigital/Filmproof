@@ -1085,6 +1085,57 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Rollei's ranges.
+  'rollei/rpx': {
+    meta: { title: 'Rollei RPX Film | Compare UK Prices', description: 'Compare Rollei RPX 25, 100 and 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei RPX is Rollei\'s traditional black and white range, known for sharpness and punchy contrast. It comes as RPX 25, RPX 100 and RPX 400. Compare Rollei RPX prices from UK shops below.',
+    sections: [
+      { heading: 'RPX 25, 100 or 400?', paragraphs: [
+        'RPX 25 is a very slow, very fine grained film for bright light, landscapes and work on a tripod. RPX 100 is the everyday daylight speed, and RPX 400 the fast all rounder for street photography, dull days and interiors, with more visible grain.',
+        'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, and for true infrared, Rollei Infrared.',
+      ] },
+    ],
+  },
+  'rollei/retro': {
+    meta: { title: 'Rollei Retro Film | Compare UK Prices', description: 'Compare Rollei Retro 80S and Retro 400S black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Retro is a pair of black and white films, Retro 80S and Retro 400S, made for a classic tonal character. Both have extended red sensitivity, so a red filter darkens blue skies dramatically. Compare Rollei Retro prices from UK shops below.',
+    sections: [
+      { heading: 'Retro 80S or 400S?', paragraphs: [
+        'Retro 80S is the slower, finer grained of the two, suited to bright light and detailed subjects. Retro 400S is the faster film for changeable light and everyday shooting. With a deep red filter both can give an infrared look, with dark skies and pale foliage, at the cost of a few stops of exposure.',
+        'Both develop in ordinary black and white chemistry. RPX is Rollei\'s traditional black and white range, and Superpan and Rollei Infrared go further towards infrared.',
+      ] },
+    ],
+  },
+  'rollei/superpan': {
+    meta: { title: 'Rollei Superpan 200 Film | Compare UK Prices', description: 'Compare Rollei Superpan 200 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Superpan 200 is a black and white film with extended red sensitivity, reaching towards infrared. Without a filter it behaves as an ordinary ISO 200 film, and through a deep red filter it gives dark skies and glowing foliage. Compare Rollei Superpan prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Superpan 200', paragraphs: [
+        'The infrared look comes from the filter. A deep red or infrared filter blocks most visible light, so give several stops of extra exposure, use a tripod, and bracket while you learn how your filter behaves. Sunny days with plenty of foliage show the effect most strongly.',
+        'Superpan develops in ordinary black and white chemistry. Rollei Infrared reaches further into infrared for a stronger effect, and Retro 80S and 400S share the extended red sensitivity.',
+      ] },
+    ],
+  },
+  'rollei/infrared': {
+    meta: { title: 'Rollei Infrared 400 Film | Compare UK Prices', description: 'Compare Rollei Infrared 400 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Infrared 400 is a black and white film sensitive to near infrared light, for the glowing white foliage and black skies of infrared photography. Without a filter it shoots as an ordinary ISO 400 film. Compare Rollei Infrared prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Rollei Infrared', paragraphs: [
+        'For the infrared effect, shoot through an infrared filter such as an R72, which blocks visible light, and expect long exposures on a tripod. Exposure varies with the light and the season, so bracket generously. Load and unload the film in subdued light.',
+        'It develops in ordinary black and white chemistry. Superpan is the gentler alternative with extended red sensitivity, and Retro 80S and 400S give some of the same effect through a red filter.',
+      ] },
+    ],
+  },
+  'rollei/digibase': {
+    meta: { title: 'Rollei Digibase CN200 Film | Compare UK Prices', description: 'Compare Rollei Digibase CN200 colour negative film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Rollei Digibase CN200 is a colour negative film made with digital scanning in mind, on a clear base without the usual orange mask. Compare Rollei Digibase prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Digibase CN200', paragraphs: [
+        'At ISO 200, Digibase suits daylight and everyday shooting. Its clear base makes the negatives look different from ordinary colour negative, and a scanner or camera scan does the colour work, so tell your lab what it is.',
+        'It develops in standard C-41 chemistry. It is Rollei\'s colour film, alongside black and white ranges such as RPX and Retro.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
