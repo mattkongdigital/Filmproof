@@ -1277,6 +1277,47 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Adox's ranges.
+  'adox/chs-100-ii': {
+    meta: { title: 'Adox CHS 100 II Film | Compare UK Prices', description: 'Compare Adox CHS 100 II black and white film prices from UK shops, in 35mm, 120 and sheet film, with live stock and prices per roll.' },
+    intro: 'Adox CHS 100 II is Adox\'s core black and white film, coated in Germany and based on the company\'s historic formulas, with a classic orthopanchromatic tonal rendering. It is sold in 35mm, 120 and sheet film. Compare Adox CHS 100 II prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting CHS 100 II', paragraphs: [
+        'Orthopanchromatic means the film is less sensitive to red than most modern black and white films, so reds and skin tones render a little darker and skies keep more tone, a look closer to older films. At ISO 100 it suits daylight and detailed work, and it develops in ordinary black and white chemistry, at home or at any lab.',
+        'Silvermax is Adox\'s high silver film for the widest tonal range, HR-50 its slow, very fine grained film, and Scala its black and white slide film.',
+      ] },
+    ],
+  },
+  'adox/silvermax': {
+    meta: { title: 'Adox Silvermax 100 Film | Compare UK Prices', description: 'Compare Adox Silvermax 100 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox Silvermax 100 is a black and white film with an unusually high silver content, made for an extended tonal range and fine grain. Compare Adox Silvermax prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Silvermax 100', paragraphs: [
+        'The extra silver gives Silvermax deep blacks and a long tonal scale, which suits high contrast scenes, landscapes and anything where you want detail in both the highlights and the shadows. Adox makes a dedicated developer for it, also called Silvermax, though it develops in other ordinary black and white developers too.',
+        'CHS 100 II is Adox\'s classic orthopanchromatic film at the same speed, and HR-50 its slower, finer grained one.',
+      ] },
+    ],
+  },
+  'adox/scala': {
+    meta: { title: 'Adox Scala 160 Film | Compare UK Prices', description: 'Compare Adox Scala 160 black and white reversal film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox Scala 160 is a black and white reversal film that gives true slides rather than negatives, for projection or a light box. Few makers still offer one. Compare Adox Scala prices from UK shops below.',
+    sections: [
+      { heading: 'Developing Scala 160', paragraphs: [
+        'Scala needs a black and white reversal process to give slides, which few labs offer, so check with your lab before you shoot it, or develop it at home with a reversal kit. Like any slide film it has less exposure latitude than a negative, so meter carefully.',
+        'For black and white negatives, CHS 100 II is Adox\'s classic film and Silvermax its high silver one.',
+      ] },
+    ],
+  },
+  'adox/hr-50': {
+    meta: { title: 'Adox HR-50 Film | Compare UK Prices', description: 'Compare Adox HR-50 black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Adox HR-50 is a slow black and white film with very fine grain and high resolution, made for sharp detail. Compare Adox HR-50 prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting HR-50', paragraphs: [
+        'At ISO 50, HR-50 wants bright light or a tripod, and rewards it with fine detail for landscapes, architecture and anything you plan to enlarge. It has extended red sensitivity, so a red filter darkens blue skies strongly. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'CHS 100 II and Silvermax are Adox\'s faster black and white films, and Scala its slide film.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix and Phoenix II colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology, the Cheshire maker of Ilford black and white film, and the first colour film it has made. It is developed in standard C-41 chemistry and sold in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
