@@ -1,42 +1,45 @@
 export const BRAND_CONTENT = {
   kodak: {
-    meta: { title: 'Kodak Film Prices UK | Compare & Buy', description: 'Compare Kodak film prices from UK retailers on Filmproof. Gold, Portra, Ektar, Tri-X and more, find the best deal on 35mm and 120 rolls.' },
-    intro: "Kodak is the world's most recognisable name in camera film, trusted by photographers for well over a century. From the warm, punchy tones of Kodak Gold to the soft, true-to-life colours of Portra, Kodak's 35mm and 120 film ranges suit everything from everyday snapshots to professional portrait and wedding work. Compare Kodak film prices from UK retailers on Filmproof and find the best deal on your next roll.",
+    meta: { title: 'Kodak Film Prices UK | Compare & Buy', description: 'Compare Kodak film prices from UK shops. Gold, UltraMax, Portra, Ektar, Tri-X, T-Max, Ektachrome and Vision3, in 35mm, 120, sheet and cine film.' },
+    intro: 'Kodak is the best known name in camera film, made in Rochester, New York, for well over a century. Its films run from Gold and UltraMax for everyday snapshots, through Portra and Ektar for professional colour, to Tri-X and T-Max in black and white, Ektachrome slide film and Vision3 for cine cameras. Compare Kodak film prices from UK shops below.',
     sections: [
-      { heading: "The History of Kodak", paragraphs: [
-        "George Eastman founded Kodak in Rochester, New York, in 1888, built around the promise \"you press the button, we do the rest.\" The company pioneered roll film and put photography into the hands of ordinary people for the first time, moving it out of the professional studio and into everyday life.",
-        "Kodak went on to shape the look of twentieth-century photography and cinema. Kodachrome, introduced in 1935, became one of the most celebrated colour films ever made and remained in production for over seventy years before its discontinuation in 2009, and it is still fondly remembered by collectors today. Kodak also introduced enduring stocks such as Tri-X black and white film in 1954, which became the standard for photojournalism.",
-        "The digital era hit Kodak hard, and the company filed for bankruptcy in 2012. Its film business was restructured, with Kodak Alaris taking over consumer and professional still-film manufacturing and distribution while Eastman Kodak continued producing motion picture and other film stocks. Both companies have leaned into the recent resurgence of interest in analogue photography, continuing to invest in film production rather than winding it down.",
+      { heading: 'A short history of Kodak', paragraphs: [
+        'George Eastman launched the first Kodak camera in 1888 with the promise "you press the button, we do the rest", and the company went on to make photography something ordinary people did. Kodachrome, introduced in 1935, became one of the most celebrated colour films ever made before it was discontinued in 2009, and Tri-X, launched in 1954, became the standard film of photojournalism.',
+        'Digital photography hit Kodak hard, and the company filed for bankruptcy in 2012. Eastman Kodak kept making film in Rochester, while for years a separate company, Kodak Alaris, marketed and sold the still films. More recently Eastman Kodak has begun selling them under its own name, which is why shops now list Kodak Eastman Gold and Ektar, and new names such as Ektacolor Pro and Ektapan. Filmproof groups each film on one page whichever name a shop uses.',
       ] },
-      { heading: "Kodak's Camera Film Ranges", paragraphs: [
-        "Kodak's range covers almost every type of film shooter, from complete beginners to working professionals.",
-        "Consumer colour negative film, including Gold 200, UltraMax 400 and ColorPlus 200, is designed for everyday shooting. These films are affordable, forgiving of exposure mistakes, and known for warm, punchy colours that suit holiday snaps and family photography.",
-        "Kodak's professional colour negative range, built around Portra in 160, 400 and 800 speeds, is prized for natural, flattering skin tones and fine grain, making it the go-to choice for portrait and wedding photographers worldwide. Ektar 100 sits alongside it as the finest-grained colour negative film Kodak produces, favoured by landscape photographers for its vivid, highly saturated colour.",
-        "On the black and white side, Tri-X 400 remains a classic fast, gritty film beloved by street and documentary photographers, while the T-Max range (100, 400 and 3200) offers a more modern, fine-grain alternative. For slide film fans, Ektachrome E100 was relaunched in 2018 after a period of discontinuation and delivers vibrant colour and fine grain for both projection and scanning.",
-        "Eastman Kodak also sells two still films under its own name. Ektacolor Pro is a professional colour negative film in 160, 400 and 800, covering the same speeds and formats as Portra, and Ektapan is a tabular grain black and white range of Ektapan 100, Ektapan 400 and the push film Ektapan P3200. For moving pictures there is Vision3, Kodak's motion picture colour negative film, in daylight balanced 50D and 250D and tungsten balanced 200T and 500T. It comes in Super 8 cartridges and 16mm rolls and develops in ECN-2 chemistry rather than C-41.",
+      { heading: 'Everyday colour film', paragraphs: [
+        "Gold 200, UltraMax 400 and ColorPlus 200 are Kodak's affordable colour negatives, with the warm, punchy colour that suits holidays and everyday snapshots, and plenty of latitude for simple cameras. Gold is also sold in 120, and you will see expired Gold, UltraMax and ColorPlus listed too, older stock sold off cheaply with less predictable results.",
       ] },
-      { heading: "Choosing the Right Kodak Film", paragraphs: [
-        "New to film or shooting everyday moments? Gold 200 or UltraMax 400 are affordable, easy-going choices. Shooting portraits or weddings? Portra is the industry favourite. Chasing punchy, saturated landscapes? Reach for Ektar 100. Want classic black and white grit? Tri-X 400 is hard to beat, while T-Max suits those after a cleaner, more modern monochrome look. Whatever you're shooting, compare Kodak film prices across UK stockists on Filmproof to find the best value on 35mm and 120 rolls.",
+      { heading: 'Professional colour and slide film', paragraphs: [
+        "Portra, in 160, 400 and 800, is the professional colour negative many portrait and wedding photographers default to, for natural skin tones and wide latitude. Ektacolor Pro is Eastman Kodak's professional colour negative in the same three speeds. Ektar 100 is the finest grained colour negative Kodak makes, with vivid colour for landscapes and travel. Ektachrome E100, brought back in 2018, is Kodak's colour slide film. Most of these also come as sheet film for large format cameras.",
+      ] },
+      { heading: 'Black and white and cine film', paragraphs: [
+        "Tri-X 400 is the classic fast black and white film, gritty and forgiving and happy to be pushed. T-Max 100, T-Max 400 and T-Max P3200 are Kodak's modern, finer grained alternative, and Ektapan is Eastman Kodak's black and white line in 100, 400 and P3200. For cine cameras, Vision3 50D, 250D, 200T and 500T are the colour negatives much of the film industry shoots on, sold here in Super 8 and 16mm, alongside Tri-X Reversal and Ektachrome for cine.",
+      ] },
+      { heading: 'Choosing a Kodak film', paragraphs: [
+        'For everyday shooting on a budget, start with Gold 200 or UltraMax 400. For portraits and weddings, Portra. For saturated landscapes, Ektar 100. For classic black and white, Tri-X, or T-Max for a cleaner look. Gold, Portra, Ektar, Tri-X and T-Max each have a range page, linked above, listing every speed and format with live prices from UK shops.',
       ] },
     ],
   },
   fujifilm: {
-    meta: { title: 'Fujifilm Film Prices UK | Compare', description: 'Compare Fujifilm film prices from UK retailers on Filmproof. C200, Superia X-Tra, Velvia, Provia and Acros II, find the best deal today.' },
-    intro: "Fujifilm has been shaping the look of colour photography since the 1930s, known for its vivid greens, punchy contrast and dependable everyday film stocks. Whether you're after the affordable Fujicolor C200 or the legendary slide film Velvia, Fujifilm's film ranges offer a distinctly different palette to Kodak's. Compare Fujifilm film prices from UK retailers on Filmproof.",
+    meta: { title: 'Fujifilm Film Prices UK | Compare', description: 'Compare Fujifilm film prices from UK shops. Instax Mini, Square and Wide, Fujifilm 200 and 400, Superia, Velvia, Provia and Acros II, with live stock and prices.' },
+    intro: "Fujifilm is the Japanese maker behind Instax instant film, the Velvia and Provia slide films and a range of everyday colour negatives, with a colour palette many photographers find cooler and greener than Kodak's. Compare Fujifilm film prices from UK shops below, from Instax packs to 35mm, 120 and sheet film.",
     sections: [
-      { heading: "The History of Fujifilm", paragraphs: [
-        "Fujifilm was founded in Tokyo in 1934 as Fuji Photo Film Co., originally established to manufacture photographic film domestically in Japan and reduce reliance on imported stock. The company grew rapidly into a global imaging giant, developing its own line of Fujicolor negative films alongside professional slide film.",
-        "Fujifilm's Velvia slide film, launched in 1990, became an instant favourite among landscape and nature photographers for its intensely saturated colour, a reputation it still holds today. The company also built a strong reputation in instant photography with its Instax format, which has introduced a new generation to shooting on film.",
-        "Fujifilm has maintained analogue film production more consistently than many of its rivals, continuing to manufacture film in Japan even as digital photography became dominant. Raw material shortages and rising costs led to some notable discontinuations in recent years, including the much-loved Pro 400H in 2021, but the company has reaffirmed its commitment to keeping its core film range in production.",
+      { heading: 'A short history of Fujifilm', paragraphs: [
+        'Fujifilm was founded in Tokyo in 1934 as Fuji Photo Film, set up to make photographic film in Japan rather than import it. Velvia, launched in 1990, became the slide film of choice for landscape photographers, and Instax, launched in 1998, introduced a new generation to instant photography.',
+        'Fujifilm has trimmed its film range in recent years, discontinuing Pro 400H in 2021 among others, but it still makes slide film and Instax, and it brought back Acros as Acros II in 2019 after the original was discontinued.',
       ] },
-      { heading: "Fujifilm's Camera Film Ranges", paragraphs: [
-        "Fujicolor C200 is Fujifilm's affordable, everyday colour negative film and a popular entry point for those new to shooting film, offering punchy colour at a friendly price. Fujicolor Superia X-Tra 400 is a versatile step up, performing well across variable lighting conditions and delivering natural skin tones with the cooler, green-cyan cast that has become something of a Fujifilm signature.",
-        "On the black and white side, Neopan 100 Acros II offers ultra-fine grain and excellent reciprocity characteristics, making it a favourite for long exposure and low-light work. It was relaunched in 2019 after the original Acros was discontinued, reflecting continued demand for high quality monochrome film.",
-        "For slide film shooters, Velvia 50 remains the choice for landscape and nature photographers chasing vivid, saturated colour, while Provia 100F offers a more neutral, balanced palette suited to general purpose slide photography.",
-        "Fujifilm's instant film comes in three formats, each made for its own cameras and printers. Instax Mini is the smallest and most widely sold, with credit card sized prints. Instax Square sits between the other two with a square image of about 62 by 62mm, and Instax Wide is the largest, twice the width of Mini, for group shots and landscapes.",
+      { heading: 'Instax instant film', paragraphs: [
+        "Instax is the Fujifilm film most people know today, and it comes in three formats that fit three different sets of cameras and printers. Instax Mini gives the small, credit card sized print, Instax Square a square one, and Instax Wide the largest. Each has its own page, listing colour, monochrome and patterned frame packs with prices compared per pack, since shops sell them as singles and twin packs.",
       ] },
-      { heading: "Choosing the Right Fujifilm Film", paragraphs: [
-        "For everyday, budget-friendly shooting, choose Fujicolor C200. For a more versatile all-rounder with a distinctive colour cast, go for Superia X-Tra 400. Fine art and long exposure black and white photographers should look to Acros II, while landscape photographers chasing vivid colour should reach for Velvia 50, with Provia 100F as the more balanced alternative. Compare Fujifilm film prices on Filmproof to find the best deal across UK retailers.",
+      { heading: 'Colour negative film', paragraphs: [
+        "Fujifilm 200 and Fujifilm 400 are the current everyday colour films, affordable and forgiving for travel and snapshots, and older Fujicolor C200 stock still turns up too. Superia X-Tra 400 and Superia Premium 400 are Fujifilm's ISO 400 Superia films, with the cooler greens and blues the brand is known for.",
+      ] },
+      { heading: 'Slide and black and white film', paragraphs: [
+        'Velvia 50 and Velvia 100 give intensely saturated colour for landscapes, while Provia 100F is the more neutral, natural slide film. Both develop in E-6 chemistry, and Velvia 100 also comes as 4x5 sheet film. In black and white, Neopan 100 Acros II is a fine grained ISO 100 film known for handling long exposures well, and Neopan 400CN is a chromogenic black and white film that develops in standard C-41 colour chemistry.',
+      ] },
+      { heading: 'Older and Japanese market films', paragraphs: [
+        'Shops also list Fujifilm films that are discontinued or were made mainly for Japan, such as Natura 1600, Venus 800, Pro 160NS and Pro 400H. These are usually remaining or older stock, so prices vary widely and supply comes and goes, and expired stock is clearly marked on Filmproof.',
       ] },
     ],
   },
@@ -80,19 +83,22 @@ export const BRAND_CONTENT = {
     ],
   },
   lomography: {
-    meta: { title: 'Lomography Film Prices UK | Compare', description: 'Compare Lomography film prices from UK retailers on Filmproof. Color Negative, LomoChrome Purple, Turquoise, Metropolis and more.' },
-    intro: "Lomography began as a movement built around a cult Soviet-era camera and grew into a full range of experimental, colour-shifting camera film. Known for bold saturation, unpredictable colour casts and creative redscale and infrared-style effects, Lomography film is a favourite for photographers who want something different from the everyday. Compare Lomography film prices on Filmproof.",
+    meta: { title: 'Lomography Film Prices UK | Compare', description: 'Compare Lomography film prices from UK shops. Color Negative, LomoChrome Purple, Turquoise, Metropolis, Classicolor and Color 92, Redscale, Earl Grey, Lady Grey and Kino films, in 35mm, 120 and 110.' },
+    intro: 'Lomography is the Vienna based company behind some of the most playful film on sale, from its everyday Color Negative to the colour shifting LomoChrome films, ready made Redscale, and black and white stocks cut from cinema film. It is also one of the few makers still producing new 110 cartridge film. Compare Lomography film prices from UK shops below.',
     sections: [
-      { heading: "The History of Lomography", paragraphs: [
-        "The Lomography story began around 1991-1992, when a group of students in Vienna discovered the Soviet-made LOMO LC-A compact camera, originally manufactured in Leningrad, while visiting Prague. They fell in love with the camera's unpredictable vignetting, saturated colours and spontaneous shooting style, and founded the Lomographic Society International to promote a playful, instinctive approach to photography, later codified in the brand's well-known \"Ten Golden Rules\" (including the famous \"don't think, just shoot\").",
-        "What started as a camera-focused subculture grew into a global lifestyle brand, complete with \"Lomography Embassy\" stores around the world. From the 2010s onwards, Lomography began developing its own film emulsions, purpose-built to create the bold, experimental colours and effects its community loves, rather than the accurate colour reproduction pursued by traditional manufacturers.",
+      { heading: 'A short history of Lomography', paragraphs: [
+        'Lomography began in the early 1990s, when a group of students from Vienna came across the Soviet made LOMO LC-A compact camera on a trip to Prague. They loved its vignetting, saturated colour and shoot from the hip spirit, founded the Lomographic Society International, and summed up the approach in the Ten Golden Rules, the best known being "don\'t think, just shoot".',
+        'The society grew into a business making cameras and, from the 2010s, its own films, built for character rather than accurate colour. LomoChrome Purple was the first LomoChrome film, and the range has grown every few years since.',
       ] },
-      { heading: "Lomography's Camera Film Ranges", paragraphs: [
-        "Lomography Color Negative, available in 100, 400 and 800 speeds, forms the brand's core everyday colour range, offering fine grain and vivid, reliable colour for general shooting. LomoChrome Purple shifts greens towards purple and magenta for a striking, otherworldly palette, while LomoChrome Turquoise creates a cool blue-green colour shift popular for dreamlike, surreal results. LomoChrome Metropolis takes a different approach, offering a desaturated, high-contrast look with a variable ISO of 100-400, designed to evoke urban and cinematic scenes.",
-        "Redscale film is shot through the base of the film rather than the emulsion side, producing warm, glowing red and orange tones. Lomography also offers black and white \"kino\" films, such as Potsdam Kino B&W 100 and Babylon Kino B&W 13, repurposed from cinema stock for distinctive contrast. Most colour ranges are available in 35mm and 120 formats, alongside speciality options including 110 cartridge and instant film.",
+      { heading: 'Everyday colour and LomoChrome', paragraphs: [
+        'Lomography Color Negative comes in ISO 100, 400 and 800, a straightforward, saturated colour film for everyday shooting in 35mm and 120, with Color Tiger as its 110 version. The LomoChrome films are where the brand gets creative: Purple turns greens to purple and violet, Turquoise shifts colours towards turquoise and teal, and Metropolis mutes colour into a desaturated, high contrast look. The newer Classicolor and Color 92 aim instead for the warm, nostalgic look of older consumer film. Purple, Turquoise and Metropolis can each be shot anywhere from ISO 100 to 400.',
       ] },
-      { heading: "Choosing the Right Lomography Film", paragraphs: [
-        "For everyday reliable colour, choose Color Negative 100 or 400. For bold, experimental colour shifts, try LomoChrome Purple or Turquoise. For a cinematic, desaturated urban look, reach for Metropolis, and for warm vintage tones, try Redscale film. Compare Lomography film prices on Filmproof to find the best deal.",
+      { heading: 'Redscale and black and white', paragraphs: [
+        'Lomography Redscale is colour negative film loaded into the cassette back to front at the factory, so the red layer is exposed first and pictures come out in reds, oranges and yellows. You shoot it like any other roll. Redscale XR covers a wider range of speeds, and Lobster Redscale is the 110 version.',
+        "In black and white, Earl Grey 100 and Lady Grey 400 are Lomography's classic panchromatic films, and Orca is its 110 black and white. The Kino films, Potsdam 100, Berlin 400 and the very slow Babylon 13, are cut from black and white cinema stock, and Fantome 8 is an ultra slow, high contrast film for bright light.",
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Most Lomography films come in 35mm and 120, and much of the range also comes in 110 for pocket cameras, including Purple, Turquoise, Metropolis, Classicolor and Color 92. Lomography also sells mixed packs such as the Analogue Duet, Trio and Quartet, which bundle different films to try. Shops often sell Lomography films in three packs, and Filmproof divides the packs out so you can compare the price per roll. All the colour films develop in standard C-41 chemistry, and the black and white films in ordinary black and white chemistry.',
       ] },
     ],
   },
