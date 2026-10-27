@@ -285,6 +285,10 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // Redscale 125" is the Red 125 every other shop lists. Scoped to Harman, as
   // Lomography's Redscale is a film of its own.
   if (/\bharman\b/.test(text)) text = text.replace(/\bredscale\b/g, 'red');
+  // Adox CHS 100 II is the only CHS 100 on sale (the original, made by Efke,
+  // ended in 2012), and shops write it with or without the "II", which gave
+  // it two pages in 35mm.
+  if (/\badox\b/.test(text)) text = text.replace(/\bchs(\s*100)?\s+ii\b/g, 'chs$1');
   // LomoChrome Color '92 Sun-Kissed is a film of its own, a later and warmer
   // edition of Color '92, but shops write it "Colour '92 (Sunkissed)", "92
   // Sun-Kissed" or plain "Sun-Kissed", which forked it three ways per format.
