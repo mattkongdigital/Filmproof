@@ -322,14 +322,14 @@ export const BRAND_CONTENT = {
     sections: [
       { heading: "The History of Harman", paragraphs: [
         "Harman Technology Limited traces its roots to Alfred Harman's Britannia Works, founded in Ilford, England, in the late 1800s, which became Ilford Limited in 1902. After a period of administration in the mid-2000s, a 2005 management buyout formed Harman Technology Limited, named in tribute to the company's founder, trading as Ilford Photo and continuing to manufacture film at Mobberley, Cheshire, one of the last true film factories in the world. Harman also acquired the Kentmere film brand in 2007, and the whole operation has been owned by Pemberstone Ventures since 2015.",
-        "In December 2023, Harman did something it had never done before: it launched a colour film. Because the Ilford name is closely tied to black and white photography, the new stock was released under a distinct \"Harman Photo\" identity instead, Harman Phoenix 200, the first colour film ever coated at the Mobberley factory.",
+        "Phoenix 200 arrived in December 2023. Because the Ilford name is so closely tied to black and white photography, it went out under a separate \"Harman Photo\" identity, and the colour films that followed it carry the Harman name too.",
       ] },
       { heading: "Harman's Camera Film Ranges", paragraphs: [
         "Harman Phoenix 200 is a 35mm colour negative film rated at ISO 200, though it can be shot anywhere from ISO 100 to 400, and processed using standard C-41 chemistry. It has a distinctive, high-contrast, saturated look, with visible grain and occasional halation that reflects its status as an early, experimental release from a company more used to working in black and white. It has quickly built a following among photographers who enjoy its bold, slightly unpredictable character.",
-        "Two creative colour films have followed. Harman Red 125 is Phoenix spooled in reverse, a factory made redscale film that renders scenes in reds, oranges and yellows without the light leaks of winding your own. Harman Switch Azure 125 swaps colours around, so blue skies come out orange and red buses turn blue. Both are rated at ISO 125, develop in standard C-41 chemistry and come in 35mm and 120.",
+        "Harman Red 125 is Phoenix spooled in reverse, so light reaches the red sensitive layer first and scenes come back in reds, oranges and yellows, without the light leaks of winding your own. Switch Azure 125 turns blue skies orange, bright yellows azure and red buses blue. Both are rated at ISO 125, develop in standard C-41 chemistry and come in 35mm and 120.",
       ] },
       { heading: "Choosing the Right Harman Film", paragraphs: [
-        "Harman Phoenix 200 is best suited to photographers who want a striking, characterful colour look rather than clean, neutral realism, think bold contrast and saturated, sometimes unexpected colour shifts. If you love Ilford's black and white heritage and want to see what the same manufacturer does in colour, this is the film to try. Compare Harman Phoenix film prices on Filmproof.",
+        "Phoenix 200 suits photographers who want a striking, characterful colour look rather than clean, neutral realism, with bold contrast and saturated, sometimes unexpected colour. If you love Ilford's black and white heritage and want to see what the same factory does in colour, start there. For something stranger, Red gives warm, glowing redscale and Switch Azure a cool, colour switched world. Compare Harman film prices on Filmproof.",
       ] },
     ],
   },
