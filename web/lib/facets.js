@@ -193,6 +193,10 @@ export function brandSubParams() {
 // A Lomography title that names this line and is not a mixed pack.
 const lomo = (f, re) => re.test(f.display) && !/\b(?:duet|trio|quartet)\b/i.test(f.display);
 
+// A Foma title for one of its specialist films, which never belongs to a
+// plain speed.
+const foma = (f) => /\b(?:ortho|retropan|reversal)\b|\bfomapan\s*r\s*100\b/i.test(f.display);
+
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
@@ -254,6 +258,17 @@ export const RANGES = [
   { brand: 'rollei', slug: 'infrared', label: 'Infrared', minFresh: 2, match: (f) => /\binfra\s*red\b/i.test(f.display) && !/\bsuperpan\b/i.test(f.display) },
   { brand: 'rollei', slug: 'ortho-25-plus', label: 'Ortho 25 Plus', match: (f) => /\bortho\b/i.test(f.display) },
   { brand: 'rollei', slug: 'crossbird', label: 'CrossBird', match: (f) => /\bcross\s*bird\b/i.test(f.display) },
+  // Foma's films are each one emulsion across formats. Shops write the
+  // speed and the name in either order ("Fomapan Classic 100", "Fomapan 100
+  // Classic") or drop the name on sheet film ("Fomapan 400 8x10"), so the
+  // speed after "Fomapan" is enough, and the reversal and ortho films are
+  // kept out of the speed they share.
+  { brand: 'foma', slug: '100-classic', label: 'Fomapan 100 Classic', match: (f) => /\bclassic\b|\bfomapan\s*100\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: '200-creative', label: 'Fomapan 200 Creative', match: (f) => /\bcreative\b|\bfomapan\s*200\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: '400-action', label: 'Fomapan 400 Action', match: (f) => /\baction\b|\bfomapan\s*400\b/i.test(f.display) && !foma(f) },
+  { brand: 'foma', slug: 'retropan', label: 'Retropan 320 Soft', match: (f) => /\bretropan\b/i.test(f.display) },
+  { brand: 'foma', slug: 'ortho-400', label: 'Fomapan Ortho 400', minFresh: 2, match: (f) => /\bortho\b/i.test(f.display) },
+  { brand: 'foma', slug: 'r100', label: 'Fomapan R100', minFresh: 2, match: (f) => /\bfomapan\s*r\s*100\b|\breversal\b/i.test(f.display) },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -274,7 +289,8 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // only repeats the film pages it links to. A range can lower its own bar with
 // `minFresh` where two films are worth a page for its copy (Kodak Gold, SFX,
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
-// and Lady Grey, the CineStill films, and Rollei Superpan and Infrared).
+// and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
+// Fomapan Ortho 400 and R100).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
