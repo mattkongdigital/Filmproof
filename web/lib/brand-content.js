@@ -1136,6 +1136,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it is balanced for tungsten light, 800T renders streetlights, interiors and neon cleanly, and point light sources pick up its signature halation. In daylight it turns blue, so add a warming 85 filter and allow for a little lost speed, or choose a daylight film instead. It is fast enough for handheld night work and takes a push of a stop or more when the light is very low.',
         '800T develops in standard C-41 chemistry at any lab. For daylight, 400D is CineStill\'s all rounder and 50D its slow, fine grained film, and BwXX is its black and white.',
       ] },
+      { heading: 'Rating, pushing and processing', paragraphs: [
+        '800T is widely reported to be made from Kodak\'s Vision3 500T, which is why many photographers rate it nearer ISO 500 or 640 for denser negatives and cleaner shadows. It also takes a push to 1600 or 3200 well when the light is very low, as long as you tell the lab.',
+        'With the remjet already removed, 800T goes through ordinary C-41 at any lab, and CineStill sells its own Cs41 kit for developing colour film at home. Its tungsten balance is part of the look, so ask the lab not to correct night scenes too far towards neutral.',
+      ] },
     ],
   },
   'cinestill/50d': {
@@ -1145,6 +1149,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting 50D', paragraphs: [
         'At ISO 50, 50D wants bright sun or a tripod, and rewards it with clean detail for landscapes, beaches and portraits in good light. Halation is gentler than on 800T, showing mainly around the brightest highlights.',
         '50D develops in standard C-41 chemistry at any lab. For more speed in daylight, 400D is the all rounder, and for night and artificial light, 800T.',
+      ] },
+      { heading: 'Where 50D comes from', paragraphs: [
+        '50D is widely reported to come from Kodak\'s Vision3 50D, the slow daylight stock used for exteriors on film sets, which is where its clean grain and gentle, natural colour come from. With the remjet removed it goes through ordinary C-41 at any lab, or at home with CineStill\'s Cs41 kit.',
+        'Under tungsten light 50D comes out warm and orange. A blue 80A filter corrects it, but costs about two stops, which is a lot to lose on a film this slow, so 800T is the better choice indoors.',
       ] },
     ],
   },
@@ -1156,6 +1164,10 @@ export const BRAND_SUB_CONTENT = {
         '400D copes with everything from bright sun to shade and overcast days, and it can be pushed to 800 or 1600 when the light drops. Like the other CineStill colour films it shows some halation around bright highlights. If you want one CineStill film for everyday use, it is the safest place to start.',
         '400D develops in standard C-41 chemistry at any lab. For bright light and the finest grain, look at 50D, and for night and artificial light, 800T.',
       ] },
+      { heading: 'Developing and scanning 400D', paragraphs: [
+        '400D goes through ordinary C-41 at any lab, or at home with CineStill\'s Cs41 kit. If you push it to 800 or 1600, tell the lab so it can extend development, and expect more grain and contrast.',
+        'Like CineStill\'s other colour films it has no remjet, so bright highlights show some halation in the scan. That glow is part of the look rather than a fault in the lab\'s work.',
+      ] },
     ],
   },
   'cinestill/bwxx': {
@@ -1165,6 +1177,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting BwXX', paragraphs: [
         'BwXX has a gritty, cinematic character, with strong contrast and visible grain, and it suits street photography and moody portraits. Unlike CineStill\'s colour films, it develops in ordinary black and white chemistry, at home or at any lab.',
         'For colour, CineStill\'s films are 800T for night and artificial light, 400D for everyday daylight shooting and 50D for bright sun.',
+      ] },
+      { heading: 'Rating and developing BwXX', paragraphs: [
+        'BwXX is rated at ISO 250, the speed Kodak gives Double-X in daylight, and it pushes a stop or two for low light. It works in the common black and white developers, with D-76 and HC-110 among the usual choices, and its contrast rewards a careful development time.',
+        'Double-X keeps its own anti-halation protection, unlike CineStill\'s colour films with their remjet removed, so BwXX shows little of their red glow around highlights.',
       ] },
     ],
   },
