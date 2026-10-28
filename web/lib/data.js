@@ -167,6 +167,8 @@ export const LEGACY_FILM_SLUGS = {
   'lomography-lomochrome-92-sun-kissed-400-iso-120-film': 'lomography-lomochrome-colour-92-sunkissed-120-film',
   'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
   'lomography-lomochrome-sun-kissed-400-35mm-film': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
+  // Parallax writes Washi A with its ISO 12, which kept the 12 in its name.
+  'washi-a-12-35mm-film': 'washi-a-35mm-film',
   // Classic Photo Supplies adds FPP's full name, "Film Photography Project",
   // and the slow films' speed ("1 ISO"), which gave three FPP films a second page.
   'fpp-film-photography-project-blue-ultra-color-35mm-3-iso-film': 'fpp-blue-ultra-35mm-film',
