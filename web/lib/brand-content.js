@@ -793,10 +793,17 @@ export const BRAND_SUB_CONTENT = {
   },
   'kodak/vision3': {
     meta: { title: 'Kodak Vision3 Film | Compare UK Prices', description: 'Compare Kodak Vision3 50D, 250D, 200T and 500T motion picture film prices from UK shops, in Super 8 and 16mm, with live stock and prices.' },
-    intro: "Kodak Vision3 is Kodak's motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.",
+    intro: 'Kodak Vision3 is Kodak\'s motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.',
     sections: [
-      { heading: "Developing Vision3", paragraphs: [
-        "Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill's 800T and 50D still films are made from Vision3 stock with that backing taken off. For black and white cine, Kodak sells Tri-X as a reversal stock for Super 8 and 16mm.",
+      { heading: '50D, 250D, 200T or 500T?', paragraphs: [
+        'The number is the film speed and the letter is the light it is balanced for: D for daylight, T for tungsten. 50D is the slowest and finest grained, for bright sun and the cleanest image. 250D is the everyday daylight stock, with room for shade and overcast days. 200T suits interiors under artificial light, and 500T is the fastest, for evenings, night and dim rooms.',
+        'A tungsten stock can be shot in daylight through a warming 85 filter, at the cost of a little speed, and most Super 8 cameras have that filter built in, switching it in automatically for tungsten film. Daylight stocks shot under tungsten light come out warm and orange unless the colour is corrected in the scan.',
+      ] },
+      { heading: 'Super 8 or 16mm?', paragraphs: [
+        'Super 8 comes in 50 foot cartridges that drop straight into the camera, which gives about two and a half minutes of footage at 24 frames a second. 16mm comes on 100 foot daylight spools, which run for a little under three minutes at 24 frames a second, with a larger frame and a sharper image. Compare on price per cartridge or spool, and remember that developing and scanning usually cost more than the film.',
+      ] },
+      { heading: 'Developing Vision3', paragraphs: [
+        'Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill\'s 800T and 50D still films are made from Vision3 stock with that backing taken off. For black and white cine, Kodak sells Tri-X as a reversal stock for Super 8 and 16mm, and Ektachrome comes as a colour reversal stock for cine too.',
       ] },
     ],
   },
