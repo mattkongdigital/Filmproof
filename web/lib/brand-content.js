@@ -732,6 +732,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: "Buying Portra in the UK", paragraphs: [
         "Portra is often sold in five-roll pro packs as well as single rolls, so the price per roll is the fairer comparison. Filmproof divides multipacks out for you and updates prices and stock across UK shops daily.",
       ] },
+      { heading: 'Developing and scanning Portra', paragraphs: [
+        'Portra develops in standard C-41 chemistry at any lab. Portra 400 also pushes well, to 800 or even 1600, if you tell the lab, so it can cover low light when Portra 800 is not to hand. Its soft, neutral colour gives a lab or scanner plenty to work with, which is part of why it scans so consistently.',
+        'Sheet film is priced per sheet here, so you can compare a box of 4x5 or 8x10 fairly against rolls.',
+      ] },
     ],
   },
   'kodak/ektar': {
@@ -740,6 +744,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: "Shooting Ektar", paragraphs: [
         "Ektar has less exposure latitude than Portra, so it rewards metering with care, and it tends to render skin warm or ruddy. In good light, on a landscape or a city street, its saturation and fine grain are the reason to choose it. Like any colour negative, it develops in standard C-41 chemistry at any lab.",
+      ] },
+      { heading: 'When to choose Ektar', paragraphs: [
+        'At ISO 100, Ektar is a daylight film, at its best on bright days, landscapes, architecture and travel, or on a tripod. For people, Portra gives gentler skin tones and much more latitude, and for even stronger colour with a positive image you can project, Ektachrome is Kodak\'s slide film.',
+        'Ektar comes in 35mm, 120 and sheet film, and sheet film is priced per sheet here so you can compare it fairly against rolls.',
       ] },
     ],
   },
@@ -751,6 +759,10 @@ export const BRAND_SUB_CONTENT = {
         "Tri-X has a recognisable look, with visible, even grain and strong midtones, and it is famously forgiving. It pushes well to 1600 and beyond for low light, and it handles a wide range of developers, so it is a favourite for home developing.",
         "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 and 16mm cine cameras, listed here alongside the still films. For a cleaner, finer grained look, T-Max and Eastman Kodak's Ektapan are Kodak's tabular grain black and white films.",
       ] },
+      { heading: 'Developing Tri-X', paragraphs: [
+        'Tri-X develops in ordinary black and white chemistry, at home or at any lab, and it works with almost any developer. Kodak\'s own D-76 and HC-110 are the classic pairings. To push it to 1600 or 3200, develop for the speed you shot it at and expect stronger grain and contrast.',
+        'Tri-X 400 also comes in 30.5m bulk rolls for loading your own cassettes, and Tri-X 320 sheet film is priced per sheet here.',
+      ] },
     ],
   },
   'kodak/t-max': {
@@ -760,6 +772,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: "T-Max or Tri-X?", paragraphs: [
         "T-Max 400 is finer grained and sharper than Tri-X at the same speed, which suits enlargements, architecture and anyone who wants a smoother tone. It is less forgiving of careless development, so time and temperature matter more.",
         "T-Max 100 is one of the sharpest, finest grained black and white films available. T-Max P3200 is designed to be shot at high speeds in poor light, with a base sensitivity well below its name and room to push.",
+      ] },
+      { heading: 'Developing T-Max', paragraphs: [
+        'T-Max develops in ordinary black and white chemistry, and Kodak makes a T-Max developer for it, though D-76 and HC-110 work well too. Tabular grain films take longer to fix than traditional films, so use fresh fixer and fix fully, or the negatives can keep a pink or purple cast.',
+        'T-Max 100 and 400 come in 35mm, 120 and sheet film, and T-Max P3200 in 35mm. For the same tabular grain approach under Eastman Kodak\'s own name, look at Ektapan.',
       ] },
     ],
   },
@@ -789,6 +805,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: "Shooting slide film", paragraphs: [
         "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. If you want strong colour with the latitude of negative film instead, Ektar 100 is Kodak's finest grained colour negative, and Portra is the softer, more forgiving choice.",
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Ektachrome E100 comes in 35mm, 120 and sheet film for stills, and as Ektachrome 100D for Super 8 and 16mm cine cameras. Sheet film is priced per sheet here so you can compare it fairly against rolls.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting. For black and white cine reversal, Kodak\'s other option is Tri-X, and Vision3 is its colour negative stock for cine.',
       ] },
     ],
   },
