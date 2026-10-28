@@ -742,6 +742,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: "Buying Portra in the UK", paragraphs: [
         "Portra is often sold in five-roll pro packs as well as single rolls, so the price per roll is the fairer comparison. Filmproof divides multipacks out for you and updates prices and stock across UK shops daily.",
       ] },
+      { heading: 'Developing and scanning Portra', paragraphs: [
+        'Portra develops in standard C-41 chemistry at any lab. Portra 400 also pushes well, to 800 or even 1600, if you tell the lab, so it can cover low light when Portra 800 is not to hand. Its soft, neutral colour gives a lab or scanner plenty to work with, which is part of why it scans so consistently.',
+        'Sheet film is priced per sheet here, so you can compare a box of 4x5 or 8x10 fairly against rolls.',
+      ] },
     ],
   },
   'kodak/ektar': {
@@ -750,6 +754,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: "Shooting Ektar", paragraphs: [
         "Ektar has less exposure latitude than Portra, so it rewards metering with care, and it tends to render skin warm or ruddy. In good light, on a landscape or a city street, its saturation and fine grain are the reason to choose it. Like any colour negative, it develops in standard C-41 chemistry at any lab.",
+      ] },
+      { heading: 'When to choose Ektar', paragraphs: [
+        'At ISO 100, Ektar is a daylight film, at its best on bright days, landscapes, architecture and travel, or on a tripod. For people, Portra gives gentler skin tones and much more latitude, and for even stronger colour with a positive image you can project, Ektachrome is Kodak\'s slide film.',
+        'Ektar comes in 35mm, 120 and sheet film, and sheet film is priced per sheet here so you can compare it fairly against rolls.',
       ] },
     ],
   },
@@ -761,6 +769,10 @@ export const BRAND_SUB_CONTENT = {
         "Tri-X has a recognisable look, with visible, even grain and strong midtones, and it is famously forgiving. It pushes well to 1600 and beyond for low light, and it handles a wide range of developers, so it is a favourite for home developing.",
         "Tri-X 320 is a separate emulsion with a longer toe, suited to the controlled lighting of studio and large format work. The Tri-X name also appears on a black and white reversal stock for Super 8 and 16mm cine cameras, listed here alongside the still films. For a cleaner, finer grained look, T-Max and Eastman Kodak's Ektapan are Kodak's tabular grain black and white films.",
       ] },
+      { heading: 'Developing Tri-X', paragraphs: [
+        'Tri-X develops in ordinary black and white chemistry, at home or at any lab, and it works with almost any developer. Kodak\'s own D-76 and HC-110 are the classic pairings. To push it to 1600 or 3200, develop for the speed you shot it at and expect stronger grain and contrast.',
+        'Tri-X 400 also comes in 30.5m bulk rolls for loading your own cassettes, and Tri-X 320 sheet film is priced per sheet here.',
+      ] },
     ],
   },
   'kodak/t-max': {
@@ -770,6 +782,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: "T-Max or Tri-X?", paragraphs: [
         "T-Max 400 is finer grained and sharper than Tri-X at the same speed, which suits enlargements, architecture and anyone who wants a smoother tone. It is less forgiving of careless development, so time and temperature matter more.",
         "T-Max 100 is one of the sharpest, finest grained black and white films available. T-Max P3200 is designed to be shot at high speeds in poor light, with a base sensitivity well below its name and room to push.",
+      ] },
+      { heading: 'Developing T-Max', paragraphs: [
+        'T-Max develops in ordinary black and white chemistry, and Kodak makes a T-Max developer for it, though D-76 and HC-110 work well too. Tabular grain films take longer to fix than traditional films, so use fresh fixer and fix fully, or the negatives can keep a pink or purple cast.',
+        'T-Max 100 and 400 come in 35mm, 120 and sheet film, and T-Max P3200 in 35mm. For the same tabular grain approach under Eastman Kodak\'s own name, look at Ektapan.',
       ] },
     ],
   },
@@ -800,14 +816,25 @@ export const BRAND_SUB_CONTENT = {
       { heading: "Shooting slide film", paragraphs: [
         "Slide film produces a positive image on the film itself, so it can be projected or viewed on a light box, and it scans with deep blacks and bright colour. It has much less exposure latitude than colour negative, so meter for the highlights. Ektachrome develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. If you want strong colour with the latitude of negative film instead, Ektar 100 is Kodak's finest grained colour negative, and Portra is the softer, more forgiving choice.",
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Ektachrome E100 comes in 35mm, 120 and sheet film for stills, and as Ektachrome 100D for Super 8 and 16mm cine cameras. Sheet film is priced per sheet here so you can compare it fairly against rolls.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting. For black and white cine reversal, Kodak\'s other option is Tri-X, and Vision3 is its colour negative stock for cine.',
+      ] },
     ],
   },
   'kodak/vision3': {
     meta: { title: 'Kodak Vision3 Film | Compare UK Prices', description: 'Compare Kodak Vision3 50D, 250D, 200T and 500T motion picture film prices from UK shops, in Super 8 and 16mm, with live stock and prices.' },
-    intro: "Kodak Vision3 is Kodak's motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.",
+    intro: 'Kodak Vision3 is Kodak\'s motion picture colour negative film, the stock much of the film industry shoots on. The range is 50D and 250D, balanced for daylight, and 200T and 500T, balanced for tungsten light, sold here in Super 8 cartridges and 16mm rolls. Compare Kodak Vision3 prices from UK shops below.',
     sections: [
-      { heading: "Developing Vision3", paragraphs: [
-        "Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill's 800T and 50D still films are made from Vision3 stock with that backing taken off. For black and white cine, Kodak sells Tri-X as a reversal stock for Super 8 and 16mm.",
+      { heading: '50D, 250D, 200T or 500T?', paragraphs: [
+        'The number is the film speed and the letter is the light it is balanced for: D for daylight, T for tungsten. 50D is the slowest and finest grained, for bright sun and the cleanest image. 250D is the everyday daylight stock, with room for shade and overcast days. 200T suits interiors under artificial light, and 500T is the fastest, for evenings, night and dim rooms.',
+        'A tungsten stock can be shot in daylight through a warming 85 filter, at the cost of a little speed, and most Super 8 cameras have that filter built in, switching it in automatically for tungsten film. Daylight stocks shot under tungsten light come out warm and orange unless the colour is corrected in the scan.',
+      ] },
+      { heading: 'Super 8 or 16mm?', paragraphs: [
+        'Super 8 comes in 50 foot cartridges that drop straight into the camera, which gives about two and a half minutes of footage at 24 frames a second. 16mm comes on 100 foot daylight spools, which run for a little under three minutes at 24 frames a second, with a larger frame and a sharper image. Compare on price per cartridge or spool, and remember that developing and scanning usually cost more than the film.',
+      ] },
+      { heading: 'Developing Vision3', paragraphs: [
+        'Vision3 develops in ECN-2 chemistry rather than the C-41 used for stills colour negative, and it carries a remjet backing that the lab removes first, so send it to a lab that handles motion picture film. CineStill\'s 800T and 50D still films are made from Vision3 stock with that backing taken off. For black and white cine, Kodak sells Tri-X as a reversal stock for Super 8 and 16mm, and Ektachrome comes as a colour reversal stock for cine too.',
       ] },
     ],
   },
@@ -819,6 +846,10 @@ export const BRAND_SUB_CONTENT = {
         'HP5 Plus has moderate grain, gentle contrast and a very wide exposure latitude, so it copes with mistakes and with mixed light. It pushes well to 1600 and even 3200 for low light, which makes it a favourite for street, documentary and gig photography, and it is easy to develop at home in almost any developer.',
         'Ilford also releases limited edition HP5 Plus with special packaging from time to time. The film inside is the same, so compare those on price alone. For finer grain at the same speed, Delta 400 is Ilford\'s modern alternative, FP4 Plus is the slower ISO 125 film for bright light, and XP2 Super is the ISO 400 choice if you send your film to a colour lab.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'HP5 Plus comes in 35mm, 120, 30.5m bulk rolls for loading your own cassettes, and sheet film for large format cameras, which Filmproof prices per sheet. It develops in ordinary black and white chemistry, at home or at any lab, and Ilford\'s own developers such as ID-11 and Ilfosol 3 suit it well. Its tolerance of small mistakes in time and temperature makes it a common first film for home developing.',
+        'When you push it, develop for the speed you rated it at rather than box speed, and expect more grain and contrast with each stop.',
+      ] },
     ],
   },
   'ilford/fp4-plus': {
@@ -827,6 +858,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting FP4 Plus', paragraphs: [
         'FP4 Plus sits between the very fine grain of Pan F Plus and the speed of HP5 Plus. It suits daylight portraits, landscapes and architecture, and takes overexposure well, so many photographers rate it at 100 or even 50 and cut development to keep the highlights soft.',
+      ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'FP4 Plus comes in 35mm, 120, 30.5m bulk rolls and several sheet film sizes for large format cameras, which Filmproof prices per sheet. It develops in ordinary black and white chemistry, at home or at any lab, with Ilford\'s ID-11 and Ilfosol 3 among the common choices.',
+        'For more speed, HP5 Plus is the traditional ISO 400 film. For finer grain still, Delta 100 is Ilford\'s modern ISO 100 film and Pan F Plus its slowest.',
       ] },
     ],
   },
@@ -838,6 +873,9 @@ export const BRAND_SUB_CONTENT = {
         'Delta 100 is extremely fine grained and sharp, suited to landscapes, architecture and large prints. Delta 400 gives a smoother result than HP5 Plus at the same speed, with a little less latitude. Delta 3200 is made for low light and pushing: its true speed is nearer ISO 1000, and it is shot anywhere from there up to 3200 and beyond, with grain that becomes part of the look.',
         "If you like the tonality of Ilford's traditional films but want cleaner grain, Delta is the range to try; if you value forgiveness and a classic look, HP5 Plus and FP4 Plus are the alternatives.",
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Delta 100 comes in 35mm, 120, 30.5m bulk rolls and sheet film, while Delta 400 and Delta 3200 come in 35mm and 120. All three develop in ordinary black and white chemistry, and Ilford\'s DD-X developer was made with them in mind. Delta 3200 rewards developing for the speed you actually shot it at.',
+      ] },
     ],
   },
   'ilford/pan-f-plus': {
@@ -847,6 +885,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Pan F Plus', paragraphs: [
         'At ISO 50, Pan F Plus wants bright light or a tripod, but it rewards both with detail and smooth tones that suit landscapes, still life and portraits in good light. It has less latitude than faster films, so meter carefully, and allow for reciprocity on exposures of a second or more. If ISO 50 is too slow, FP4 Plus at ISO 125 and Delta 100 keep fine grain with more speed.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Pan F Plus comes in 35mm, 120 and sheet film. Its contrast is already high, so many photographers develop it in a gentler or fine grain developer, such as Ilford\'s Perceptol, or shorten development a little to keep the highlights printable. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'Ortho Plus is Ilford\'s other slow, specialist film, blind to red light, and FP4 Plus is the everyday medium speed choice.',
+      ] },
     ],
   },
   'ilford/xp2': {
@@ -855,6 +897,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Why choose XP2 Super', paragraphs: [
         'Because it forms its image from dye rather than silver, XP2 Super has very fine grain for its speed and a huge exposure latitude, giving usable negatives from around ISO 50 to 800 on one roll. It is the easy way into black and white for anyone who sends film to a colour lab rather than developing at home. Prints from a colour lab can carry a slight tint unless the lab prints them as black and white. If you develop at home, HP5 Plus is Ilford\'s traditional ISO 400 film for ordinary black and white chemistry.',
+      ] },
+      { heading: 'Processing and scanning', paragraphs: [
+        'XP2 Super goes through the same C-41 process as colour negative film, so any lab that develops colour film can develop it, and you can develop it at home with a C-41 kit. Ask the lab to scan it as black and white, as a colour scan can leave a slight tint.',
+        'For a black and white film with traditional silver grain, HP5 Plus and Delta 400 are Ilford\'s ISO 400 films for ordinary black and white chemistry.',
       ] },
     ],
   },
@@ -874,6 +920,14 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying Instax Mini film', paragraphs: [
         'Instax Mini comes in packs of ten shots and twin packs of twenty, and larger bundles bring the price per shot down, so compare on price per shot rather than per box. The frame designs change the border, not the film, so a Rainbow or Sky Blue pack develops just like the plain white one. Instax Mini will not fit Instax Square or Instax Wide cameras, so check your camera before you buy.',
       ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Mini fits every Instax Mini camera, from simple point and shoots such as the Mini 12 to the hybrid Mini Evo, and the Mini Link smartphone printer. It also fits a number of other makers\' instant cameras built around the Mini format, so check your camera\'s manual for the film it names.',
+        'For a bigger print, Instax Square gives a square image and Instax Wide one twice the width of Mini, but each needs its own camera.',
+      ] },
+      { heading: 'Shooting and storing Instax Mini', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Mini sells for less.',
+      ] },
     ],
   },
   'fujifilm/instax-square': {
@@ -883,6 +937,14 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying Instax Square film', paragraphs: [
         'Instax Square is sold in packs of ten shots and in twin packs, so compare on price per shot. It only fits Square format cameras and printers, not Mini or Wide models. Black frame and coloured frame editions use the same film with a different border.',
       ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Square fits Fujifilm\'s Square cameras, such as the SQ1 and SQ40, and the Square Link smartphone printer, along with a few other makers\' cameras built for the format. The square frame suits portraits and still life, and gives a print noticeably bigger than Mini.',
+        'Instax Mini is the smaller, cheaper format, and Instax Wide the largest, but each needs its own camera.',
+      ] },
+      { heading: 'Shooting and storing Instax Square', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Square sells for less.',
+      ] },
     ],
   },
   'fujifilm/instax-wide': {
@@ -890,7 +952,15 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Fujifilm Instax Wide is the largest Instax format, with an image of about 99 by 62mm, twice the width of Instax Mini. It fits Instax Wide cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Wide prices from UK shops below.',
     sections: [
       { heading: 'Buying Instax Wide film', paragraphs: [
-        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. The wider frame suits groups and landscapes better than Mini. It fits only Wide format cameras and printers, not Instax Mini or Instax Square models.',
+        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. It fits only Wide format cameras and printers, not Instax Mini or Instax Square models.',
+      ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Wide fits Fujifilm\'s Wide cameras, such as the Wide 300 and Wide 400, and the Wide Link smartphone printer. The wider frame suits groups, landscapes and weddings, where a Mini print would feel cramped.',
+        'Instax Mini and Instax Square are the smaller formats, each with its own cameras.',
+      ] },
+      { heading: 'Shooting and storing Instax Wide', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Wide sells for less.',
       ] },
     ],
   },
@@ -912,6 +982,10 @@ export const BRAND_SUB_CONTENT = {
         'Like all slide film, Provia has little exposure latitude, so meter carefully and favour the highlights. It holds up well on long exposures, which suits night scenes and low light work on a tripod.',
         'Provia develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. For bolder colour from the same maker, see Fujifilm Velvia.',
       ] },
+      { heading: 'Provia or Velvia?', paragraphs: [
+        'Choose Provia when you want colour that looks like the scene, for skin, architecture and anything Velvia would push too far, and Velvia when you want landscapes to glow. Provia also needs little or no extra exposure on long shutter speeds, which suits dusk and night work, and it takes a push of a stop well when the light is poor.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting.',
+      ] },
     ],
   },
   'fujifilm/superia': {
@@ -921,6 +995,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Superia', paragraphs: [
         "At ISO 400, Superia copes with dull days, interiors and fast movement, and it handles a stop or two of overexposure well, which suits point and shoot cameras. Its colour has the cooler greens and blues that many photographers associate with Fujifilm, a contrast to the warmer look of Kodak's consumer films.",
         'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day. For finer grain and stronger colour in good light, Fujifilm\'s slide films, Velvia and Provia, are the step up, though they need careful metering and E-6 processing.',
+      ] },
+      { heading: 'Superia or Fujifilm 400?', paragraphs: [
+        'Fujifilm\'s current everyday colour films are sold simply as Fujifilm 200 and Fujifilm 400, and they sit alongside Superia on the shelves at similar prices. Superia is the one to choose if you want its familiar cooler palette, and the plainer names if price and availability matter most.',
+        'Superia X-Tra 400 also turns up as older and expired stock, sold off cheaply. Expired colour negative loses speed and drifts in colour, so give it an extra stop or so of exposure.',
       ] },
     ],
   },
@@ -932,6 +1010,10 @@ export const BRAND_SUB_CONTENT = {
         "Most films need extra exposure once a shot runs past a second or so, but Acros II needs little or no correction for exposures up to about two minutes, by Fujifilm's own figures. That makes it a favourite for night scenes, long exposure seascapes and anything on a tripod.",
         'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X. For colour from Fujifilm, Superia is the everyday ISO 400 negative, and Velvia and Provia are its slide films.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Acros II comes in 35mm and 120, and develops in the common black and white developers, at home or at any lab that handles black and white film. Its fine grain makes it a good match for a fine grain developer when you plan to enlarge.',
+        'For black and white you can send to a colour lab, Fujifilm\'s Neopan 400CN is a chromogenic film that develops in standard C-41 chemistry.',
+      ] },
     ],
   },
   'fujifilm/velvia': {
@@ -941,6 +1023,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Velvia 50 or Velvia 100?', paragraphs: [
         'Velvia 50 is the original, with the strongest colour and a warmer rendering, and many photographers rate it slightly slower than box speed. Velvia 100 gives you a stop more speed with similar saturation and a cooler, more neutral balance, which makes it easier to handhold.',
         'Like all slide film, Velvia has little exposure latitude, so meter for the highlights, and it develops in E-6 chemistry, which fewer labs run than C-41. For a more neutral, natural slide film, Provia 100F is Fujifilm\'s other E-6 stock.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Velvia 50 and Velvia 100 both come in 35mm and 120, and Velvia 100 also comes as 4x5 sheet film, which Filmproof prices per sheet. Velvia 50 needs extra exposure once shutter speeds run past a few seconds, so for long exposures at dusk Velvia 100 or Provia is the easier choice.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting.',
       ] },
     ],
   },
@@ -953,6 +1039,10 @@ export const BRAND_SUB_CONTENT = {
         'Exposure is the creative control. Harman suggests shooting between EI 100 and 200, with a usable range from 50 to 400. Underexposed frames give deeper reds, stronger shadows and coarser grain, while overexposed frames turn brighter and finer grained, with hints of green appearing among the oranges.',
         'For colour the right way round, Phoenix 125 and Phoenix II are Harman\'s colour negatives, and Switch Azure 125 swaps colours rather than tinting them red.',
       ] },
+      { heading: 'Developing and scanning Harman Red', paragraphs: [
+        'Harman Red develops in standard C-41 chemistry at any lab, in 35mm or 120. Tell the lab it is redscale, or its scanner may try to correct the colour back towards normal and lose the effect you shot for.',
+        'Like Phoenix, it has no orange mask, so the negatives look unusual on the light box, and the scanner settings have a big say in how deep the reds come out. If you scan at home, try a few settings before you settle on a look.',
+      ] },
     ],
   },
   'harman/switch-azure': {
@@ -963,6 +1053,10 @@ export const BRAND_SUB_CONTENT = {
         'Switch Azure is rated at ISO 125 and works best on sunny or bright overcast days, where strong colour gives the switch the most to work with. It has fine grain and a wide exposure latitude, so it forgives a meter reading that is a little out.',
         'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home.',
         'Harman\'s other colour films are Phoenix, as the original Phoenix 125 and the second generation Phoenix II, and Harman Red 125, the original Phoenix spooled in reverse for redscale.',
+      ] },
+      { heading: 'Developing and buying Switch Azure', paragraphs: [
+        'Switch Azure develops in standard C-41 chemistry at any lab, in 35mm or 120. Shops sometimes sell it in bundles or collector\'s editions alongside Harman\'s other colour films, and Filmproof compares them on price per roll.',
+        'The colour switch is in the negative itself, so any lab will return it, though how strong it looks still depends on the scan.',
       ] },
     ],
   },
@@ -975,6 +1069,10 @@ export const BRAND_SUB_CONTENT = {
         'Color Negative 100 is the fine grained choice for bright sun. 400 is the all rounder for changeable light and the easiest to recommend to anyone starting out, and 800 is the fast option for evenings, interiors and dull winter days, with more visible grain.',
         'All three develop in standard C-41 chemistry at any lab. Shops often sell them in three packs, and Filmproof divides the packs out so you can compare the price per roll. For a warmer, more nostalgic look, try Classicolor or Color 92, and for colour that shifts, the LomoChrome films such as Purple and Turquoise.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Color Negative comes in 35mm and 120, and its 110 version, Color Tiger, fits the pocket cameras that take 110 cartridges. The faster 800 is especially useful in 120, where medium format cameras often have slower lenses.',
+        'Shops often sell Lomography film in three packs, and Filmproof divides the packs out so you can compare the price per roll.',
+      ] },
     ],
   },
   'lomography/purple': {
@@ -984,6 +1082,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting LomoChrome Purple', paragraphs: [
         'Purple can be shot anywhere from ISO 100 to 400 on the same roll. Scenes with plenty of green show the effect most strongly, so parks, woods and gardens are the obvious subjects. Exposure changes how strong the shift looks, so it is worth bracketing a few frames while you learn the film.',
         'It develops in standard C-41 chemistry at any lab. Turquoise and Metropolis are the other LomoChrome films, Turquoise for a cool turquoise and teal shift and Metropolis for muted, high contrast colour.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Purple comes in 35mm, 120 and 110. Shops list it both as LomoChrome Purple and simply as Lomography Purple, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
       ] },
     ],
   },
@@ -995,6 +1097,10 @@ export const BRAND_SUB_CONTENT = {
         'Turquoise can be shot anywhere from ISO 100 to 400 on the same roll. Bright, sunny days with plenty of sky give the strongest effect, and exposure changes how far the shift goes, so bracket a few frames while you learn it.',
         'It develops in standard C-41 chemistry at any lab. For the purple and violet take on the same idea, try Purple, and for muted colour rather than shifted colour, Metropolis.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Turquoise comes in 35mm, 120 and 110. Shops list it both as LomoChrome Turquoise and simply as Lomography Turquoise, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
+      ] },
     ],
   },
   'lomography/metropolis': {
@@ -1004,6 +1110,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting LomoChrome Metropolis', paragraphs: [
         'Metropolis can be shot anywhere from ISO 100 to 400 on the same roll. It suits streets, architecture and overcast days, where its muted palette and deep shadows do the most.',
         'It develops in standard C-41 chemistry at any lab. For colour that shifts rather than fades, try Purple or Turquoise.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Metropolis comes in 35mm, 120 and 110. Shops list it both as LomoChrome Metropolis and simply as Lomography Metropolis, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
       ] },
     ],
   },
@@ -1015,6 +1125,10 @@ export const BRAND_SUB_CONTENT = {
         'Classicolor suits everyday shooting, holidays and portraits in good light, where its warm tones read like film from a few decades ago. It develops in standard C-41 chemistry at any lab.',
         'Color 92 is its closest sibling, also made for a nostalgic look, and Color Negative is the plainer, more saturated everyday film.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Classicolor comes in 35mm, 120 and 110, so it suits pocket cameras as well as everyday 35mm and medium format. Shops list it both as LomoChrome Classicolor and simply as Lomography Classicolor, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll.',
+      ] },
     ],
   },
   'lomography/color-92': {
@@ -1024,6 +1138,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Color 92', paragraphs: [
         'Color 92 is at its best in daylight, on holidays, days out and everyday snapshots, where its warm cast and soft colour suit the subject. It develops in standard C-41 chemistry at any lab.',
         'Classicolor is its closest sibling, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Color 92 comes in 35mm, 120 and 110, so it suits pocket cameras as well as everyday 35mm and medium format. Shops write its name a few ways, Color 92 and Color ’92 among them, and Filmproof treats them as one film. Color 92 Sun-Kissed, a later and warmer edition, is a film of its own, listed here alongside the original.',
+        'Shops often sell it in three packs, so compare on price per roll.',
       ] },
     ],
   },
@@ -1035,6 +1153,10 @@ export const BRAND_SUB_CONTENT = {
         'Exposure is the creative control. Less light gives deeper reds and stronger contrast, while more light pushes the colour towards yellow, so bracket a few frames while you learn it. You load, shoot and develop it like any other roll, in standard C-41 chemistry.',
         'For a colour shift without the red cast, try the LomoChrome films such as Purple and Turquoise.',
       ] },
+      { heading: 'Redscale, Redscale XR or Lobster?', paragraphs: [
+        'Lomography Redscale is the original, rated at ISO 100 for a deep red and orange look. Redscale XR is made to be shot across a range of speeds, commonly 50 to 200, so you can choose between deeper reds and lighter, yellower frames on the same roll. Lobster Redscale is the 110 version for pocket cameras.',
+        'All three develop in standard C-41 chemistry at any lab, but tell the lab it is redscale so it does not try to correct the colour back to normal.',
+      ] },
     ],
   },
   'lomography/earl-grey': {
@@ -1044,6 +1166,9 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Earl Grey', paragraphs: [
         'At ISO 100, Earl Grey suits daylight, landscapes and anything where fine grain matters, and it develops in ordinary black and white chemistry at home or at any lab.',
         'Lady Grey 400 is the faster sibling for dull days and interiors, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Earl Grey comes in 35mm and 120, and for 110 pocket cameras Lomography\'s black and white film is Orca. It works in the common black and white developers, at home or at any lab that handles black and white film.',
       ] },
     ],
   },
@@ -1055,6 +1180,9 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 400, Lady Grey has more visible grain than a slower film and plenty of latitude, and it develops in ordinary black and white chemistry at home or at any lab.',
         'Earl Grey 100 is the slower, finer grained sibling, and the Kino films offer the look of black and white cinema stock.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Lady Grey comes in 35mm and 120, and for 110 pocket cameras Lomography\'s black and white film is Orca. It works in the common black and white developers, and pushes a stop when the light is poor, as long as you develop for the speed you shot.',
+      ] },
     ],
   },
   'lomography/kino': {
@@ -1064,6 +1192,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting the Kino films', paragraphs: [
         'Potsdam 100 is the fine grained daylight choice and Berlin 400 the faster one, both with the tonal character of motion picture stock. Babylon 13 and Fantome 8 are so slow that they need bright sun or a tripod, and reward it with very fine grain and strong contrast. All of them develop in ordinary black and white chemistry.',
         'For a conventional black and white film, Earl Grey and Lady Grey are Lomography\'s everyday choices.',
+      ] },
+      { heading: 'Developing the Kino films', paragraphs: [
+        'The Kino films develop in ordinary black and white chemistry, but as cinema stocks their times differ from familiar still films, so check Lomography\'s published times for your developer before you start. Babylon 13 and Fantome 8 in particular need careful metering, as there is little room for error at such slow speeds.',
+        'Shops often sell the Kino films in three packs, and Filmproof divides the packs out so you can compare the price per roll.',
       ] },
     ],
   },
@@ -1076,6 +1208,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it is balanced for tungsten light, 800T renders streetlights, interiors and neon cleanly, and point light sources pick up its signature halation. In daylight it turns blue, so add a warming 85 filter and allow for a little lost speed, or choose a daylight film instead. It is fast enough for handheld night work and takes a push of a stop or more when the light is very low.',
         '800T develops in standard C-41 chemistry at any lab. For daylight, 400D is CineStill\'s all rounder and 50D its slow, fine grained film, and BwXX is its black and white.',
       ] },
+      { heading: 'Rating, pushing and processing', paragraphs: [
+        '800T is widely reported to be made from Kodak\'s Vision3 500T, which is why many photographers rate it nearer ISO 500 or 640 for denser negatives and cleaner shadows. It also takes a push to 1600 or 3200 well when the light is very low, as long as you tell the lab.',
+        'With the remjet already removed, 800T goes through ordinary C-41 at any lab, and CineStill sells its own Cs41 kit for developing colour film at home. Its tungsten balance is part of the look, so ask the lab not to correct night scenes too far towards neutral.',
+      ] },
     ],
   },
   'cinestill/50d': {
@@ -1085,6 +1221,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting 50D', paragraphs: [
         'At ISO 50, 50D wants bright sun or a tripod, and rewards it with clean detail for landscapes, beaches and portraits in good light. Halation is gentler than on 800T, showing mainly around the brightest highlights.',
         '50D develops in standard C-41 chemistry at any lab. For more speed in daylight, 400D is the all rounder, and for night and artificial light, 800T.',
+      ] },
+      { heading: 'Where 50D comes from', paragraphs: [
+        '50D is widely reported to come from Kodak\'s Vision3 50D, the slow daylight stock used for exteriors on film sets, which is where its clean grain and gentle, natural colour come from. With the remjet removed it goes through ordinary C-41 at any lab, or at home with CineStill\'s Cs41 kit.',
+        'Under tungsten light 50D comes out warm and orange. A blue 80A filter corrects it, but costs about two stops, which is a lot to lose on a film this slow, so 800T is the better choice indoors.',
       ] },
     ],
   },
@@ -1096,6 +1236,10 @@ export const BRAND_SUB_CONTENT = {
         '400D copes with everything from bright sun to shade and overcast days, and it can be pushed to 800 or 1600 when the light drops. Like the other CineStill colour films it shows some halation around bright highlights. If you want one CineStill film for everyday use, it is the safest place to start.',
         '400D develops in standard C-41 chemistry at any lab. For bright light and the finest grain, look at 50D, and for night and artificial light, 800T.',
       ] },
+      { heading: 'Developing and scanning 400D', paragraphs: [
+        '400D goes through ordinary C-41 at any lab, or at home with CineStill\'s Cs41 kit. If you push it to 800 or 1600, tell the lab so it can extend development, and expect more grain and contrast.',
+        'Like CineStill\'s other colour films it has no remjet, so bright highlights show some halation in the scan. That glow is part of the look rather than a fault in the lab\'s work.',
+      ] },
     ],
   },
   'cinestill/bwxx': {
@@ -1105,6 +1249,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting BwXX', paragraphs: [
         'BwXX has a gritty, cinematic character, with strong contrast and visible grain, and it suits street photography and moody portraits. Unlike CineStill\'s colour films, it develops in ordinary black and white chemistry, at home or at any lab.',
         'For colour, CineStill\'s films are 800T for night and artificial light, 400D for everyday daylight shooting and 50D for bright sun.',
+      ] },
+      { heading: 'Rating and developing BwXX', paragraphs: [
+        'BwXX is rated at ISO 250, the speed Kodak gives Double-X in daylight, and it pushes a stop or two for low light. It works in the common black and white developers, with D-76 and HC-110 among the usual choices, and its contrast rewards a careful development time.',
+        'Double-X keeps its own anti-halation protection, unlike CineStill\'s colour films with their remjet removed, so BwXX shows little of their red glow around highlights.',
       ] },
     ],
   },
@@ -1117,6 +1265,10 @@ export const BRAND_SUB_CONTENT = {
         'RPX 25 is a very slow, very fine grained film for bright light, landscapes and work on a tripod. RPX 100 is the everyday daylight speed, and RPX 400 the fast all rounder for street photography, dull days and interiors, with more visible grain.',
         'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, for true infrared, Rollei Infrared, and for the opposite, Ortho 25 Plus, which is blind to red.',
       ] },
+      { heading: 'Where RPX comes from', paragraphs: [
+        'Rollei film is made to order by other manufacturers, and RPX is widely reported to come from Harman, the Cheshire maker of Ilford. It has a classic, traditional look rather than the very smooth tones of a tabular grain film, and it works in the common black and white developers.',
+        'RPX 400 is also sold in 30.5m bulk rolls for loading your own cassettes, which brings the cost per roll down further.',
+      ] },
     ],
   },
   'rollei/retro': {
@@ -1126,6 +1278,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Retro 80S or 400S?', paragraphs: [
         'Retro 80S is the slower, finer grained of the two, suited to bright light and detailed subjects. Retro 400S is the faster film for changeable light and everyday shooting. With a deep red filter both can give an infrared look, with dark skies and pale foliage, at the cost of a few stops of exposure.',
         'Both develop in ordinary black and white chemistry. RPX is Rollei\'s traditional black and white range, and Superpan and Rollei Infrared go further towards infrared.',
+      ] },
+      { heading: 'The clear polyester base', paragraphs: [
+        'Both Retro films are coated on a clear polyester base, which lies flat in the scanner and the enlarger and scans cleanly. A clear base can pipe light along the film, so load and unload it in subdued light rather than bright sun.',
+        'Retro 80S can be rated anywhere from ISO 32 to 100 to suit the light and the contrast you want, and Retro 400S pushes to 800 when you need more speed.',
       ] },
     ],
   },
@@ -1137,6 +1293,10 @@ export const BRAND_SUB_CONTENT = {
         'The infrared look comes from the filter. A deep red or infrared filter blocks most visible light, so give several stops of extra exposure, use a tripod, and bracket while you learn how your filter behaves. Sunny days with plenty of foliage show the effect most strongly.',
         'Superpan develops in ordinary black and white chemistry. Rollei Infrared reaches further into infrared for a stronger effect, and Retro 80S and 400S share the extended red sensitivity.',
       ] },
+      { heading: 'Without a filter', paragraphs: [
+        'Even without a filter, Superpan\'s red sensitivity renders skies a little darker than an ordinary film would. A yellow or orange filter strengthens that gently without the exposure cost of a deep red one, which makes Superpan a useful everyday ISO 200 film as well as a creative one.',
+        'For the full infrared look, Rollei Infrared reaches further into infrared than Superpan does.',
+      ] },
     ],
   },
   'rollei/infrared': {
@@ -1146,6 +1306,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Rollei Infrared', paragraphs: [
         'For the infrared effect, shoot through an infrared filter such as an R72, which blocks visible light, and expect long exposures on a tripod. Exposure varies with the light and the season, so bracket generously. Load and unload the film in subdued light.',
         'It develops in ordinary black and white chemistry. Superpan is the gentler alternative with extended red sensitivity, and Retro 80S and 400S give some of the same effect through a red filter.',
+      ] },
+      { heading: 'Formats and focusing', paragraphs: [
+        'Rollei Infrared comes in 35mm, 120 and 4x5 sheets. Infrared light focuses at a slightly different point from visible light, so stop down for depth of field, or use the red infrared mark many older lenses carry on their focus scale.',
+        'Because you are composing through an opaque filter, it is easiest to frame and focus first, then fit the filter before you shoot.',
       ] },
     ],
   },
@@ -1157,6 +1321,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits and landscapes an early photography look. At ISO 25 it wants bright light or a tripod. Being blind to red, it can be handled and developed under a red safelight, which suits tray developing sheet film.',
         'It develops in ordinary black and white chemistry. For ordinary panchromatic tones, RPX 25 is Rollei\'s other very slow, fine grained film, and Superpan goes the opposite way, with extended red sensitivity.',
       ] },
+      { heading: 'A technical film for pictures', paragraphs: [
+        'Ortho 25 Plus was made as a technical film, so its natural contrast is high. For portraits and landscapes, a gentle developer or a slightly shorter development time keeps the highlights printable while holding on to its fine grain.',
+        'For a tonal range closer to an ordinary film, Retro 80S is Rollei\'s other slow film.',
+      ] },
     ],
   },
   'rollei/crossbird': {
@@ -1166,6 +1334,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting CrossBird', paragraphs: [
         'Cross processing raises contrast and saturation and shifts colour in ways that are hard to predict, so bright, colourful scenes make the most of it. Tell your lab you want it developed in C-41 and that it is a slide film, as the negatives come back without the usual orange mask. Developed in E-6, it behaves as an ordinary slide film.',
         'It is the colour film in a Rollei range that is otherwise mostly black and white, from RPX and Retro to Superpan and Infrared.',
+      ] },
+      { heading: 'Developing in E-6', paragraphs: [
+        'If you would rather have ordinary slides, develop CrossBird in E-6 chemistry like any other slide film, and it gives positive transparencies with normal colour. Either way, tell the lab which process you want before you hand the film over.',
+        'CrossBird is one of the few films still made in 127, the small roll size used by many old box and folding cameras, alongside 35mm and 120.',
       ] },
     ],
   },
@@ -1178,6 +1350,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 100, Classic suits daylight, landscapes, architecture and anything where fine grain and detail matter. It has the classic look of a traditional emulsion, and it develops in ordinary black and white chemistry at home or at any lab, which makes it a favourite for learning to develop your own film.',
         'For more speed, Fomapan 200 Creative is the middle choice and Fomapan 400 Action the fast one. Retropan 320 Soft gives a softer, vintage look.',
       ] },
+      { heading: 'Formats, exposure and developing', paragraphs: [
+        'Fomapan 100 Classic comes in 35mm, 120, bulk rolls and sheet film from 4x5 to 8x10, which makes it one of the cheaper ways into large format; Filmproof prices sheet film per sheet. The edge markings still read ULTRA 100, and retro or limited edition boxes hold the same film.',
+        'By Foma\'s own figures it tolerates a stop of overexposure and two of underexposure without changing development. All the Fomapan films need generous extra exposure once shutter speeds run long, so check Foma\'s reciprocity figures before a night or tripod shot. It develops in the common black and white developers, and Foma makes its own, such as Fomadon LQN.',
+      ] },
     ],
   },
   'foma/200-creative': {
@@ -1187,6 +1363,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Fomapan 200 Creative', paragraphs: [
         'At ISO 200, Creative covers most daylight shooting with a little more room for shade and overcast days than a 100 speed film. Its emulsion uses flat T grains, which keep grain fine for the speed, but Foma warns that this makes it more prone to pressure marks in some medium format cameras, so test a roll of the 120 first. It develops in ordinary black and white chemistry at home or at any lab.',
         'Fomapan 100 Classic is the slower, finer grained choice for bright light, and Fomapan 400 Action the faster one for low light and movement.',
+      ] },
+      { heading: 'Exposure and developing', paragraphs: [
+        'Creative tolerates a stop of overexposure and two of underexposure without changing development, by Foma\'s figures, but it needs a lot of extra exposure on long shutter speeds: a metered 10 seconds wants about 90. Keep it for handheld daylight work where you can.',
+        'It develops in the common black and white developers, at home or at any lab that handles black and white film. Sheet film is priced per sheet here, so you can compare it fairly against rolls.',
       ] },
     ],
   },
@@ -1198,6 +1378,10 @@ export const BRAND_SUB_CONTENT = {
         'Action has visible grain and a classic look. Many photographers rate it a little slower than box speed, around ISO 200 to 320, for fuller shadows, so it is worth a test roll before you rely on it. It develops in ordinary black and white chemistry at home or at any lab.',
         'Fomapan 100 Classic and Fomapan 200 Creative are the slower, finer grained films in the same family, and Ortho 400 is the orthochromatic film at the same speed.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Fomapan 400 Action comes in 35mm, 120, bulk rolls and sheet film, with ULTRA 400 on the edge markings, and retro or limited edition boxes hold the same film. All the Fomapan films need generous extra exposure once shutter speeds run long, so check Foma\'s reciprocity figures before a night or tripod shot.',
+        'It develops in the common black and white developers, at home or at any lab that handles black and white film, and Foma makes its own, such as Fomadon LQN. If you push it, develop for the speed you shot it at.',
+      ] },
     ],
   },
   'foma/retropan': {
@@ -1207,6 +1391,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Retropan 320 Soft', paragraphs: [
         'Retropan suits portraits and scenes where a gentle, old fashioned rendering fits the subject. Foma makes a dedicated developer for it, Retro Special, though it develops in other ordinary black and white developers too.',
         'For a more conventional look, Fomapan 100 Classic and Fomapan 400 Action are Foma\'s traditional films.',
+      ] },
+      { heading: 'Buying and using Retropan', paragraphs: [
+        'Retropan\'s low contrast suits bright, harsh light, where a normal film would lose the highlights, as much as it suits soft portraits.',
+        'Retro Special is sold separately, so compare the developer\'s price too if you plan to use it.',
       ] },
     ],
   },
@@ -1218,6 +1406,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits an early photography look and suits high contrast copy work. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
         'For ordinary panchromatic tones at the same speed, Fomapan 400 Action is Foma\'s fast traditional film.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Ortho 400 arrived in 120 in 2023 and in 35mm in 2024, and at ISO 400 it is much faster than most ortho films, fast enough to shoot handheld. It develops in the common black and white developers, at home or at any lab.',
+        'Because it is blind to red light, you can watch it develop in a tray under a red safelight, which makes it a good film for learning to develop by inspection.',
+      ] },
     ],
   },
   'foma/r100': {
@@ -1227,6 +1419,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Developing Fomapan R 100', paragraphs: [
         'R 100 needs a reversal process to give slides, which fewer labs offer than ordinary black and white development, so check with your lab first. Foma sells a reversal kit for developing it at home, and it can also be developed as an ordinary negative if you only want to scan or print.',
         'For ordinary black and white negatives at the same speed, Fomapan 100 Classic is Foma\'s fine grained traditional film.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Fomapan R 100 is sold in 35mm and in cine gauges, including 16mm, double 8mm and double Super 8, which makes it one of the few black and white reversal films still made for small gauge cine cameras.',
+        'When you compare prices, allow for processing: a reversal process costs more and takes longer than ordinary black and white development, and fewer labs offer it.',
       ] },
     ],
   },
@@ -1239,6 +1435,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 100, Pan 100 suits bright days, landscapes and anything on a tripod, where its fine grain and smooth tones show best. It develops in ordinary black and white chemistry, at home or at any lab, which makes it a cheap film to learn developing on.',
         'Kentmere Pan 400 is the faster all rounder for dull days and street photography, and Kentmere Pan 200 sits between the two.',
       ] },
+      { heading: 'Buying and developing Pan 100', paragraphs: [
+        'Shops list the same film as Kentmere 100 and Kentmere Pan 100, and Filmproof treats them as one, so every shop\'s price appears on this page. It is sold as single rolls, multipacks and 30.5m bulk rolls, and bulk loading your own cassettes brings the cost per roll down further.',
+        'It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal. If you want the same speed with a little more latitude and a more classic look, Ilford FP4 Plus at ISO 125 is the step up from the same factory.',
+      ] },
     ],
   },
   'kentmere/pan-200': {
@@ -1249,6 +1449,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 200, Pan 200 covers most daylight shooting, with a little more room for shade and overcast days than a slower film. It develops in ordinary black and white chemistry, at home or at any lab.',
         'Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 400 the faster one for low light.',
       ] },
+      { heading: 'Buying and developing Pan 200', paragraphs: [
+        'Pan 200 is sold as single rolls and multipacks, and Filmproof divides the packs out so you can compare the price per roll. It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal, at home or at any lab that handles black and white film.',
+        'As the newest Kentmere film, it may be stocked by fewer shops than Pan 100 and Pan 400, so check the listings below before you plan a shoot around it.',
+      ] },
     ],
   },
   'kentmere/pan-400': {
@@ -1258,6 +1462,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Kentmere Pan 400', paragraphs: [
         'Pan 400 is fast enough for overcast days, street photography and indoor light, and it pushes a stop or two when you need more speed. Next to Ilford HP5 Plus it has slightly coarser grain and less latitude, but it costs less, which makes it a good film for learning, testing a camera or shooting a lot of rolls.',
         'It develops in ordinary black and white chemistry, at home or at any lab. Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 200 sits between the two.',
+      ] },
+      { heading: 'Buying and developing Pan 400', paragraphs: [
+        'Shops list the same film as Kentmere 400 and Kentmere Pan 400, and Filmproof treats them as one, so every shop\'s price appears on this page. It is sold as single rolls, multipacks and 30.5m bulk rolls, and bulk loading your own cassettes brings the cost per roll down further.',
+        'It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal. When you push it, develop for the speed you shot it at, and expect the grain and contrast to rise faster than they would on HP5 Plus.',
       ] },
     ],
   },
@@ -1270,6 +1478,10 @@ export const BRAND_SUB_CONTENT = {
         'P30 has deep blacks, strong contrast and fine grain, a look tied to the classic Italian cinema it was made for. At ISO 80 it suits daylight, and it develops in ordinary black and white chemistry, at home or at any lab.',
         'Ferrania\'s other black and white films are Orto, an orthochromatic film at ISO 50, and P33, a faster panchromatic film at ISO 160.',
       ] },
+      { heading: 'Developing P30', paragraphs: [
+        'P30 is coated on a triacetate base with a high silver content, which is where its deep blacks come from. Its natural contrast is high, so many photographers use a gentle developer or shorten development a little to keep the highlights printable. It works with the common black and white developers.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
+      ] },
     ],
   },
   'ferrania/orto': {
@@ -1280,6 +1492,10 @@ export const BRAND_SUB_CONTENT = {
         'Because Orto does not see red, reds and warm skin tones render dark and blue skies render light. At ISO 50 it wants bright light or a tripod. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
         'For ordinary panchromatic tones, P30 is Ferrania\'s classic film at ISO 80, and P33 the faster one at ISO 160.',
       ] },
+      { heading: 'Developing Orto', paragraphs: [
+        'Orto develops in the common black and white developers, at home or at any lab. Because it is blind to red, you can handle it and watch it develop under a red safelight, which suits developing by inspection.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
+      ] },
     ],
   },
   'ferrania/p33': {
@@ -1289,6 +1505,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Ferrania P33', paragraphs: [
         'At ISO 160, P33 gives more room for shade, overcast days and handheld shooting than Ferrania\'s slower films. It develops in ordinary black and white chemistry, at home or at any lab.',
         'P30 is Ferrania\'s classic high silver film at ISO 80, and Orto its orthochromatic film at ISO 50.',
+      ] },
+      { heading: 'Buying and developing P33', paragraphs: [
+        'P33 develops in the common black and white developers, at home or at any lab that handles black and white film. Its extra speed over P30 makes it the easier Ferrania film for overcast days and handheld shooting.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
       ] },
     ],
   },
@@ -1301,6 +1521,10 @@ export const BRAND_SUB_CONTENT = {
         'Orthopanchromatic means the film is a little less sensitive to red than most modern black and white films, so skin and red tones render slightly darker and skies keep more tone, a look closer to older films. At ISO 100 it suits daylight and detailed work, and it develops in ordinary black and white chemistry, at home or at any lab.',
         'HR-50 is Adox\'s slower, ultra fine grained film, Scala its black and white slide film, and CMS 20 II its extreme resolution film.',
       ] },
+      { heading: 'Buying and developing CHS 100 II', paragraphs: [
+        'Shops list it as both CHS 100 II and CHS 100, and Filmproof keeps them on one page, so every shop\'s price is compared together. Sheet film is priced per sheet, so you can compare a box of 4x5 fairly against rolls.',
+        'It works in the common black and white developers. Adox makes its own too, including Adonal, its version of the Rodinal formula, and Atomal 49, a fine grain developer.',
+      ] },
     ],
   },
   'adox/scala': {
@@ -1310,6 +1534,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Developing Scala', paragraphs: [
         'Scala needs a black and white reversal process to give slides, which few labs offer, so check with your lab before you shoot it, or develop it at home with a reversal kit. Like any slide film it has less exposure latitude than a negative, so meter carefully.',
         'For black and white negatives, HR-50 is the same ultra fine grained base as a negative film, and CHS 100 II is Adox\'s everyday film.',
+      ] },
+      { heading: 'Buying Scala', paragraphs: [
+        'When you compare prices, allow for processing: black and white reversal costs more and takes longer than ordinary development, and few labs offer it, so it often has to be posted to a specialist.',
+        'Adox also makes Pan-X 100 Reverso, a black and white reversal film in Super 8 cassettes, for anyone who wants positive images from a cine camera.',
       ] },
     ],
   },
@@ -1321,6 +1549,10 @@ export const BRAND_SUB_CONTENT = {
         'CMS 20 II is best rated around ISO 12 to 20, so it wants bright light or a tripod. It needs a special low contrast developer such as Adox Adotech to give a full range of tones; in an ordinary developer it gives the stark contrast of a document copy.',
         'For fine grain without the special handling, HR-50 is Adox\'s ultra fine grained ISO 50 film, and CHS 100 II its everyday film.',
       ] },
+      { heading: 'Buying and developing CMS 20 II', paragraphs: [
+        'Adotech is worth buying with the film, and some shops sell the two together: in an ordinary developer CMS 20 II gives stark, document style contrast rather than a full range of tones.',
+        'To make the most of its resolution, use a sharp lens, a tripod and careful focusing, as the film will show any softness that a coarser film would hide.',
+      ] },
     ],
   },
   'adox/hr-50': {
@@ -1330,6 +1562,9 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting HR-50', paragraphs: [
         'At ISO 50, HR-50 wants bright light or a tripod, and rewards it with fine detail for landscapes, architecture and anything you plan to enlarge. Its extended red sensitivity means a red filter darkens skies strongly, and a deep red filter takes it towards an infrared look. It develops in ordinary black and white chemistry, at home or at any lab.',
         'Scala 50 is the same base made as a slide film, CHS 100 II is Adox\'s faster, classic looking film, and CMS 20 II goes further still for resolution.',
+      ] },
+      { heading: 'Developing HR-50', paragraphs: [
+        'HR-50 develops in the common black and white developers, at home or at any lab that handles black and white film, and Adox\'s own Adonal and Atomal 49 both suit it. Its fine grain holds up well in a high acutance developer, which makes the most of its sharpness.',
       ] },
     ],
   },
@@ -1342,6 +1577,10 @@ export const BRAND_SUB_CONTENT = {
         'i-Type cameras have their own rechargeable battery, so unlike 600 film the packs carry no battery, which keeps the price down. Shops sell single packs and double packs, so compare on price per shot. Special edition frames change the border, not the film.',
         'i-Type film will not power a vintage camera, so for a 600 camera you need 600 film, and for an SX-70 camera, SX-70 film. 600 film does work in i-Type cameras, if you find it cheaper.',
       ] },
+      { heading: 'Shooting and storing i-Type', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/600': {
@@ -1351,6 +1590,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying 600 film', paragraphs: [
         'Because the battery is in the pack, 600 film is the one to buy for a vintage 600 camera, and it also works in Polaroid\'s modern i-Type cameras. Shops sell single packs and double packs, so compare on price per shot.',
         'If you only shoot a modern camera, i-Type film is usually cheaper, and for an SX-70 camera, choose SX-70 film.',
+      ] },
+      { heading: 'Shooting and storing 600 film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
       ] },
     ],
   },
@@ -1362,6 +1605,10 @@ export const BRAND_SUB_CONTENT = {
         'SX-70 cameras are set for the slower film, so 600 or i-Type film will come out badly overexposed in them unless you add a neutral density filter. Shoot it in good light, and compare single and double packs on price per shot.',
         'For a 600 camera choose 600 film, and for Polaroid\'s modern cameras, i-Type.',
       ] },
+      { heading: 'Shooting and storing SX-70 film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/go': {
@@ -1372,6 +1619,10 @@ export const BRAND_SUB_CONTENT = {
         'Go film only fits Go cameras, and the other Polaroid films will not fit them. Shops sell it in single and double packs, and in colour, black and white and special editions, so compare on price per shot.',
         'For Polaroid\'s full size prints, i-Type film fits the modern cameras and 600 film the vintage ones.',
       ] },
+      { heading: 'Shooting and storing Go film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/8x10': {
@@ -1381,6 +1632,65 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting 8x10 instant film', paragraphs: [
         'Each sheet is loaded and exposed like any 8x10 sheet film, then run through the processor with its positive sheet to develop. It is a specialist, expensive way to shoot, valued for the size and immediacy of the print.',
         'For everyday instant photography, i-Type and 600 film fit Polaroid\'s modern and vintage cameras.',
+      ] },
+      { heading: 'Buying 8x10 film', paragraphs: [
+        '8x10 film is sold in small boxes and costs far more per shot than the pack films, so compare on price per sheet. You also need access to a processor, which most photographers buy secondhand or borrow, so factor that in before committing to the format.',
+        'Like Polaroid\'s other films, it does best stored in the fridge and used before the date on the box.',
+      ] },
+    ],
+  },
+  // Washi's ranges.
+  'washi/w': {
+    meta: { title: 'Washi W Film | Compare UK Prices', description: 'Compare Washi W paper based black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi W is the original Film Washi film, an ISO 25 black and white emulsion hand coated in France on Japanese Tosa washi paper. The paper base gives every frame a visible texture unlike any conventional film. Compare Washi W prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi W', paragraphs: [
+        'W is orthochromatic, sensitive to blue and blind to red, so skies render light and reds and skin tones dark, and at ISO 25 it wants bright light or a tripod. Each roll is coated by hand in a small batch, so expect a little variation from one to the next.',
+        'For a conventional base with fine grain and high contrast, Washi S is converted sound recording film, and Washi F is converted X-ray film with glowing highlights.',
+      ] },
+      { heading: 'Handling and developing paper film', paragraphs: [
+        'Paper film is fragile. Don\'t use it in a camera with motorised winding, which can stretch or snap it, and wind gently by hand. It won\'t load on modern developing reels, and many labs won\'t take it, so check with yours before you send it.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films.',
+      ] },
+    ],
+  },
+  'washi/s': {
+    meta: { title: 'Washi S Film | Compare UK Prices', description: 'Compare Washi S black and white film prices from UK shops, in 35mm, 120, 620 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Washi S is sound recording film from cinema, converted by Film Washi for still cameras. Rated at ISO 50, it has very fine grain and high contrast, and it is sold in 35mm, 120, 620 and bulk rolls. Compare Washi S prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi S', paragraphs: [
+        'Sound film was made to record a sharp optical track rather than a full range of tones, so expect deep blacks, bright whites and fine detail. At ISO 50 it suits bright light, and its 620 rolls fit older cameras that most films no longer do.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. Washi Z is the faster aerial survey film, and Washi W the hand coated paper film.',
+      ] },
+    ],
+  },
+  'washi/x': {
+    meta: { title: 'Washi X Film | Compare UK Prices', description: 'Compare Washi X colour negative film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi X is the colour film in the Film Washi range, a technical ISO 100 colour negative with no orange mask, which gives warm, saturated colour like early colour film. Compare Washi X prices from UK shops below.',
+    sections: [
+      { heading: 'Developing Washi X', paragraphs: [
+        'X develops in C-41, the standard colour negative process, at any lab. It can also be cross processed in E-6 for slides with stronger, shifted colour, so tell the lab which you want before you hand it over.',
+        'With no orange mask, the negatives look unusual and the scan has a big say in the final colour. Washi\'s other converted films, such as Washi S and Washi Z, are black and white.',
+      ] },
+    ],
+  },
+  'washi/z': {
+    meta: { title: 'Washi Z Film | Compare UK Prices', description: 'Compare Washi Z black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi Z is an ISO 400 aerial survey film made for mapping vegetation, converted by Film Washi for still cameras. Its sensitivity reaches into near infrared, which separates greens well. Compare Washi Z prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi Z', paragraphs: [
+        'Without a filter it behaves as a fast black and white film with unusually distinct foliage. A red filter strengthens the effect, darkening skies and lifting greens towards an infrared look, while ISO 400 keeps it usable handheld.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. Washi S is the slower, finer grained converted film, and Washi F the X-ray film.',
+      ] },
+    ],
+  },
+  'washi/f': {
+    meta: { title: 'Washi F Film | Compare UK Prices', description: 'Compare Washi F black and white X-ray film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi F is a fluorographic X-ray film, made for screening lungs and converted by Film Washi for still cameras. It is ISO 100 and orthochromatic, and with no anti-halation layer its highlights glow and its grain is strong. Compare Washi F prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi F', paragraphs: [
+        'Being orthochromatic, F is blind to red, so skies render light and reds and skin tones dark. Bright points of light bloom into a soft glow, which suits night scenes, backlit portraits and anything where a rough, dreamlike look fits.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. For fine grain and crisp contrast instead, Washi S is the converted sound film, and Washi W the hand coated paper film.',
       ] },
     ],
   },

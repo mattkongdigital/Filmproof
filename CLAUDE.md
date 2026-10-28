@@ -51,7 +51,7 @@ Kodak Gold, Ilford SFX, Fujifilm Provia, Superia and Acros, Harman Red and
 Switch Azure, Lomography Earl Grey and Lady Grey, CineStill's four films, Rollei
 Superpan and Infrared, Foma Ortho 400 and R 100,
 Kentmere Pan 200, Ferrania's three films, Adox HR-50, Scala and
-CMS 20 II, and Polaroid 8x10 do at 2: two films, worth a page for its copy.
+CMS 20 II, Polaroid 8x10, and Washi's films do at 2: two films, worth a page for its copy.
 Use it only alongside copy. A range slug must not end in `-film` (the build stops), and its copy
 goes in `BRAND_SUB_CONTENT` under `<brand>/<range>`. Without copy the page
 falls back to a generated lede.

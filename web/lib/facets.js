@@ -200,6 +200,13 @@ const foma = (f) => /\b(?:ortho|retropan|reversal)\b|\bfomapan\s*r\s*100\b/i.tes
 // The speed of a Kentmere title, from the number after "Kentmere" or "Pan".
 const kentmere = (f) => (/\b(?:kentmere|pan)\s*(?:pan\s*)?(\d{3})\b/i.exec(f.display) || [])[1];
 
+// The letter that names a Washi film, from the word after "Washi" or
+// "Washi Film", with or without quotes.
+const washi = (f) => (/\bwashi\s+(?:film\s+)?["'‘’“”]?([a-z])["'‘’“”]?(?![\w])/i.exec(f.display) || [])[1]?.toLowerCase();
+// A mention is "Washi W" in range copy, or the bare capital letter where the
+// brand copy introduces the film ("W, the original", "S is sound film").
+const washiMention = (letter) => new RegExp(`\\bWashi "?${letter}"?(?![\\w])|(?<![\\w'’])${letter}(?=, | is\\b| uses\\b)`);
+
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
   { brand: 'kodak', slug: 'ektacolor-pro', label: 'Ektacolor Pro', match: (f) => /\bektacolou?r\s*pro\b/i.test(f.display) },
@@ -299,6 +306,15 @@ export const RANGES = [
   { brand: 'polaroid', slug: 'sx-70', label: 'SX-70', match: (f) => /\bsx[\s-]?70\b/i.test(f.display) },
   { brand: 'polaroid', slug: 'go', label: 'Go', mention: /\bGo film\b/, match: (f) => /\bgo\b/i.test(f.display) },
   { brand: 'polaroid', slug: '8x10', label: '8x10', minFresh: 2, match: (f) => /\b8\s*x\s*10\b/i.test(f.display) },
+  // Washi names each film by a single letter ("Washi Film S 400", "Washi
+  // 'W' 25"), read straight after "Washi" or "Washi Film". Each is one
+  // emulsion in a couple of formats, so it takes a page at two, and only a
+  // mention shaped like a film's name links, never a stray capital letter.
+  { brand: 'washi', slug: 'w', label: 'W', minFresh: 2, mention: washiMention('W'), match: (f) => washi(f) === 'w' },
+  { brand: 'washi', slug: 's', label: 'S', minFresh: 2, mention: washiMention('S'), match: (f) => washi(f) === 's' },
+  { brand: 'washi', slug: 'x', label: 'X', minFresh: 2, mention: washiMention('X'), match: (f) => washi(f) === 'x' },
+  { brand: 'washi', slug: 'z', label: 'Z', minFresh: 2, mention: washiMention('Z'), match: (f) => washi(f) === 'z' },
+  { brand: 'washi', slug: 'f', label: 'F', minFresh: 2, mention: washiMention('F'), match: (f) => washi(f) === 'f' },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
@@ -321,7 +337,7 @@ const rangeFilms = (r) => getFilms().filter((f) => f.brand === r.brand && r.matc
 // Provia, Superia, Acros, Harman Red and Switch Azure, Lomography Earl Grey
 // and Lady Grey, the CineStill films, Rollei Superpan and Infrared, and
 // Foma Ortho 400 and R 100, Kentmere Pan 200, Ferrania's three films, and
-// Adox HR-50, Scala and CMS 20 II, and Polaroid 8x10).
+// Adox HR-50, Scala and CMS 20 II, Polaroid 8x10, and Washi's films).
 function builtRanges() {
   return RANGES.filter((r) => rangeFilms(r).filter((f) => !f.expired).length >= (r.minFresh ?? MIN_COMBO_FILMS));
 }
