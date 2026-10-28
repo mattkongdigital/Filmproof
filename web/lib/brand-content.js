@@ -1431,6 +1431,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 100, Pan 100 suits bright days, landscapes and anything on a tripod, where its fine grain and smooth tones show best. It develops in ordinary black and white chemistry, at home or at any lab, which makes it a cheap film to learn developing on.',
         'Kentmere Pan 400 is the faster all rounder for dull days and street photography, and Kentmere Pan 200 sits between the two.',
       ] },
+      { heading: 'Buying and developing Pan 100', paragraphs: [
+        'Shops list the same film as Kentmere 100 and Kentmere Pan 100, and Filmproof treats them as one, so every shop\'s price appears on this page. It is sold as single rolls, multipacks and 30.5m bulk rolls, and bulk loading your own cassettes brings the cost per roll down further.',
+        'It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal. If you want the same speed with a little more latitude and a more classic look, Ilford FP4 Plus at ISO 125 is the step up from the same factory.',
+      ] },
     ],
   },
   'kentmere/pan-200': {
@@ -1441,6 +1445,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 200, Pan 200 covers most daylight shooting, with a little more room for shade and overcast days than a slower film. It develops in ordinary black and white chemistry, at home or at any lab.',
         'Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 400 the faster one for low light.',
       ] },
+      { heading: 'Buying and developing Pan 200', paragraphs: [
+        'Pan 200 is sold as single rolls and multipacks, and Filmproof divides the packs out so you can compare the price per roll. It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal, at home or at any lab that handles black and white film.',
+        'As the newest Kentmere film, it may be stocked by fewer shops than Pan 100 and Pan 400, so check the listings below before you plan a shoot around it.',
+      ] },
     ],
   },
   'kentmere/pan-400': {
@@ -1450,6 +1458,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Kentmere Pan 400', paragraphs: [
         'Pan 400 is fast enough for overcast days, street photography and indoor light, and it pushes a stop or two when you need more speed. Next to Ilford HP5 Plus it has slightly coarser grain and less latitude, but it costs less, which makes it a good film for learning, testing a camera or shooting a lot of rolls.',
         'It develops in ordinary black and white chemistry, at home or at any lab. Kentmere Pan 100 is the slower, finer grained choice for bright light, and Kentmere Pan 200 sits between the two.',
+      ] },
+      { heading: 'Buying and developing Pan 400', paragraphs: [
+        'Shops list the same film as Kentmere 400 and Kentmere Pan 400, and Filmproof treats them as one, so every shop\'s price appears on this page. It is sold as single rolls, multipacks and 30.5m bulk rolls, and bulk loading your own cassettes brings the cost per roll down further.',
+        'It works with the common developers, such as Ilfosol 3, ID-11 and Rodinal. When you push it, develop for the speed you shot it at, and expect the grain and contrast to rise faster than they would on HP5 Plus.',
       ] },
     ],
   },
