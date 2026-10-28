@@ -7,6 +7,7 @@ export const OPPORTUNITY_TYPES = [
   { slug: 'competition', label: 'Competitions', one: 'Competition' },
   { slug: 'open-call', label: 'Open calls', one: 'Open call' },
   { slug: 'commission', label: 'Commissions', one: 'Commission' },
+  { slug: 'grant', label: 'Grants', one: 'Grant' },
 ];
 
 // An entry with no confirmed deadline would otherwise stay listed for ever.

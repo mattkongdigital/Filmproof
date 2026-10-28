@@ -1,5 +1,5 @@
 // opportunities/sources.config.js
-// Where the opportunities board looks for competitions, open calls and
+// Where the opportunities board looks for competitions, open calls, grants and
 // commissions. Adding a source is a new entry here; see "Adding an opportunity
 // source" in CLAUDE.md for the checks to do first.
 //
@@ -33,13 +33,16 @@ export const OPPORTUNITY_SOURCES = [
     home: 'https://fastforward.photography/opportunities-category/commission/',
     // Only the categories in scope. The archive feed (/opportunities/feed/) is
     // mostly jobs, fellowships and conference calls — nine of its ten items on
-    // 19 October — and none of those are filed under these five.
+    // 19 October — and none of those are filed under the first five.
     feeds: [
       'https://fastforward.photography/opportunities-category/commission/feed/',
       'https://fastforward.photography/opportunities-category/award/feed/',
       'https://fastforward.photography/opportunities-category/open-exhibition/feed/',
       'https://fastforward.photography/opportunities-category/submission/feed/',
       'https://fastforward.photography/opportunities-category/publication/feed/',
+      // "Grants & Fellowship": grants and bursaries, mixed in with curatorial
+      // fellowships, PhDs and scholarships the extraction sets aside.
+      'https://fastforward.photography/opportunities-category/fellowship/feed/',
     ],
     union: true,
     itemPath: '/opportunities/',
@@ -99,6 +102,19 @@ export const OPPORTUNITY_SOURCES = [
     prefilter: true,
   },
   {
+    id: 'analogue-wonderland',
+    name: 'Analogue Wonderland',
+    home: 'https://analoguewonderland.co.uk/blogs/store-news',
+    // The UK film shop's store-news blog, where it announces its own film-only
+    // competitions (the Kodak seasonal ones, the Big Film Photowalk) among
+    // shop news and job ads. Its Shopify terms claim broad rights over contest
+    // entries, so read each competition's own rules for the rights flags.
+    feeds: ['https://analoguewonderland.co.uk/blogs/store-news.atom'],
+    itemPath: '/blogs/store-news/',
+    film: 'film-specific',
+    prefilter: true,
+  },
+  {
     id: 'kosmo-foto',
     name: 'Kosmo Foto',
     home: 'https://kosmofoto.com/',
@@ -122,7 +138,8 @@ export const OPPORTUNITY_SOURCES = [
 export const PREFILTER_WORDS = [
   'competition', 'open call', 'call out', 'call-out', 'callout', 'call for entries',
   'call for entry', 'submissions',
-  'submit', 'award', 'prize', 'commission', 'deadline', 'enter',
+  'submit', 'award', 'prize', 'commission', 'deadline', 'enter', 'grant', 'bursary',
+  'funding',
 ];
 
 // Sent with every request, so a site owner can see who is fetching and why.

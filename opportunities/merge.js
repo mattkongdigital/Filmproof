@@ -53,11 +53,13 @@ for (const x of extractions) {
     continue;
   }
 
-  // The candidate's own page, plus the official page when one was fetched.
+  // The candidate's own page, plus any official pages fetched for it. Often
+  // one, but a call can put its deadline on one page and its fee on another
+  // (a terms page, an FAQ), so `official_page` may also be a list.
   const pages = [loadPage(cand.id)];
-  if (x.official_page) {
-    const p = loadPage(x.official_page);
-    if (!p) fail(`extraction for ${cand.id} names official_page "${x.official_page}", which was never fetched`);
+  for (const pid of [x.official_page ?? []].flat()) {
+    const p = loadPage(pid);
+    if (!p) fail(`extraction for ${cand.id} names official_page "${pid}", which was never fetched`);
     pages.push(p);
   }
   const { entry, review, dropped: why } = validateEntry(x.entry, pages.filter(Boolean));
