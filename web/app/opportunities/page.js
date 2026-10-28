@@ -3,7 +3,7 @@ import { liveOpportunities } from '../../lib/opportunities';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { OpportunityBoard } from '../../components/opportunity-board';
 
-const DESCRIPTION = 'Competitions, open calls and commissions for film photographers, mostly UK, checked every week. Each links to the organiser’s own page for the full terms.';
+const DESCRIPTION = 'Competitions, open calls, commissions and grants for film photographers, mostly UK, checked every week. Each links to the organiser’s own page for the full terms.';
 
 export function generateMetadata() {
   const live = liveOpportunities();
@@ -24,10 +24,10 @@ export default function OpportunitiesPage() {
       <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Opportunities' }]} />
       <header className="cat-head">
         <div className="eyebrow">Opportunities</div>
-        <h1>Competitions, open calls &amp; commissions</h1>
+        <h1>Competitions, open calls, commissions &amp; grants</h1>
         <p className="lede">
-          Places to enter, submit and show work made on film, gathered every week and closing soonest
-          first. Summaries are ours; the organiser&apos;s page is the authority on deadlines, fees and
+          Places to enter, submit and show work made on film, and funding to make more of it,
+          gathered every week and closing soonest first. Summaries are ours; the organiser&apos;s page is the authority on deadlines, fees and
           rights, so read it before you enter.
         </p>
       </header>

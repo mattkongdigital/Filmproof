@@ -6,7 +6,7 @@
 
 import { normaliseUrl, foldText } from './lib.js';
 
-export const TYPES = ['competition', 'open-call', 'commission'];
+export const TYPES = ['competition', 'open-call', 'commission', 'grant'];
 export const REGIONS = ['uk', 'worldwide', 'elsewhere'];
 export const FILM = ['film-specific', 'film-friendly'];
 

@@ -111,7 +111,7 @@ title is the organiser's).
 
 ## Opportunities board
 
-`/opportunities/` lists competitions, open calls and commissions a film
+`/opportunities/` lists competitions, open calls, commissions and grants a film
 photographer could enter. It is one evergreen page, filtered by type in the
 browser — no per-listing or per-type URLs, so nothing churns as calls open and
 close.

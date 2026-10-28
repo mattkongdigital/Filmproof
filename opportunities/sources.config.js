@@ -1,5 +1,5 @@
 // opportunities/sources.config.js
-// Where the opportunities board looks for competitions, open calls and
+// Where the opportunities board looks for competitions, open calls, grants and
 // commissions. Adding a source is a new entry here; see "Adding an opportunity
 // source" in CLAUDE.md for the checks to do first.
 //
@@ -122,7 +122,8 @@ export const OPPORTUNITY_SOURCES = [
 export const PREFILTER_WORDS = [
   'competition', 'open call', 'call out', 'call-out', 'callout', 'call for entries',
   'call for entry', 'submissions',
-  'submit', 'award', 'prize', 'commission', 'deadline', 'enter',
+  'submit', 'award', 'prize', 'commission', 'deadline', 'enter', 'grant', 'bursary',
+  'funding',
 ];
 
 // Sent with every request, so a site owner can see who is fetching and why.
