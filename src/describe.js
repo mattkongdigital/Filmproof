@@ -160,6 +160,17 @@ export function extractExp(tags = '', body = '') {
   return m ? Number(m[1]) : null;
 }
 
+// A speed below the two digits extractIso() reads. FPP's slowest films are
+// ISO 0.8 to 6, and the first speed in their descriptions is the "dial in ISO
+// 25" tip, so the shop's "ISO 6" tag is read instead, but only when its own
+// "ISO: 6" spec line agrees, as Analogue Wonderland also tags FPP Love, an
+// ISO 200 film, "ISO 6". Fills in the speed shown, never the film's key.
+export function extractLowIso(tags = '', body = '') {
+  const tag = String(tags || '').match(/(?:^|,)\s*(?:iso|asa)\s*(\d(?:\.\d)?)\s*(?=,|$)/i);
+  const spec = String(body || '').match(/\biso:\s*(\d{1,4}(?:\.\d)?)\b/i);
+  return tag && spec && Number(spec[1]) === Number(tag[1]) ? Number(tag[1]) : null;
+}
+
 export function extractIso(tags = '', body = '') {
   const hay = (tags + ' ' + body).toLowerCase();
   const m = hay.match(/\b(?:iso|asa)\s*(\d{2,4})\b/) || hay.match(/\b(\d{2,4})\s*(?:iso|asa)\b/);
