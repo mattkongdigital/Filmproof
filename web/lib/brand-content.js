@@ -227,18 +227,20 @@ export const BRAND_CONTENT = {
     ],
   },
   mrnegative: {
-    meta: { title: 'Mr Negative Film Prices UK | Compare', description: 'Compare Mr Negative film prices from UK retailers on Filmproof. Bold, boldly-named 35mm colour and black and white film from Australia.' },
-    intro: "Mr Negative is a small, design-led Australian film brand known for bold, provocative packaging and a huge catalogue of creatively named 35mm colour and black and white stocks. It's a young brand built on personality and presentation as much as photographic pedigree. Compare Mr Negative film prices on Filmproof.",
+    meta: { title: 'Mr Negative Film Prices UK | Compare', description: 'Compare Mr Negative film prices from UK shops. Respooled Kodak Vision3 cine film, colour and black and white 35mm such as Secret Sauce, Cult Classic and Cash Only, and FilmNeverDie collaborations.' },
+    intro: 'Mr Negative is a film shop and lab in Footscray, Melbourne, which sells 35mm film under its own name in distinctive, loudly designed boxes. Its range runs from respooled Kodak Vision3 cinema film to colour and black and white stocks with names like Secret Sauce, Born To Lose and Cash Only. Compare Mr Negative film prices from UK shops below.',
     sections: [
-      { heading: "The Story of Mr Negative", paragraphs: [
-        "Mr Negative is a very new addition to the film photography world, founded by husband-and-wife team Gareth and Emma in Footscray, Victoria, Australia, around 2024-2025. Neither founder came from a traditional film manufacturing background, Gareth's career was in supply chain and product design, Emma's in aviation and global sourcing, and the pair operate by appointment only from a shared business hub.",
-        "Mr Negative doesn't manufacture its own film. Instead, it builds its range by sourcing and respooling existing film stock, including genuine Kodak Vision3 motion picture film for products like the Mr Negative 250D, and packaging it under a huge catalogue of bold, sometimes cheeky product names. The brand leans heavily into design and personality, treating film photography as much as a lifestyle statement as a technical pursuit.",
+      { heading: 'Where Mr Negative film comes from', paragraphs: [
+        "Mr Negative was founded in Footscray, Victoria, by the husband and wife team Gareth and Emma. As well as its own films it sells cameras and darkroom supplies and runs a film processing lab. Mr Negative doesn't make film itself: it packs film made by others under its own names, and for the cine films it says which Kodak stock is inside.",
+        "Its films carry no expiry date on the box or cassette, so if you won't shoot a roll soon, keep it in the fridge.",
       ] },
-      { heading: "Mr Negative's Camera Film Ranges", paragraphs: [
-        "With well over 100 different products in its catalogue, Mr Negative offers an unusually wide spread of 35mm colour and black and white films, mostly in the ISO 200-400 range, under names like Tattoo Flash 200, Born to Lose 200, Parental Advisory 400, Black Cat and Arcade 400. Its Silver Screen Negative 200 and Mr Negative 250D (based on genuine Kodak Vision3 motion picture stock) sit alongside the more experimental end of the range. The brand also sells cameras, film processing services and darkroom supplies.",
+      { heading: 'Cinema film', paragraphs: [
+        "The 50D, 250D, 200T and 500T are Kodak Vision3 motion picture film, respooled into DX coded 35mm cassettes, and the shop that sells them describes the stock as fresh from Kodak. The D films are balanced for daylight and the T films for tungsten light indoors. Silver Screen Negative is a daylight cine film for shooting between ISO 200 and 400, and Bat Country is a 400 speed tungsten film that pushes to 800.",
+        "Unlike CineStill, these films keep the remjet layer, the black backing that cinema film is made with, so highlights don't get a red halation glow. Remjet has to come off before development, so they need ECN-2 processing or a lab that will remove it, not an ordinary C-41 run.",
       ] },
-      { heading: "Choosing the Right Mr Negative Film", paragraphs: [
-        "With such a large range, Mr Negative is worth browsing for a look and a name that appeals to you as much as a specific technical spec, many of the stocks share similar characteristics but different personalities and packaging. For a cinematic look rooted in genuine motion picture stock, try the 250D. Compare Mr Negative film prices on Filmproof to find the best deal.",
+      { heading: 'Colour and black and white', paragraphs: [
+        "The colour films are C-41, which any lab can develop. Secret Sauce is a warm 100 speed film for bright days, Born To Lose a 200 speed film with retro colour, and Same Same But Different, DayLIGHT Robbery, Fragile and Arcade are 400 speed films. For low light there are Cult Classic 800 and 700S, an ISO 800 tungsten balanced film that can also be shot at 400.",
+        "Mr Negative has made two films with the Melbourne lab FilmNeverDie. Zombie is a desaturated, grainy 400 speed film, and Push It is a 400 speed film DX coded at 1600 and marked for a two stop push, so you load it, shoot it at 1600 and tell the lab. The black and white films, Cash Only 100, Black Market 200, and Black Cat and Parental Advisory 400, develop in ordinary black and white chemistry.",
       ] },
     ],
   },
