@@ -1521,6 +1521,10 @@ export const BRAND_SUB_CONTENT = {
         'Orthopanchromatic means the film is a little less sensitive to red than most modern black and white films, so skin and red tones render slightly darker and skies keep more tone, a look closer to older films. At ISO 100 it suits daylight and detailed work, and it develops in ordinary black and white chemistry, at home or at any lab.',
         'HR-50 is Adox\'s slower, ultra fine grained film, Scala its black and white slide film, and CMS 20 II its extreme resolution film.',
       ] },
+      { heading: 'Buying and developing CHS 100 II', paragraphs: [
+        'Shops list it as both CHS 100 II and CHS 100, and Filmproof keeps them on one page, so every shop\'s price is compared together. Sheet film is priced per sheet, so you can compare a box of 4x5 fairly against rolls.',
+        'It works in the common black and white developers. Adox makes its own too, including Adonal, its version of the Rodinal formula, and Atomal 49, a fine grain developer.',
+      ] },
     ],
   },
   'adox/scala': {
@@ -1530,6 +1534,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Developing Scala', paragraphs: [
         'Scala needs a black and white reversal process to give slides, which few labs offer, so check with your lab before you shoot it, or develop it at home with a reversal kit. Like any slide film it has less exposure latitude than a negative, so meter carefully.',
         'For black and white negatives, HR-50 is the same ultra fine grained base as a negative film, and CHS 100 II is Adox\'s everyday film.',
+      ] },
+      { heading: 'Buying Scala', paragraphs: [
+        'When you compare prices, allow for processing: black and white reversal costs more and takes longer than ordinary development, and few labs offer it, so it often has to be posted to a specialist.',
+        'Adox also makes Pan-X 100 Reverso, a black and white reversal film in Super 8 cassettes, for anyone who wants positive images from a cine camera.',
       ] },
     ],
   },
@@ -1541,6 +1549,10 @@ export const BRAND_SUB_CONTENT = {
         'CMS 20 II is best rated around ISO 12 to 20, so it wants bright light or a tripod. It needs a special low contrast developer such as Adox Adotech to give a full range of tones; in an ordinary developer it gives the stark contrast of a document copy.',
         'For fine grain without the special handling, HR-50 is Adox\'s ultra fine grained ISO 50 film, and CHS 100 II its everyday film.',
       ] },
+      { heading: 'Buying and developing CMS 20 II', paragraphs: [
+        'Adotech is worth buying with the film, and some shops sell the two together: in an ordinary developer CMS 20 II gives stark, document style contrast rather than a full range of tones.',
+        'To make the most of its resolution, use a sharp lens, a tripod and careful focusing, as the film will show any softness that a coarser film would hide.',
+      ] },
     ],
   },
   'adox/hr-50': {
@@ -1550,6 +1562,9 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting HR-50', paragraphs: [
         'At ISO 50, HR-50 wants bright light or a tripod, and rewards it with fine detail for landscapes, architecture and anything you plan to enlarge. Its extended red sensitivity means a red filter darkens skies strongly, and a deep red filter takes it towards an infrared look. It develops in ordinary black and white chemistry, at home or at any lab.',
         'Scala 50 is the same base made as a slide film, CHS 100 II is Adox\'s faster, classic looking film, and CMS 20 II goes further still for resolution.',
+      ] },
+      { heading: 'Developing HR-50', paragraphs: [
+        'HR-50 develops in the common black and white developers, at home or at any lab that handles black and white film, and Adox\'s own Adonal and Atomal 49 both suit it. Its fine grain holds up well in a high acutance developer, which makes the most of its sharpness.',
       ] },
     ],
   },
