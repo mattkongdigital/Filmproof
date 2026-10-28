@@ -65,20 +65,21 @@ export const BRAND_CONTENT = {
     ],
   },
   agfa: {
-    meta: { title: 'AgfaPhoto Vista Film Prices UK | Compare', description: 'Compare AgfaPhoto Vista Plus film prices from UK retailers on Filmproof. Affordable, punchy colour film for everyday photography.' },
-    intro: "Agfa is one of the oldest names in photography, with roots stretching back to 1867. Today the AgfaPhoto brand lives on through the hugely popular Vista Plus range, an affordable, vibrant colour negative film loved for its punchy saturation and budget-friendly price. Compare AgfaPhoto Vista prices from UK retailers on Filmproof.",
+    meta: { title: 'AgfaPhoto Film Prices UK | Compare', description: 'Compare AgfaPhoto film prices from UK shops. APX 100, APX 200 Pro and APX 400 black and white film and Color 400 colour negative, in 35mm.' },
+    intro: 'AgfaPhoto is the film brand that carries on the Agfa name, one of the oldest in photography. Today it sells affordable 35mm film: the APX 100, APX 200 Pro and APX 400 black and white films and Color 400, a colour negative film that replaced the much loved Vista. Compare AgfaPhoto film prices from UK shops below.',
     sections: [
-      { heading: "The History of Agfa", paragraphs: [
-        "Agfa, short for Aktien-Gesellschaft für Anilinfabrikation, was founded in Berlin in 1867 as a dye manufacturer before moving into photography in the early twentieth century. It grew into one of the so-called \"big four\" film manufacturers alongside Kodak, Fujifilm and Ilford, and was responsible for major innovations including Agfacolor, one of the earliest practical colour film processes, which predates Kodachrome.",
-        "In 1964, Agfa merged with the Belgian company Gevaert to form Agfa-Gevaert. As film sales declined sharply in the digital era, Agfa-Gevaert exited the consumer film market altogether in 2004, discontinuing the Vista range and other well-known consumer products.",
-        "The Agfa name lived on, however, licensed for use as the AgfaPhoto brand. Rather than manufacturing film itself, AgfaPhoto has operated as a brand for film produced elsewhere and rebranded for the consumer market. The original Agfa Vista 200, which used Japanese-sourced film stock, was discontinued in 2018 when that supply ended, but the Vista Plus range has continued to be sold since, remaining one of the most affordable colour films on the market and a firm favourite for holiday snapshots, disposable-style cameras and Lomography-inspired shooting.",
+      { heading: 'Where AgfaPhoto film comes from', paragraphs: [
+        'Agfa was founded in Berlin in 1867 as a dye maker, and its name is short for Aktien-Gesellschaft für Anilinfabrikation. It moved into photography in the 1880s and became one of the great film makers, launching Agfacolor Neu in 1936, one of the first modern colour films, and Rodinal developer, which is still made today. In 1964 it merged with the Belgian company Gevaert to form Agfa-Gevaert.',
+        "Agfa-Gevaert left consumer photography in 2004, spinning it off as AgfaPhoto, which went bankrupt the following year. The AgfaPhoto name has since been licensed to other companies, and the film is sold in Europe by Lupus Imaging & Media of Germany. AgfaPhoto doesn't run a film factory of its own, so its films are made for it by other manufacturers.",
       ] },
-      { heading: "Agfa / AgfaPhoto's Camera Film Ranges", paragraphs: [
-        "Vista Plus 200 is an everyday consumer colour negative film with warm, punchy tones and an extremely friendly price, making it a popular choice for students, holidaymakers and anyone picking up film for the first time. Vista Plus 400 is the faster option, offering greater exposure latitude for indoor shots and lower light conditions.",
-        "Agfa's historic professional and slide film ranges, such as Precisa slide film and various Agfacolor stocks, are no longer in production, but expired rolls remain sought after by collectors and enthusiasts of the brand's distinctive vintage colour rendering.",
+      { heading: 'APX black and white', paragraphs: [
+        'APX was the name of Agfa\'s own black and white films, and AgfaPhoto has revived it. APX 100 is the slower, finer grained film for good light, and APX 400 is the all rounder for overcast days and indoors. The current versions are widely reported to be made by Harman, as their development times match Kentmere 100 and 400 exactly, so they are not the original Agfa emulsions. APX 200 Pro, new for 2026, sits between them at ISO 200.',
       ] },
-      { heading: "Choosing the Right Agfa Film", paragraphs: [
-        "If you're looking for one of the cheapest ways into colour film photography, or simply want a bright, punchy look for holiday and lifestyle shots, Vista Plus 200 is ideal for bright, sunny conditions, while Vista Plus 400 handles overcast days and indoor shooting more comfortably. Compare AgfaPhoto Vista prices on Filmproof to find the best value roll.",
+      { heading: 'Color 400', paragraphs: [
+        'AgfaPhoto Vista, once one of the cheapest colour films on the high street, has been discontinued. Color 400 is its replacement, a new ISO 400 colour negative film with 24 exposures in a DX coded cassette, so cameras that read DX codes set the speed themselves. It suits everyday shooting, from bright days to dull ones.',
+      ] },
+      { heading: 'Developing AgfaPhoto film', paragraphs: [
+        'Color 400 is ordinary C-41 colour negative film, which any lab that develops colour film can process. The APX films develop in ordinary black and white chemistry, at home or at any lab that handles black and white film.',
       ] },
     ],
   },
