@@ -183,19 +183,25 @@ export const BRAND_CONTENT = {
     ],
   },
   fpp: {
-    meta: { title: 'FPP Film Prices UK | Compare', description: 'Compare Film Photography Project (FPP) film prices from UK retailers on Filmproof. Dracula 64, Frankenstein 200 and more rare stocks.' },
-    intro: "The Film Photography Project (FPP) is a US-based film photography community and store known for rescuing and repackaging rare, unusual film stocks under quirky horror-movie-inspired names. From Dracula 64 to Frankenstein 200, FPP film is a favourite for photographers who love a bit of unpredictable, experimental character. Compare FPP film prices on Filmproof.",
+    meta: { title: 'FPP Film Prices UK | Compare', description: 'Compare Film Photography Project (FPP) film prices from UK shops. Svema, Derev Pan, Color 125, X-Ray, Sun, Blue Ultra, Double-X and Cine8 movie film, in 35mm, 120, 620 and more.' },
+    intro: "The Film Photography Project, FPP for short, is an American podcast and shop that finds unusual film, from Ukrainian Svema stock and aerial film to X-ray, surveillance and cinema film lab stock, and rolls it for ordinary cameras. It is the place to look for something different, or for film in a size nobody else makes, like 620. Compare FPP film prices from UK shops below.",
     sections: [
-      { heading: "The Story of FPP", paragraphs: [
-        "The Film Photography Project was founded in 2009 by Michael Raso in the United States, growing out of a podcast and online community dedicated to keeping film photography alive. What began as media and community content, podcasts, videos and a busy online forum, expanded into an online store offering hard-to-find film, cameras and darkroom supplies.",
-        "FPP isn't a film manufacturer in the traditional sense. Instead, the team sources surplus and unusual film stock from various origins, including former Soviet manufacturers such as Svema (Ukraine) and Tasma (Russia), along with motion picture and industrial film, then hand-rolls, respools and repackages it into ready-to-shoot cassettes under FPP's own distinctive branding. This rescue-and-repurpose approach means every batch can behave a little differently, part of the appeal for photographers who enjoy unpredictable results.",
+      { heading: 'Where FPP film comes from', paragraphs: [
+        'Michael Raso started the Film Photography Project in 2009 as a podcast about shooting film, with the first episode going out in October that year. It grew into a community and a shop, and it now sells film under its own name, which shops in the UK stock.',
+        "FPP doesn't make film. It buys stock made for other jobs, much of it industrial or technical, and cuts, spools and packs it for still and cine cameras. Some films are fresh, like Svema from Ukraine and Tasma NK-2 from Russia, and some are a one off run, so a favourite can come and go.",
       ] },
-      { heading: "FPP's Camera Film Ranges", paragraphs: [
-        "FPP's horror-movie-themed film names hint at the fun, experimental spirit behind the brand. Dracula 64, WolfMan 100, Mummy 400 and Frankenstein 200 are colour and black and white stocks in 35mm, 120 and large format, each with its own character drawn from the source film stock. FPP BW IR offers infrared-sensitive black and white for creative effects, while Derev Pan 100/400 and Tasma NK-2 100 continue the brand's tradition of reviving obscure Eastern European emulsions.",
-        "FPP Svema Color 125 and the ultra-slow FPP SUN Color (rated at ISO 1) sit at the more experimental end of the range, alongside Super Positive Film, a black and white reversal stock for those chasing true slides.",
+      { heading: 'Everyday FPP black and white', paragraphs: [
+        'The Svema Foto 100, 200 and 400 films and Svema FN64 come from the old Soviet maker in Ukraine, on a plastic base that dries flat and scans easily. Derev Pan 100, 200 and 400 were adapted from aerial film, which makes them sharp and fine grained. Eastman Double-X is the classic Kodak cinema film, rolled for 35mm, and Tasma NK-2 is a 100 speed film made for FPP, which should be loaded in dim light as its base can pipe light into the cassette.',
       ] },
-      { heading: "Choosing the Right FPP Film", paragraphs: [
-        "If you want a reliable everyday roll, FPP isn't really the place to look, this is a brand for photographers who enjoy character and a little unpredictability. Try Frankenstein 200 or Mummy 400 for general colour shooting, Dracula 64 for fine-grain daylight work, or FPP BW IR for creative infrared effects. Compare FPP film prices on Filmproof to find the best deal on these hard-to-find stocks.",
+      { heading: 'The unusual ones', paragraphs: [
+        'Several FPP films are very slow, made for copying or lab work rather than cameras. Sun and Low ISO Colour Negative are Kodak film duplicating stocks, rated at around ISO 1 and 1.6, and Blue Ultra, at ISO 3, gives soft blue and violet colour with bright reds. Svema Mz3 and Svema Blue are ISO 3 and 6 black and white films, Fine Grain Six was made for archival copies of colour negatives, and Blue Sensitive and Low ISO Blue Sensitive need daylight or flash, since they barely see red or tungsten light. Super Positive, a film made for fingerprint records, gives a positive straight from normal black and white chemistry.',
+        "X-Ray film comes in 4x5 sheets, 120 and 620, and like Sonic 25 it is orthochromatic, so it is blind to red. X-Ray film also has no anti-halation layer, so highlights glow. Love is a 200 speed film from traffic surveillance cameras, Color 125 is a fine grained colour negative film in 35mm and 120, and Red Scale is a 25 speed redscale film whose reds and yellows shift with exposure.",
+      ] },
+      { heading: 'Cine8 and 620 film', paragraphs: [
+        "FPP's Cine8 range is regular double 8mm movie film on 25ft spools, for 8mm cine cameras rather than Super 8. It includes 40D, 200T and 500T colour negative for ECN-2, 100D colour reversal for E-6, 400BW and Double-X black and white negative, and BW40 black and white reversal. FPP also rolls 620 film for old box cameras like the Brownie, in black and white, colour and a sampler of Kodak films.",
+      ] },
+      { heading: 'Developing FPP film', paragraphs: [
+        "Check each film's process before you shoot it. The black and white films develop in ordinary black and white chemistry, Color 125 and Red Scale are C-41, and the cine film is split between ECN-2, E-6 and black and white reversal. Low speed and technical films often reward a low contrast developer, and FPP sells its own, D96.",
       ] },
     ],
   },
