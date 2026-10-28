@@ -1035,6 +1035,10 @@ export const BRAND_SUB_CONTENT = {
         'Exposure is the creative control. Harman suggests shooting between EI 100 and 200, with a usable range from 50 to 400. Underexposed frames give deeper reds, stronger shadows and coarser grain, while overexposed frames turn brighter and finer grained, with hints of green appearing among the oranges.',
         'For colour the right way round, Phoenix 125 and Phoenix II are Harman\'s colour negatives, and Switch Azure 125 swaps colours rather than tinting them red.',
       ] },
+      { heading: 'Developing and scanning Harman Red', paragraphs: [
+        'Harman Red develops in standard C-41 chemistry at any lab, in 35mm or 120. Tell the lab it is redscale, or its scanner may try to correct the colour back towards normal and lose the effect you shot for.',
+        'Like Phoenix, it has no orange mask, so the negatives look unusual on the light box, and the scanner settings have a big say in how deep the reds come out. If you scan at home, try a few settings before you settle on a look.',
+      ] },
     ],
   },
   'harman/switch-azure': {
@@ -1045,6 +1049,10 @@ export const BRAND_SUB_CONTENT = {
         'Switch Azure is rated at ISO 125 and works best on sunny or bright overcast days, where strong colour gives the switch the most to work with. It has fine grain and a wide exposure latitude, so it forgives a meter reading that is a little out.',
         'The scanner has a large say in the final look. Harman notes that different scanners can render Azure negatives quite differently, so it is worth telling your lab what film it is, or experimenting if you scan at home.',
         'Harman\'s other colour films are Phoenix, as the original Phoenix 125 and the second generation Phoenix II, and Harman Red 125, the original Phoenix spooled in reverse for redscale.',
+      ] },
+      { heading: 'Developing and buying Switch Azure', paragraphs: [
+        'Switch Azure develops in standard C-41 chemistry at any lab, in 35mm or 120. Shops sometimes sell it in bundles or collector\'s editions alongside Harman\'s other colour films, and Filmproof compares them on price per roll.',
+        'The colour switch is in the negative itself, so any lab will return it, though how strong it looks still depends on the scan.',
       ] },
     ],
   },
