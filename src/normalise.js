@@ -230,6 +230,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bsx[\s-]?70\b/g, 'sx70')
     .replace(/\bsuperia\s+venus\b/g, 'venus')   // sold as both
     .replace(/\bsun[\s-]?kissed\b/g, 'sunkissed')
+    .replace(/\bagfa\s+photo\b/g, 'agfaphoto')   // Film Camera Store's "AGFA Photo APX"
     .replace(/\b160\s?ns\b/g, '160 ns')          // Fuji Pro "160NS" / "160 NS"
     .replace(/\btesla\s+(ii|i)\b/g, (m, r) => `tesla ${r.length}`)   // Revolog Tesla I / 1
     // "Metropolis XR" is Lomography's current name for Metropolis, and the same

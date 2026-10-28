@@ -167,6 +167,9 @@ export const LEGACY_FILM_SLUGS = {
   'lomography-lomochrome-92-sun-kissed-400-iso-120-film': 'lomography-lomochrome-colour-92-sunkissed-120-film',
   'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
   'lomography-lomochrome-sun-kissed-400-35mm-film': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
+  // Film Camera Store writes AgfaPhoto as "AGFA Photo", which kept "photo"
+  // in the film's name and gave APX 100 a second page.
+  'agfa-photo-apx-100-professional-black-white-35mm-film': 'agfaphoto-apx-100-35mm-film',
   // Adox CHS 100 II, written with or without the "II", is one film.
   'adox-chs-100-ii-35mm-black-white-film': 'adox-chs-100-35mm-film',
   // Sheet film is priced per sheet now, and a page lists every box of its
