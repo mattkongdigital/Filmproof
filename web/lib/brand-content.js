@@ -871,6 +871,14 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying Instax Mini film', paragraphs: [
         'Instax Mini comes in packs of ten shots and twin packs of twenty, and larger bundles bring the price per shot down, so compare on price per shot rather than per box. The frame designs change the border, not the film, so a Rainbow or Sky Blue pack develops just like the plain white one. Instax Mini will not fit Instax Square or Instax Wide cameras, so check your camera before you buy.',
       ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Mini fits every Instax Mini camera, from simple point and shoots such as the Mini 12 to the hybrid Mini Evo, and the Mini Link smartphone printer. It also fits a number of other makers\' instant cameras built around the Mini format, so check your camera\'s manual for the film it names.',
+        'For a bigger print, Instax Square gives a square image and Instax Wide one twice the width of Mini, but each needs its own camera.',
+      ] },
+      { heading: 'Shooting and storing Instax Mini', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Mini sells for less.',
+      ] },
     ],
   },
   'fujifilm/instax-square': {
@@ -880,6 +888,14 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying Instax Square film', paragraphs: [
         'Instax Square is sold in packs of ten shots and in twin packs, so compare on price per shot. It only fits Square format cameras and printers, not Mini or Wide models. Black frame and coloured frame editions use the same film with a different border.',
       ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Square fits Fujifilm\'s Square cameras, such as the SQ1 and SQ40, and the Square Link smartphone printer, along with a few other makers\' cameras built for the format. The square frame suits portraits and still life, and gives a print noticeably bigger than Mini.',
+        'Instax Mini is the smaller, cheaper format, and Instax Wide the largest, but each needs its own camera.',
+      ] },
+      { heading: 'Shooting and storing Instax Square', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Square sells for less.',
+      ] },
     ],
   },
   'fujifilm/instax-wide': {
@@ -887,7 +903,15 @@ export const BRAND_SUB_CONTENT = {
     intro: 'Fujifilm Instax Wide is the largest Instax format, with an image of about 99 by 62mm, twice the width of Instax Mini. It fits Instax Wide cameras and printers, and comes in colour, monochrome and framed editions. Compare Fujifilm Instax Wide prices from UK shops below.',
     sections: [
       { heading: 'Buying Instax Wide film', paragraphs: [
-        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. The wider frame suits groups and landscapes better than Mini. It fits only Wide format cameras and printers, not Instax Mini or Instax Square models.',
+        'Instax Wide is sold in packs of ten shots and twin packs of twenty, so compare on price per shot. It fits only Wide format cameras and printers, not Instax Mini or Instax Square models.',
+      ] },
+      { heading: 'Cameras and printers', paragraphs: [
+        'Instax Wide fits Fujifilm\'s Wide cameras, such as the Wide 300 and Wide 400, and the Wide Link smartphone printer. The wider frame suits groups, landscapes and weddings, where a Mini print would feel cramped.',
+        'Instax Mini and Instax Square are the smaller formats, each with its own cameras.',
+      ] },
+      { heading: 'Shooting and storing Instax Wide', paragraphs: [
+        'All Instax film is rated at ISO 800 and develops on its own in about a minute and a half, faster in warmth and slower in the cold. Keep a fresh print out of bright light and away from heat while it develops, and there is no need to shake it. On cold days, tuck the print into an inside pocket so the colour comes through properly.',
+        'Store unopened packs somewhere cool, ideally a fridge, and let a pack reach room temperature before loading it. Each box carries an expiry date, and older film tends towards weaker colour and a warm or green cast, which is why expired Instax Wide sells for less.',
       ] },
     ],
   },
