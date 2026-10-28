@@ -1199,6 +1199,10 @@ export const BRAND_SUB_CONTENT = {
         'RPX 25 is a very slow, very fine grained film for bright light, landscapes and work on a tripod. RPX 100 is the everyday daylight speed, and RPX 400 the fast all rounder for street photography, dull days and interiors, with more visible grain.',
         'All three develop in ordinary black and white chemistry, at home or at any lab. For a film with extended red sensitivity, look at Retro or Superpan, for true infrared, Rollei Infrared, and for the opposite, Ortho 25 Plus, which is blind to red.',
       ] },
+      { heading: 'Where RPX comes from', paragraphs: [
+        'Rollei film is made to order by other manufacturers, and RPX is widely reported to come from Harman, the Cheshire maker of Ilford. It has a classic, traditional look rather than the very smooth tones of a tabular grain film, and it works in the common black and white developers.',
+        'RPX 400 is also sold in 30.5m bulk rolls for loading your own cassettes, which brings the cost per roll down further.',
+      ] },
     ],
   },
   'rollei/retro': {
@@ -1208,6 +1212,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Retro 80S or 400S?', paragraphs: [
         'Retro 80S is the slower, finer grained of the two, suited to bright light and detailed subjects. Retro 400S is the faster film for changeable light and everyday shooting. With a deep red filter both can give an infrared look, with dark skies and pale foliage, at the cost of a few stops of exposure.',
         'Both develop in ordinary black and white chemistry. RPX is Rollei\'s traditional black and white range, and Superpan and Rollei Infrared go further towards infrared.',
+      ] },
+      { heading: 'The clear polyester base', paragraphs: [
+        'Both Retro films are coated on a clear polyester base, which lies flat in the scanner and the enlarger and scans cleanly. A clear base can pipe light along the film, so load and unload it in subdued light rather than bright sun.',
+        'Retro 80S can be rated anywhere from ISO 32 to 100 to suit the light and the contrast you want, and Retro 400S pushes to 800 when you need more speed.',
       ] },
     ],
   },
@@ -1219,6 +1227,10 @@ export const BRAND_SUB_CONTENT = {
         'The infrared look comes from the filter. A deep red or infrared filter blocks most visible light, so give several stops of extra exposure, use a tripod, and bracket while you learn how your filter behaves. Sunny days with plenty of foliage show the effect most strongly.',
         'Superpan develops in ordinary black and white chemistry. Rollei Infrared reaches further into infrared for a stronger effect, and Retro 80S and 400S share the extended red sensitivity.',
       ] },
+      { heading: 'Without a filter', paragraphs: [
+        'Even without a filter, Superpan\'s red sensitivity renders skies a little darker than an ordinary film would. A yellow or orange filter strengthens that gently without the exposure cost of a deep red one, which makes Superpan a useful everyday ISO 200 film as well as a creative one.',
+        'For the full infrared look, Rollei Infrared reaches further into infrared than Superpan does.',
+      ] },
     ],
   },
   'rollei/infrared': {
@@ -1228,6 +1240,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Rollei Infrared', paragraphs: [
         'For the infrared effect, shoot through an infrared filter such as an R72, which blocks visible light, and expect long exposures on a tripod. Exposure varies with the light and the season, so bracket generously. Load and unload the film in subdued light.',
         'It develops in ordinary black and white chemistry. Superpan is the gentler alternative with extended red sensitivity, and Retro 80S and 400S give some of the same effect through a red filter.',
+      ] },
+      { heading: 'Formats and focusing', paragraphs: [
+        'Rollei Infrared comes in 35mm, 120 and 4x5 sheets. Infrared light focuses at a slightly different point from visible light, so stop down for depth of field, or use the red infrared mark many older lenses carry on their focus scale.',
+        'Because you are composing through an opaque filter, it is easiest to frame and focus first, then fit the filter before you shoot.',
       ] },
     ],
   },
@@ -1239,6 +1255,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits and landscapes an early photography look. At ISO 25 it wants bright light or a tripod. Being blind to red, it can be handled and developed under a red safelight, which suits tray developing sheet film.',
         'It develops in ordinary black and white chemistry. For ordinary panchromatic tones, RPX 25 is Rollei\'s other very slow, fine grained film, and Superpan goes the opposite way, with extended red sensitivity.',
       ] },
+      { heading: 'A technical film for pictures', paragraphs: [
+        'Ortho 25 Plus was made as a technical film, so its natural contrast is high. For portraits and landscapes, a gentle developer or a slightly shorter development time keeps the highlights printable while holding on to its fine grain.',
+        'For a tonal range closer to an ordinary film, Retro 80S is Rollei\'s other slow film.',
+      ] },
     ],
   },
   'rollei/crossbird': {
@@ -1248,6 +1268,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting CrossBird', paragraphs: [
         'Cross processing raises contrast and saturation and shifts colour in ways that are hard to predict, so bright, colourful scenes make the most of it. Tell your lab you want it developed in C-41 and that it is a slide film, as the negatives come back without the usual orange mask. Developed in E-6, it behaves as an ordinary slide film.',
         'It is the colour film in a Rollei range that is otherwise mostly black and white, from RPX and Retro to Superpan and Infrared.',
+      ] },
+      { heading: 'Developing in E-6', paragraphs: [
+        'If you would rather have ordinary slides, develop CrossBird in E-6 chemistry like any other slide film, and it gives positive transparencies with normal colour. Either way, tell the lab which process you want before you hand the film over.',
+        'CrossBird is one of the few films still made in 127, the small roll size used by many old box and folding cameras, alongside 35mm and 120.',
       ] },
     ],
   },
