@@ -182,7 +182,7 @@
     "flags": [
       "fee"
     ],
-    "publish": false,
+    "publish": true,
     "sources": [
       {
         "id": "fast-forward",
