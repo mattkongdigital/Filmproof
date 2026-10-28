@@ -287,6 +287,9 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // Redscale 125" is the Red 125 every other shop lists. Scoped to Harman, as
   // Lomography's Redscale is a film of its own.
   if (/\bharman\b/.test(text)) text = text.replace(/\bredscale\b/g, 'red');
+  // Parallax writes Washi A as "Washi A 12", with its ISO 12, which is not a
+  // speed the normaliser reads, so the 12 forked it into a second page.
+  if (/\bwashi\b/.test(text)) text = text.replace(/\ba\s+12\b/g, 'a');
   // Adox CHS 100 II is the only CHS 100 on sale (the original, made by Efke,
   // ended in 2012), and shops write it with or without the "II", which gave
   // it two pages in 35mm.
