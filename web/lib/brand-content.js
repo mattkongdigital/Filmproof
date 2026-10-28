@@ -206,19 +206,23 @@ export const BRAND_CONTENT = {
     ],
   },
   washi: {
-    meta: { title: 'Washi Film Prices UK | Compare', description: 'Compare Washi Film prices from UK retailers on Filmproof. Hand-coated paper-based film and unique X-ray and infrared stocks from France.' },
-    intro: "Washi Film is a small, hands-on French film brand known for genuinely unusual stocks, including black and white film hand-coated onto Japanese paper and creative emulsions repurposed from X-ray and surveillance film. Washi film rewards photographers looking for something truly different from the mainstream. Compare Washi film prices on Filmproof.",
+    meta: { title: 'Washi Film Prices UK | Compare', description: 'Compare Film Washi prices from UK shops. Paper based W, Y and V, the S sound film, Z, D, K and F technical films, X colour and more, in 35mm, 120, 620 and 4x5.' },
+    intro: 'Film Washi is a one person film maker in Brittany, France, which calls itself the smallest company in the world making photographic materials. It hand coats black and white film on Japanese paper and converts industrial film, from sound recording and aerial survey stock to medical X-ray film, for ordinary cameras. Compare Washi film prices from UK shops below.',
     sections: [
-      { heading: "The Story of Washi Film", paragraphs: [
-        "Washi Film was founded in 2013 by Lomig Perrotin, a self-taught French film enthusiast who began experimenting with film-making in a Paris flat before relocating production to a garage, and later to a set of decommissioned French Army containers in Brittany, France. It remains an essentially one-person operation, producing around 18,000 rolls a year, tiny by industry standards, but fiercely dedicated to genuine craft.",
-        "What makes Washi unusual is that its signature \"W\" film is genuinely hand-coated in-house, using a light-sensitive emulsion applied to Japanese washi or gampi paper rather than a conventional plastic film base. Its other specialist stocks take a different, equally unconventional approach: repurposing existing base materials such as cinema soundtrack film, infrared aerial-survey film and X-ray film, which are cut, perforated and spooled by hand into usable 35mm, 120 and large format rolls.",
+      { heading: 'Where Washi film comes from', paragraphs: [
+        "Lomig Perrotin started Film Washi in 2013, first in a cupboard of his Paris flat and then in the family garage in Saint-Nazaire, and it is still a one person business, now registered in Brittany. It is named after washi, the Japanese paper its first film was coated on.",
+        'Most of the range is industrial or technical film that Washi cuts and packs for still cameras, each with a letter for a name. The paper films are its own, hand coated, and every roll is a small batch, so expect a little variation from one to the next.',
       ] },
-      { heading: "Washi Film's Camera Film Ranges", paragraphs: [
-        "Washi \"W\" is the brand's flagship paper-based black and white film, available in ISO 25 and 100, prized for its soft, painterly texture unlike any conventional emulsion. Washi \"S\" is derived from cinema soundtrack film stock, while Washi \"X\" repurposes X-ray film for high-contrast, grainy black and white images.",
-        "Washi \"F\" and Washi \"Z\" continue the brand's experimental streak, and several of its stocks are sourced from decommissioned infrared aerial-surveillance film, originally designed for vegetation and land surveys, now repurposed for creative infrared-style photography.",
+      { heading: 'The paper films', paragraphs: [
+        'W, the original Washi film, is an ISO 25 emulsion hand coated on Tosa washi paper. It is orthochromatic, sensitive to blue and blind to red, and the paper base gives every frame a visible texture. Y uses the same paper with a faster ISO 100 panchromatic emulsion, which is easier to expose, and V is another ISO 100 paper film. R is a black and white reversal emulsion on paper, giving positive images on a paper strip.',
+        "Paper film is fragile. Don't use it in cameras with motorised winding, which can stretch or snap it, and it won't load on modern developing reels, so check with your lab before you send it, as many won't take it.",
       ] },
-      { heading: "Choosing the Right Washi Film", paragraphs: [
-        "For a genuinely unique, textured black and white look, Washi \"W\" is the film to try first. Photographers chasing high-contrast, gritty results should look at Washi \"X\", while those wanting an unconventional infrared aesthetic should explore the brand's surveillance-derived stocks. Because these are genuinely small-batch, handmade films, expect some variation between rolls, part of the charm. Compare Washi film prices on Filmproof.",
+      { heading: 'Converted technical films', paragraphs: [
+        'S is sound recording film from cinema, ISO 50, with very fine grain and high contrast, in 35mm, 120, 620 and bulk rolls. A, at ISO 12, is cinema leader film, and E, at ISO 3, was made for printed circuit board masters and is blind to green. Z is an ISO 400 aerial survey film made for mapping vegetation, with near infrared sensitivity that separates greens well, and D is an ISO 500 aerial reconnaissance film. K is converted Kodak Plus-X Aerographic film at ISO 100, a more traditional look, in 120 and 4x5.',
+        'F is a fluorographic X-ray film made for screening lungs, ISO 100 and orthochromatic, and with no anti-halation layer its highlights glow and its grain is strong. X is the colour film of the range, a technical ISO 100 colour negative with no orange mask, which gives warm, saturated colour like early colour film.',
+      ] },
+      { heading: 'Developing Washi film', paragraphs: [
+        'The black and white films develop in standard black and white chemistry, and Washi publishes a data sheet with times for each. X is developed in C-41, or in E-6 for cross processed slides. R needs a black and white reversal kit, such as those from Foma or Rollei, with a longer second exposure for its thick paper base.',
       ] },
     ],
   },
