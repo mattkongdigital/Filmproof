@@ -1373,6 +1373,47 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  // Washi's ranges.
+  'washi/w': {
+    meta: { title: 'Washi W Film | Compare UK Prices', description: 'Compare Washi W paper based black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi W is Washi Film\'s flagship, a black and white emulsion hand coated in France onto Japanese washi paper rather than a plastic base. The paper gives every frame a soft, painterly texture unlike any conventional film. Compare Washi W prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi W', paragraphs: [
+        'W is a very slow film, so it wants bright light or a tripod. A paper base is more delicate than plastic, so load and wind it gently, and tell your lab what it is, as it needs care in the tank and in drying. It develops in ordinary black and white chemistry, and the paper fibres show through in the scan as part of the look.',
+        'Because each batch is coated by hand, expect some variation between rolls. For a conventional base with an unusual look, Washi S is made from cinema soundtrack film and Washi X from X-ray film.',
+      ] },
+    ],
+  },
+  'washi/s': {
+    meta: { title: 'Washi S Film | Compare UK Prices', description: 'Compare Washi S black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi S is a black and white film from Washi Film, cut and spooled by hand from cinema soundtrack film, the stock once used to record the sound on motion picture prints. It gives a high contrast, graphic look. Compare Washi S prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi S', paragraphs: [
+        'Soundtrack film was made to record a sharp, high contrast optical track rather than a full range of tones, so expect deep blacks and bright whites with little in between. Test a roll in your usual developer before relying on it for anything important.',
+        'Washi X is the brand\'s other high contrast film, made from X-ray film, and Washi W its hand coated paper film.',
+      ] },
+    ],
+  },
+  'washi/x': {
+    meta: { title: 'Washi X Film | Compare UK Prices', description: 'Compare Washi X black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi X is a black and white film from Washi Film, cut and spooled by hand from X-ray film, for gritty, high contrast images with visible grain. Compare Washi X prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi X', paragraphs: [
+        'X-ray film was never made for a camera, so Washi X behaves differently from a conventional film, and results vary with light and development. It suits bold, graphic subjects, and it is worth a test roll in your usual developer first.',
+        'Washi S is the brand\'s other high contrast film, made from cinema soundtrack film, and Washi Z its infrared style film.',
+      ] },
+    ],
+  },
+  'washi/z': {
+    meta: { title: 'Washi Z Film | Compare UK Prices', description: 'Compare Washi Z black and white film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi Z is a black and white film from Washi Film, made from aerial surveillance film originally designed for surveys of vegetation and land, and repurposed for creative, infrared style photography. Compare Washi Z prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi Z', paragraphs: [
+        'The infrared look comes from shooting Z through a deep red filter, which darkens blue skies and lightens foliage. Without a filter it behaves as an ordinary black and white film. It develops in ordinary black and white chemistry.',
+        'For a different take on unconventional black and white, Washi W is the brand\'s hand coated paper film and Washi X its X-ray film.',
+      ] },
+    ],
+  },
   'harman/phoenix': {
     meta: { title: 'Harman Phoenix Film | Compare UK Prices', description: 'Compare Harman Phoenix 125 and Phoenix II 200 colour film prices from UK shops, in 35mm and 120, with live stock and prices per roll.' },
     intro: 'Harman Phoenix is the colour negative film from Harman Technology in Mobberley, Cheshire, the maker of Ilford, and the first colour film made entirely at the factory. It now comes in two versions, the original sold as Phoenix 125 and the second generation Phoenix II 200, both in 35mm and 120. Compare Harman Phoenix prices from UK shops below.',
