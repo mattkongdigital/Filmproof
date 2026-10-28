@@ -1041,6 +1041,10 @@ export const BRAND_SUB_CONTENT = {
         'Color Negative 100 is the fine grained choice for bright sun. 400 is the all rounder for changeable light and the easiest to recommend to anyone starting out, and 800 is the fast option for evenings, interiors and dull winter days, with more visible grain.',
         'All three develop in standard C-41 chemistry at any lab. Shops often sell them in three packs, and Filmproof divides the packs out so you can compare the price per roll. For a warmer, more nostalgic look, try Classicolor or Color 92, and for colour that shifts, the LomoChrome films such as Purple and Turquoise.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Color Negative comes in 35mm and 120, and its 110 version, Color Tiger, fits the pocket cameras that take 110 cartridges. The faster 800 is especially useful in 120, where medium format cameras often have slower lenses.',
+        'Shops often sell Lomography film in three packs, and Filmproof divides the packs out so you can compare the price per roll.',
+      ] },
     ],
   },
   'lomography/purple': {
@@ -1050,6 +1054,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting LomoChrome Purple', paragraphs: [
         'Purple can be shot anywhere from ISO 100 to 400 on the same roll. Scenes with plenty of green show the effect most strongly, so parks, woods and gardens are the obvious subjects. Exposure changes how strong the shift looks, so it is worth bracketing a few frames while you learn the film.',
         'It develops in standard C-41 chemistry at any lab. Turquoise and Metropolis are the other LomoChrome films, Turquoise for a cool turquoise and teal shift and Metropolis for muted, high contrast colour.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Purple comes in 35mm, 120 and 110. Shops list it both as LomoChrome Purple and simply as Lomography Purple, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
       ] },
     ],
   },
@@ -1061,6 +1069,10 @@ export const BRAND_SUB_CONTENT = {
         'Turquoise can be shot anywhere from ISO 100 to 400 on the same roll. Bright, sunny days with plenty of sky give the strongest effect, and exposure changes how far the shift goes, so bracket a few frames while you learn it.',
         'It develops in standard C-41 chemistry at any lab. For the purple and violet take on the same idea, try Purple, and for muted colour rather than shifted colour, Metropolis.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Turquoise comes in 35mm, 120 and 110. Shops list it both as LomoChrome Turquoise and simply as Lomography Turquoise, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
+      ] },
     ],
   },
   'lomography/metropolis': {
@@ -1070,6 +1082,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting LomoChrome Metropolis', paragraphs: [
         'Metropolis can be shot anywhere from ISO 100 to 400 on the same roll. It suits streets, architecture and overcast days, where its muted palette and deep shadows do the most.',
         'It develops in standard C-41 chemistry at any lab. For colour that shifts rather than fades, try Purple or Turquoise.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'LomoChrome Metropolis comes in 35mm, 120 and 110. Shops list it both as LomoChrome Metropolis and simply as Lomography Metropolis, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll, and expect some variation in the effect from one batch to the next, as is common with Lomography\'s creative films.',
       ] },
     ],
   },
@@ -1081,6 +1097,10 @@ export const BRAND_SUB_CONTENT = {
         'Classicolor suits everyday shooting, holidays and portraits in good light, where its warm tones read like film from a few decades ago. It develops in standard C-41 chemistry at any lab.',
         'Color 92 is its closest sibling, also made for a nostalgic look, and Color Negative is the plainer, more saturated everyday film.',
       ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Classicolor comes in 35mm, 120 and 110, so it suits pocket cameras as well as everyday 35mm and medium format. Shops list it both as LomoChrome Classicolor and simply as Lomography Classicolor, and Filmproof treats the two names as one film, so every shop\'s price appears on the same page.',
+        'Shops often sell it in three packs, so compare on price per roll.',
+      ] },
     ],
   },
   'lomography/color-92': {
@@ -1090,6 +1110,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Color 92', paragraphs: [
         'Color 92 is at its best in daylight, on holidays, days out and everyday snapshots, where its warm cast and soft colour suit the subject. It develops in standard C-41 chemistry at any lab.',
         'Classicolor is its closest sibling, and Color Negative is the plainer, more saturated everyday film.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Color 92 comes in 35mm, 120 and 110, so it suits pocket cameras as well as everyday 35mm and medium format. Shops write its name a few ways, Color 92 and Color ’92 among them, and Filmproof treats them as one film. Color 92 Sun-Kissed, a later and warmer edition, is a film of its own, listed here alongside the original.',
+        'Shops often sell it in three packs, so compare on price per roll.',
       ] },
     ],
   },
@@ -1101,6 +1125,10 @@ export const BRAND_SUB_CONTENT = {
         'Exposure is the creative control. Less light gives deeper reds and stronger contrast, while more light pushes the colour towards yellow, so bracket a few frames while you learn it. You load, shoot and develop it like any other roll, in standard C-41 chemistry.',
         'For a colour shift without the red cast, try the LomoChrome films such as Purple and Turquoise.',
       ] },
+      { heading: 'Redscale, Redscale XR or Lobster?', paragraphs: [
+        'Lomography Redscale is the original, rated at ISO 100 for a deep red and orange look. Redscale XR is made to be shot across a range of speeds, commonly 50 to 200, so you can choose between deeper reds and lighter, yellower frames on the same roll. Lobster Redscale is the 110 version for pocket cameras.',
+        'All three develop in standard C-41 chemistry at any lab, but tell the lab it is redscale so it does not try to correct the colour back to normal.',
+      ] },
     ],
   },
   'lomography/earl-grey': {
@@ -1110,6 +1138,9 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Earl Grey', paragraphs: [
         'At ISO 100, Earl Grey suits daylight, landscapes and anything where fine grain matters, and it develops in ordinary black and white chemistry at home or at any lab.',
         'Lady Grey 400 is the faster sibling for dull days and interiors, and the Kino films offer the look of black and white cinema stock.',
+      ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Earl Grey comes in 35mm and 120, and for 110 pocket cameras Lomography\'s black and white film is Orca. It works in the common black and white developers, at home or at any lab that handles black and white film.',
       ] },
     ],
   },
@@ -1121,6 +1152,9 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 400, Lady Grey has more visible grain than a slower film and plenty of latitude, and it develops in ordinary black and white chemistry at home or at any lab.',
         'Earl Grey 100 is the slower, finer grained sibling, and the Kino films offer the look of black and white cinema stock.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Lady Grey comes in 35mm and 120, and for 110 pocket cameras Lomography\'s black and white film is Orca. It works in the common black and white developers, and pushes a stop when the light is poor, as long as you develop for the speed you shot.',
+      ] },
     ],
   },
   'lomography/kino': {
@@ -1130,6 +1164,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting the Kino films', paragraphs: [
         'Potsdam 100 is the fine grained daylight choice and Berlin 400 the faster one, both with the tonal character of motion picture stock. Babylon 13 and Fantome 8 are so slow that they need bright sun or a tripod, and reward it with very fine grain and strong contrast. All of them develop in ordinary black and white chemistry.',
         'For a conventional black and white film, Earl Grey and Lady Grey are Lomography\'s everyday choices.',
+      ] },
+      { heading: 'Developing the Kino films', paragraphs: [
+        'The Kino films develop in ordinary black and white chemistry, but as cinema stocks their times differ from familiar still films, so check Lomography\'s published times for your developer before you start. Babylon 13 and Fantome 8 in particular need careful metering, as there is little room for error at such slow speeds.',
+        'Shops often sell the Kino films in three packs, and Filmproof divides the packs out so you can compare the price per roll.',
       ] },
     ],
   },
