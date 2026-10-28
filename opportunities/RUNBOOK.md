@@ -72,6 +72,12 @@ and read `work/pages/<id>.json` too. Use only URLs that appear in a page's
 or fails, work from what you have and leave `official_page` out. Take the
 details from the official page where the two disagree.
 
+When the call's own page leaves the deadline or fee out but links to a page
+that states it (terms and conditions, an FAQ, a "how to enter" page), fetch
+that too and give `official_page` as a list of ids, `["8b2e…", "41c0…"]`.
+Every quote is checked against all the pages listed. Follow only links that
+are clearly about this call, and stop at the organiser's site.
+
 ### Fields
 
 Fill each from the page text only. **If a field can't be found with
