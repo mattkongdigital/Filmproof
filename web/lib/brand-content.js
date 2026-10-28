@@ -1595,41 +1595,55 @@ export const BRAND_SUB_CONTENT = {
   // Washi's ranges.
   'washi/w': {
     meta: { title: 'Washi W Film | Compare UK Prices', description: 'Compare Washi W paper based black and white film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Washi W is Washi Film\'s flagship, a black and white emulsion hand coated in France onto Japanese washi paper rather than a plastic base. The paper gives every frame a soft, painterly texture unlike any conventional film. Compare Washi W prices from UK shops below.',
+    intro: 'Washi W is the original Film Washi film, an ISO 25 black and white emulsion hand coated in France on Japanese Tosa washi paper. The paper base gives every frame a visible texture unlike any conventional film. Compare Washi W prices from UK shops below.',
     sections: [
       { heading: 'Shooting Washi W', paragraphs: [
-        'W is a very slow film, so it wants bright light or a tripod. A paper base is more delicate than plastic, so load and wind it gently, and tell your lab what it is, as it needs care in the tank and in drying. It develops in ordinary black and white chemistry, and the paper fibres show through in the scan as part of the look.',
-        'Because each batch is coated by hand, expect some variation between rolls. For a conventional base with an unusual look, Washi S is made from cinema soundtrack film and Washi X from X-ray film.',
+        'W is orthochromatic, sensitive to blue and blind to red, so skies render light and reds and skin tones dark, and at ISO 25 it wants bright light or a tripod. Each roll is coated by hand in a small batch, so expect a little variation from one to the next.',
+        'For a conventional base with fine grain and high contrast, Washi S is converted sound recording film, and Washi F is converted X-ray film with glowing highlights.',
+      ] },
+      { heading: 'Handling and developing paper film', paragraphs: [
+        'Paper film is fragile. Don\'t use it in a camera with motorised winding, which can stretch or snap it, and wind gently by hand. It won\'t load on modern developing reels, and many labs won\'t take it, so check with yours before you send it.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films.',
       ] },
     ],
   },
   'washi/s': {
-    meta: { title: 'Washi S Film | Compare UK Prices', description: 'Compare Washi S black and white film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Washi S is a black and white film from Washi Film, cut and spooled by hand from cinema soundtrack film, the stock once used to record the sound on motion picture prints. It gives a high contrast, graphic look. Compare Washi S prices from UK shops below.',
+    meta: { title: 'Washi S Film | Compare UK Prices', description: 'Compare Washi S black and white film prices from UK shops, in 35mm, 120, 620 and bulk rolls, with live stock and prices per roll.' },
+    intro: 'Washi S is sound recording film from cinema, converted by Film Washi for still cameras. Rated at ISO 50, it has very fine grain and high contrast, and it is sold in 35mm, 120, 620 and bulk rolls. Compare Washi S prices from UK shops below.',
     sections: [
       { heading: 'Shooting Washi S', paragraphs: [
-        'Soundtrack film was made to record a sharp, high contrast optical track rather than a full range of tones, so expect deep blacks and bright whites with little in between. Test a roll in your usual developer before relying on it for anything important.',
-        'Washi X is the brand\'s other high contrast film, made from X-ray film, and Washi W its hand coated paper film.',
+        'Sound film was made to record a sharp optical track rather than a full range of tones, so expect deep blacks, bright whites and fine detail. At ISO 50 it suits bright light, and its 620 rolls fit older cameras that most films no longer do.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. Washi Z is the faster aerial survey film, and Washi W the hand coated paper film.',
       ] },
     ],
   },
   'washi/x': {
-    meta: { title: 'Washi X Film | Compare UK Prices', description: 'Compare Washi X black and white film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Washi X is a black and white film from Washi Film, cut and spooled by hand from X-ray film, for gritty, high contrast images with visible grain. Compare Washi X prices from UK shops below.',
+    meta: { title: 'Washi X Film | Compare UK Prices', description: 'Compare Washi X colour negative film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi X is the colour film in the Film Washi range, a technical ISO 100 colour negative with no orange mask, which gives warm, saturated colour like early colour film. Compare Washi X prices from UK shops below.',
     sections: [
-      { heading: 'Shooting Washi X', paragraphs: [
-        'X-ray film was never made for a camera, so Washi X behaves differently from a conventional film, and results vary with light and development. It suits bold, graphic subjects, and it is worth a test roll in your usual developer first.',
-        'Washi S is the brand\'s other high contrast film, made from cinema soundtrack film, and Washi Z its infrared style film.',
+      { heading: 'Developing Washi X', paragraphs: [
+        'X develops in C-41, the standard colour negative process, at any lab. It can also be cross processed in E-6 for slides with stronger, shifted colour, so tell the lab which you want before you hand it over.',
+        'With no orange mask, the negatives look unusual and the scan has a big say in the final colour. Washi\'s other converted films, such as Washi S and Washi Z, are black and white.',
       ] },
     ],
   },
   'washi/z': {
     meta: { title: 'Washi Z Film | Compare UK Prices', description: 'Compare Washi Z black and white film prices from UK shops, with live stock and prices per roll.' },
-    intro: 'Washi Z is a black and white film from Washi Film, made from aerial surveillance film originally designed for surveys of vegetation and land, and repurposed for creative, infrared style photography. Compare Washi Z prices from UK shops below.',
+    intro: 'Washi Z is an ISO 400 aerial survey film made for mapping vegetation, converted by Film Washi for still cameras. Its sensitivity reaches into near infrared, which separates greens well. Compare Washi Z prices from UK shops below.',
     sections: [
       { heading: 'Shooting Washi Z', paragraphs: [
-        'The infrared look comes from shooting Z through a deep red filter, which darkens blue skies and lightens foliage. Without a filter it behaves as an ordinary black and white film. It develops in ordinary black and white chemistry.',
-        'For a different take on unconventional black and white, Washi W is the brand\'s hand coated paper film and Washi X its X-ray film.',
+        'Without a filter it behaves as a fast black and white film with unusually distinct foliage. A red filter strengthens the effect, darkening skies and lifting greens towards an infrared look, while ISO 400 keeps it usable handheld.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. Washi S is the slower, finer grained converted film, and Washi F the X-ray film.',
+      ] },
+    ],
+  },
+  'washi/f': {
+    meta: { title: 'Washi F Film | Compare UK Prices', description: 'Compare Washi F black and white X-ray film prices from UK shops, with live stock and prices per roll.' },
+    intro: 'Washi F is a fluorographic X-ray film, made for screening lungs and converted by Film Washi for still cameras. It is ISO 100 and orthochromatic, and with no anti-halation layer its highlights glow and its grain is strong. Compare Washi F prices from UK shops below.',
+    sections: [
+      { heading: 'Shooting Washi F', paragraphs: [
+        'Being orthochromatic, F is blind to red, so skies render light and reds and skin tones dark. Bright points of light bloom into a soft glow, which suits night scenes, backlit portraits and anything where a rough, dreamlike look fits.',
+        'It develops in standard black and white chemistry, and Washi publishes a data sheet with times for each of its films. For fine grain and crisp contrast instead, Washi S is the converted sound film, and Washi W the hand coated paper film.',
       ] },
     ],
   },

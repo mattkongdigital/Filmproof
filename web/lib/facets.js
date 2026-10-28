@@ -203,7 +203,9 @@ const kentmere = (f) => (/\b(?:kentmere|pan)\s*(?:pan\s*)?(\d{3})\b/i.exec(f.dis
 // The letter that names a Washi film, from the word after "Washi" or
 // "Washi Film", with or without quotes.
 const washi = (f) => (/\bwashi\s+(?:film\s+)?["'‘’“”]?([a-z])["'‘’“”]?(?![\w])/i.exec(f.display) || [])[1]?.toLowerCase();
-const washiMention = (letter) => new RegExp(`\\bWashi "?${letter}"?(?![\\w])`);
+// A mention is "Washi W" in range copy, or the bare capital letter where the
+// brand copy introduces the film ("W, the original", "S is sound film").
+const washiMention = (letter) => new RegExp(`\\bWashi "?${letter}"?(?![\\w])|(?<![\\w'’])${letter}(?=, | is\\b| uses\\b)`);
 
 export const RANGES = [
   { brand: 'kodak', slug: 'portra', label: 'Portra', match: (f) => /\bportra\b/i.test(f.display) && !/\bektacolou?r\b/i.test(f.display) },
@@ -306,12 +308,13 @@ export const RANGES = [
   { brand: 'polaroid', slug: '8x10', label: '8x10', minFresh: 2, match: (f) => /\b8\s*x\s*10\b/i.test(f.display) },
   // Washi names each film by a single letter ("Washi Film S 400", "Washi
   // 'W' 25"), read straight after "Washi" or "Washi Film". Each is one
-  // emulsion in a couple of formats, so it takes a page at two, and its copy
-  // links only "Washi W" style mentions, never a stray capital letter.
+  // emulsion in a couple of formats, so it takes a page at two, and only a
+  // mention shaped like a film's name links, never a stray capital letter.
   { brand: 'washi', slug: 'w', label: 'W', minFresh: 2, mention: washiMention('W'), match: (f) => washi(f) === 'w' },
   { brand: 'washi', slug: 's', label: 'S', minFresh: 2, mention: washiMention('S'), match: (f) => washi(f) === 's' },
   { brand: 'washi', slug: 'x', label: 'X', minFresh: 2, mention: washiMention('X'), match: (f) => washi(f) === 'x' },
   { brand: 'washi', slug: 'z', label: 'Z', minFresh: 2, mention: washiMention('Z'), match: (f) => washi(f) === 'z' },
+  { brand: 'washi', slug: 'f', label: 'F', minFresh: 2, mention: washiMention('F'), match: (f) => washi(f) === 'f' },
   { brand: 'harman', slug: 'phoenix', label: 'Phoenix', match: (f) => /\bphoenix\b/i.test(f.display) },
   { brand: 'harman', slug: 'red', label: 'Red', minFresh: 2, mention: /\b(?:Harman Red|Red 125)\b/, match: (f) => /\bred\s*125\b/i.test(f.display) },
   { brand: 'harman', slug: 'switch-azure', label: 'Switch Azure', minFresh: 2, match: (f) => /\bswitch\b/i.test(f.display) },
