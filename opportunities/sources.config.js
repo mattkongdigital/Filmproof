@@ -33,13 +33,16 @@ export const OPPORTUNITY_SOURCES = [
     home: 'https://fastforward.photography/opportunities-category/commission/',
     // Only the categories in scope. The archive feed (/opportunities/feed/) is
     // mostly jobs, fellowships and conference calls — nine of its ten items on
-    // 19 October — and none of those are filed under these five.
+    // 19 October — and none of those are filed under the first five.
     feeds: [
       'https://fastforward.photography/opportunities-category/commission/feed/',
       'https://fastforward.photography/opportunities-category/award/feed/',
       'https://fastforward.photography/opportunities-category/open-exhibition/feed/',
       'https://fastforward.photography/opportunities-category/submission/feed/',
       'https://fastforward.photography/opportunities-category/publication/feed/',
+      // "Grants & Fellowship": grants and bursaries, mixed in with curatorial
+      // fellowships, PhDs and scholarships the extraction sets aside.
+      'https://fastforward.photography/opportunities-category/fellowship/feed/',
     ],
     union: true,
     itemPath: '/opportunities/',

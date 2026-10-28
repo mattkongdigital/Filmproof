@@ -427,6 +427,42 @@
     ]
   },
   {
+    "key": "rotterdamphoto.eu/open-calls/open-call-amarte",
+    "official_url": "https://rotterdamphoto.eu/open-calls/open-call-amarte/",
+    "title": "Dutch Talent Project Grant",
+    "organiser": "Rotterdam Photo, with Amarte fonds",
+    "type": "grant",
+    "deadline": "2026-11-04",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Emerging photographers based, studying or educated in the Netherlands",
+    "region": "elsewhere",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Five emerging photographers each get €3,000 to make new work on the theme Vibrance, then show it as a work in progress at Rotterdam Photo 2027 with curatorial guidance.",
+    "evidence": {
+      "deadline": "Deadline: November 4, 2026",
+      "fee": "Submission: Free of charge",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/rotterdam-photo-dutch-talent-project-grant-open-call/",
+        "found": "2026-10-28"
+      }
+    ]
+  },
+  {
     "key": "rps.org/exhibitions/ipe-168",
     "official_url": "https://rps.org/exhibitions/ipe-168/",
     "title": "RPS International Photography Exhibition 168",
