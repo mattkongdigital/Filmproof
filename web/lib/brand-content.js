@@ -978,6 +978,10 @@ export const BRAND_SUB_CONTENT = {
         'Like all slide film, Provia has little exposure latitude, so meter carefully and favour the highlights. It holds up well on long exposures, which suits night scenes and low light work on a tripod.',
         'Provia develops in E-6 chemistry, which fewer labs run than C-41, so check your lab before you shoot. For bolder colour from the same maker, see Fujifilm Velvia.',
       ] },
+      { heading: 'Provia or Velvia?', paragraphs: [
+        'Choose Provia when you want colour that looks like the scene, for skin, architecture and anything Velvia would push too far, and Velvia when you want landscapes to glow. Provia also needs little or no extra exposure on long shutter speeds, which suits dusk and night work, and it takes a push of a stop well when the light is poor.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting.',
+      ] },
     ],
   },
   'fujifilm/superia': {
@@ -987,6 +991,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Superia', paragraphs: [
         "At ISO 400, Superia copes with dull days, interiors and fast movement, and it handles a stop or two of overexposure well, which suits point and shoot cameras. Its colour has the cooler greens and blues that many photographers associate with Fujifilm, a contrast to the warmer look of Kodak's consumer films.",
         'Superia Premium 400 was first made for the Japanese market and is now sold here too. Both versions develop in standard C-41 chemistry at any lab, so the choice between them usually comes down to price and stock on the day. For finer grain and stronger colour in good light, Fujifilm\'s slide films, Velvia and Provia, are the step up, though they need careful metering and E-6 processing.',
+      ] },
+      { heading: 'Superia or Fujifilm 400?', paragraphs: [
+        'Fujifilm\'s current everyday colour films are sold simply as Fujifilm 200 and Fujifilm 400, and they sit alongside Superia on the shelves at similar prices. Superia is the one to choose if you want its familiar cooler palette, and the plainer names if price and availability matter most.',
+        'Superia X-Tra 400 also turns up as older and expired stock, sold off cheaply. Expired colour negative loses speed and drifts in colour, so give it an extra stop or so of exposure.',
       ] },
     ],
   },
@@ -998,6 +1006,10 @@ export const BRAND_SUB_CONTENT = {
         "Most films need extra exposure once a shot runs past a second or so, but Acros II needs little or no correction for exposures up to about two minutes, by Fujifilm's own figures. That makes it a favourite for night scenes, long exposure seascapes and anything on a tripod.",
         'Acros II develops in ordinary black and white chemistry, at home or at any lab. For a faster, grittier black and white, look at Ilford HP5 Plus or Kodak Tri-X. For colour from Fujifilm, Superia is the everyday ISO 400 negative, and Velvia and Provia are its slide films.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Acros II comes in 35mm and 120, and develops in the common black and white developers, at home or at any lab that handles black and white film. Its fine grain makes it a good match for a fine grain developer when you plan to enlarge.',
+        'For black and white you can send to a colour lab, Fujifilm\'s Neopan 400CN is a chromogenic film that develops in standard C-41 chemistry.',
+      ] },
     ],
   },
   'fujifilm/velvia': {
@@ -1007,6 +1019,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Velvia 50 or Velvia 100?', paragraphs: [
         'Velvia 50 is the original, with the strongest colour and a warmer rendering, and many photographers rate it slightly slower than box speed. Velvia 100 gives you a stop more speed with similar saturation and a cooler, more neutral balance, which makes it easier to handhold.',
         'Like all slide film, Velvia has little exposure latitude, so meter for the highlights, and it develops in E-6 chemistry, which fewer labs run than C-41. For a more neutral, natural slide film, Provia 100F is Fujifilm\'s other E-6 stock.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Velvia 50 and Velvia 100 both come in 35mm and 120, and Velvia 100 also comes as 4x5 sheet film, which Filmproof prices per sheet. Velvia 50 needs extra exposure once shutter speeds run past a few seconds, so for long exposures at dusk Velvia 100 or Provia is the easier choice.',
+        'Ask your lab whether it returns 35mm slides mounted or as a strip, as some charge extra for mounting.',
       ] },
     ],
   },
