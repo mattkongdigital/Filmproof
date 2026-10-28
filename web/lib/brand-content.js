@@ -1346,6 +1346,10 @@ export const BRAND_SUB_CONTENT = {
         'At ISO 100, Classic suits daylight, landscapes, architecture and anything where fine grain and detail matter. It has the classic look of a traditional emulsion, and it develops in ordinary black and white chemistry at home or at any lab, which makes it a favourite for learning to develop your own film.',
         'For more speed, Fomapan 200 Creative is the middle choice and Fomapan 400 Action the fast one. Retropan 320 Soft gives a softer, vintage look.',
       ] },
+      { heading: 'Formats, exposure and developing', paragraphs: [
+        'Fomapan 100 Classic comes in 35mm, 120, bulk rolls and sheet film from 4x5 to 8x10, which makes it one of the cheaper ways into large format; Filmproof prices sheet film per sheet. The edge markings still read ULTRA 100, and retro or limited edition boxes hold the same film.',
+        'By Foma\'s own figures it tolerates a stop of overexposure and two of underexposure without changing development. All the Fomapan films need generous extra exposure once shutter speeds run long, so check Foma\'s reciprocity figures before a night or tripod shot. It develops in the common black and white developers, and Foma makes its own, such as Fomadon LQN.',
+      ] },
     ],
   },
   'foma/200-creative': {
@@ -1355,6 +1359,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Fomapan 200 Creative', paragraphs: [
         'At ISO 200, Creative covers most daylight shooting with a little more room for shade and overcast days than a 100 speed film. Its emulsion uses flat T grains, which keep grain fine for the speed, but Foma warns that this makes it more prone to pressure marks in some medium format cameras, so test a roll of the 120 first. It develops in ordinary black and white chemistry at home or at any lab.',
         'Fomapan 100 Classic is the slower, finer grained choice for bright light, and Fomapan 400 Action the faster one for low light and movement.',
+      ] },
+      { heading: 'Exposure and developing', paragraphs: [
+        'Creative tolerates a stop of overexposure and two of underexposure without changing development, by Foma\'s figures, but it needs a lot of extra exposure on long shutter speeds: a metered 10 seconds wants about 90. Keep it for handheld daylight work where you can.',
+        'It develops in the common black and white developers, at home or at any lab that handles black and white film. Sheet film is priced per sheet here, so you can compare it fairly against rolls.',
       ] },
     ],
   },
@@ -1366,6 +1374,10 @@ export const BRAND_SUB_CONTENT = {
         'Action has visible grain and a classic look. Many photographers rate it a little slower than box speed, around ISO 200 to 320, for fuller shadows, so it is worth a test roll before you rely on it. It develops in ordinary black and white chemistry at home or at any lab.',
         'Fomapan 100 Classic and Fomapan 200 Creative are the slower, finer grained films in the same family, and Ortho 400 is the orthochromatic film at the same speed.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Fomapan 400 Action comes in 35mm, 120, bulk rolls and sheet film, with ULTRA 400 on the edge markings, and retro or limited edition boxes hold the same film. All the Fomapan films need generous extra exposure once shutter speeds run long, so check Foma\'s reciprocity figures before a night or tripod shot.',
+        'It develops in the common black and white developers, at home or at any lab that handles black and white film, and Foma makes its own, such as Fomadon LQN. If you push it, develop for the speed you shot it at.',
+      ] },
     ],
   },
   'foma/retropan': {
@@ -1375,6 +1387,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Retropan 320 Soft', paragraphs: [
         'Retropan suits portraits and scenes where a gentle, old fashioned rendering fits the subject. Foma makes a dedicated developer for it, Retro Special, though it develops in other ordinary black and white developers too.',
         'For a more conventional look, Fomapan 100 Classic and Fomapan 400 Action are Foma\'s traditional films.',
+      ] },
+      { heading: 'Buying and using Retropan', paragraphs: [
+        'Retropan\'s low contrast suits bright, harsh light, where a normal film would lose the highlights, as much as it suits soft portraits.',
+        'Retro Special is sold separately, so compare the developer\'s price too if you plan to use it.',
       ] },
     ],
   },
@@ -1386,6 +1402,10 @@ export const BRAND_SUB_CONTENT = {
         'Because it does not see red, reds and warm skin tones render dark and blue skies render light, which gives portraits an early photography look and suits high contrast copy work. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
         'For ordinary panchromatic tones at the same speed, Fomapan 400 Action is Foma\'s fast traditional film.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Ortho 400 arrived in 120 in 2023 and in 35mm in 2024, and at ISO 400 it is much faster than most ortho films, fast enough to shoot handheld. It develops in the common black and white developers, at home or at any lab.',
+        'Because it is blind to red light, you can watch it develop in a tray under a red safelight, which makes it a good film for learning to develop by inspection.',
+      ] },
     ],
   },
   'foma/r100': {
@@ -1395,6 +1415,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Developing Fomapan R 100', paragraphs: [
         'R 100 needs a reversal process to give slides, which fewer labs offer than ordinary black and white development, so check with your lab first. Foma sells a reversal kit for developing it at home, and it can also be developed as an ordinary negative if you only want to scan or print.',
         'For ordinary black and white negatives at the same speed, Fomapan 100 Classic is Foma\'s fine grained traditional film.',
+      ] },
+      { heading: 'Formats and buying', paragraphs: [
+        'Fomapan R 100 is sold in 35mm and in cine gauges, including 16mm, double 8mm and double Super 8, which makes it one of the few black and white reversal films still made for small gauge cine cameras.',
+        'When you compare prices, allow for processing: a reversal process costs more and takes longer than ordinary black and white development, and fewer labs offer it.',
       ] },
     ],
   },
