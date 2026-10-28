@@ -15,7 +15,7 @@ import { saveProducts } from './src/product-cache.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { parseFilmTitle, sheetSize } from './src/normalise.js';
-import { deriveProcess, describe, extractIso, extractExp } from './src/describe.js';
+import { deriveProcess, describe, extractIso, extractLowIso, extractExp } from './src/describe.js';
 import { EXCLUDED_IMAGE_URLS } from './src/image-exclusions.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
@@ -362,7 +362,7 @@ async function run() {
       }
       if (!films.has(parsed.key)) {
         const process = deriveProcess(it.type, it.title, it.tags, it.body);
-        const iso = (parsed.iso ? Number(parsed.iso) : null) ?? extractIso('', it.body);
+        const iso = (parsed.iso ? Number(parsed.iso) : null) ?? parsed.lowIso ?? extractLowIso(it.tags, it.body) ?? extractIso('', it.body);
         const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body);
         films.set(parsed.key, {
           id: films.size + 1, key: parsed.key, display: filmName(it.raw, parsed.format),
@@ -381,7 +381,7 @@ async function run() {
         // Backfill anything a later shop can supply.
         const f = films.get(parsed.key);
         if (it.image && !f.image) f.image = it.image;
-        if (f.iso == null) { const i = extractIso(it.tags, it.body); if (i != null) f.iso = i; }
+        if (f.iso == null) { const i = parsed.lowIso ?? extractLowIso(it.tags, it.body) ?? extractIso(it.tags, it.body); if (i != null) f.iso = i; }
         // The first shop may say nothing about the process where a later one
         // does, in its category, tags or description.
         if (!f.process) {
