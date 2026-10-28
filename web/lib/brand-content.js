@@ -1478,6 +1478,10 @@ export const BRAND_SUB_CONTENT = {
         'P30 has deep blacks, strong contrast and fine grain, a look tied to the classic Italian cinema it was made for. At ISO 80 it suits daylight, and it develops in ordinary black and white chemistry, at home or at any lab.',
         'Ferrania\'s other black and white films are Orto, an orthochromatic film at ISO 50, and P33, a faster panchromatic film at ISO 160.',
       ] },
+      { heading: 'Developing P30', paragraphs: [
+        'P30 is coated on a triacetate base with a high silver content, which is where its deep blacks come from. Its natural contrast is high, so many photographers use a gentle developer or shorten development a little to keep the highlights printable. It works with the common black and white developers.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
+      ] },
     ],
   },
   'ferrania/orto': {
@@ -1488,6 +1492,10 @@ export const BRAND_SUB_CONTENT = {
         'Because Orto does not see red, reds and warm skin tones render dark and blue skies render light. At ISO 50 it wants bright light or a tripod. It can be handled and developed under a red safelight, and it develops in ordinary black and white chemistry.',
         'For ordinary panchromatic tones, P30 is Ferrania\'s classic film at ISO 80, and P33 the faster one at ISO 160.',
       ] },
+      { heading: 'Developing Orto', paragraphs: [
+        'Orto develops in the common black and white developers, at home or at any lab. Because it is blind to red, you can handle it and watch it develop under a red safelight, which suits developing by inspection.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
+      ] },
     ],
   },
   'ferrania/p33': {
@@ -1497,6 +1505,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Ferrania P33', paragraphs: [
         'At ISO 160, P33 gives more room for shade, overcast days and handheld shooting than Ferrania\'s slower films. It develops in ordinary black and white chemistry, at home or at any lab.',
         'P30 is Ferrania\'s classic high silver film at ISO 80, and Orto its orthochromatic film at ISO 50.',
+      ] },
+      { heading: 'Buying and developing P33', paragraphs: [
+        'P33 develops in the common black and white developers, at home or at any lab that handles black and white film. Its extra speed over P30 makes it the easier Ferrania film for overcast days and handheld shooting.',
+        'Ferrania makes film in small batches, and since its sale in late 2024 to the owner of ORWO, supply has come and gone, so check the listings below for which shops have it now.',
       ] },
     ],
   },
