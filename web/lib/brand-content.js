@@ -1577,6 +1577,10 @@ export const BRAND_SUB_CONTENT = {
         'i-Type cameras have their own rechargeable battery, so unlike 600 film the packs carry no battery, which keeps the price down. Shops sell single packs and double packs, so compare on price per shot. Special edition frames change the border, not the film.',
         'i-Type film will not power a vintage camera, so for a 600 camera you need 600 film, and for an SX-70 camera, SX-70 film. 600 film does work in i-Type cameras, if you find it cheaper.',
       ] },
+      { heading: 'Shooting and storing i-Type', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/600': {
@@ -1586,6 +1590,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Buying 600 film', paragraphs: [
         'Because the battery is in the pack, 600 film is the one to buy for a vintage 600 camera, and it also works in Polaroid\'s modern i-Type cameras. Shops sell single packs and double packs, so compare on price per shot.',
         'If you only shoot a modern camera, i-Type film is usually cheaper, and for an SX-70 camera, choose SX-70 film.',
+      ] },
+      { heading: 'Shooting and storing 600 film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
       ] },
     ],
   },
@@ -1597,6 +1605,10 @@ export const BRAND_SUB_CONTENT = {
         'SX-70 cameras are set for the slower film, so 600 or i-Type film will come out badly overexposed in them unless you add a neutral density filter. Shoot it in good light, and compare single and double packs on price per shot.',
         'For a 600 camera choose 600 film, and for Polaroid\'s modern cameras, i-Type.',
       ] },
+      { heading: 'Shooting and storing SX-70 film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/go': {
@@ -1607,6 +1619,10 @@ export const BRAND_SUB_CONTENT = {
         'Go film only fits Go cameras, and the other Polaroid films will not fit them. Shops sell it in single and double packs, and in colour, black and white and special editions, so compare on price per shot.',
         'For Polaroid\'s full size prints, i-Type film fits the modern cameras and 600 film the vintage ones.',
       ] },
+      { heading: 'Shooting and storing Go film', paragraphs: [
+        'A Polaroid print develops in the open over several minutes, with colour taking longer than black and white. Light is its enemy in the first moments, so let the camera\'s film shield cover it as it ejects, if it has one, and keep it face down, out of the sun, while the image comes up. There is no need to shake it.',
+        'Temperature changes the result: on a cold day colours come out weak and cool, and in heat they shift warm, so keep the camera and prints at a comfortable room temperature where you can. Store unopened packs in the fridge, never the freezer, let them warm up for an hour before loading, and use them before the date on the box.',
+      ] },
     ],
   },
   'polaroid/8x10': {
@@ -1616,6 +1632,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting 8x10 instant film', paragraphs: [
         'Each sheet is loaded and exposed like any 8x10 sheet film, then run through the processor with its positive sheet to develop. It is a specialist, expensive way to shoot, valued for the size and immediacy of the print.',
         'For everyday instant photography, i-Type and 600 film fit Polaroid\'s modern and vintage cameras.',
+      ] },
+      { heading: 'Buying 8x10 film', paragraphs: [
+        '8x10 film is sold in small boxes and costs far more per shot than the pack films, so compare on price per sheet. You also need access to a processor, which most photographers buy secondhand or borrow, so factor that in before committing to the format.',
+        'Like Polaroid\'s other films, it does best stored in the fridge and used before the date on the box.',
       ] },
     ],
   },
