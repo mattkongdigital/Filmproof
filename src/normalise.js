@@ -230,6 +230,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     .replace(/\bsx[\s-]?70\b/g, 'sx70')
     .replace(/\bsuperia\s+venus\b/g, 'venus')   // sold as both
     .replace(/\bsun[\s-]?kissed\b/g, 'sunkissed')
+    .replace(/\bfilm\s+photography\s+project\b/g, 'fpp')   // FPP's full name, which Classic Photo Supplies adds
     .replace(/\bagfa\s+photo\b/g, 'agfaphoto')   // Film Camera Store's "AGFA Photo APX"
     .replace(/\b160\s?ns\b/g, '160 ns')          // Fuji Pro "160NS" / "160 NS"
     .replace(/\btesla\s+(ii|i)\b/g, (m, r) => `tesla ${r.length}`)   // Revolog Tesla I / 1
@@ -374,6 +375,12 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     const m = t.match(/^(\d{2,4})[std]?$/) || t.match(/^e(\d{2,4})$/);
     if (m) { const n = Number(m[1]); if (ISO_SPEEDS.has(n) && String(n) !== exp && n !== packSize) { iso = String(n); break; } }
   }
+  // FPP's slowest films are ISO 1 and 3, below every speed above, and one shop
+  // writes them into the title ("Sun ... 1 ISO"). Not part of the key, since
+  // other shops leave it out: it is dropped from the line and returned as
+  // `lowIso` for the speed shown.
+  const lm = iso == null ? text.match(/\b(\d)\s*(?:iso|asa)\b/) : null;
+  const lowIso = lm ? lm[1] : null;
   const titleIso = iso;
   if (iso == null && extraIso != null) iso = String(extraIso);
 
@@ -403,7 +410,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     if (FORMAT_TOKENS.has(t)) return false;
     if (NOISE.has(t)) return false;
     if (EXP_WORDS.has(t)) return false;
-    if (t === exp || t === iso) return false;
+    if (t === exp || t === iso || t === lowIso) return false;
     if (/^(\d{2,4})[std]?$/.test(t) && ISO_SPEEDS.has(Number(t.replace(/[std]$/, '')))) return false;
     if (/^\d{4}$/.test(t)) return false;
     if (packSize > 1 && Number(t) === packSize) return false;
@@ -437,7 +444,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   const baseKey = identified ? [brand, line, format, iso].filter(Boolean).join('-') : null;
   const key = baseKey && expired ? `${baseKey}-expired` : baseKey;
 
-  return { brand, line, format, iso, exp, packSize, sheets, expired, key, identified, complete: identified, cleaned: text };
+  return { brand, line, format, iso, lowIso: lowIso && Number(lowIso), exp, packSize, sheets, expired, key, identified, complete: identified, cleaned: text };
 }
 
 function detectFormat(s) {

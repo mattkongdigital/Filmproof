@@ -167,6 +167,11 @@ export const LEGACY_FILM_SLUGS = {
   'lomography-lomochrome-92-sun-kissed-400-iso-120-film': 'lomography-lomochrome-colour-92-sunkissed-120-film',
   'lomography-lomochrome-color-92-sun-kissed-35mm-400-iso': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
   'lomography-lomochrome-sun-kissed-400-35mm-film': 'lomography-lomochrome-colour-92-sunkissed-35mm-film',
+  // Classic Photo Supplies adds FPP's full name, "Film Photography Project",
+  // and the slow films' speed ("1 ISO"), which gave three FPP films a second page.
+  'fpp-film-photography-project-blue-ultra-color-35mm-3-iso-film': 'fpp-blue-ultra-35mm-film',
+  'fpp-sun-film-photography-project-1-iso-35mm-film': 'fpp-sun-35mm-film',
+  'fpp-film-photography-project-color-125-35mm-film': 'fpp-color-125-35mm-film',
   // Film Camera Store writes AgfaPhoto as "AGFA Photo", which kept "photo"
   // in the film's name and gave APX 100 a second page.
   'agfa-photo-apx-100-professional-black-white-35mm-film': 'agfaphoto-apx-100-35mm-film',
