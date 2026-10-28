@@ -816,6 +816,10 @@ export const BRAND_SUB_CONTENT = {
         'HP5 Plus has moderate grain, gentle contrast and a very wide exposure latitude, so it copes with mistakes and with mixed light. It pushes well to 1600 and even 3200 for low light, which makes it a favourite for street, documentary and gig photography, and it is easy to develop at home in almost any developer.',
         'Ilford also releases limited edition HP5 Plus with special packaging from time to time. The film inside is the same, so compare those on price alone. For finer grain at the same speed, Delta 400 is Ilford\'s modern alternative, FP4 Plus is the slower ISO 125 film for bright light, and XP2 Super is the ISO 400 choice if you send your film to a colour lab.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'HP5 Plus comes in 35mm, 120, 30.5m bulk rolls for loading your own cassettes, and sheet film for large format cameras, which Filmproof prices per sheet. It develops in ordinary black and white chemistry, at home or at any lab, and Ilford\'s own developers such as ID-11 and Ilfosol 3 suit it well. Its tolerance of small mistakes in time and temperature makes it a common first film for home developing.',
+        'When you push it, develop for the speed you rated it at rather than box speed, and expect more grain and contrast with each stop.',
+      ] },
     ],
   },
   'ilford/fp4-plus': {
@@ -824,6 +828,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Shooting FP4 Plus', paragraphs: [
         'FP4 Plus sits between the very fine grain of Pan F Plus and the speed of HP5 Plus. It suits daylight portraits, landscapes and architecture, and takes overexposure well, so many photographers rate it at 100 or even 50 and cut development to keep the highlights soft.',
+      ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'FP4 Plus comes in 35mm, 120, 30.5m bulk rolls and several sheet film sizes for large format cameras, which Filmproof prices per sheet. It develops in ordinary black and white chemistry, at home or at any lab, with Ilford\'s ID-11 and Ilfosol 3 among the common choices.',
+        'For more speed, HP5 Plus is the traditional ISO 400 film. For finer grain still, Delta 100 is Ilford\'s modern ISO 100 film and Pan F Plus its slowest.',
       ] },
     ],
   },
@@ -835,6 +843,9 @@ export const BRAND_SUB_CONTENT = {
         'Delta 100 is extremely fine grained and sharp, suited to landscapes, architecture and large prints. Delta 400 gives a smoother result than HP5 Plus at the same speed, with a little less latitude. Delta 3200 is made for low light and pushing: its true speed is nearer ISO 1000, and it is shot anywhere from there up to 3200 and beyond, with grain that becomes part of the look.',
         "If you like the tonality of Ilford's traditional films but want cleaner grain, Delta is the range to try; if you value forgiveness and a classic look, HP5 Plus and FP4 Plus are the alternatives.",
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Delta 100 comes in 35mm, 120, 30.5m bulk rolls and sheet film, while Delta 400 and Delta 3200 come in 35mm and 120. All three develop in ordinary black and white chemistry, and Ilford\'s DD-X developer was made with them in mind. Delta 3200 rewards developing for the speed you actually shot it at.',
+      ] },
     ],
   },
   'ilford/pan-f-plus': {
@@ -844,6 +855,10 @@ export const BRAND_SUB_CONTENT = {
       { heading: 'Shooting Pan F Plus', paragraphs: [
         'At ISO 50, Pan F Plus wants bright light or a tripod, but it rewards both with detail and smooth tones that suit landscapes, still life and portraits in good light. It has less latitude than faster films, so meter carefully, and allow for reciprocity on exposures of a second or more. If ISO 50 is too slow, FP4 Plus at ISO 125 and Delta 100 keep fine grain with more speed.',
       ] },
+      { heading: 'Formats and developing', paragraphs: [
+        'Pan F Plus comes in 35mm, 120 and sheet film. Its contrast is already high, so many photographers develop it in a gentler or fine grain developer, such as Ilford\'s Perceptol, or shorten development a little to keep the highlights printable. It develops in ordinary black and white chemistry, at home or at any lab.',
+        'Ortho Plus is Ilford\'s other slow, specialist film, blind to red light, and FP4 Plus is the everyday medium speed choice.',
+      ] },
     ],
   },
   'ilford/xp2': {
@@ -852,6 +867,10 @@ export const BRAND_SUB_CONTENT = {
     sections: [
       { heading: 'Why choose XP2 Super', paragraphs: [
         'Because it forms its image from dye rather than silver, XP2 Super has very fine grain for its speed and a huge exposure latitude, giving usable negatives from around ISO 50 to 800 on one roll. It is the easy way into black and white for anyone who sends film to a colour lab rather than developing at home. Prints from a colour lab can carry a slight tint unless the lab prints them as black and white. If you develop at home, HP5 Plus is Ilford\'s traditional ISO 400 film for ordinary black and white chemistry.',
+      ] },
+      { heading: 'Processing and scanning', paragraphs: [
+        'XP2 Super goes through the same C-41 process as colour negative film, so any lab that develops colour film can develop it, and you can develop it at home with a C-41 kit. Ask the lab to scan it as black and white, as a colour scan can leave a slight tint.',
+        'For a black and white film with traditional silver grain, HP5 Plus and Delta 400 are Ilford\'s ISO 400 films for ordinary black and white chemistry.',
       ] },
     ],
   },
