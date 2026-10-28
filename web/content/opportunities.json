@@ -161,10 +161,10 @@
     "type": "competition",
     "deadline": "2026-10-31",
     "fee": {
-      "free": null,
+      "free": false,
       "amount": null,
       "currency": null,
-      "note": null
+      "note": "varies by entry type"
     },
     "eligibility": null,
     "region": null,
@@ -175,12 +175,12 @@
     },
     "summary": "An open-theme award for contemporary photography whose winners show at UNSEEN during Art Rotterdam in March 2027. Longlisted entrants are published in Form Magazine.",
     "evidence": {
-      "deadline": "31 October 2026 Submission deadline",
-      "fee": null,
+      "deadline": "Oct 31, 2026, 10:59 PM",
+      "fee": "Open Variable",
       "rights": null
     },
     "flags": [
-      "needs-review:fee"
+      "fee"
     ],
     "publish": false,
     "sources": [
@@ -317,27 +317,30 @@
     "type": "open-call",
     "deadline": null,
     "fee": {
-      "free": null,
-      "amount": null,
-      "currency": null,
-      "note": null
+      "free": false,
+      "amount": 8,
+      "currency": "EUR",
+      "note": "per single image outside South Asia; €15 per photo story"
     },
     "eligibility": "Anyone, from anywhere, on any subject",
     "region": "worldwide",
     "film": "film-friendly",
     "rights": {
-      "summary": null,
-      "flags": []
+      "summary": "Copyright stays with the photographer; every entry may be kept at low resolution in the biennale’s research archive without payment, and selected work used to promote the open call.",
+      "flags": [
+        "all-entrants"
+      ]
     },
     "summary": "The biennale’s international call for single images and series on any subject, run with SIGMA India.",
     "evidence": {
       "deadline": null,
-      "fee": null,
-      "rights": null
+      "fee": "Rest of the World - Single Image: 8EUR Per entry",
+      "rights": "For all submissions, copyright holders will grant the organizers non-exclusive use of low-resolution pictures in a public archive for its research and educational activities, without any remuneration being due."
     },
     "flags": [
-      "needs-review:deadline",
-      "needs-review:fee"
+      "fee",
+      "rights:all-entrants",
+      "needs-review:deadline"
     ],
     "publish": false,
     "sources": [
@@ -452,7 +455,7 @@
     "flags": [
       "fee"
     ],
-    "publish": false,
+    "publish": true,
     "sources": [
       {
         "id": "fast-forward",
