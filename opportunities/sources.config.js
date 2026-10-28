@@ -99,6 +99,19 @@ export const OPPORTUNITY_SOURCES = [
     prefilter: true,
   },
   {
+    id: 'analogue-wonderland',
+    name: 'Analogue Wonderland',
+    home: 'https://analoguewonderland.co.uk/blogs/store-news',
+    // The UK film shop's store-news blog, where it announces its own film-only
+    // competitions (the Kodak seasonal ones, the Big Film Photowalk) among
+    // shop news and job ads. Its Shopify terms claim broad rights over contest
+    // entries, so read each competition's own rules for the rights flags.
+    feeds: ['https://analoguewonderland.co.uk/blogs/store-news.atom'],
+    itemPath: '/blogs/store-news/',
+    film: 'film-specific',
+    prefilter: true,
+  },
+  {
     id: 'kosmo-foto',
     name: 'Kosmo Foto',
     home: 'https://kosmofoto.com/',
