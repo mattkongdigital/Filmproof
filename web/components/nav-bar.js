@@ -5,7 +5,7 @@ import { SearchBox } from './search-box';
 import { SOCIAL_LINKS } from '../lib/config';
 import { SOCIAL_ICONS } from './social-icons';
 
-export function NavBar({ formats, types, conditions = [], brands = [] }) {
+export function NavBar({ formats, types, conditions = [], brands = [], opportunities = false }) {
   const [open, setOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
   const shopRef = useRef(null);
@@ -64,6 +64,7 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
               <div className="nav-mega-col">
                 <span className="nav-head">More</span>
                 <Link href="/stores" onClick={() => setShopOpen(false)}>All stores</Link>
+                {opportunities && <Link href="/opportunities" onClick={() => setShopOpen(false)}>Opportunities</Link>}
               </div>
             </div>
           )}
@@ -122,6 +123,7 @@ export function NavBar({ formats, types, conditions = [], brands = [] }) {
           <div className="drawer-section">
             <Link href="/brands" className="drawer-brands" onClick={close}>All brands →</Link>
             <Link href="/stores" className="drawer-brands" onClick={close}>All stores →</Link>
+            {opportunities && <Link href="/opportunities" className="drawer-brands" onClick={close}>Opportunities →</Link>}
           </div>
           <div className="drawer-section">
             <span className="drawer-head">Follow</span>
