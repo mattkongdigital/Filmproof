@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getFilms, SITE_URL } from '../lib/data';
-import { availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
+import { FORMATS, availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
 import { FilmCard } from '../components/film-card';
 
 export function generateMetadata() {
@@ -10,6 +10,8 @@ export function generateMetadata() {
     alternates: { canonical: `${SITE_URL}/` },
   };
 }
+
+const FEATURED_PER_FORMAT = 4;
 
 export default function Home() {
   const films = getFilms();
@@ -21,8 +23,16 @@ export default function Home() {
   const shops = new Set();
   films.forEach((f) => f.offers.forEach((o) => shops.add(o.retailer)));
 
-  // A few in-stock stocks to feature, best value first.
-  const featured = filmsFor((f) => f.best != null).slice(0, 6);
+  // The cheapest in-stock films in each of the common roll formats, each group
+  // linking on to its format page. Expired stock is left out: it has its own
+  // page, and a cheap expired roll is not what "cheapest 35mm" means.
+  const featured = ['35mm-film', '110-film', '120-film']
+    .map((slug) => FORMATS.find((x) => x.slug === slug))
+    .map((format) => ({
+      format,
+      films: filmsFor((f) => format.match(f) && f.best != null && !f.expired).slice(0, FEATURED_PER_FORMAT),
+    }))
+    .filter((g) => g.films.length > 0);
 
   return (
     <div className="wrap">
@@ -68,9 +78,17 @@ export default function Home() {
       {featured.length > 0 && (
         <section className="featured">
           <h2 className="hub-head">In stock right now</h2>
-          <div className="grid">
-            {featured.map((f) => <FilmCard key={f.slug} film={f} />)}
-          </div>
+          {featured.map(({ format, films: group }) => (
+            <div key={format.slug} className="featured-group">
+              <div className="featured-group-head">
+                <h3>Cheapest {format.label} film</h3>
+                <Link href={`/${format.slug}`} className="featured-more">See more {format.label} film →</Link>
+              </div>
+              <div className="grid">
+                {group.map((f) => <FilmCard key={f.slug} film={f} />)}
+              </div>
+            </div>
+          ))}
         </section>
       )}
     </div>
