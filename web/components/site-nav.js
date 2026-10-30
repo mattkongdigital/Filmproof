@@ -1,4 +1,5 @@
 import { availableFormats, availableTypes, availableConditions, topBrandsByListings } from '../lib/facets';
+import { liveOpportunities } from '../lib/opportunities';
 import { NavBar } from './nav-bar';
 
 // Server component: reads the facet data, then hands serialisable {slug,label}
@@ -8,5 +9,7 @@ export function SiteNav() {
   const types = availableTypes().map((t) => ({ slug: t.slug, label: t.label }));
   const conditions = availableConditions().map((c) => ({ slug: c.slug, label: c.label }));
   const brands = topBrandsByListings().map((b) => ({ slug: b.slug, label: b.label }));
-  return <NavBar formats={formats} types={types} conditions={conditions} brands={brands} />;
+  // Same rule as the footer: an empty board is noindex, so it isn't linked.
+  const opportunities = liveOpportunities().length > 0;
+  return <NavBar formats={formats} types={types} conditions={conditions} brands={brands} opportunities={opportunities} />;
 }
