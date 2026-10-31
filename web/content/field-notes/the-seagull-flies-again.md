@@ -1,7 +1,7 @@
 ---
 title: The Seagull Flies Again
 description: My Pentax P30 locked up a week before a holiday, so I bought a Seagull 4A on eBay and found out with a roll of Fomapan Classic 100 whether it worked.
-shot: 2026-10
+shot: 2026-09
 published: 2026-10-29
 location: [birmingham, brindley-place, old-turn-junction, victoria-square]
 camera: [seagull-4a]
