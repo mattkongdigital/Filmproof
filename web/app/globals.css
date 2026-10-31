@@ -225,6 +225,11 @@ footer {
 .tile-more { color:var(--amber); }
 
 .featured { padding-top:8px; }
+.featured-group + .featured-group { margin-top:28px; }
+.featured-group-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px; margin-bottom:10px; }
+.featured-group-head h3 { font-family:var(--display); font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:0; }
+.featured-more { color:var(--amber); text-decoration:none; font-size:14px; }
+.featured-more:hover { color:var(--china); }
 
 /* ---- film grid + cards ---- */
 .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:16px; margin-top:6px; }
