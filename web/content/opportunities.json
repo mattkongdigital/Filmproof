@@ -352,6 +352,44 @@
     ]
   },
   {
+    "key": "phodar.net/en",
+    "official_url": "https://phodar.net/en",
+    "title": "Phodar International Photo Festival Biennale, 14th edition: Traces Remain",
+    "organiser": "PHODAR Foundation",
+    "type": "competition",
+    "deadline": "2026-12-31",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Professional and amateur photographers over 18, from any country",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": "Copyright stays with the photographer; entries may be shown and sub-licensed to the press only in connection with the award and its exhibitions.",
+      "flags": []
+    },
+    "summary": "A biennial competition in Sofia for a series of 8 to 20 photographs on the theme Traces Remain, with a grand prize, a debut prize for newcomers and an award for humanistic photography.",
+    "evidence": {
+      "deadline": "DEADLINE IS 31.12.2026",
+      "fee": null,
+      "rights": "Copyright of the images will remain at all times with the photographer."
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-14th-edition-of-the-fodar-international-photo-festival-biennale-sofia/",
+        "found": "2026-11-02"
+      }
+    ]
+  },
+  {
     "key": "photoworks.org.uk/opportunities/open-call-the-draft",
     "official_url": "https://photoworks.org.uk/opportunities/open-call-the-draft/",
     "title": "THE DRAFT — Tessa Boffin: Where We Touch the Archive",
