@@ -35,6 +35,9 @@ export function getFilm(slug) {
 // titles all say "120 Medium Format") merged PJL's Portra 800 page into the
 // plain one the other shops share.
 export const LEGACY_FILM_SLUGS = {
+  // Gulabi's "Kodak Vision3 500T (thisishowiroll)" is This Is How I Roll's
+  // remjet-free 500T, which Chemical Dependency Lab lists by the brand's name.
+  'kodak-vision3-500t-thisishowiroll': 'this-is-how-i-roll-500t-35mm-colour-negative-film-without-remjet-ahu',
   'lomography-lomochrome-metropolis-110-film': 'lomography-metropolis-110-film',
   'lucky-colour-200-film-35mm': 'lucky-colour-c200-35mm-film',
   'lucky-film-200-120': 'lucky-colour-c200-120-film',

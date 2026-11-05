@@ -26,6 +26,17 @@ const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 // page to attach to and simply disappears. That is what a 429 from Bass &
 // Bligh would do, with the run still green. Same escape hatch as there.
 const FAILED_SHOPS = [];
+
+// A film's page takes its name, and so its slug, from the first shop in
+// SOURCES that lists it. When a merge in src/normalise.js joins two pages and
+// the page that should survive belongs to a later shop, name that shop here,
+// by film key, and its listing names the page whichever shop comes first. The
+// retired slug still goes in LEGACY_FILM_SLUGS in web/lib/data.js. Gulabi's
+// "Kodak Vision3 500T (thisishowiroll)" is the same film Chemical Dependency
+// Lab has listed for longer under the brand's own name.
+const NAMED_BY = {
+  'thisishowiroll-135-500': 'Chemical Dependency Lab',
+};
 const MAY_BE_EMPTY = new Set(
   (process.env.FILMPROOF_ALLOW_EMPTY_SHOPS || '')
     .split(',').map((s) => s.trim()).filter(Boolean)
@@ -375,11 +386,18 @@ async function run() {
           image: it.image || null,
           description: describe({ display: filmName(it.raw, parsed.format), brand: parsed.brand, format: parsed.format, iso, process }),
           type: it.type, slug: slugify(filmName(it.raw, parsed.format)),
+          ...(NAMED_BY[parsed.key] === src.retailer ? { namedBy: true } : {}),
         });
         kept++;
       } else {
         // Backfill anything a later shop can supply.
         const f = films.get(parsed.key);
+        if (NAMED_BY[parsed.key] === src.retailer && !f.namedBy) {
+          f.display = filmName(it.raw, parsed.format);
+          f.slug = slugify(f.display);
+          f.description = describe({ display: f.display, brand: f.brand, format: f.format, iso: f.iso, process: f.process });
+          f.namedBy = true;
+        }
         if (it.image && !f.image) f.image = it.image;
         if (f.iso == null) { const i = parsed.lowIso ?? extractLowIso(it.tags, it.body) ?? extractIso(it.tags, it.body); if (i != null) f.iso = i; }
         // The first shop may say nothing about the process where a later one
