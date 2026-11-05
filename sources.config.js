@@ -22,4 +22,5 @@ export const SOURCES = [
   { retailer: 'Chemical Dependency Lab', kind: 'shopify', baseUrl: 'https://chemicaldependency.co.uk' },
   { retailer: 'JFR Film',                kind: 'shopify', baseUrl: 'https://jfrfilm.co.uk' },
   { retailer: 'Parallax Photographic',   kind: 'woocommerce', baseUrl: 'https://parallaxphotographic.coop', category: 'film' },
+  { retailer: 'Negative Space',          kind: 'shopify', baseUrl: 'https://negativespacefilm.co.uk' },
 ];

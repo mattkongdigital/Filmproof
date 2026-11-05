@@ -254,6 +254,12 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
     // Shops glue the multipack word onto "pack" ("Twinpack") as often as they
     // space it, and the pack rule below keys off a standalone "pack".
     .replace(/\b(twin|double|triple|quad)pack\b/g, '$1 pack')
+    // "2 x 24 Exposures" is a roll count times a roll length. Left alone, the
+    // count read as the pack but the "x" stayed in the line: Negative Space's
+    // "Kodak Gold 200 ... Twin Pack (2 x 24 Exposures)" forked a page of its
+    // own beside Gold 200. Instant packs ("2 x 10 shots") went the same way
+    // above, in instantPacks().
+    .replace(/\b([2-9])\s*x\s*(\d{2})\s*(exp|exposures?)\b/g, '$1 pack $2 $3')
     // Some shops glue the ISO onto the line name ("SFX200"). We can't split
     // digits off *any* line name — plenty (Tri-X, HP5, T-Max, 3200) are
     // legitimately alphanumeric — so this only fires for known line names,
