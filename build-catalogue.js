@@ -12,6 +12,7 @@ import { SOURCES } from './sources.config.js';
 import { fetchAllProducts } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
 import { saveProducts } from './src/product-cache.js';
+import { markExpired } from './src/expired-note.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { parseFilmTitle, sheetSize } from './src/normalise.js';
@@ -186,7 +187,7 @@ async function itemsFor(src) {
       }
       if (!products && src.sample) products = JSON.parse(readFileSync(src.sample, 'utf8')).products;
       if (!products) return [];
-      return products.flatMap(bySheetSize).map((p) => ({
+      return markExpired(products, src).flatMap(bySheetSize).map((p) => ({
         title: `${p.vendor && !p.title.toLowerCase().startsWith(p.vendor.toLowerCase()) ? p.vendor + ' ' : ''}${p.title}`.trim(),
         type: p.product_type || '',
         raw: p.title,

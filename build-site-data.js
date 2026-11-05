@@ -15,6 +15,7 @@ import { loadNikTrick } from './src/adapters/niktrick.js';
 import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
 import { loadProducts } from './src/product-cache.js';
+import { markExpired } from './src/expired-note.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
@@ -56,7 +57,7 @@ async function resolveOffers(src) {
           // Reuse the pull build-catalogue made minutes ago (src/product-cache.js)
           // rather than hitting the shop a second time.
           const cached = loadProducts(src.retailer);
-          const products = cached || await fetchProducts(src);
+          const products = markExpired(cached || await fetchProducts(src), src);
           const offers = productsToOffers(products, { retailer: src.retailer, baseUrl: src.baseUrl }).filter(filmish);
           console.log(`  ${src.retailer}: live${cached ? ' (catalogue pull)' : ''} — ${offers.length} film offers`);
           return { offers, live: true };
