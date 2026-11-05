@@ -328,7 +328,7 @@ async function run() {
       }
       filmItems++;
       const tagIso = extractIso(it.tags, '');
-      const parsed = parseFilmTitle(it.title, it.type, tagIso);
+      const parsed = parseFilmTitle(it.title, it.type, tagIso, it.tags);
       if (!parsed.identified) {
         if (debugTitle) dbg(`DROPPED unidentified-title | ${src.retailer} | ${it.title} | type=${it.type || '(none)'}`);
         unidentified.add(`${(it.type || '?').padEnd(14)} ${it.title}`); continue;

@@ -165,7 +165,23 @@ export function sheetSize(text) {
   return null;
 }
 
-export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
+// The format a product's tags name, when they name exactly one roll format.
+// Tags are the last resort, after the title and the product type: Negative
+// Space lists expired rolls as "Fujifilm Fujicolor C200" and says 35mm only in
+// a tag. A product tagged with two formats (Gulabi's "120, 35mm" on a film sold
+// in both) names none, since there is no telling which one it is. Only roll
+// formats count: a sheet, cine or instant key also needs a size, gauge or
+// pack count from the title, which a tag cannot give, and Analogue
+// Wonderland's "4x5" tag on Harman Direct Positive Paper made paper a film.
+const TAG_FORMATS = new Set(['135', '120', '110', '127', '220', '620']);
+export function tagFormat(tags) {
+  const list = Array.isArray(tags) ? tags : String(tags || '').split(',');
+  const found = new Set(list.map((t) => detectFormat(String(t).toLowerCase().trim())).filter(Boolean));
+  const [only] = found;
+  return found.size === 1 && TAG_FORMATS.has(only) ? only : null;
+}
+
+export function parseFilmTitle(raw, typeHint = '', extraIso = null, tags = '') {
   let text = String(raw).toLowerCase();
   const instant = /\b(?:instax|polaroid|instant)\b/.test(text);
   if (instant) {
@@ -357,6 +373,7 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null) {
   // "36 Exp", and the other way round ("EXP 36"), and "135-36".
   const em = text.match(/\b(\d{2})\s?(?:exp|exposure|exposures)\b/) || text.match(/\bexp\s?(\d{2})\b/) || text.match(/\b135[\s-]?(\d{2})\b/);
   if (em) exp = em[1];
+  if (!format) format = tagFormat(tags);
   // A title with no format but a 24, 27 or 36 exposure count is 35mm: no
   // other roll film comes in those lengths. Classic Photo Supplies lists
   // Harman Red as "Harman Redscale 125 Film - 36 Exposure" and nothing else.
