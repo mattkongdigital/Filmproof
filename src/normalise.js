@@ -305,6 +305,13 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null, tags = '') {
   // "Porta" is a shop's misspelling of Portra, not a Kodak film; left alone it
   // gave Portra 800 35mm a second page.
   if (/\bkodak\b/.test(text)) text = text.replace(/\bporta\b/g, 'portra');
+  // This Is How I Roll respools Kodak's Vision3 cine stocks with the remjet
+  // already off, so "Without Remjet (AHU)" describes every one of them rather
+  // than telling two apart. Chemical Dependency Lab writes it out and Gulabi
+  // ("Kodak Vision3 500T (thisishowiroll)") doesn't, which gave 500T two pages.
+  if (/\bthis\s*is\s*how\s*i\s*roll\b/.test(text)) {
+    text = text.replace(/\b(?:without\s+)?remjet\b|\bahu\b/g, ' ').replace(/\s+/g, ' ').trim();
+  }
   // Harman Red is a redscale film, and one shop names it for that: "Harman
   // Redscale 125" is the Red 125 every other shop lists. Scoped to Harman, as
   // Lomography's Redscale is a film of its own.
