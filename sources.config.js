@@ -3,7 +3,9 @@
 // /products.json, and WooCommerce stores with the public Store API at
 // /wp-json/wc/store/v1/products. Adding either is just a new entry here; no
 // new code needed. A WooCommerce entry names its film `category` (slug or id),
-// since those shops' full catalogues are mostly not film.
+// since those shops' full catalogues are mostly not film. A shop that says a
+// roll is expired only in its description sets `expiredNote`, a regex for the
+// words it uses (src/expired-note.js).
 // Any source that isn't Shopify (or has no film) logs a warning and contributes
 // nothing — it can't break the build.
 
@@ -22,5 +24,5 @@ export const SOURCES = [
   { retailer: 'Chemical Dependency Lab', kind: 'shopify', baseUrl: 'https://chemicaldependency.co.uk' },
   { retailer: 'JFR Film',                kind: 'shopify', baseUrl: 'https://jfrfilm.co.uk' },
   { retailer: 'Parallax Photographic',   kind: 'woocommerce', baseUrl: 'https://parallaxphotographic.coop', category: 'film' },
-  { retailer: 'Negative Space',          kind: 'shopify', baseUrl: 'https://negativespacefilm.co.uk' },
+  { retailer: 'Negative Space',          kind: 'shopify', baseUrl: 'https://negativespacefilm.co.uk', expiredNote: /note on expired film/i },
 ];
