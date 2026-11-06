@@ -12,6 +12,7 @@ data/catalogue-unidentified.txt
 data/products/
 web/data/site.json
 web/data/search-index.json
+web/data/meta.json
 films.csv
 
 # os / editor cruft
