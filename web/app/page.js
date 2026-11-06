@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getFilms, SITE_URL } from '../lib/data';
+import { getFilms, getUpdatedAt, SITE_URL } from '../lib/data';
 import { FORMATS, availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
 import { FilmCard } from '../components/film-card';
 
@@ -15,6 +15,11 @@ const FEATURED_PER_FORMAT = 4;
 
 export default function Home() {
   const films = getFilms();
+  const updatedAt = getUpdatedAt();
+  // UK time, so a pull just after midnight GMT/BST is not dated the day before.
+  const updatedLabel = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric',
+  }).format(new Date(updatedAt));
   const formats = availableFormats();
   const types = availableTypes();
   const conditions = availableConditions();
@@ -44,7 +49,7 @@ export default function Home() {
           prices per roll, and restock in seconds.
         </p>
         <div className="meter">
-          <b>{films.length}</b> stocks <i>·</i> <b>{shops.size}</b> shops <i>·</i> updated daily
+          <b>{films.length}</b> stocks <i>·</i> <b>{shops.size}</b> shops <i>·</i> last updated <time dateTime={updatedAt}>{updatedLabel}</time>
         </div>
       </header>
 

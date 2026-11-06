@@ -199,6 +199,9 @@ async function run() {
 
   mkdirSync('./web/data', { recursive: true });
   writeFileSync('./web/data/site.json', JSON.stringify(site, null, 2));
+  // When these prices were pulled, for the "last updated" line on the home page.
+  // Stamped here rather than at `next build` so it dates the data, not the deploy.
+  writeFileSync('./web/data/meta.json', JSON.stringify({ updatedAt: new Date().toISOString() }));
 
   // Lean index for client-side search (no offers/descriptions — keeps it tiny).
   const searchIndex = site.map((f) => ({

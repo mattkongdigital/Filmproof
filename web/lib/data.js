@@ -4,9 +4,15 @@
 // offers table instead of a static import.
 
 import site from '../data/site.json';
+import meta from '../data/meta.json';
 
 export function getFilms() {
   return site;
+}
+
+// When build-site-data.js last pulled live prices, as an ISO timestamp.
+export function getUpdatedAt() {
+  return meta.updatedAt;
 }
 
 export function getFilm(slug) {
