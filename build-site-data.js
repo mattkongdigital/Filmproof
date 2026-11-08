@@ -16,6 +16,7 @@ import { fetchAllProducts, productsToOffers } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
 import { loadProducts } from './src/product-cache.js';
 import { markExpired } from './src/expired-note.js';
+import { addPageExp } from './src/page-exp.js';
 
 const OFFLINE = process.env.FILMPROOF_OFFLINE === '1';
 
@@ -42,9 +43,9 @@ const filmish = (o) =>
 
 // WooCommerce shops are reshaped into Shopify's product shape by their
 // adapter, so from here on both kinds take the same path.
-const fetchProducts = (src) => src.kind === 'woocommerce'
+const fetchProducts = async (src) => addPageExp(await (src.kind === 'woocommerce'
   ? fetchWooProducts(src.baseUrl, { category: src.category })
-  : fetchAllProducts(src.baseUrl);
+  : fetchAllProducts(src.baseUrl)), src);
 
 // Returns { offers, live }. `live` is true only when the offers actually came
 // from a live network fetch just now — the plausibility guard in run() needs

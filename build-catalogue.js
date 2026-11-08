@@ -13,6 +13,7 @@ import { fetchAllProducts } from './src/adapters/shopify.js';
 import { fetchAllProducts as fetchWooProducts } from './src/adapters/woocommerce.js';
 import { saveProducts } from './src/product-cache.js';
 import { markExpired } from './src/expired-note.js';
+import { addPageExp } from './src/page-exp.js';
 import { loadWex } from './src/adapters/wex.js';
 import { loadNikTrick } from './src/adapters/niktrick.js';
 import { parseFilmTitle, sheetSize } from './src/normalise.js';
@@ -166,9 +167,9 @@ function isFilmProduct(type, title) {
 
 // WooCommerce shops are reshaped into Shopify's product shape by their
 // adapter, so from here on both kinds take the same path.
-const fetchProducts = (src) => src.kind === 'woocommerce'
+const fetchProducts = async (src) => addPageExp(await (src.kind === 'woocommerce'
   ? fetchWooProducts(src.baseUrl, { category: src.category })
-  : fetchAllProducts(src.baseUrl);
+  : fetchAllProducts(src.baseUrl)), src);
 
 // Yield {title, type} items for a source (products for Shopify; offers for feeds).
 async function itemsFor(src) {
@@ -207,6 +208,7 @@ async function itemsFor(src) {
         })(),
         tags: Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || ''),
         body: (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 2000),
+        pageExp: p.page_exp ?? null,
       }));
     }
     const offers = src.kind === 'xml' ? loadWex(src.sample) : src.kind === 'csv' ? loadNikTrick(src.sample) : [];
@@ -375,7 +377,7 @@ async function run() {
       if (!films.has(parsed.key)) {
         const process = deriveProcess(it.type, it.title, it.tags, it.body);
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? parsed.lowIso ?? extractLowIso(it.tags, it.body) ?? extractIso('', it.body);
-        const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body);
+        const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body) ?? it.pageExp;
         films.set(parsed.key, {
           id: films.size + 1, key: parsed.key, display: filmName(it.raw, parsed.format),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
@@ -410,7 +412,7 @@ async function run() {
             f.description = describe({ display: f.display, brand: f.brand, format: f.format, iso: f.iso, process: p });
           }
         }
-        if (f.exp == null) { const e = extractExp(it.tags, it.body); if (e != null) f.exp = e; }
+        if (f.exp == null) { const e = extractExp(it.tags, it.body) ?? it.pageExp; if (e != null) f.exp = e; }
       }
     }
     console.log(`  ${src.retailer}: +${kept} new films`);
