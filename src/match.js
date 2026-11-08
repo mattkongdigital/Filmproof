@@ -23,7 +23,9 @@ export function matchOffer(rawOffer, filmByKey) {
   const sheets = parsed.format === 'sheet' ? (parsed.sheets ? parsed.sheets * pack : null) : undefined;
   const units = sheets === undefined ? pack : sheets;
   const pricePerRoll = units ? +(rawOffer.price / units).toFixed(2) : null;
-  const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(tagStr, '');
+  // Title first, then tags, then the description (read by the adapter, which
+  // drops a description naming more than one count).
+  const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(tagStr, '') ?? rawOffer.bodyExp ?? null;
   const offer = { ...rawOffer, packSize: pack, pricePerRoll, exp, ...(sheets !== undefined ? { sheets } : {}) };
 
   if (!parsed.complete) {
