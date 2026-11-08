@@ -93,6 +93,7 @@ export function productsToOffers(products, { retailer, baseUrl }) {
     const namePrefix = startsWithVendor ? '' : (vendor ? vendor + ' ' : '');
 
     const count = countFromBody(p);
+    const bodyExp = expFromBody(p);
     for (const v of p.variants || []) {
       const { label, packSize } = variantInfo(p, v);
       const vt = label ? ' ' + label : '';
@@ -113,6 +114,10 @@ export function productsToOffers(products, { retailer, baseUrl }) {
         // Only set when the variant itself states its roll count; matchOffer
         // prefers it to whatever the product title says.
         ...(packSize ? { packSize } : {}),
+        // The roll's exposure count from the description, for a shop that
+        // states it only there. matchOffer reads it last, after the title
+        // and tags.
+        ...(bodyExp ? { bodyExp } : {}),
       });
     }
   }
@@ -179,6 +184,32 @@ function countFromBody(p) {
     return m ? `${m[1]} sheets` : null;
   }
   return null;
+}
+
+// A roll film's exposure count, when its description states exactly one.
+// Chemical Dependency Lab titles "Fomapan Action 400 - 35mm Black & White
+// Film" and says "36 exposures" only in the body. A description naming two
+// counts ("24 or 36 exposures", or 120's "16 on 645, 12 on 6x6") is
+// ambiguous and reads as nothing, as does instant and sheet film, whose
+// "exposures" are shots and sheets, handled by countFromBody() above.
+// Two forms, run separately so one can't swallow the other's word:
+//   - "36 exposures", "36 exp", and the alternatives before it ("24 or 36
+//     exposures"), but not "50 Exposures:", which is the ISO
+//     ending one spec line and the label starting the next ("ISO: 50
+//     Exposures: 36" at Analogue Wonderland).
+//   - "Exposures: 36", and the alternatives after it, so
+//     "Exposures: 24 / 36" counts two. "exposure" alone needs its colon, or
+//     "an exposure 30 seconds long" would read as 30.
+const EXP_COUNT = /\b((?:\d{1,2}\s*(?:\/|,|&|or|and)\s*)*)(\d{1,2})\s*(?:exposures?|exp)\b(?!\s*:)/gi;
+const EXP_LABEL = /\b(?:exposures\s*:?|exposure\s*:)\s*(\d{1,2})\b((?:\s*(?:\/|,|&|or|and)\s*\d{1,2}\b)*)/gi;
+function expFromBody(p) {
+  if (/\b(?:instax|polaroid|instant|sheet film|large format)\b/i.test(p.title) || sheetSize(p.title)) return null;
+  const body = (p.body_html || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  const found = [];
+  for (const m of body.matchAll(EXP_COUNT)) found.push(m[2], ...(m[1].match(/\d+/g) || []));
+  for (const m of body.matchAll(EXP_LABEL)) found.push(m[1], ...(m[2].match(/\d+/g) || []));
+  const counts = new Set(found.map(Number).filter((n) => n >= 8 && n <= 72));
+  return counts.size === 1 ? [...counts][0] : null;
 }
 
 // "5", "5 Pack", "5 Roll Pack", "1 Pack (5 rolls)", "Single Roll", "Triple".
