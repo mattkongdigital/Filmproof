@@ -75,7 +75,17 @@ wired up, so check which one answers first:
   Sensitivity" is wrong often enough to split films across pages.
 
 Anything else (BigCommerce, a bespoke site) needs its own adapter; there is no
-scraping of shop pages.
+scraping of shop pages, with one narrow exception. A shop that states a roll's
+exposure count only on its product page (Take It Easy Lab prints it as a pill
+from a metafield that `/products.json` leaves out) can set `pageExp` in
+`SOURCES`, a regex whose first group is the count. `src/page-exp.js` then loads
+the page of each film product the feed gave no count for, reads that one number
+and nothing else, and stores it as `page_exp` before the product cache is
+written. A page that fails or no longer matches leaves the offer as "Exposures
+not stated"; it never stops the build. The count is read from the title, then
+tags, then description, then the page. Prices, stock and names still come only
+from the feed, and this is not a pattern for anything beyond the exposure
+count.
 
 Before adding the shop, build once and keep `web/data/site.json`; build again
 with it added and diff the slugs. A new shop's spellings are where the

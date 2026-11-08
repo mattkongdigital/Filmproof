@@ -93,7 +93,7 @@ export function productsToOffers(products, { retailer, baseUrl }) {
     const namePrefix = startsWithVendor ? '' : (vendor ? vendor + ' ' : '');
 
     const count = countFromBody(p);
-    const bodyExp = expFromBody(p);
+    const bodyExp = expFromBody(p) ?? p.page_exp ?? null;
     for (const v of p.variants || []) {
       const { label, packSize } = variantInfo(p, v);
       const vt = label ? ' ' + label : '';
@@ -114,9 +114,10 @@ export function productsToOffers(products, { retailer, baseUrl }) {
         // Only set when the variant itself states its roll count; matchOffer
         // prefers it to whatever the product title says.
         ...(packSize ? { packSize } : {}),
-        // The roll's exposure count from the description, for a shop that
-        // states it only there. matchOffer reads it last, after the title
-        // and tags.
+        // The roll's exposure count from the description, or from the
+        // product page for a `pageExp` source (src/page-exp.js), for a shop
+        // that states it only there. matchOffer reads it last, after the
+        // title and tags.
         ...(bodyExp ? { bodyExp } : {}),
       });
     }
