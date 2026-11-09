@@ -1,5 +1,41 @@
 [
   {
+    "key": "actonyourfuture.org/prix-2027.html",
+    "official_url": "https://www.actonyourfuture.org/prix-2027.html",
+    "title": "7th AOYF Human Rights Photography Prize: Post-Truth, Reality in Question",
+    "organiser": "Act On Your Future Foundation, with the Centre de la photographie Genève",
+    "type": "competition",
+    "deadline": "2026-12-20",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Artists of any nationality or residence",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A human rights photography prize on truth and doubt in a world of manipulated and AI-made images. Five finalists get production support and a summer 2027 show in Geneva, and the winner takes CHF 10,000.",
+    "evidence": {
+      "deadline": "Date limite de candidature : 20 décembre 2026 à 23h59",
+      "fee": "La participation est gratuite",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/7th-aoyf-human-rights-photography-prize-international-open-call-2027/",
+        "found": "2026-11-09"
+      }
+    ]
+  },
+  {
     "key": "analogforevermagazine.com/calls-for-entry/devotion-fall-2026",
     "official_url": "https://www.analogforevermagazine.com/calls-for-entry/devotion-fall-2026",
     "title": "Devotion — Online Group Exhibition",

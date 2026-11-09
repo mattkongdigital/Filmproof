@@ -44,6 +44,12 @@ test('htmlToText drops scripts and nav, keeps block breaks, decodes entities', (
   assert.equal(t, 'Title\nFee: £15 per entry');
 });
 
+test('htmlToText decodes accented named entities, case and all', () => {
+  assert.equal(htmlToText('<p>Date limite : 20 d&eacute;cembre 2026 &agrave; 23h59, &laquo;&nbsp;Gen&egrave;ve&nbsp;&raquo;</p>'),
+    'Date limite : 20 décembre 2026 à 23h59, « Genève »');
+  assert.equal(htmlToText('<p>&Agrave; travers, &ccedil;a, &uuml;ber, &oelig;uvres, &unknown;</p>'), 'À travers, ça, über, œuvres, &unknown;');
+});
+
 test('extractLinks resolves relative links and dedupes', () => {
   const links = extractLinks('<a href="/apply">Apply</a> <a href="/apply">again</a> <a href="mailto:x@y.z">m</a>', 'https://example.org/call/');
   assert.deepEqual(links, [{ href: 'https://example.org/apply', text: 'Apply' }]);
