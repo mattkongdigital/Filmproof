@@ -34,13 +34,23 @@ export function normaliseUrl(raw) {
 // Text
 
 const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ndash: '–', mdash: '—',
-  lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', hellip: '…', pound: '£', euro: '€' };
+  lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', hellip: '…', pound: '£', euro: '€',
+  laquo: '«', raquo: '»', oelig: 'œ', OElig: 'Œ', aelig: 'æ', AElig: 'Æ', szlig: 'ß',
+  oslash: 'ø', Oslash: 'Ø', eth: 'ð', thorn: 'þ', deg: '°', middot: '·', bull: '•',
+  times: '×', copy: '©', reg: '®', trade: '™', yen: '¥', cent: '¢', sect: '§', iexcl: '¡', iquest: '¿' };
+
+// Accented letters (&eacute; &Agrave; &ccedil; &ouml; …) are a base letter plus a
+// combining mark, so they are built rather than listed. Older CMSs entity-encode
+// every accent, and French and German calls came through as "d&eacute;cembre"
+// until this was added, which no deadline quote could ever match.
+const MARKS = { acute: '́', grave: '̀', circ: '̂', uml: '̈', tilde: '̃', cedil: '̧', ring: '̊' };
 
 export function decodeEntities(s) {
   return String(s)
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&([a-z]+);/gi, (m, n) => NAMED[n.toLowerCase()] ?? m);
+    .replace(/&([a-zA-Z])(acute|grave|circ|uml|tilde|cedil|ring);/g, (_, l, m) => (l + MARKS[m]).normalize('NFC'))
+    .replace(/&([a-zA-Z]+);/g, (m, n) => NAMED[n] ?? NAMED[n.toLowerCase()] ?? m);
 }
 
 const stripCdata = (s) => String(s).replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
