@@ -1,14 +1,45 @@
 import './globals.css';
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { SiteNav } from '../components/site-nav';
 import { SiteFooter } from '../components/site-footer';
 import { Analytics } from '../components/analytics';
 import { CookieConsent } from '../components/cookie-consent';
 import { SITE_URL } from '../lib/data';
 
-const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-display' });
-const body = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' });
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-mono' });
+// Fonts are committed under ./fonts (Latin subset, from Fontsource, SIL OFL)
+// rather than loaded with next/font/google, which downloads them from Google
+// Fonts during every build: a bad response there failed a deploy outright.
+// next/font needs every option written out literally, hence the repetition.
+const display = localFont({
+  src: [
+    { path: './fonts/space-grotesk-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/space-grotesk-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/space-grotesk-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-display',
+  display: 'swap',
+});
+const body = localFont({
+  src: [
+    { path: './fonts/ibm-plex-sans-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/ibm-plex-sans-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/ibm-plex-sans-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
+  variable: '--font-body',
+  display: 'swap',
+});
+// Fallback metrics are matched against Arial by default, which suits the two
+// sans faces but not a monospace one.
+const mono = localFont({
+  src: [
+    { path: './fonts/ibm-plex-mono-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/ibm-plex-mono-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/ibm-plex-mono-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
+  variable: '--font-mono',
+  display: 'swap',
+  adjustFontFallback: false,
+});
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
