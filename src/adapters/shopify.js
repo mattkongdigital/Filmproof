@@ -91,6 +91,7 @@ export function productsToOffers(products, { retailer, baseUrl }) {
     const startsWithVendor =
       vendor && p.title.toLowerCase().startsWith(vendor.toLowerCase());
     const namePrefix = startsWithVendor ? '' : (vendor ? vendor + ' ' : '');
+    const ownVendor = vendor && retailer && vendor.toLowerCase().startsWith(retailer.toLowerCase());
 
     const count = countFromBody(p);
     const bodyExp = expFromBody(p) ?? p.page_exp ?? null;
@@ -106,8 +107,10 @@ export function productsToOffers(products, { retailer, baseUrl }) {
         title,
         // The shop's own product name, without the variant: the film page
         // shows it on a shop's extra listings, so "Kodak Eastman GOLD 200"
-        // and "Kodak Gold 200" from one shop can be told apart.
-        listing: `${namePrefix}${p.title}`.trim(),
+        // and "Kodak Gold 200" from one shop can be told apart. A shop that
+        // sets itself as the vendor ("PJL Photography", "Cameras By Max Ltd")
+        // would otherwise print its own name twice on the row.
+        listing: (ownVendor ? p.title : `${namePrefix}${p.title}`).trim(),
         price: parseFloat(v.price),
         inStock: v.available !== false,
         // A variant reshaped from another platform (./woocommerce.js) brings
