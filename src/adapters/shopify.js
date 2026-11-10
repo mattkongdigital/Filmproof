@@ -104,6 +104,10 @@ export function productsToOffers(products, { retailer, baseUrl }) {
         retailer,
         retailerSku: v.sku || `${p.id}-${v.id}`,
         title,
+        // The shop's own product name, without the variant: the film page
+        // shows it on a shop's extra listings, so "Kodak Eastman GOLD 200"
+        // and "Kodak Gold 200" from one shop can be told apart.
+        listing: `${namePrefix}${p.title}`.trim(),
         price: parseFloat(v.price),
         inStock: v.available !== false,
         // A variant reshaped from another platform (./woocommerce.js) brings

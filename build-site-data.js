@@ -113,6 +113,7 @@ async function run() {
         exp: r.offer.exp ?? null,
         inStock: r.offer.inStock,
         url: r.offer.url,
+        listing: r.offer.listing || r.offer.title || null,
       });
     }
   }
