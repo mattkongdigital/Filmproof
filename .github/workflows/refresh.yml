@@ -4,7 +4,9 @@ name: Refresh prices & deploy
 # the static site, and publishes it to GitHub Pages.
 on:
   schedule:
-    - cron: '0 10 * * *'  # daily at 10:00 UTC / GMT
+    # Off the hour on purpose: GitHub queues :00 schedules behind everyone
+    # else's, and runs set for 10:00 were starting 7 to 10 hours late.
+    - cron: '37 9 * * *'  # daily at 09:37 UTC / GMT
   workflow_dispatch: {}    # adds a "Run workflow" button in the Actions tab
   push:
     branches: [main]       # also rebuild when you push code changes
