@@ -56,6 +56,11 @@ Use it only alongside copy. A range slug must not end in `-film` (the build stop
 goes in `BRAND_SUB_CONTENT` under `<brand>/<range>`. Without copy the page
 falls back to a generated lede.
 
+A brand × facet page (`/brand/adox/120-film/`) follows the same 3-film bar. A
+pair can lower it in `BRAND_FACET_MIN` in `web/lib/facets.js`, keyed
+`<brand>/<facet>`, as Adox 120 does at 2. Same rule as `minFresh`: only with
+copy for it in `BRAND_SUB_CONTENT`.
+
 ### Adding a shop
 
 A shop is an entry in `SOURCES` in `sources.config.js` and a matching entry in

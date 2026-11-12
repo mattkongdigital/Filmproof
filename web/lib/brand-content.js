@@ -1570,6 +1570,20 @@ export const BRAND_SUB_CONTENT = {
       ] },
     ],
   },
+  'adox/120-film': {
+    meta: { title: 'Adox 120 Film | Compare UK Prices', description: 'Compare Adox 120 medium format film prices from UK shops, including CHS 100 II and CMS 20 II, with live stock and prices per roll.' },
+    intro: 'Adox makes a small range of black and white film, and two of its films come in 120 for medium format cameras: CHS 100 II, its everyday ISO 100 film, and CMS 20 II, a converted microfilm with extraordinary resolution. Compare Adox 120 film prices from UK shops below.',
+    sections: [
+      { heading: 'CHS 100 II or CMS 20 II in 120?', paragraphs: [
+        'CHS 100 II is the one to load for general shooting. It is orthopanchromatic, a little less sensitive to red than most modern films, so skin and red tones render slightly darker for a classic look, and it develops in ordinary black and white chemistry at home or at any lab.',
+        'CMS 20 II is a specialist film. Rated around ISO 12 to 20 it wants bright light or a tripod, and it needs a low contrast developer such as Adox Adotech to give a full range of tones. On a medium format negative its resolution is enough for very large prints.',
+      ] },
+      { heading: 'Buying Adox in 120', paragraphs: [
+        'Few UK shops stock Adox in 120, and supply comes and goes, so check the listings above for which shops have it now. Shops list CHS 100 II as both CHS 100 II and CHS 100, and Filmproof keeps them on one page so every price is compared together.',
+        'For other Adox films, HR-50 and Scala 50 are sold here in 35mm.',
+      ] },
+    ],
+  },
   // Polaroid's ranges.
   'polaroid/i-type': {
     meta: { title: 'Polaroid i-Type Film | Compare UK Prices', description: 'Compare Polaroid i-Type instant film prices from UK shops, in colour, black and white and special editions, with live stock and prices per pack.' },
