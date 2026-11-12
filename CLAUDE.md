@@ -17,6 +17,14 @@ Two halves share one repo:
 - **The site.** `web/` is a Next.js app built with `output: 'export'` and
   `trailingSlash: true`, deployed to GitHub Pages by `.github/workflows/refresh.yml`.
 
+  The workflow has no `schedule:`. GitHub ran its daily cron 6 to 10 hours late
+  and sometimes skipped it, so the daily refresh is a Claude Code scheduled
+  task on the owner's plan ("Filmproof daily refresh", 05:38 UK time) that
+  starts the workflow through `workflow_dispatch` and reports the result. Like
+  the opportunities task below, it wakes the session that set it up; if that
+  session is ever archived, the task needs setting up again from a new one,
+  or the site stops refreshing.
+
 ### Merged films and dead slugs
 
 A film page's slug is derived from the first shop's title for it, so two shops

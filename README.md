@@ -107,7 +107,8 @@ other shop then matches against this catalogue.
 ## Keeping it current (GitHub Actions)
 
 `.github/workflows/refresh.yml` re-pulls live prices, rebuilds the static site,
-and deploys to GitHub Pages — on a daily schedule, on demand, and on push.
+and deploys to GitHub Pages — on push, and on demand. The daily refresh is a
+Claude Code scheduled task that starts it each morning (see `CLAUDE.md`).
 
 Data sources live in `sources.config.js`. A source is *live* if it has a
 `baseUrl` (fetched fresh each run) and/or *sample* (a local fallback used
