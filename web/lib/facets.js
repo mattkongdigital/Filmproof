@@ -130,10 +130,21 @@ export const MIN_COMBO_FILMS = 3;
 const countFor = (brandSlug, facet) =>
   getFilms().filter((f) => f.brand === brandSlug && facet.match(f)).length;
 
+// A brand × facet pair can lower its own bar below MIN_COMBO_FILMS, the same
+// way a range does with `minFresh`, where two films are worth a page for its
+// copy. Keyed '<brand>/<facet>'; use it only alongside an entry in
+// BRAND_SUB_CONTENT (lib/brand-content.js). Adox makes few films, and its two
+// in 120 would otherwise leave its medium format range without a page.
+const BRAND_FACET_MIN = {
+  'adox/120-film': 2,
+};
+
+const minFor = (brandSlug, facet) => BRAND_FACET_MIN[`${brandSlug}/${facet.slug}`] ?? MIN_COMBO_FILMS;
+
 export function subFacetsForBrand(brandSlug) {
   return ALL_FACETS
     .map((facet) => ({ slug: facet.slug, label: facet.label, kind: facetKind(facet), count: countFor(brandSlug, facet) }))
-    .filter((x) => x.count >= MIN_COMBO_FILMS);
+    .filter((x) => x.count >= minFor(brandSlug, x));
 }
 
 // The brands with a /brand/<slug>/<facet> page for this facet, most films
@@ -142,7 +153,7 @@ export function subFacetsForBrand(brandSlug) {
 export function brandsForFacet(facet) {
   return brandList()
     .map((b) => ({ ...b, count: countFor(b.slug, facet) }))
-    .filter((b) => b.count >= MIN_COMBO_FILMS)
+    .filter((b) => b.count >= minFor(b.slug, facet))
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }));
 }
 
@@ -169,7 +180,7 @@ export function brandSubParams() {
   const out = [];
   for (const b of brandList()) {
     for (const facet of ALL_FACETS) {
-      if (countFor(b.slug, facet) >= MIN_COMBO_FILMS) out.push({ slug: b.slug, sub: facet.slug });
+      if (countFor(b.slug, facet) >= minFor(b.slug, facet)) out.push({ slug: b.slug, sub: facet.slug });
     }
   }
   for (const r of builtRanges()) out.push({ slug: r.brand, sub: r.slug });
