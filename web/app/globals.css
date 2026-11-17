@@ -485,6 +485,12 @@ footer {
   .search { flex:1 1 100%; margin-left:0; order:3; }
 }
 
+/* Home page: a full-width box above the browse tiles. */
+.search.search-hero { display:block; margin:0 0 8px; max-width:560px; min-width:0; }
+.search-hero .search-input { padding:14px 16px; font-size:16px; border-radius:4px; }
+.search-hero .hit-name { font-size:15px; }
+.search-hero .search-hit { padding:11px 16px; }
+
 /* ---- cookie consent ---- */
 .cookie-banner {
   position:fixed; left:16px; right:16px; bottom:16px; z-index:100;
