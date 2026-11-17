@@ -13,7 +13,9 @@ const ITEMS = index.map((f) => ({
   hay: `${f.display} ${f.brand} ${f.iso ?? ''} ${FMT[f.format] ?? f.format ?? ''}`.toLowerCase(),
 }));
 
-export function SearchBox() {
+// `hero` is the large box on the home page; the default is the compact one in
+// the nav bar and the mobile drawer.
+export function SearchBox({ hero = false, placeholder = 'Search film…' } = {}) {
   const [q, setQ] = useState('');
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -43,11 +45,13 @@ export function SearchBox() {
   const close = () => { setOpen(false); setQ(''); };
 
   return (
-    <div className="search" ref={boxRef}>
+    <div className={hero ? 'search search-hero' : 'search'} ref={boxRef}>
       <input
         className="search-input"
         type="search"
-        placeholder="Search film…"
+        placeholder={placeholder}
+        autoComplete="off"
+        enterKeyHint="search"
         value={q}
         onChange={(e) => { setQ(e.target.value); setOpen(true); }}
         onFocus={() => setOpen(true)}

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getFilms, getUpdatedAt, SITE_URL } from '../lib/data';
 import { FORMATS, availableFormats, availableTypes, availableConditions, brandList, filmsFor } from '../lib/facets';
 import { FilmCard } from '../components/film-card';
+import { SearchBox } from '../components/search-box';
 
 export function generateMetadata() {
   return {
@@ -54,6 +55,9 @@ export default function Home() {
       </header>
 
       <section className="hub">
+        <h2 className="hub-head">Search film</h2>
+        <SearchBox hero placeholder="Try Portra 400, HP5 or Ektar" />
+
         <h2 className="hub-head">Browse by format</h2>
         <div className="tiles">
           {formats.map((f) => <Link key={f.slug} href={`/${f.slug}`} className="tile">{f.label}</Link>)}
