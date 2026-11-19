@@ -205,6 +205,13 @@ export const LEGACY_FILM_SLUGS = {
   'ilford-ortho-plus-4x5-film-25-sheets': 'ilford-ortho-plus-4x5-film',
   'fomapan-400-8x10-film-50-sheets': 'fomapan-400-8x10-film',
   'fomapan-100-8x10-film-50-sheets': 'fomapan-100-8x10-film',
+  // PJL's titles forked these: "UltraMax GC" (GC is a Kodak factory code), and
+  // "...black and white analogue film" on Tri-X, Delta and FP4 Plus.
+  'kodak-ultramax-gc-film-400-135': 'kodak-eastman-ultramax-400-35mm-film',
+  'kodak-tri-x-tx-35mm-black-and-white-analogue-film': 'kodak-eastman-tri-x-400-35mm-film',
+  'ilford-delta-100-professional-35mm-black-and-white-analogue-film': 'ilford-delta-100-35mm-film',
+  'ilford-delta-400-professional-35mm-black-and-white-analogue-film': 'ilford-delta-400-35mm-film',
+  'ilford-fp4-plus-120-black-and-white-analogue-film': 'ilford-fp4-plus-120-film',
 };
 
 // The film a legacy slug now points at, or null. Guards against a target that

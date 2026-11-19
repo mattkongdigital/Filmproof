@@ -83,6 +83,19 @@ async function resolveOffers(src) {
   }
 }
 
+// Which box a Kodak listing is, where its title says so. Since late 2025
+// Eastman Kodak distributes the still films Kodak Alaris used to, and both
+// boxes sell side by side on one page. The title is the shop's vendor plus
+// product name, so "Eastman Kodak (EKC)" in the vendor counts. A title that
+// names neither leaves `box` unset: plain "Kodak Gold 200" could be either.
+function kodakBox(r) {
+  if (r.parsed.brand !== 'kodak') return {};
+  const t = r.offer.title || '';
+  if (/\beastman\b|\bekc\b/i.test(t)) return { box: 'eastman' };
+  if (/\balaris\b|\bkodak\s+professional\b/i.test(t)) return { box: 'alaris' };
+  return {};
+}
+
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 async function run() {
@@ -114,6 +127,7 @@ async function run() {
         inStock: r.offer.inStock,
         url: r.offer.url,
         listing: r.offer.listing || r.offer.title || null,
+        ...kodakBox(r),
       });
     }
   }

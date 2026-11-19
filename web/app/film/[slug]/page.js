@@ -7,6 +7,7 @@ import { FilmFrame } from '../../../components/comparison';
 import { FilmImage } from '../../../components/film-image';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { ProductSchema } from '../../../components/product-schema';
+import { equivalentFilm } from '../../../lib/equivalents';
 
 export function generateStaticParams() {
   // Legacy slugs get a page too — with `output: export` there is nowhere else
@@ -60,6 +61,7 @@ export default function FilmPage({ params }) {
   // film would be noise.
   const conditionSlug = (CONDITIONS.find((x) => x.match(film)) || {}).slug;
   const range = rangeForFilm(film);
+  const equivalent = equivalentFilm(film);
   const specs = [
     ['Brand', pretty(film.brand), film.brand ? `/brand/${film.brand}` : null],
     ...(range ? [['Range', range.label, range.href]] : []),
@@ -67,6 +69,8 @@ export default function FilmPage({ params }) {
     ['Process', film.process || '—', typeSlug ? `/${typeSlug}` : null],
     ['Speed', film.iso ? `ISO ${film.iso}` : '—', null],
     ...(film.expired ? [['Condition', 'Expired', conditionSlug ? `/${conditionSlug}` : null]] : []),
+    // Portra and Ektacolor Pro, T-Max and Ektapan: see lib/equivalents.js.
+    ...(equivalent ? [['Equivalent', equivalent.display, `/film/${equivalent.slug}`]] : []),
   ];
 
   const inStock = film.offers.filter((o) => o.inStock && o.pricePerRoll != null).sort((a, b) => a.pricePerRoll - b.pricePerRoll);

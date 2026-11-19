@@ -254,6 +254,22 @@ const filmName = (raw, format) => cleanName(format === 'sheet'
   ? raw.replace(/[\s,(-]*\b\d{1,3}\s*sheets?\b\)?/gi, '')
   : raw);
 
+// What a page is called, as against its slug. Since late 2025 Eastman Kodak
+// distributes the still films Kodak Alaris used to, and shops write the new
+// box "Kodak Eastman GOLD 200" or "Eastman Kodak (EKC) ...". It is the same
+// film as plain Kodak Gold 200 and shares its page (the normaliser keys them
+// together), so the maker's company name is dropped from what the page shows.
+// The slug is NOT read from this: it stays slugify(filmName()), so pages first
+// named from an Eastman listing keep their published kodak-eastman-* URLs.
+const pageName = (raw, format, brand) => {
+  const name = filmName(raw, format);
+  if (brand !== 'kodak') return name;
+  return name
+    .replace(/\(\s*ekc\s*\)|\bekc\b|\beastman\b/gi, ' ')
+    .replace(/\bkodak(\s+kodak)+\b/gi, 'Kodak')
+    .replace(/\s{2,}/g, ' ').trim();
+};
+
 // Some shops name a film's speed in the title ("Ilford HP5 Plus 400") and some
 // don't ("Ilford HP5 PLUS 35mm film"). The ISO is part of the identity key, so
 // the same film arrives under two keys — one with the speed, one without — and
@@ -379,7 +395,7 @@ async function run() {
         const iso = (parsed.iso ? Number(parsed.iso) : null) ?? parsed.lowIso ?? extractLowIso(it.tags, it.body) ?? extractIso('', it.body);
         const exp = (parsed.exp ? Number(parsed.exp) : null) ?? extractExp(it.tags, it.body) ?? it.pageExp;
         films.set(parsed.key, {
-          id: films.size + 1, key: parsed.key, display: filmName(it.raw, parsed.format),
+          id: films.size + 1, key: parsed.key, display: pageName(it.raw, parsed.format, parsed.brand),
           brand: parsed.brand, format: parsed.format, iso, process, exp,
           expired: parsed.expired,
           // The parts the key was built from. `iso` above can be backfilled
@@ -387,7 +403,7 @@ async function run() {
           // the KEY carries an ISO — reconcileIsoStubs() needs `keyIso`.
           line: parsed.line, keyIso: parsed.iso ?? null,
           image: it.image || null,
-          description: describe({ display: filmName(it.raw, parsed.format), brand: parsed.brand, format: parsed.format, iso, process }),
+          description: describe({ display: pageName(it.raw, parsed.format, parsed.brand), brand: parsed.brand, format: parsed.format, iso, process }),
           type: it.type, slug: slugify(filmName(it.raw, parsed.format)),
           ...(NAMED_BY[parsed.key] === src.retailer ? { namedBy: true } : {}),
         });
@@ -396,8 +412,8 @@ async function run() {
         // Backfill anything a later shop can supply.
         const f = films.get(parsed.key);
         if (NAMED_BY[parsed.key] === src.retailer && !f.namedBy) {
-          f.display = filmName(it.raw, parsed.format);
-          f.slug = slugify(f.display);
+          f.display = pageName(it.raw, parsed.format, parsed.brand);
+          f.slug = slugify(filmName(it.raw, parsed.format));
           f.description = describe({ display: f.display, brand: f.brand, format: f.format, iso: f.iso, process: f.process });
           f.namedBy = true;
         }

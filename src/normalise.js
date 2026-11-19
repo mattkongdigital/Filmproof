@@ -221,6 +221,14 @@ export function parseFilmTitle(raw, typeHint = '', extraIso = null, tags = '') {
     // Canonical names for mainstream ranges, so spacing/spelling variants merge.
     .replace(/\bcolou?r\s*plus\b/g, 'colorplus')
     .replace(/\bultra\s*max\b/g, 'ultramax')
+    // GC is a Kodak factory code on UltraMax ("UltraMax GC Film 400"), the
+    // same film as plain UltraMax 400, as GB is on Gold below.
+    .replace(/\bultramax\s+gc\b|\bgc\s+ultramax\b/g, 'ultramax')
+    // PJL ends some titles "...black and white analogue film". "Analogue" on
+    // its own is part of a name (Lomography's Analogue Trio), so only the
+    // phrase goes: left in, it gave Tri-X 400, Delta 100 and 400, and FP4
+    // Plus 120 a second page each.
+    .replace(/\banalogue\s+film\b/g, ' film ')
     .replace(/\btri[\s-]?x\b/g, 'trix')
     .replace(/\b(trix\b(?:\s+\d{3})?)\s+txp?\b/g, '$1')   // TX/TXP are Tri-X's own codes
     // Shops gloss Eastman's Ektacolor Pro with the Portra it replaces —
