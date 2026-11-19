@@ -47,6 +47,40 @@ redirect to a 404 is worse than a 404. Ordinary churn (a film going out of
 stock and its page vanishing for a build) is NOT for this map; it is the normal
 behaviour of a catalogue rebuilt from live data.
 
+### Kodak and Eastman Kodak
+
+Since late 2025 Eastman Kodak distributes the still films Kodak Alaris used
+to, and shops sell both boxes: "Kodak Gold 200" beside "Kodak Eastman Gold
+200" or "Eastman Kodak (EKC) Kodak Eastman GOLD 200". A film that kept its
+name (Gold, UltraMax, Tri-X, Ektar, Ektachrome, Kodacolor) is one product
+either way. The brand is always `kodak`: `eastman`, `ekc` and `alaris` are
+`BRAND_WORDS` in `src/normalise.js`, so they never reach the matching key,
+and `pageName()` in `build-catalogue.js` leaves "Eastman" and "EKC" out of
+the name a Kodak page shows. A new shop's spelling of the Eastman box should
+land on the existing page; if it forks one, fix the normaliser, never add a
+second page.
+
+The slugs are a different matter. Many Kodak pages were first named from
+Analogue Wonderland's Eastman listing, so their slugs are `kodak-eastman-*`
+(`kodak-eastman-gold-200-35mm-film`), with the plain `kodak-gold-200-35mm-film`
+in `LEGACY_FILM_SLUGS` pointing at them. Those are the published URLs: the
+slug is read from the shop's title, not from `pageName()`, precisely so that
+dropping "Eastman" from the shown name moved no URL. Don't "tidy" them.
+
+Each offer carries an optional `box` (`build-site-data.js`): `eastman` when
+its title says Eastman or EKC, `alaris` when it says Kodak Alaris or Kodak
+Professional, and unset when it says neither. Unset means unknown, not
+either box, so never fill it in by guessing.
+
+Renamed films stay separate products, because they are sold as separate
+products: Portra 160/400/800 and Ektacolor Pro 160/400/800, T-Max
+100/400/P3200 and Ektapan 100/400/P3200, and Pro Image 100 / ColorPlus 200
+and Kodacolor 100/200. The first two pairs are listed in `EQUIVALENT_RANGES`
+in `web/lib/equivalents.js`, which puts an "Equivalent" link on both pages
+when exactly one film in the other range has the same format, speed, sheet
+size and bulk-or-not. Kodacolor has no entry until its equivalence is
+confirmed.
+
 ### Ranges
 
 A range is a maker's product line across speeds and formats (Kodak Portra,

@@ -13,12 +13,17 @@ import { groupOffers, hasPackChoice, PACK_FILTERS } from '../lib/offer-groups';
 // catalogue to the browser.
 const gbp = (n) => '£' + Number(n).toFixed(2);
 
+// Which Kodak box a listing is, when its title says (build-site-data.js).
+// Unset means the shop didn't say, not that it is either one.
+const BOX_LABEL = { eastman: 'Eastman box', alaris: 'Alaris box' };
+
 function OfferRow({ o, unit, showListing }) {
   return (
     <div className={`offer${o.inStock ? '' : ' dim'}`}>
       <div className="shop">
         <a className="shop-name" href={o.url} target="_blank" rel="noopener noreferrer">{o.retailer}</a>
         {o.sheets ? <span className="tag">{o.sheets} sheets</span> : o.packSize > 1 && <span className="tag">{o.packSize}-pack</span>}
+        {BOX_LABEL[o.box] && <span className="box-tag">{BOX_LABEL[o.box]}</span>}
         {!o.inStock && <span className="oos">out of stock</span>}
         {showListing && o.listing && <span className="offer-listing">{o.listing}</span>}
       </div>
