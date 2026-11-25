@@ -407,7 +407,7 @@
     "flags": [
       "needs-review:fee"
     ],
-    "publish": false,
+    "publish": true,
     "sources": [
       {
         "id": "fast-forward",
@@ -730,7 +730,7 @@
     "title": "Photoworks New Year Commission 2027",
     "organiser": "Photoworks",
     "type": "commission",
-    "deadline": null,
+    "deadline": "2026-12-05",
     "fee": {
       "free": true,
       "amount": null,
@@ -746,14 +746,12 @@
     },
     "summary": "A £500 commission for one playful image to welcome 2027, shared by Photoworks online, sent to its industry mailing list and printed as a postcard in every shop order next year.",
     "evidence": {
-      "deadline": null,
+      "deadline": "Deadline 5 December.",
       "fee": "Apply for free",
       "rights": null
     },
-    "flags": [
-      "needs-review:deadline"
-    ],
-    "publish": false,
+    "flags": [],
+    "publish": true,
     "sources": [
       {
         "id": "fast-forward",
