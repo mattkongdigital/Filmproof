@@ -448,13 +448,14 @@ feeds in `SHOP_FEEDS` (`src/news/shop-news-sources.js`): Shopify blogs at
   while still inside the window.
 - **Fetching uses the opportunities pipeline's `politeFetch`**
   (`opportunities/lib.js`): the `FilmproofBot` user agent, robots.txt
-  honoured, 1.5 s between hits to one host. All 15 feeds take about 17
+  honoured, 1.5 s between hits to one host. All 19 feeds, from all 11 shops, take about 20
   seconds. `opportunities/proxy.js` is imported first, so it also works in the
   cloud environment.
 
 To add a shop's blog: check its robots.txt allows the feed, open the feed and
 check the items are posts (Shopify answers `/blogs/<handle>.atom` for each
-blog linked from the shop's pages), and add it to `SHOP_FEEDS` under the
+blog; a blog is not always linked from the home page, so also try the default
+`/blogs/news.atom`), and add it to `SHOP_FEEDS` under the
 retailer name used in `SOURCES` and `STORES`. Set `filmOnly` if the blog strays
 from film. The next build posts its last 28 days.
 

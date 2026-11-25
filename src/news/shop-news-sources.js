@@ -10,8 +10,10 @@
 // photography (Bass & Bligh sells binoculars and spotting scopes): only posts
 // whose title or text mentions film are kept.
 //
-// Gulabi and PJL Photography had no blog when this list was made. Negative
-// Space's blog exists but is empty; it is listed so its first post appears.
+// A shop's blog is not always linked from its home page (PJL's is not), so
+// also try Shopify's default handle, /blogs/news.atom, before deciding a shop
+// has none. Gulabi's and Negative Space's blogs exist but were empty when this
+// list was made; they are listed so their first posts appear.
 
 export const SHOP_FEEDS = [
   { retailer: 'Analogue Wonderland', feeds: [
@@ -30,7 +32,13 @@ export const SHOP_FEEDS = [
   { retailer: 'Bass & Bligh', filmOnly: true, feeds: ['https://bassandbligh.com/blogs/news.atom'] },
   { retailer: 'Classic Photo Supplies', feeds: ['https://classicphotosupplies.co.uk/blogs/community-blog.atom'] },
   { retailer: 'Chemical Dependency Lab', feeds: ['https://chemicaldependency.co.uk/blogs/the-fix-blog.atom'] },
-  { retailer: 'JFR Film', feeds: ['https://jfrfilm.co.uk/blogs/how-to-use-a-film-camera.atom'] },
+  { retailer: 'PJL Photography', feeds: ['https://pjlphoto.com/blogs/news.atom'] },
+  { retailer: 'JFR Film', feeds: [
+    'https://jfrfilm.co.uk/blogs/how-to-use-a-film-camera.atom',
+    'https://jfrfilm.co.uk/blogs/guidance.atom',
+    'https://jfrfilm.co.uk/blogs/my-favourite-cameras.atom',
+  ] },
   { retailer: 'Parallax Photographic', feeds: ['https://parallaxphotographic.coop/feed/'] },
   { retailer: 'Negative Space', feeds: ['https://negativespacefilm.co.uk/blogs/news.atom'] },
+  { retailer: 'Gulabi', feeds: ['https://store.gulabi.co.uk/blogs/news.atom'] },
 ];
