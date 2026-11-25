@@ -110,6 +110,44 @@
     ]
   },
   {
+    "key": "copenhagenphotofestival.com/futures-open-call",
+    "official_url": "https://copenhagenphotofestival.com/futures-open-call/",
+    "title": "FUTURES Nordic Talents 2027",
+    "organiser": "Copenhagen Photo Festival, with the FUTURES platform",
+    "type": "open-call",
+    "deadline": "2026-12-01",
+    "fee": {
+      "free": false,
+      "amount": 100,
+      "currency": "DKK",
+      "note": null
+    },
+    "eligibility": "Young emerging artists resident in a Nordic country for the past 12 months",
+    "region": "elsewhere",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Copenhagen Photo Festival nominates four young Nordic photographers to the European FUTURES network for 2027, with a €500 artist fee, mentoring, exhibition calls and a screening at the festival.",
+    "evidence": {
+      "deadline": "1 December 2026 · Deadline for the open call",
+      "fee": "You pay a fee of DKK 100.",
+      "rights": null
+    },
+    "flags": [
+      "fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-futures-nordic-talents-2027/",
+        "found": "2026-11-16"
+      }
+    ]
+  },
+  {
     "key": "dayinyourlife.co.uk/competition",
     "official_url": "https://www.dayinyourlife.co.uk/competition",
     "title": "A Day in Your Life 2026",
@@ -186,6 +224,42 @@
         "id": "fast-forward",
         "url": "https://fastforward.photography/opportunities/open-call-earth-photo-2027/",
         "found": "2026-10-26"
+      }
+    ]
+  },
+  {
+    "key": "fome.mx",
+    "official_url": "https://www.fome.mx/",
+    "title": "FoMe Fotografía Mexicana 2027: Intuition",
+    "organiser": "FoMe, Mexico City International Photography Fair",
+    "type": "open-call",
+    "deadline": "2026-12-02",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photographers anywhere, one proposal each",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": "Artists keep their copyright; the 50 selected works are offered for sale at the fair, and the prize does not buy the work or its rights.",
+      "flags": []
+    },
+    "summary": "A new photography fair in Mexico City picks 50 single images on the theme Intuition to print, mount and show for sale during Art Week in February 2027, with a MXN 120,000 prize for one of them.",
+    "evidence": {
+      "deadline": "Dec 2, 2026, 10:59 PM",
+      "fee": "La inscripción es gratuita",
+      "rights": "El premio no implica la adquisición de la obra ni la cesión de derechos de autor"
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-fome-%c2%b7-fotografia-mexicana-2027/",
+        "found": "2026-11-16"
       }
     ]
   },
@@ -422,6 +496,44 @@
         "id": "fast-forward",
         "url": "https://fastforward.photography/opportunities/open-call-14th-edition-of-the-fodar-international-photo-festival-biennale-sofia/",
         "found": "2026-11-02"
+      }
+    ]
+  },
+  {
+    "key": "photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series",
+    "official_url": "https://photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series/",
+    "title": "P5 Photo Poetry Pamphlet Series, volumes 5 and 6",
+    "organiser": "Photoworks",
+    "type": "open-call",
+    "deadline": "2027-01-27",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Artists at any stage, anywhere, working with photography and poetry alone or together",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Photoworks will publish two more photo and poetry pamphlets in spring 2027, each paying the artist £1,000 plus copies, for existing unpublished work that pairs images with text.",
+    "evidence": {
+      "deadline": "Apply by midnight (GMT) on Wednesday 27 January 2027",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "photoworks",
+        "url": "https://photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series/",
+        "found": "2026-11-16"
       }
     ]
   },
