@@ -148,6 +148,44 @@
     ]
   },
   {
+    "key": "culturalforums.never-at-home.at",
+    "official_url": "https://culturalforums.never-at-home.at/",
+    "title": "NeverAtHome Open Call for artists based in Austria",
+    "organiser": "NeverAtHome, with the Austrian Cultural Forums",
+    "type": "commission",
+    "deadline": "2026-11-30",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Artists and creative practitioners based in Austria",
+    "region": "elsewhere",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Artists based in Austria propose new work tied to one of 27 cities with an Austrian Cultural Forum, presented at that Forum during 2027 before a joint Vienna show the year after.",
+    "evidence": {
+      "deadline": "September 15 to November 30, 2026 : Application period",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-for-artists-creative-practitioners-based-in-austria/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
     "key": "dayinyourlife.co.uk/competition",
     "official_url": "https://www.dayinyourlife.co.uk/competition",
     "title": "A Day in Your Life 2026",
@@ -341,6 +379,119 @@
     ]
   },
   {
+    "key": "grainphotographyhub.co.uk/portfolio-type/national-open-call-young-photographers",
+    "official_url": "https://grainphotographyhub.co.uk/portfolio-type/national-open-call-young-photographers/",
+    "title": "GRAIN Projects National Open Call: Young Photographers",
+    "organiser": "GRAIN Projects",
+    "type": "commission",
+    "deadline": "2026-12-15",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photographers aged 18 to 26 living in England",
+    "region": "uk",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A £2,000 commission, plus £500 towards a public showing, for a young photographer to make new work about their own life, friends and the pressures they face, developed with GRAIN in Birmingham.",
+    "evidence": {
+      "deadline": "Deadline: 12 noon, 15th December 2026",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/grain-projects-national-open-call-young-photographers/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
+    "key": "iwmf.org/awards/anja-niedringhaus-courage-in-photojournalism-award",
+    "official_url": "https://www.iwmf.org/awards/anja-niedringhaus-courage-in-photojournalism-award/",
+    "title": "2027 Anja Niedringhaus Courage in Photojournalism Award",
+    "organiser": "International Women’s Media Foundation",
+    "type": "competition",
+    "deadline": null,
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Women, nonbinary and gender nonconforming photojournalists, freelance or staff",
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "An award honouring women, nonbinary and gender nonconforming photojournalists who work in dangerous conditions. Candidates can self-nominate or be put forward with a portfolio of recent and career work.",
+    "evidence": {
+      "deadline": null,
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:deadline",
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/2027-anja-niedringhaus-courage-in-photojournalism-award/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
+    "key": "kraszna-krausz.org.uk/book-awards",
+    "official_url": "https://kraszna-krausz.org.uk/book-awards/",
+    "title": "Kraszna-Krausz Book Awards 2027",
+    "organiser": "Kraszna-Krausz Foundation",
+    "type": "competition",
+    "deadline": "2027-01-31",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photobooks with substantial text published in 2026, self-published titles included (print run of 100 or more)",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Annual awards for the best new books on photography and the moving image. A photobook with real text published during 2026 can be entered by its publisher, its author or a self-publisher.",
+    "evidence": {
+      "deadline": "Deadline: 31 January 2027",
+      "fee": "There is no entry fee.",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/call-for-entries-kraszna-krausz-book-awards-2027/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
     "key": "mesnographies.com",
     "official_url": "https://www.mesnographies.com/",
     "title": "Mesnographies 2027: The pursuit of happiness",
@@ -500,6 +651,116 @@
     ]
   },
   {
+    "key": "photomuseumireland.ie/open-call-winston-taylor-irish-photo-prize-2027",
+    "official_url": "https://photomuseumireland.ie/open-call-winston-taylor-irish-photo-prize-2027/",
+    "title": "Winston Taylor Irish Photo Prize 2027",
+    "organiser": "Photo Museum Ireland, with Winston Taylor",
+    "type": "competition",
+    "deadline": "2027-01-10",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photographers from across the island of Ireland, Northern Ireland included",
+    "region": null,
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "Ireland’s largest photography prize, on the theme Change, with €30,000 across a main prize, runner-up awards and a bursary, and a spring 2027 exhibition at Photo Museum Ireland in Dublin.",
+    "evidence": {
+      "deadline": "Open Call: 17 November 2026 – 10 January 2027",
+      "fee": "Entry: Free",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-winston-taylor-irish-photo-prize-2027/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
+    "key": "photoville.nyc",
+    "official_url": "https://photoville.nyc/",
+    "title": "Photoville Festival 2027: exhibition proposals",
+    "organiser": "Photoville",
+    "type": "open-call",
+    "deadline": "2026-12-22",
+    "fee": {
+      "free": null,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photo-based artists, collectives and organisations anywhere",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "New York’s free outdoor photography festival invites exhibition proposals in any genre for three weeks in Brooklyn Bridge Park and other city spaces from May 2027, with production paid for selected independent artists.",
+    "evidence": {
+      "deadline": "Deadline for submission is December 22, 2026.",
+      "fee": null,
+      "rights": null
+    },
+    "flags": [
+      "needs-review:fee"
+    ],
+    "publish": false,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/call-for-proposals-the-16th-annual-photoville-festival/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
+    "key": "photoworks.org.uk/opportunities/new-year-commission-2026",
+    "official_url": "https://photoworks.org.uk/opportunities/new-year-commission-2026/",
+    "title": "Photoworks New Year Commission 2027",
+    "organiser": "Photoworks",
+    "type": "commission",
+    "deadline": "2026-12-05",
+    "fee": {
+      "free": true,
+      "amount": null,
+      "currency": null,
+      "note": null
+    },
+    "eligibility": "Photographers and lens-based artists anywhere",
+    "region": "worldwide",
+    "film": "film-friendly",
+    "rights": {
+      "summary": null,
+      "flags": []
+    },
+    "summary": "A £500 commission for one playful image to welcome 2027, shared by Photoworks online, sent to its industry mailing list and printed as a postcard in every shop order next year.",
+    "evidence": {
+      "deadline": "Deadline 5 December.",
+      "fee": "Apply for free",
+      "rights": null
+    },
+    "flags": [],
+    "publish": true,
+    "sources": [
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/photoworks-new-year-commission-2027/",
+        "found": "2026-11-25"
+      }
+    ]
+  },
+  {
     "key": "photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series",
     "official_url": "https://photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series/",
     "title": "P5 Photo Poetry Pamphlet Series, volumes 5 and 6",
@@ -534,6 +795,11 @@
         "id": "photoworks",
         "url": "https://photoworks.org.uk/opportunities/open-call-p5-photo-poetry-pamphlet-series/",
         "found": "2026-11-16"
+      },
+      {
+        "id": "fast-forward",
+        "url": "https://fastforward.photography/opportunities/open-call-p5-photo-poetry-pamphlet-series-at-photoworks/",
+        "found": "2026-11-25"
       }
     ]
   },
