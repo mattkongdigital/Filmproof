@@ -33,7 +33,7 @@ const FAILED_SHOPS = [];
 // SOURCES that lists it. When a merge in src/normalise.js joins two pages and
 // the page that should survive belongs to a later shop, name that shop here,
 // by film key, and its listing names the page whichever shop comes first. The
-// retired slug still goes in LEGACY_FILM_SLUGS in web/lib/data.js. Gulabi's
+// retired slug still goes in LEGACY_FILM_SLUGS in web/lib/legacy-slugs.mjs. Gulabi's
 // "Kodak Vision3 500T (thisishowiroll)" is the same film Chemical Dependency
 // Lab has listed for longer under the brand's own name.
 const NAMED_BY = {

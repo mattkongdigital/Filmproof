@@ -137,6 +137,10 @@ async function run() {
     const best = list.find((o) => o.inStock && o.pricePerRoll != null) || null;
     return {
       slug: f.slug || slugify(f.display),
+      // The normaliser's matching key. The slug is read from the first shop's
+      // title, so a shop retitling a film can move it; the key survives that.
+      // build-news.js tracks changes between builds on key + retailer.
+      key: f.key,
       display: f.display,
       brand: f.brand ?? f.display.split(' ')[0],
       iso: f.iso ?? null,

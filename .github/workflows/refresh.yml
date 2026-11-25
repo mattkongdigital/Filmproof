@@ -31,13 +31,37 @@ jobs:
         with:
           node-version: '20'
 
+      # The snapshot of the last deployed catalogue, and the shop-update news
+      # log, from the catalogue-state branch (see "News" in CLAUDE.md). No
+      # branch yet means a first run: build-news.js seeds it and posts nothing.
+      - name: Fetch catalogue state
+        run: |
+          mkdir -p state
+          if git ls-remote --exit-code --heads origin catalogue-state >/dev/null; then
+            git fetch --depth=1 origin catalogue-state
+            git archive FETCH_HEAD | tar -x -C state
+            echo "Catalogue state from $(git log -1 --format=%cI FETCH_HEAD)"
+          else
+            echo "No catalogue-state branch yet; this run seeds it."
+          fi
+
       # Rebuild the canonical catalogue AND pull fresh prices from every live
-      # source, regenerating web/data/site.json + search-index.json from scratch.
+      # source, regenerating web/data/site.json + search-index.json from scratch,
+      # then diff it against the snapshot for the news feed.
       # (Root has no dependencies, so nothing to install for this step.)
       - name: Refresh catalogue & price data
         run: |
           node build-catalogue.js
           node build-site-data.js
+          node build-news.js
+
+      # Handed to save-state, which commits it only once the deploy succeeds.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-state
+          path: state/
+          retention-days: 7
+          if-no-files-found: error
 
       - name: Install web dependencies
         working-directory: web
@@ -73,3 +97,42 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Commit the new snapshot and news log to the catalogue-state branch, only
+  # after the site that matches them is live. If the deploy fails, the next run
+  # diffs against the last snapshot that actually went out, so no change is
+  # lost or posted twice. A push made with GITHUB_TOKEN starts no workflow, and
+  # this branch is not main, so it cannot re-trigger this one.
+  save-state:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: catalogue-state
+          path: ${{ runner.temp }}/state
+
+      - name: Commit to catalogue-state
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git ls-remote --exit-code --heads origin catalogue-state >/dev/null; then
+            git fetch --depth=1 origin catalogue-state
+            git switch -C catalogue-state FETCH_HEAD
+          else
+            git switch --orphan catalogue-state
+          fi
+          # Replace the branch's files wholesale with this run's state.
+          git rm -rq --ignore-unmatch .
+          cp -r "$RUNNER_TEMP/state/." .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Snapshot unchanged."
+            exit 0
+          fi
+          git commit -q -m "Catalogue state from run ${{ github.run_id }}"
+          git push origin HEAD:catalogue-state

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CookieSettingsLink } from './cookie-consent';
 import { SILOS } from '../lib/posts';
 import { liveOpportunities } from '../lib/opportunities';
+import { recentNews } from '../lib/news';
 import { SOCIAL_LINKS } from '../lib/config';
 import { SOCIAL_ICONS } from './social-icons';
 
@@ -26,6 +27,7 @@ export function SiteFooter() {
         ))}
         {/* Same rule as the sitemap: linked only while there is something on it. */}
         {liveOpportunities().length > 0 && <Link href="/opportunities">Opportunities</Link>}
+        {recentNews().length > 0 && <Link href="/news">News</Link>}
         <Link href="/disclosure">Advertising</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/privacy">Privacy</Link>

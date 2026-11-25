@@ -14,6 +14,10 @@ Two halves share one repo:
   partial outage at one large shop is enough to halve it while every page still
   renders happily, which is far more dangerous than a total failure. Raise the
   floor as the catalogue grows.
+
+  It is the one exception to "nothing survives a build": `build-news.js`
+  compares each build with a snapshot of the last deployed one, kept on the
+  `catalogue-state` branch. See "News" below.
 - **The site.** `web/` is a Next.js app built with `output: 'export'` and
   `trailingSlash: true`, deployed to GitHub Pages by `.github/workflows/refresh.yml`.
 
@@ -39,7 +43,8 @@ identifies. That is the right outcome: LomoChrome is a family, not a film, so
 such a title belongs in the review queue rather than as a page of its own.
 
 When a merge retires a URL that was live, add it to `LEGACY_FILM_SLUGS` in
-`web/lib/data.js`. `output: 'export'` has no server to issue a 301, so
+`web/lib/legacy-slugs.mjs` (re-exported from `web/lib/data.js`; it is its own
+module so `build-news.js` can read it in plain Node). `output: 'export'` has no server to issue a 301, so
 `/film/[slug]/` builds a page for it: canonical at the survivor, `noindex`, a
 script that replaces the history entry, and readable copy for anyone with JS
 off. A legacy slug whose target has itself left the catalogue is skipped — a
@@ -142,11 +147,16 @@ and take its slug. Fix the first in `src/normalise.js`; the second is
 `LEGACY_FILM_SLUGS` (below). Also check that no existing shop's offer lost its
 page.
 
+A new shop's first build seeds its rows in the news snapshot silently, so its
+range does not post as "newly listed". From its second build on, its changes
+are news like any other shop's (see "News").
+
 Once a shop is in `SOURCES`, a live pull that yields no film fails the build —
 by name, before anything deploys — rather than letting the shop quietly vanish
 from the site. A shop that has really stopped selling film goes in
 `FILMPROOF_ALLOW_EMPTY_SHOPS` on its way out of `SOURCES`, never left in as an
-empty source. Onboarding a shop can merge or retire film slugs through the
+empty source. Its news history stays on the state branch; its rows go
+unlisted. Onboarding a shop can merge or retire film slugs through the
 normaliser; check the built catalogue for slugs that disappeared and add any
 that were live to `LEGACY_FILM_SLUGS` (above).
 
@@ -278,6 +288,186 @@ Same thin-page reasoning as the editorial silos.
 A source that fails is logged and skipped, and the PR body says so; it never
 stops the run. Remove a source that has stopped working rather than leaving it
 failing every week — its `seen.json` keys can stay.
+
+## News
+
+`/news/` is one feed of short items about film in the UK. It is built to carry
+three types; only the first exists so far:
+
+| Type            | `type`          | Where its items come from                                  |
+| --------------- | --------------- | ---------------------------------------------------------- |
+| Shop updates    | `shop-update`   | `build-news.js`, diffing each build against the last one   |
+| Shop news       | `shop-news`     | not built: retailers' own blog feeds                       |
+| Industry news   | `industry-news` | not built: a weekly round-up drafted for review            |
+
+The feed is one evergreen page, newest first, grouped by UK day, filtered by
+type in the browser (a chip only appears for a type with items). It shows the
+last `NEWS_WINDOW_DAYS` (28) days. Everything also sits on its ISO week's
+archive page, `/news/2026-w48/`, for good: the slug is the week, so an item's
+archive address is known the day it is posted and never moves. There are no
+per-item or per-type URLs. `/news/` with nothing in its window builds as
+`noindex` and stays out of the sitemap and footer, like the opportunities
+board. The archive route always builds the current week, because
+`output: 'export'` fails a dynamic route with no paths and the first build has
+no items; an empty week is `noindex` and not in the sitemap.
+
+### The snapshot and the state branch
+
+`catalogue-state.json` is the only catalogue data that survives from one build
+to the next. It lives on the orphan `catalogue-state` branch with the
+shop-update log, `news/shop-updates.json`. Only the refresh workflow writes it:
+
+1. The build job extracts the branch into `./state` (gitignored). No branch
+   means a first run.
+2. `node build-news.js`, after `build-site-data.js`, diffs `web/data/site.json`
+   against the snapshot, writes the next snapshot and log into `./state`, and
+   copies the log to `web/data/news/` for the site.
+3. `./state` goes up as an artifact. The `save-state` job commits it to the
+   branch **only after the deploy succeeds**. If a deploy fails, the next run
+   diffs against the last snapshot that actually went live, so nothing is lost
+   or posted twice. A `GITHUB_TOKEN` push starts no workflow, so the commit
+   cannot loop. The branch's history is a free day-by-day price and stock log.
+
+Why a branch and not the alternatives: `actions/cache` can be evicted, and an
+eviction would read as a first run. Artifacts expire after 90 days at most.
+Reading the snapshot back off the live site ties it to Pages being up.
+Committing to `main` clutters history and collides with PRs.
+
+Locally there is usually no `./state`, so `node build-news.js` seeds one and
+posts nothing. `FILMPROOF_STATE_DIR` points it elsewhere. An offline
+(`FILMPROOF_OFFLINE=1`) build never touches the snapshot: a sample catalogue
+would read as everything selling out.
+
+Its shape (`SNAPSHOT_VERSION` 1, one row per line so a quiet day's commit is
+small):
+
+- `builtAt` / `previousBuiltAt`: changes are dated from the stored previous
+  build, never a rolling 24 hours.
+- `retailers[name]`: `firstSeen`, and `skips` (see the guards).
+- `films[key]`: `slug`, `display`, `brand`, `format`, `firstSeen`,
+  `lastListed` (null while any shop lists it) and `outEverywhereSince` (null
+  while any shop has it in stock).
+- `offers["key|retailer"]`: `firstSeen`, `listed`, `inStock`, `stockSince`,
+  `price` (cheapest in-stock single item now) and `lastPrice` (the last one
+  seen in stock). No retailer URLs: news links use this build's.
+
+Rows are never deleted. A listing gone from a shop's feed stays as
+`listed: false`, so it coming back is a restock, not a new listing. A film every
+shop has dropped keeps its `films` entry with `lastListed` set. That is the
+data a tombstone page for a departed film would read ("last listed 12 March at
+3 shops, from £9.50"); nothing renders one yet.
+
+**Changes are keyed on the normaliser's `key` plus the retailer name, never on
+the slug.** The slug is read from the first shop's title, so a shop retitling a
+listing can move it; the key survives that. `build-site-data.js` writes `key`
+into `site.json` for this. When a normaliser merge does change a key, the new
+key inherits the old one's history if it took over the old slug, or if
+`LEGACY_FILM_SLUGS` points the old slug at it. So add the legacy entry in the
+same PR as the merge, or the merged film posts as new at every shop.
+
+A snapshot in an older `version` stops the build rather than being re-seeded,
+which would wipe its history. Migrate it.
+
+### What counts as a shop update
+
+`src/news/shop-updates.js` holds the rules, and `node src/news/test.js` checks
+them. Per (key, retailer):
+
+- **Newly listed**: a row the snapshot never had, in stock now. One that
+  arrives out of stock is recorded silently; its restock is the news.
+- **Back in stock**: out of stock (or unlisted) in the snapshot, in stock now.
+- **Lower price**: the cheapest in-stock single-item offer (`packSize` 1, the
+  same filter as the Product JSON-LD's AggregateOffer) fell by at least 3% and
+  £0.25, while in stock in both builds. Rises are ignored. Multipacks never
+  count.
+
+Routine changes are rolled up into one item per shop per day ("Analogue
+Wonderland: 4 newly listed, 6 back in stock"), expandable to the full list. A
+change gets an item of its own when it is notable:
+
+- `new-film`: a key new to the whole catalogue.
+- `back-everywhere`: a film out of stock at every shop for at least
+  `outEverywhereDays` (3) days, back at one or more. Shorter gaps are mostly
+  feed blips.
+- `back-at-shop`: a film back at one shop after at least `retailerGapDays`
+  (60) days out there.
+
+A notable change is not repeated in its shop's roll-up. All thresholds are in
+`THRESHOLDS`. A second build on the same UK day merges into that day's items
+by id rather than posting again.
+
+Wording is factual and about availability ("back in stock after 14 days out
+of stock", "now £9.00, was £10.00"), never which shop is cheapest. House style
+applies: no dashes in reader-facing copy.
+
+### The guards
+
+- **First run** (no snapshot): every shop seeds silently. Nothing fails.
+- **A new shop** (a retailer the snapshot has never seen) seeds silently on its
+  first build, so onboarding a shop does not post its whole range as new.
+- **An implausible diff**: a shop with more than 25 changes that are also more
+  than 30% of its listings (sell-outs and delistings count) is taken to be a
+  broken or restructured feed. Its changes are skipped for that run with a
+  `WARNING` in the log, and its snapshot rows are kept, so the site's film
+  pages are unaffected and a real change still posts next time. After 3 skips
+  in a row the feed is taken as the shop's new normal and re-seeded silently.
+  `FILMPROOF_NEWS_ACCEPT="Shop Name"` takes one shop's large diff silently for
+  a single run (a known catalogue restructure, say).
+- **A shop leaving `SOURCES`**: its rows go unlisted silently.
+
+### The item model
+
+Every type writes items in one shape, so the page never needs to know which
+pipeline made them:
+
+```js
+{
+  id: 'shop-update:2026-11-25:rollup:analogue-wonderland', // stable, type-prefixed
+  type: 'shop-update',          // a NEWS_TYPES id
+  kind: 'rollup',               // per type: rollup | new-film | back-everywhere | back-at-shop
+  date: '2026-11-25',           // UK day first seen: the day group and the archive week
+  firstSeenAt: '2026-11-25T05:41:12.000Z',
+  source: { kind: 'retailer', name: 'Analogue Wonderland' }, // or 'catalogue', 'publication'
+  title: 'Analogue Wonderland: 4 newly listed, 6 back in stock',
+  summary: null,                // our own words; shop and industry news use it
+  url: undefined,               // optional external link for the title
+  film: { key, slug, display }, // optional: the film a notable item is about
+  children: [                   // optional: the expandable list
+    { change: 'restock', film: { key, slug, display, format }, retailer, offerUrl, price, outDays },
+  ],
+  publish: true,                // optional; false holds an item back (industry review)
+}
+```
+
+`web/lib/news.js` merges the loaders, drops `publish: false`, and resolves
+links against the current catalogue: a film whose slug was retired follows
+`LEGACY_FILM_SLUGS`, and one that has left the catalogue keeps its name,
+unlinked, rather than pointing at a 404. Shop names link to `/store/<slug>/`
+through `STORES`. Dates, ISO weeks, wording and `NEWS_TYPES` are in
+`web/lib/news-format.mjs`, which is plain ESM so the build script, the server
+pages and the client feed share it.
+
+### Adding a news type
+
+1. Write its items in the shape above, to a JSON file of its own. Never write
+   to another type's file.
+2. Add its loader to `LOADERS` in `web/lib/news.js`. Its `NEWS_TYPES` entry
+   already exists; the chip appears once it has items.
+3. Pick where the file lives by who writes it:
+   - **Shop news**, generated on each build from retailers' blog feeds:
+     `news/shop-news.json` on the state branch, written by a `build-news.js`
+     step and copied to `web/data/news/` like shop updates. Same politeness
+     rules as the opportunities fetcher (user agent, robots.txt, spacing).
+     Summaries in our own words.
+   - **Industry news**, drafted and reviewed: `web/content/news/industry-news.json`
+     on `main`, landing through a review PR with `publish: false` until
+     approved, the opportunities pattern. Never delete an item there; holding
+     it back is `publish: false`.
+4. Give it a `kind` vocabulary and, if it needs one, an extra tag label in
+   `KIND_LABEL` in `web/components/news-feed.js`. Use `summary` and `url` for
+   a post. Use `children` only for a genuine list.
+5. Keep ids stable and type-prefixed (`shop-news:<retailer>:<post-url-key>`),
+   so a re-run merges into an existing item instead of posting it twice.
 
 Below is the editorial layer, which is the half that is hand-authored.
 
