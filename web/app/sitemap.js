@@ -4,6 +4,7 @@ import { categoryParams, comboParams, brandList, brandSubParams } from '../lib/f
 import { STORES } from '../lib/stores';
 import { SILOS, getAllPosts } from '../lib/posts';
 import { liveOpportunities } from '../lib/opportunities';
+import { recentNews, newsWeeks } from '../lib/news';
 
 export const dynamic = 'force-static';
 
@@ -23,5 +24,9 @@ export default function sitemap() {
   // The board is listed only while it has something on it; an empty board
   // builds as a noindex page and stays out of here.
   if (liveOpportunities().length > 0) urls.push('/opportunities');
+  // Same rule for news: /news/ while its window has items, and each archive
+  // week that has something in it (an empty current week builds as noindex).
+  if (recentNews().length > 0) urls.push('/news');
+  for (const w of newsWeeks()) urls.push(`/news/${w}`);
   return urls.map((u) => ({ url: `${SITE_URL}${u}`, lastModified: now, changeFrequency: 'daily' }));
 }

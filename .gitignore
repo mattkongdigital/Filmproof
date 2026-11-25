@@ -13,6 +13,9 @@ data/products/
 web/data/site.json
 web/data/search-index.json
 web/data/meta.json
+web/data/news/
+# checkout of the catalogue-state branch, made by the refresh workflow
+state/
 films.csv
 
 # os / editor cruft
