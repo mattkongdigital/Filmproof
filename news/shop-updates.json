@@ -1,1 +1,56 @@
-[]
+[
+ {
+  "id": "shop-update:2026-11-25:rollup:analogue-wonderland",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-25",
+  "firstSeenAt": "2026-11-25T16:17:35.960Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Analogue Wonderland"
+  },
+  "title": "Analogue Wonderland: 3 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-e100ektachrome-135-100",
+     "slug": "kodak-eastman-ektachrome-e100-colour-reversal-35mm-film",
+     "display": "Kodak EKTACHROME E100 Colour Reversal, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Analogue Wonderland",
+    "offerUrl": "https://analoguewonderland.co.uk/products/kodak-ektachrome-35mm-slide-film?variant=29520837541948",
+    "price": 29.95,
+    "outDays": 0
+   },
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-e100ektachromes4x5-sheet-100",
+     "slug": "kodak-ektachrome-e100-4x5-sheet-film",
+     "display": "Kodak Ektachrome E100, 4x5 Sheet Film",
+     "format": "sheet"
+    },
+    "retailer": "Analogue Wonderland",
+    "offerUrl": "https://analoguewonderland.co.uk/products/kodak-ektachrome-4x5-sheet-film-large-format?variant=31476496957500",
+    "price": 115,
+    "outDays": 0
+   },
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-30mbulktmax-135-400",
+     "slug": "kodak-t-max-400-30-5m-bulk-roll-35mm",
+     "display": "Kodak T-Max 400, 30.5m Bulk Roll 35mm",
+     "format": "135"
+    },
+    "retailer": "Analogue Wonderland",
+    "offerUrl": "https://analoguewonderland.co.uk/products/kodak-t-max-400-30-5m-bulk-roll-35mm?variant=53881962004755",
+    "price": 324.95,
+    "outDays": 0
+   }
+  ]
+ }
+]
