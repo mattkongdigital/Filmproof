@@ -85,6 +85,9 @@ function NewsItem({ it }) {
           </details>
         )
         : <ChangeList changes={children} by="shop" />)}
+      {it.type === 'shop-news' && it.url && (
+        <a className="opp-out" href={it.url} rel="noopener nofollow" target="_blank">Read it on {it.source?.name}&apos;s blog →</a>
+      )}
       {it.kind === 'rollup' && it.source?.href && (
         <a className="opp-out" href={it.source.href}>Everything {it.source.name} stocks →</a>
       )}
