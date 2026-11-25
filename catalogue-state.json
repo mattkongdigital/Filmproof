@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "builtAt": "2026-11-25T16:17:35.960Z",
-  "previousBuiltAt": "2026-11-25T13:10:47.968Z",
+  "builtAt": "2026-11-25T16:43:24.485Z",
+  "previousBuiltAt": "2026-11-25T16:17:35.960Z",
   "retailers": {
     "Analogue Wonderland": {"firstSeen":"2026-11-25","skips":0},
     "Bass & Bligh": {"firstSeen":"2026-11-25","skips":0},
@@ -1480,7 +1480,7 @@
     "lomography-purple-120-400|Classic Photo Supplies": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":10.89,"lastPrice":10.89},
     "lomography-purple-120-400|Gulabi": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":13,"lastPrice":13},
     "lomography-purple-120-400|Parallax Photographic": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":13.45,"lastPrice":13.45},
-    "lomography-purple-135-400|Analogue Wonderland": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":14,"lastPrice":14},
+    "lomography-purple-135-400|Analogue Wonderland": {"firstSeen":"2026-11-25","listed":true,"inStock":false,"stockSince":"2026-11-25","price":null,"lastPrice":14},
     "lomography-purple-135-400|Classic Photo Supplies": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":10.95,"lastPrice":10.95},
     "lomography-purple-135-400|Gulabi": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":13,"lastPrice":13},
     "lomography-purple-135-400|Parallax Photographic": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":14.95,"lastPrice":14.95},
