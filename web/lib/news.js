@@ -22,11 +22,10 @@ const readJson = (rel) => {
 const LOADERS = {
   // Written by build-news.js from the catalogue-state branch each build.
   'shop-update': () => readJson('data/news/shop-updates.json'),
-  // Not built yet. Shop news would come from retailers' own feeds, written
-  // the same way as shop updates; industry news from a reviewed PR to
-  // content/news/industry-news.json, the opportunities pattern, with
-  // `publish: false` until it is approved.
-  'shop-news': () => [],
+  // Retailers' own blog posts, read from their feeds by build-news.js.
+  'shop-news': () => readJson('data/news/shop-news.json'),
+  // Not built yet: a reviewed PR to content/news/industry-news.json, the
+  // opportunities pattern, with `publish: false` until it is approved.
   'industry-news': () => [],
 };
 

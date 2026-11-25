@@ -5,6 +5,8 @@
 import assert from 'node:assert/strict';
 import { diffCatalogue, mergeIntoLog, retailerSlug, THRESHOLDS } from './shop-updates.js';
 import { isoWeek, weekRange, ukDay, rollupTitle } from '../../web/lib/news-format.mjs';
+import { mergeShopNews, postId } from './shop-news.js';
+import { parseFeed } from '../../opportunities/lib.js';
 
 let n = 0;
 const test = (name, fn) => { fn(); n++; console.log(`  ok  ${name}`); };
@@ -209,6 +211,70 @@ test('ISO weeks, UK days and wording', () => {
   assert.equal(retailerSlug('Bass & Bligh'), 'bass-and-bligh');
   assert.equal(rollupTitle('X', [{ change: 'restock' }, { change: 'new' }, { change: 'price-drop' }, { change: 'price-drop' }]), 'X: 1 newly listed, 1 back in stock, 2 lower prices');
   assert.equal(THRESHOLDS.retailerGapDays, 60);
+});
+
+// --- Shop news ---------------------------------------------------------------
+
+const post = (title, url, published, html = '') => ({ title, url, published, html });
+const NOW = new Date('2026-11-25T06:00:00Z');
+
+test('shop news: recent posts are posted on the day the shop published them; old ones never', () => {
+  const { log, added, skippedOld } = mergeShopNews({ now: NOW, fetched: [{ retailer: 'Shop A', entries: [
+    post('New film in stock', 'https://shop-a.example/blogs/news/new-film', '2026-11-20T10:00:00+00:00'),
+    post('Old guide', 'https://shop-a.example/blogs/news/old', '2026-10-28T10:00:00+00:00'),
+    post('Edge of the window', 'https://shop-a.example/blogs/news/edge', '2026-10-29T10:00:00+00:00'),
+  ] }] });
+  assert.deepEqual(added.map((i) => [i.title, i.date]), [['New film in stock', '2026-11-20'], ['Edge of the window', '2026-10-29']]);
+  assert.equal(skippedOld, 1);
+  const [it] = log;
+  assert.equal(it.id, 'shop-news:shop-a:shop-a.example/blogs/news/new-film');
+  assert.equal(it.type, 'shop-news');
+  assert.equal(it.kind, 'post');
+  assert.equal(it.summary, null);
+  assert.equal(it.url, 'https://shop-a.example/blogs/news/new-film');
+  assert.deepEqual(it.source, { kind: 'retailer', name: 'Shop A' });
+});
+
+test('shop news: a post already on file keeps its date and first sighting, takes a new title', () => {
+  const first = mergeShopNews({ now: NOW, fetched: [{ retailer: 'Shop A', entries: [post('Draft title', 'https://shop-a.example/p?utm_source=x', '2026-11-24')] }] });
+  const later = mergeShopNews({ log: first.log, now: new Date('2026-11-26T06:00:00Z'), fetched: [{ retailer: 'Shop A', entries: [post('Final title', 'https://www.shop-a.example/p/', '2026-11-25')] }] });
+  assert.equal(later.added.length, 0);
+  assert.equal(later.log.length, 1);
+  assert.equal(later.log[0].title, 'Final title');
+  assert.equal(later.log[0].date, '2026-11-24');
+  assert.equal(later.log[0].firstSeenAt, NOW.toISOString());
+});
+
+test('shop news: a failed feed drops nothing already on file', () => {
+  const first = mergeShopNews({ now: NOW, fetched: [{ retailer: 'Shop A', entries: [post('A post', 'https://shop-a.example/a', '2026-11-24')] }] });
+  const next = mergeShopNews({ log: first.log, now: NOW, fetched: [] });
+  assert.equal(next.log.length, 1);
+});
+
+test('shop news: filmOnly keeps film posts and drops the rest; dates are UK days and never in the future', () => {
+  const { added, skippedOffTopic } = mergeShopNews({ now: NOW, fetched: [{ retailer: 'Shop B', filmOnly: true, entries: [
+    post('Buying a used spotting scope', 'https://b.example/scope', '2026-11-20', '<p>Check the prisms.</p>'),
+    post('Our autumn guide', 'https://b.example/guide', '2026-11-20', '<p>Load a roll of 35mm and go.</p>'),
+    post('Late night post', 'https://b.example/late', '2026-11-23T23:30:00Z'),
+    post('Scheduled', 'https://b.example/future', '2026-12-25T09:00:00Z', 'film'),
+    post('Undated', 'https://b.example/undated', '', 'film'),
+  ] }] });
+  assert.equal(skippedOffTopic, 2, 'scope post, and the late-night post with no film words');
+  assert.deepEqual(added.map((i) => [i.title, i.date]), [['Our autumn guide', '2026-11-20'], ['Scheduled', '2026-11-25'], ['Undated', '2026-11-25']]);
+  // 23:30 UTC in summer is the next UK day.
+  const [summer] = mergeShopNews({ now: new Date('2026-07-05T06:00:00Z'), fetched: [{ retailer: 'S', entries: [post('x', 'https://s.example/x', '2026-07-01T23:30:00Z')] }] }).added;
+  assert.equal(summer.date, '2026-07-02');
+});
+
+test('shop news: Shopify Atom and WordPress RSS feeds both parse', () => {
+  const atom = parseFeed(`<feed><entry><id>1</id><published>2026-11-23T09:00:00+00:00</published>
+    <link rel="alternate" type="text/html" href="https://shop.example/blogs/news/post"/>
+    <title>What&apos;s new &amp; good</title><content type="html">&lt;p&gt;Film&lt;/p&gt;</content></entry></feed>`);
+  assert.deepEqual([atom[0].title, atom[0].url, atom[0].published], ["What's new & good", 'https://shop.example/blogs/news/post', '2026-11-23T09:00:00+00:00']);
+  const rss = parseFeed(`<rss><channel><item><title>Lucky 200 Film Review</title><link>https://wp.example/lucky/</link>
+    <pubDate>Mon, 07 Sep 2026 16:49:05 +0000</pubDate><description>short</description></item></channel></rss>`);
+  assert.equal(rss[0].url, 'https://wp.example/lucky/');
+  assert.equal(postId('Bass & Bligh', 'https://www.bassandbligh.com/blogs/news/x/'), 'shop-news:bass-and-bligh:bassandbligh.com/blogs/news/x');
 });
 
 console.log(`\n${n} passed`);

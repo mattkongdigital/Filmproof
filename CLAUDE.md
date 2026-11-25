@@ -149,7 +149,8 @@ page.
 
 A new shop's first build seeds its rows in the news snapshot silently, so its
 range does not post as "newly listed". From its second build on, its changes
-are news like any other shop's (see "News").
+are news like any other shop's (see "News"). If it has a blog, add its feed to
+`SHOP_FEEDS` too (see "Shop news").
 
 Once a shop is in `SOURCES`, a live pull that yields no film fails the build —
 by name, before anything deploys — rather than letting the shop quietly vanish
@@ -292,12 +293,12 @@ failing every week — its `seen.json` keys can stay.
 ## News
 
 `/news/` is one feed of short items about film in the UK. It is built to carry
-three types; only the first exists so far:
+three types; the first two exist so far:
 
 | Type            | `type`          | Where its items come from                                  |
 | --------------- | --------------- | ---------------------------------------------------------- |
 | Shop updates    | `shop-update`   | `build-news.js`, diffing each build against the last one   |
-| Shop news       | `shop-news`     | not built: retailers' own blog feeds                       |
+| Shop news       | `shop-news`     | `build-news.js`, reading the shops' own blog feeds         |
 | Industry news   | `industry-news` | not built: a weekly round-up drafted for review            |
 
 The feed is one evergreen page, newest first, grouped by UK day, filtered by
@@ -314,14 +315,16 @@ no items; an empty week is `noindex` and not in the sitemap.
 ### The snapshot and the state branch
 
 `catalogue-state.json` is the only catalogue data that survives from one build
-to the next. It lives on the orphan `catalogue-state` branch with the
-shop-update log, `news/shop-updates.json`. Only the refresh workflow writes it:
+to the next. It lives on the orphan `catalogue-state` branch with the news
+logs, `news/shop-updates.json` and `news/shop-news.json`. Only the refresh
+workflow writes it:
 
 1. The build job extracts the branch into `./state` (gitignored). No branch
    means a first run.
 2. `node build-news.js`, after `build-site-data.js`, diffs `web/data/site.json`
-   against the snapshot, writes the next snapshot and log into `./state`, and
-   copies the log to `web/data/news/` for the site.
+   against the snapshot, reads the shop blog feeds, writes the next snapshot
+   and both logs into `./state`, and copies the logs to `web/data/news/` for
+   the site.
 3. `./state` goes up as an artifact. The `save-state` job commits it to the
    branch **only after the deploy succeeds**. If a deploy fails, the next run
    diffs against the last snapshot that actually went live, so nothing is lost
@@ -415,6 +418,47 @@ applies: no dashes in reader-facing copy.
   a single run (a known catalogue restructure, say).
 - **A shop leaving `SOURCES`**: its rows go unlisted silently.
 
+### Shop news
+
+Each shop's own blog posts, read by `build-news.js` on every build from the
+feeds in `SHOP_FEEDS` (`src/news/shop-news-sources.js`): Shopify blogs at
+`/blogs/<handle>.atom`, Parallax's WordPress `/feed/`. The rules are in
+`src/news/shop-news.js` and tested in `src/news/test.js`.
+
+- **An item is the post's title, linked to the shop's own page for it.**
+  `summary` is null: the post is the shop's writing, and nothing here writes a
+  summary in our own words, so none is shown. The post's text is read only to
+  apply `filmOnly`. Titles are the shop's, so the no-dashes rule does not
+  apply to them.
+- **Dated by the day the shop published it** (UK time), not the day we found
+  it. A future date is clamped to today, a missing one is the first-seen day.
+- **Only posts published within `NEWS_WINDOW_DAYS` (28) are ever posted.**
+  That one rule handles a new shop's back catalogue (its last month of posts
+  appears, each on its real day, and the rest never does), an old article
+  re-dated by the shop, and a post found late. It is why there is no seen
+  list: an old post is skipped on every read.
+- **The id is `shop-news:<shop>:<normaliseUrl(post url)>`.** A post already on
+  file keeps its date and first sighting and takes a changed title. Nothing is
+  removed from the log, even if a shop deletes the post.
+- **`filmOnly: true`** keeps only posts whose title or text mentions film
+  (`FILM_WORDS`). It is for a shop whose blog covers other things too: Bass &
+  Bligh's covers binoculars and spotting scopes.
+- **A feed that fails is a `WARNING` and is skipped**, never fatal. Its posts
+  already on file stay, and any it published meanwhile appear on a later build
+  while still inside the window.
+- **Fetching uses the opportunities pipeline's `politeFetch`**
+  (`opportunities/lib.js`): the `FilmproofBot` user agent, robots.txt
+  honoured, 1.5 s between hits to one host. All 19 feeds, from all 11 shops, take about 20
+  seconds. `opportunities/proxy.js` is imported first, so it also works in the
+  cloud environment.
+
+To add a shop's blog: check its robots.txt allows the feed, open the feed and
+check the items are posts (Shopify answers `/blogs/<handle>.atom` for each
+blog; a blog is not always linked from the home page, so also try the default
+`/blogs/news.atom`), and add it to `SHOP_FEEDS` under the
+retailer name used in `SOURCES` and `STORES`. Set `filmOnly` if the blog strays
+from film. The next build posts its last 28 days.
+
 ### The item model
 
 Every type writes items in one shape, so the page never needs to know which
@@ -429,8 +473,8 @@ pipeline made them:
   firstSeenAt: '2026-11-25T05:41:12.000Z',
   source: { kind: 'retailer', name: 'Analogue Wonderland' }, // or 'catalogue', 'publication'
   title: 'Analogue Wonderland: 4 newly listed, 6 back in stock',
-  summary: null,                // our own words; shop and industry news use it
-  url: undefined,               // optional external link for the title
+  summary: null,                // our own words, when we have them (industry news)
+  url: undefined,               // optional external link for the title (a shop-news post)
   film: { key, slug, display }, // optional: the film a notable item is about
   children: [                   // optional: the expandable list
     { change: 'restock', film: { key, slug, display, format }, retailer, offerUrl, price, outDays },
@@ -454,11 +498,9 @@ pages and the client feed share it.
 2. Add its loader to `LOADERS` in `web/lib/news.js`. Its `NEWS_TYPES` entry
    already exists; the chip appears once it has items.
 3. Pick where the file lives by who writes it:
-   - **Shop news**, generated on each build from retailers' blog feeds:
-     `news/shop-news.json` on the state branch, written by a `build-news.js`
-     step and copied to `web/data/news/` like shop updates. Same politeness
-     rules as the opportunities fetcher (user agent, robots.txt, spacing).
-     Summaries in our own words.
+   - **Generated on each build** (as shop updates and shop news are): a file
+     under `news/` on the state branch, written by a `build-news.js` step and
+     copied to `web/data/news/`.
    - **Industry news**, drafted and reviewed: `web/content/news/industry-news.json`
      on `main`, landing through a review PR with `publish: false` until
      approved, the opportunities pattern. Never delete an item there; holding
@@ -468,6 +510,8 @@ pages and the client feed share it.
    a post. Use `children` only for a genuine list.
 5. Keep ids stable and type-prefixed (`shop-news:<retailer>:<post-url-key>`),
    so a re-run merges into an existing item instead of posting it twice.
+6. Add its items to the lede on `web/app/news/page.js` if it changes what the
+   page covers.
 
 Below is the editorial layer, which is the half that is hand-authored.
 
