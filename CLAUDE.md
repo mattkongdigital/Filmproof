@@ -469,7 +469,11 @@ on `main` and lands only through a reviewed PR, the opportunities pattern.
 
 It is drafted by a Claude Code session, not by the build, because the
 summaries need writing, and that is done on the plan rather than on metered
-API credit. The session follows `industry-news/RUNBOOK.md`:
+API credit. Every Friday at 08:23 UK time a Claude Code scheduled task on the
+owner's plan ("Filmproof industry news weekly round-up") wakes the session
+that built this pipeline, which has repo push access and the network; like
+the opportunities task, if that session is ever archived the task needs
+setting up again from a new one. The session follows `industry-news/RUNBOOK.md`:
 
 1. `node industry-news/fetch.js` reads the feeds in
    `industry-news/sources.config.js`, skips posts already in
