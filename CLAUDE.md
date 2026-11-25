@@ -292,14 +292,13 @@ failing every week — its `seen.json` keys can stay.
 
 ## News
 
-`/news/` is one feed of short items about film in the UK. It is built to carry
-three types; the first two exist so far:
+`/news/` is one feed of short items about film in the UK, of three types:
 
-| Type            | `type`          | Where its items come from                                  |
-| --------------- | --------------- | ---------------------------------------------------------- |
-| Shop updates    | `shop-update`   | `build-news.js`, diffing each build against the last one   |
-| Shop news       | `shop-news`     | `build-news.js`, reading the shops' own blog feeds         |
-| Industry news   | `industry-news` | not built: a weekly round-up drafted for review            |
+| Type            | `type`          | Where its items come from                                       |
+| --------------- | --------------- | --------------------------------------------------------------- |
+| Shop updates    | `shop-update`   | `build-news.js`, diffing each build against the last one        |
+| Shop news       | `shop-news`     | `build-news.js`, reading the shops' own blog feeds              |
+| Industry news   | `industry-news` | `industry-news/`, a weekly round-up a session drafts for review |
 
 The feed is one evergreen page, newest first, grouped by UK day, filtered by
 type in the browser (a chip only appears for a type with items). It shows the
@@ -459,6 +458,73 @@ blog; a blog is not always linked from the home page, so also try the default
 retailer name used in `SOURCES` and `STORES`. Set `filmOnly` if the blog strays
 from film. The next build posts its last 28 days.
 
+### Industry news
+
+A weekly round-up of film photography news from beyond the shops: new and
+discontinued stocks, cameras, labs, manufacturers and community events. One
+item per ISO week (`industry-news:2026-w48`, kind `roundup`), whose `children`
+are the stories, each a headline and summary **in our own words** with a link
+to every site that reported it. It lives in `web/content/news/industry-news.json`
+on `main` and lands only through a reviewed PR, the opportunities pattern.
+
+It is drafted by a Claude Code session, not by the build, because the
+summaries need writing, and that is done on the plan rather than on metered
+API credit. Every Friday at 08:23 UK time a Claude Code scheduled task on the
+owner's plan ("Filmproof industry news weekly round-up") wakes the session
+that built this pipeline, which has repo push access and the network; like
+the opportunities task, if that session is ever archived the task needs
+setting up again from a new one. The session follows `industry-news/RUNBOOK.md`:
+
+1. `node industry-news/fetch.js` reads the feeds in
+   `industry-news/sources.config.js`, skips posts already in
+   `industry-news/seen.json` and anything over 14 days old, and saves each new
+   post's page under `industry-news/work/` (gitignored).
+2. The session decides which posts are news (the runbook defines it: reviews,
+   guides, galleries, deals and film-look digital gadgets are not) and writes
+   `work/extractions.json`: an intro, the stories, and a reason for each post
+   it skipped. Several posts about one story are one story.
+3. `node industry-news/merge.js` checks the draft (`industry-news/roundup.js`)
+   and writes the content file, `seen.json` and the PR body.
+4. The session opens one PR, `Industry news: weekly round-up <date>`. If last
+   week's is still open, the run stops rather than stacking a second.
+
+The rules that make it safe to merge:
+
+- **The round-up is always `publish: false`.** Merging the PR publishes
+  nothing; the reviewer sets `publish: true` in it (and moves `date` to the
+  publishing day if it is later). Edit or delete stories in place: `seen.json`
+  keeps a deleted story's posts from coming back.
+- **Links can't be invented.** A story names the candidates it came from and
+  its links are built from those fetched pages; a URL in the draft is ignored.
+  A story naming an unknown candidate, or with no headline or summary, is
+  dropped and listed in the PR.
+- **Our own words, flagged not fixed.** A headline or summary sharing a run of
+  eight words with its sources (`copiedRun()` from `opportunities/validate.js`),
+  using a dash, or over its length is flagged in the PR body for the reviewer.
+  The runbook also has the session state only what the pages say.
+- **No story twice.** A story whose posts were all in an earlier round-up is
+  dropped. A second run in the same week adds to that week's held round-up; a
+  published one is never changed.
+- **Sources must allow Anthropic's crawlers.** A Claude session reads every
+  page, so `fetch.js` checks robots.txt for `ClaudeBot`, `anthropic-ai`,
+  `Claude-Web` and `Claude-User` as well as FilmproofBot, and skips any feed or
+  page they are refused. Fetching such a page as FilmproofBot would route
+  around a refusal addressed to us. Kosmo Foto, Harman and The Phoblographer
+  were left out for this; PetaPixel, Lomography and Ilford refuse automated
+  requests outright. Amateur Photographer refuses its article pages (403) but
+  not its feed, so its stories are read from the feed text.
+- **Fetching is polite**, through the same `politeFetch` as opportunities.
+
+To add a source: check robots.txt for FilmproofBot and the Anthropic agents
+(`robotsFor()` and `robotsAllows()` in `opportunities/lib.js`), and its terms
+of use; skip anything paywalled or whose value is its own curation. Add it to
+`INDUSTRY_SOURCES` with a permanent `id`, and give a general photography site a
+`prefilter` (`FILM_WORDS`): an item passes when a film word is in its title or
+two different ones are in its text, matched as whole words. Allow its domain in
+the cloud environment's network settings. Dry-run `node industry-news/fetch.js`
+and look at its line and a few `work/pages/*.json`. `node industry-news/test.js`
+covers the rules.
+
 ### The item model
 
 Every type writes items in one shape, so the page never needs to know which
@@ -468,7 +534,8 @@ pipeline made them:
 {
   id: 'shop-update:2026-11-25:rollup:analogue-wonderland', // stable, type-prefixed
   type: 'shop-update',          // a NEWS_TYPES id
-  kind: 'rollup',               // per type: rollup | new-film | back-everywhere | back-at-shop
+  kind: 'rollup',               // shop-update: rollup | new-film | back-everywhere | back-at-shop;
+                                // shop-news: post; industry-news: roundup
   date: '2026-11-25',           // UK day first seen: the day group and the archive week
   firstSeenAt: '2026-11-25T05:41:12.000Z',
   source: { kind: 'retailer', name: 'Analogue Wonderland' }, // or 'catalogue', 'publication'
@@ -476,8 +543,9 @@ pipeline made them:
   summary: null,                // our own words, when we have them (industry news)
   url: undefined,               // optional external link for the title (a shop-news post)
   film: { key, slug, display }, // optional: the film a notable item is about
-  children: [                   // optional: the expandable list
+  children: [                   // optional: a shop update's changes, or a round-up's stories
     { change: 'restock', film: { key, slug, display, format }, retailer, offerUrl, price, outDays },
+    // a round-up story: { headline, summary, category, published, links: [{ name, url }] }
   ],
   publish: true,                // optional; false holds an item back (industry review)
 }
@@ -501,10 +569,9 @@ pages and the client feed share it.
    - **Generated on each build** (as shop updates and shop news are): a file
      under `news/` on the state branch, written by a `build-news.js` step and
      copied to `web/data/news/`.
-   - **Industry news**, drafted and reviewed: `web/content/news/industry-news.json`
-     on `main`, landing through a review PR with `publish: false` until
-     approved, the opportunities pattern. Never delete an item there; holding
-     it back is `publish: false`.
+   - **Drafted and reviewed** (as industry news is): a file under
+     `web/content/news/` on `main`, landing through a review PR with
+     `publish: false` until approved, the opportunities pattern.
 4. Give it a `kind` vocabulary and, if it needs one, an extra tag label in
    `KIND_LABEL` in `web/components/news-feed.js`. Use `summary` and `url` for
    a post. Use `children` only for a genuine list.

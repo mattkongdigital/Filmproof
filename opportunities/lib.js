@@ -177,7 +177,10 @@ export function robotsAllows(robotsTxt, path, agent = 'filmproofbot') {
   return best ? best.allow : true;
 }
 
-async function allowedByRobots(url) {
+// The robots.txt for a URL's site, fetched once per run. Exported so a caller
+// can test it against agents besides our own (industry-news/fetch.js checks
+// Anthropic's, since a Claude session reads what it fetches).
+export async function robotsFor(url) {
   const u = new URL(url);
   if (!robotsCache.has(u.origin)) {
     let txt = '';
@@ -190,7 +193,12 @@ async function allowedByRobots(url) {
     } catch { /* unreachable robots.txt: the page fetch will fail on its own */ }
     robotsCache.set(u.origin, txt);
   }
-  return robotsAllows(robotsCache.get(u.origin), u.pathname + u.search);
+  return robotsCache.get(u.origin);
+}
+
+async function allowedByRobots(url) {
+  const u = new URL(url);
+  return robotsAllows(await robotsFor(url), u.pathname + u.search);
 }
 
 const lastHit = new Map();

@@ -24,9 +24,9 @@ const LOADERS = {
   'shop-update': () => readJson('data/news/shop-updates.json'),
   // Retailers' own blog posts, read from their feeds by build-news.js.
   'shop-news': () => readJson('data/news/shop-news.json'),
-  // Not built yet: a reviewed PR to content/news/industry-news.json, the
-  // opportunities pattern, with `publish: false` until it is approved.
-  'industry-news': () => [],
+  // The weekly round-up, drafted by industry-news/ and landed through a
+  // reviewed PR. Held items (`publish: false`) are dropped below.
+  'industry-news': () => readJson('content/news/industry-news.json'),
 };
 
 const storeByName = new Map(STORES.map((s) => [s.name, s]));
