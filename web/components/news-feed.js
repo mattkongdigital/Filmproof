@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { NEWS_TYPES, displayDay, changeLine } from '../lib/news-format.mjs';
+import { NEWS_TYPES, STORY_CATEGORIES, displayDay, changeLine } from '../lib/news-format.mjs';
 
 // The tag line over an item: what kind of news it is, and for a shop update
 // what kind of change earned it its own item.
@@ -10,6 +10,7 @@ const KIND_LABEL = {
   'new-film': 'New to Filmproof',
   'back-everywhere': 'Back in stock',
   'back-at-shop': 'Back at a shop',
+  roundup: 'Weekly round-up',
 };
 
 // The feed and its type filter. The filter is state, not a URL: /news/ is one
@@ -59,8 +60,10 @@ export function NewsFeed({ items, empty }) {
 
 function NewsItem({ it }) {
   const typeLabel = NEWS_TYPES.find((t) => t.id === it.type)?.one || it.type;
-  const tag = it.type === 'shop-update' ? KIND_LABEL[it.kind] || typeLabel : typeLabel;
-  const sourceName = it.source?.kind === 'retailer' || it.type !== 'shop-update' ? it.source?.name : null;
+  const tag = KIND_LABEL[it.kind] || typeLabel;
+  // A shop's name is worth repeating in the tag line; our own name on our own
+  // round-up is not, and its stories each name their source.
+  const sourceName = it.source?.kind === 'retailer' ? it.source.name : null;
   const children = it.children || [];
   return (
     <li className="opp news-item">
@@ -74,7 +77,8 @@ function NewsItem({ it }) {
       {it.kind === 'back-everywhere' && (
         <p className="news-note">Out of stock at every shop we track for {it.outDays} days before this.</p>
       )}
-      {children.length > 0 && (it.kind === 'rollup'
+      {children.length > 0 && it.kind === 'roundup' && <StoryList stories={children} />}
+      {children.length > 0 && it.kind !== 'roundup' && (it.kind === 'rollup'
         ? (
           <details className="news-more">
             <summary>
@@ -115,5 +119,38 @@ function ChangeList({ changes, by }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+// A weekly industry round-up: each story in our own words, grouped by
+// category, with a link to every site that reported it.
+function StoryList({ stories }) {
+  const groups = STORY_CATEGORIES
+    .map((c) => ({ ...c, stories: stories.filter((s) => s.category === c.id) }))
+    .filter((g) => g.stories.length > 0);
+  return (
+    <div className="news-stories">
+      {groups.map((g) => (
+        <section key={g.id} className="news-story-group">
+          <h4 className="news-story-cat">{g.label}</h4>
+          <ul className="news-story-list">
+            {g.stories.map((s) => (
+              <li key={s.links?.[0]?.url || s.headline} className="news-story">
+                <p className="news-story-head">{s.headline}</p>
+                <p className="news-story-text">{s.summary}</p>
+                <p className="news-story-links">
+                  {(s.links || []).map((l, i) => (
+                    <span key={l.url}>
+                      {i > 0 && ' · '}
+                      <a className="news-shop-link" href={l.url} target="_blank" rel="noopener nofollow">Read at {l.name} →</a>
+                    </span>
+                  ))}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
   );
 }

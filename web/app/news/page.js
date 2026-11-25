@@ -5,7 +5,7 @@ import { NEWS_WINDOW_DAYS, displayWeek } from '../../lib/news-format.mjs';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { NewsFeed } from '../../components/news-feed';
 
-const DESCRIPTION = 'What changed at UK film shops this month: newly listed films, stock back on the shelf, lower prices and new posts on the shops’ own blogs, checked every day.';
+const DESCRIPTION = 'Film photography news for the UK: what changed at the shops this month, newly listed films, restocks, lower prices and the shops’ own blog posts, plus a weekly round-up of the wider film world.';
 
 export function generateMetadata() {
   return {
@@ -26,11 +26,12 @@ export default function NewsPage() {
       <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'News' }]} />
       <header className="cat-head">
         <div className="eyebrow">News</div>
-        <h1>What changed at the shops</h1>
+        <h1>Film news, from the shops and beyond</h1>
         <p className="lede">
           Films newly listed, back in stock or lower in price at the shops we track, from each
-          day&apos;s check of their catalogues, and new posts on the shops&apos; own blogs. The last{' '}
-          {NEWS_WINDOW_DAYS} days are here, and every week stays in the archive below.
+          day&apos;s check of their catalogues, new posts on the shops&apos; own blogs, and a weekly
+          round-up of film photography news from further afield. The last {NEWS_WINDOW_DAYS} days are
+          here, and every week stays in the archive below.
         </p>
       </header>
       <NewsFeed items={items} empty="Nothing has changed at the shops in this window yet. The catalogue is checked every day." />
@@ -47,7 +48,8 @@ export default function NewsPage() {
       <p className="opp-note">
         Shop updates come from each shop&apos;s own product feed, so a listing can change between our
         check and your visit. Always confirm stock and price on the shop&apos;s page. Shop news links
-        to posts the shops wrote and publish themselves.{' '}
+        to posts the shops wrote and publish themselves. The weekly round-up is written by us from the
+        sites linked under each story, which have the full reports.{' '}
         <Link href="/how-it-works">How it works</Link>.
       </p>
     </div>

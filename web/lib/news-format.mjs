@@ -69,6 +69,18 @@ export function displayWeek(slug) {
   return r ? `${displayDay(r.start)} to ${displayDay(r.end)}` : slug;
 }
 
+// --- Industry news ----------------------------------------------------------
+
+// How a weekly round-up groups its stories, in this order. industry-news/
+// roundup.js validates a draft's categories against these ids.
+export const STORY_CATEGORIES = [
+  { id: 'film-stocks', label: 'Film stocks and prices' },
+  { id: 'cameras', label: 'Cameras and gear' },
+  { id: 'labs', label: 'Labs and services' },
+  { id: 'industry', label: 'The industry' },
+  { id: 'community', label: 'Community' },
+];
+
 // --- Shop updates -----------------------------------------------------------
 
 // The changes a shop-update child can record, in the order a roll-up lists them.

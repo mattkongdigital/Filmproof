@@ -34,3 +34,6 @@ tools/SpaceGrotesk-Bold.ttf
 
 # opportunities pipeline scratch (recreated each run)
 opportunities/work/
+
+# industry news pipeline scratch (recreated each run)
+industry-news/work/
