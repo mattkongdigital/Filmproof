@@ -1,5 +1,60 @@
 [
  {
+  "id": "shop-update:2026-11-26:rollup:bass-and-bligh",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-26",
+  "firstSeenAt": "2026-11-26T05:40:55.227Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Bass & Bligh"
+  },
+  "title": "Bass & Bligh: 1 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-trix-120-400",
+     "slug": "kodak-eastman-tri-x-400-120-film",
+     "display": "Kodak TRI-X 400, 120 Film",
+     "format": "120"
+    },
+    "retailer": "Bass & Bligh",
+    "offerUrl": "https://bassandbligh.com/products/kodak-tri-x-400-120-film-5-pack?variant=57160064303479",
+    "outDays": 1
+   }
+  ]
+ },
+ {
+  "id": "shop-update:2026-11-26:rollup:parallax-photographic",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-26",
+  "firstSeenAt": "2026-11-26T05:40:55.227Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Parallax Photographic"
+  },
+  "title": "Parallax Photographic: 1 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-trix-120-400",
+     "slug": "kodak-eastman-tri-x-400-120-film",
+     "display": "Kodak TRI-X 400, 120 Film",
+     "format": "120"
+    },
+    "retailer": "Parallax Photographic",
+    "offerUrl": "https://parallaxphotographic.coop/shop/kodak-tri-x-400-120-film-single/",
+    "price": 12.95,
+    "outDays": 1
+   }
+  ]
+ },
+ {
   "id": "shop-update:2026-11-25:rollup:analogue-wonderland",
   "type": "shop-update",
   "kind": "rollup",

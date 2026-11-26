@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "builtAt": "2026-11-25T16:43:24.485Z",
-  "previousBuiltAt": "2026-11-25T16:17:35.960Z",
+  "builtAt": "2026-11-26T05:40:55.227Z",
+  "previousBuiltAt": "2026-11-25T16:43:24.485Z",
   "retailers": {
     "Analogue Wonderland": {"firstSeen":"2026-11-25","skips":0},
     "Bass & Bligh": {"firstSeen":"2026-11-25","skips":0},
@@ -1369,9 +1369,9 @@
     "kodak-tmax-135-400|PJL Photography": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":14.25,"lastPrice":14.25},
     "kodak-tmax-135-400|Parallax Photographic": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":13.99,"lastPrice":13.99},
     "kodak-trix-120-400|Analogue Wonderland": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":11,"lastPrice":11},
-    "kodak-trix-120-400|Bass & Bligh": {"firstSeen":"2026-11-25","listed":true,"inStock":false,"stockSince":"2026-11-25","price":null,"lastPrice":null},
+    "kodak-trix-120-400|Bass & Bligh": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-26","price":null,"lastPrice":null},
     "kodak-trix-120-400|Classic Photo Supplies": {"firstSeen":"2026-11-25","listed":true,"inStock":false,"stockSince":"2026-11-25","price":null,"lastPrice":null},
-    "kodak-trix-120-400|Parallax Photographic": {"firstSeen":"2026-11-25","listed":true,"inStock":false,"stockSince":"2026-11-25","price":null,"lastPrice":null},
+    "kodak-trix-120-400|Parallax Photographic": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-26","price":12.95,"lastPrice":12.95},
     "kodak-trix-135-400|Analogue Wonderland": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":8.95,"lastPrice":8.95},
     "kodak-trix-135-400|Bass & Bligh": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":8,"lastPrice":8},
     "kodak-trix-135-400|Chemical Dependency Lab": {"firstSeen":"2026-11-25","listed":true,"inStock":true,"stockSince":"2026-11-25","price":10.8,"lastPrice":10.8},
