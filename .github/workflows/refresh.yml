@@ -4,7 +4,8 @@ name: Refresh prices & deploy
 # GitHub Pages. There is deliberately no `schedule:` here. GitHub started this
 # workflow's daily cron 6 to 10 hours late and sometimes not at all, so the
 # daily refresh is a Claude Code scheduled task on the owner's plan that
-# starts it through workflow_dispatch every morning at 05:38 UK time.
+# starts it through workflow_dispatch every morning at 09:38 GMT (UTC, so
+# 10:38 in British Summer Time).
 on:
   workflow_dispatch: {}    # the daily refresh, and the "Run workflow" button
   push:
