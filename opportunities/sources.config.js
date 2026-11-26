@@ -25,6 +25,11 @@
 //             'general' — a hint for the reviewer, the extraction decides per item
 //   prefilter true for a news source where opportunities are a small slice: an
 //             item must mention one of PREFILTER_WORDS before it is worth reading
+//
+// A Claude session reads every page this pipeline fetches, so a site whose
+// robots.txt refuses Anthropic's crawlers (ClaudeBot, anthropic-ai,
+// Claude-Web, Claude-User) is not a source, whatever it allows FilmproofBot.
+// Kosmo Foto was removed for that reason on 26 November 2026.
 
 export const OPPORTUNITY_SOURCES = [
   {
@@ -111,14 +116,6 @@ export const OPPORTUNITY_SOURCES = [
     // entries, so read each competition's own rules for the rights flags.
     feeds: ['https://analoguewonderland.co.uk/blogs/store-news.atom'],
     itemPath: '/blogs/store-news/',
-    film: 'film-specific',
-    prefilter: true,
-  },
-  {
-    id: 'kosmo-foto',
-    name: 'Kosmo Foto',
-    home: 'https://kosmofoto.com/',
-    feeds: ['https://kosmofoto.com/feed/'],
     film: 'film-specific',
     prefilter: true,
   },

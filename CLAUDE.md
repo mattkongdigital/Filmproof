@@ -254,7 +254,10 @@ Same thin-page reasoning as the editorial silos.
 
 ### Adding an opportunity source
 
-1. **Check it is allowed.** Read the site's robots.txt and terms of use. Skip
+1. **Check it is allowed.** Read the site's robots.txt and terms of use. A
+   Claude session reads every page, so robots.txt must allow Anthropic's
+   crawlers (`ClaudeBot`, `anthropic-ai`, `Claude-Web`, `Claude-User`) as well
+   as FilmproofBot; Kosmo Foto was removed for refusing them. Skip
    anything that forbids automated access, anything paywalled, and any
    newsletter or directory whose value is its own curation (The Open Call List,
    ForPhotographersOnly): pulling from those republishes someone else's paid
@@ -510,7 +513,8 @@ The rules that make it safe to merge:
   `Claude-Web` and `Claude-User` as well as FilmproofBot, and skips any feed or
   page they are refused. Fetching such a page as FilmproofBot would route
   around a refusal addressed to us. Kosmo Foto, Harman and The Phoblographer
-  were left out for this; PetaPixel, Lomography and Ilford refuse automated
+  were left out for this (and Kosmo Foto taken out of the opportunities
+  sources); PetaPixel, Lomography and Ilford refuse automated
   requests outright. Amateur Photographer refuses its article pages (403) but
   not its feed, so its stories are read from the feed text.
 - **Fetching is polite**, through the same `politeFetch` as opportunities.
