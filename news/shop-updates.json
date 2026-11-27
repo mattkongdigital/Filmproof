@@ -1,5 +1,154 @@
 [
  {
+  "id": "shop-update:2026-11-27:new-film:flic-film-nostalgic-color-400-35mm-colour-negative-film",
+  "type": "shop-update",
+  "kind": "new-film",
+  "date": "2026-11-27",
+  "firstSeenAt": "2026-11-27T09:41:19.095Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Chemical Dependency Lab"
+  },
+  "title": "New to Filmproof: Flic Film Nostalgic Color 400, 35mm Colour Negative Film",
+  "summary": null,
+  "film": {
+   "key": "flic-nostalgic-135-400",
+   "slug": "flic-film-nostalgic-color-400-35mm-colour-negative-film",
+   "display": "Flic Film Nostalgic Color 400, 35mm Colour Negative Film",
+   "format": "135"
+  },
+  "children": [
+   {
+    "change": "new",
+    "film": {
+     "key": "flic-nostalgic-135-400",
+     "slug": "flic-film-nostalgic-color-400-35mm-colour-negative-film",
+     "display": "Flic Film Nostalgic Color 400, 35mm Colour Negative Film",
+     "format": "135"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/flic-film-nostalgic-color-400-35mm-colour-negative-film?variant=59422760206710",
+    "price": 12.5
+   }
+  ]
+ },
+ {
+  "id": "shop-update:2026-11-27:rollup:chemical-dependency-lab",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-27",
+  "firstSeenAt": "2026-11-27T09:41:19.095Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Chemical Dependency Lab"
+  },
+  "title": "Chemical Dependency Lab: 5 newly listed",
+  "summary": null,
+  "children": [
+   {
+    "change": "new",
+    "film": {
+     "key": "flic-fusion-135-200",
+     "slug": "flic-film-fusion-200-35mm-film",
+     "display": "Flic Film Fusion 200, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/flic-film-fusion-200-35mm-colour-negative-film?variant=59422758535542",
+    "price": 14.5
+   },
+   {
+    "change": "new",
+    "film": {
+     "key": "harman-phoenix-135-125",
+     "slug": "harman-phoenix-125-35mm-film",
+     "display": "Harman Phoenix 125, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/harman-phoenix-125-35mm-colour-negative-film?variant=58840271585654",
+    "price": 8.99
+   },
+   {
+    "change": "new",
+    "film": {
+     "key": "harman-azureswitch-135-125",
+     "slug": "harman-switch-azure-125-35mm-film",
+     "display": "Harman Switch Azure 125, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/harman-switch-azure-35mm?variant=57614340784502",
+    "price": 10.5
+   },
+   {
+    "change": "new",
+    "film": {
+     "key": "ilford-hp5plus-120-400",
+     "slug": "ilford-hp5-plus-120-film",
+     "display": "Ilford HP5 Plus, 120 Film",
+     "format": "120"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/ilford-hp5-plus-400-120-medium-format-black-white-film?variant=59422654366070",
+    "price": 8.95
+   },
+   {
+    "change": "new",
+    "film": {
+     "key": "kentmere-120-400",
+     "slug": "kentmere-pan-400-120-film",
+     "display": "Kentmere Pan 400, 120 Film",
+     "format": "120"
+    },
+    "retailer": "Chemical Dependency Lab",
+    "offerUrl": "https://chemicaldependency.co.uk/products/kentmere-pan-400-120-medium-format-black-white-film?variant=59422654628214",
+    "price": 6.5
+   }
+  ]
+ },
+ {
+  "id": "shop-update:2026-11-27:rollup:classic-photo-supplies",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-27",
+  "firstSeenAt": "2026-11-27T09:41:19.095Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Classic Photo Supplies"
+  },
+  "title": "Classic Photo Supplies: 2 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "cinemot-porto-135-200",
+     "slug": "cinemot-porto-35mm-film",
+     "display": "CineMot Porto, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Classic Photo Supplies",
+    "offerUrl": "https://classicphotosupplies.co.uk/products/cinemot-porto-1987-200d-colour-film-36-exposure?variant=52445772546388",
+    "price": 11.95,
+    "outDays": 2
+   },
+   {
+    "change": "restock",
+    "film": {
+     "key": "cinemot-cruzsanta-135-200",
+     "slug": "cinemot-santa-cruz-200d-35mm-film",
+     "display": "Cinemot Santa Cruz 200D, 35mm Film",
+     "format": "135"
+    },
+    "retailer": "Classic Photo Supplies",
+    "offerUrl": "https://classicphotosupplies.co.uk/products/cinemot-santa-cruz-200d-36-exposure-colour-film?variant=52445726998868",
+    "price": 11.95,
+    "outDays": 2
+   }
+  ]
+ },
+ {
   "id": "shop-update:2026-11-26:rollup:bass-and-bligh",
   "type": "shop-update",
   "kind": "rollup",
