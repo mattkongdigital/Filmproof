@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "industry-news:2026-w48",
+    "type": "industry-news",
+    "kind": "roundup",
+    "date": "2026-11-27",
+    "firstSeenAt": "2026-11-27T08:25:20.526Z",
+    "source": {
+      "kind": "publication",
+      "name": "Filmproof"
+    },
+    "title": "The week in film photography",
+    "summary": "A quiet week for film news, with Black Friday deals filling most feeds and one new piece of home developing kit.",
+    "children": [
+      {
+        "headline": "Reveni Labs crowdfunds KUVO, an automated developing machine for home and small labs",
+        "summary": "Reveni Labs, which made the earlier Dunkbot, is raising money on Kickstarter until 8 January for a rotary processor with its own pump, valve and controller. It runs black and white at room temperature and C41, E6 and ECN-2 with a heated water bath.",
+        "category": "labs",
+        "published": "2026-11-24",
+        "links": [
+          {
+            "name": "35mmc",
+            "url": "https://www.35mmc.com/24/11/2026/news-reveni-labs-launches-kuvo-automated-modular-processing-system/"
+          }
+        ]
+      }
+    ],
+    "publish": false
+  }
+]
