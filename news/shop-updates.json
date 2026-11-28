@@ -1,5 +1,86 @@
 [
  {
+  "id": "shop-update:2026-11-28:rollup:classic-photo-supplies",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-28",
+  "firstSeenAt": "2026-11-28T09:41:20.167Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Classic Photo Supplies"
+  },
+  "title": "Classic Photo Supplies: 1 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "kodak-ektacolor-120-160",
+     "slug": "kodak-eastman-ektacolor-pro-160-120-film",
+     "display": "Kodak EKTACOLOR PRO 160, 120 Film",
+     "format": "120"
+    },
+    "retailer": "Classic Photo Supplies",
+    "offerUrl": "https://classicphotosupplies.co.uk/products/kodak-ektacolor-pro-160-120-film-5-pack?variant=57323199562068",
+    "outDays": 1
+   }
+  ]
+ },
+ {
+  "id": "shop-update:2026-11-28:rollup:parallax-photographic",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-28",
+  "firstSeenAt": "2026-11-28T09:41:20.167Z",
+  "source": {
+   "kind": "retailer",
+   "name": "Parallax Photographic"
+  },
+  "title": "Parallax Photographic: 1 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "fujifilm-instaxsquare-instant-800",
+     "slug": "fujifilm-instax-square-film-colour",
+     "display": "Fujifilm Instax Square Film, Colour",
+     "format": "instant"
+    },
+    "retailer": "Parallax Photographic",
+    "offerUrl": "https://parallaxphotographic.coop/shop/fuji-instax-square-twinpack-instant-film/",
+    "outDays": 3
+   }
+  ]
+ },
+ {
+  "id": "shop-update:2026-11-28:rollup:pjl-photography",
+  "type": "shop-update",
+  "kind": "rollup",
+  "date": "2026-11-28",
+  "firstSeenAt": "2026-11-28T09:41:20.167Z",
+  "source": {
+   "kind": "retailer",
+   "name": "PJL Photography"
+  },
+  "title": "PJL Photography: 1 back in stock",
+  "summary": null,
+  "children": [
+   {
+    "change": "restock",
+    "film": {
+     "key": "fujifilm-instaxmini-instant-800",
+     "slug": "fujifilm-instax-mini-film",
+     "display": "Fujifilm Instax Mini Film",
+     "format": "instant"
+    },
+    "retailer": "PJL Photography",
+    "offerUrl": "https://pjlphoto.com/products/instax-mini-film-20-sheets?variant=59477159805302",
+    "outDays": 3
+   }
+  ]
+ },
+ {
   "id": "shop-update:2026-11-27:new-film:flic-film-nostalgic-color-400-35mm-colour-negative-film",
   "type": "shop-update",
   "kind": "new-film",
